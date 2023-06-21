@@ -3,18 +3,18 @@ import 'package:paria_app/core/elements/core_controller.dart';
 class HomePageController extends CoreController {
 
   @override
-  Function get dataInit => throw UnimplementedError();
+  Function get dataInit => () {};
 
   @override
-  Function get pageInit => throw UnimplementedError();
+  Function get pageInit => () {};
 
   @override
-  Function get onInitFunction => throw UnimplementedError();
+  Function get onInitFunction => () {};
 
   @override
-  Function get onReadyFunction => throw UnimplementedError();
+  Function get onReadyFunction => () {};
 
   @override
-  Function get onCloseFunction => throw UnimplementedError();
+  Function get onCloseFunction => () {};
 
 }
