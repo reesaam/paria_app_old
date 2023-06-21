@@ -4,6 +4,8 @@ class AppRoutes {
   ///Main Pages
   static const String splashScreen = '/splash_screen';
   static const String homePage = '/homepage';
+  static const String settings = '/settings';
+  static const String accounts = '/accounts';
 
   ///Other Pages
   static const String adminPage = '/admin';

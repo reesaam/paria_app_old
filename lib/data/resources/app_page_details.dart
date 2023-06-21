@@ -13,7 +13,21 @@ class AppPageDetails {
   static AppPageDetail homepage = const AppPageDetail(
     pageName: 'Home Page',
     pageRoute: AppRoutes.homePage,
-    bottomBarItemNumber: '3',
+    bottomBarItemNumber: 0,
     bottomBarIcon: 'home',
+  );
+
+  static AppPageDetail accounts = const AppPageDetail(
+    pageName: 'Accounts',
+    pageRoute: AppRoutes.accounts,
+    bottomBarItemNumber: 1,
+    bottomBarIcon: 'currency',
+  );
+
+  static AppPageDetail settings = const AppPageDetail(
+    pageName: 'Settings',
+    pageRoute: AppRoutes.accounts,
+    bottomBarItemNumber: 2,
+    bottomBarIcon: 'currency',
   );
 }
