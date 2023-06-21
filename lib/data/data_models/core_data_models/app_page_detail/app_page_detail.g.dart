@@ -10,7 +10,7 @@ _$_AppPageDetail _$$_AppPageDetailFromJson(Map<String, dynamic> json) =>
     _$_AppPageDetail(
       pageName: json['pageName'] as String?,
       pageRoute: json['pageRoute'] as String?,
-      bottomBarItemNumber: json['bottomBarItemNumber'] as String?,
+      bottomBarItemNumber: json['bottomBarItemNumber'] as int?,
       bottomBarIcon: json['bottomBarIcon'] as String?,
     );
 

@@ -22,7 +22,7 @@ AppPageDetail _$AppPageDetailFromJson(Map<String, dynamic> json) {
 mixin _$AppPageDetail {
   String? get pageName => throw _privateConstructorUsedError;
   String? get pageRoute => throw _privateConstructorUsedError;
-  String? get bottomBarItemNumber => throw _privateConstructorUsedError;
+  int? get bottomBarItemNumber => throw _privateConstructorUsedError;
   String? get bottomBarIcon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $AppPageDetailCopyWith<$Res> {
   $Res call(
       {String? pageName,
       String? pageRoute,
-      String? bottomBarItemNumber,
+      int? bottomBarItemNumber,
       String? bottomBarIcon});
 }
 
@@ -74,7 +74,7 @@ class _$AppPageDetailCopyWithImpl<$Res, $Val extends AppPageDetail>
       bottomBarItemNumber: freezed == bottomBarItemNumber
           ? _value.bottomBarItemNumber
           : bottomBarItemNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bottomBarIcon: freezed == bottomBarIcon
           ? _value.bottomBarIcon
           : bottomBarIcon // ignore: cast_nullable_to_non_nullable
@@ -94,7 +94,7 @@ abstract class _$$_AppPageDetailCopyWith<$Res>
   $Res call(
       {String? pageName,
       String? pageRoute,
-      String? bottomBarItemNumber,
+      int? bottomBarItemNumber,
       String? bottomBarIcon});
 }
 
@@ -126,7 +126,7 @@ class __$$_AppPageDetailCopyWithImpl<$Res>
       bottomBarItemNumber: freezed == bottomBarItemNumber
           ? _value.bottomBarItemNumber
           : bottomBarItemNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bottomBarIcon: freezed == bottomBarIcon
           ? _value.bottomBarIcon
           : bottomBarIcon // ignore: cast_nullable_to_non_nullable
@@ -152,7 +152,7 @@ class _$_AppPageDetail implements _AppPageDetail {
   @override
   final String? pageRoute;
   @override
-  final String? bottomBarItemNumber;
+  final int? bottomBarItemNumber;
   @override
   final String? bottomBarIcon;
 
@@ -199,7 +199,7 @@ abstract class _AppPageDetail implements AppPageDetail {
   const factory _AppPageDetail(
       {final String? pageName,
       final String? pageRoute,
-      final String? bottomBarItemNumber,
+      final int? bottomBarItemNumber,
       final String? bottomBarIcon}) = _$_AppPageDetail;
 
   factory _AppPageDetail.fromJson(Map<String, dynamic> json) =
@@ -210,7 +210,7 @@ abstract class _AppPageDetail implements AppPageDetail {
   @override
   String? get pageRoute;
   @override
-  String? get bottomBarItemNumber;
+  int? get bottomBarItemNumber;
   @override
   String? get bottomBarIcon;
   @override

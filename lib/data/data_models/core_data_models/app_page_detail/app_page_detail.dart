@@ -8,7 +8,7 @@ class AppPageDetail with _$AppPageDetail {
   const factory AppPageDetail({
     @required String? pageName,
     @required String? pageRoute,
-    @required String? bottomBarItemNumber,
+    @required int? bottomBarItemNumber,
     @required String? bottomBarIcon,
   }) = _AppPageDetail;
 

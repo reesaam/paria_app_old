@@ -11,20 +11,16 @@ class AppBottomNavigationBarData {
       label: _createLabel(AppPageDetails.homepage.pageName),
     ),
     BottomNavigationBarItem(
-      icon: _createIcon(Icons.home),
-      label: _createLabel(AppPageDetails.homepage.pageName),
+      icon: _createIcon(Icons.monetization_on_outlined),
+      label: _createLabel(AppPageDetails.accounts.pageName),
     ),
     BottomNavigationBarItem(
-      icon: _createIcon(Icons.home),
-      label: _createLabel(AppPageDetails.homepage.pageName),
+      icon: _createIcon(Icons.settings),
+      label: _createLabel(AppPageDetails.settings.pageName),
     ),
   ];
 
-  Widget _createIcon(IconData icon) => CircleAvatar(
-    backgroundColor: AppColors.bottomBarCircleBackground,
-    foregroundColor: AppColors.bottomBarIcon,
-    child: Icon(icon),
-  );
+  Widget _createIcon(IconData icon) => Icon(icon);
 
   String? _createLabel(String? label) => label;
 }
