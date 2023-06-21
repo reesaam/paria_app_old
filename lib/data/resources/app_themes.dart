@@ -3,6 +3,7 @@ import 'package:paria_app/data/resources/app_colors.dart';
 
 class AppThemes {
   static get mainTheme => ThemeData(
+        fontFamily: 'Roboto',
         backgroundColor: AppColors.appBackground,
         appBarTheme: mainAppBar,
         bottomNavigationBarTheme: mainBottomBar,
