@@ -1,2 +1,3 @@
-# paria_app
-Paria App
+# Paria App Repository
+
+Paria Assistant App
