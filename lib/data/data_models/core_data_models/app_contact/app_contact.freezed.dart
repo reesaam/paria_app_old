@@ -24,6 +24,8 @@ mixin _$AppContact {
   String? get lastName => throw _privateConstructorUsedError;
   String? get mobile => throw _privateConstructorUsedError;
   String get profilePicture => throw _privateConstructorUsedError;
+  int get accountRecordsCounter => throw _privateConstructorUsedError;
+  int get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +43,9 @@ abstract class $AppContactCopyWith<$Res> {
       {String? firstName,
       String? lastName,
       String? mobile,
-      String profilePicture});
+      String profilePicture,
+      int accountRecordsCounter,
+      int balance});
 }
 
 /// @nodoc
@@ -61,6 +65,8 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
     Object? lastName = freezed,
     Object? mobile = freezed,
     Object? profilePicture = null,
+    Object? accountRecordsCounter = null,
+    Object? balance = null,
   }) {
     return _then(_value.copyWith(
       firstName: freezed == firstName
@@ -79,6 +85,14 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as String,
+      accountRecordsCounter: null == accountRecordsCounter
+          ? _value.accountRecordsCounter
+          : accountRecordsCounter // ignore: cast_nullable_to_non_nullable
+              as int,
+      balance: null == balance
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -95,7 +109,9 @@ abstract class _$$_AppContactCopyWith<$Res>
       {String? firstName,
       String? lastName,
       String? mobile,
-      String profilePicture});
+      String profilePicture,
+      int accountRecordsCounter,
+      int balance});
 }
 
 /// @nodoc
@@ -113,6 +129,8 @@ class __$$_AppContactCopyWithImpl<$Res>
     Object? lastName = freezed,
     Object? mobile = freezed,
     Object? profilePicture = null,
+    Object? accountRecordsCounter = null,
+    Object? balance = null,
   }) {
     return _then(_$_AppContact(
       firstName: freezed == firstName
@@ -131,6 +149,14 @@ class __$$_AppContactCopyWithImpl<$Res>
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as String,
+      accountRecordsCounter: null == accountRecordsCounter
+          ? _value.accountRecordsCounter
+          : accountRecordsCounter // ignore: cast_nullable_to_non_nullable
+              as int,
+      balance: null == balance
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -139,7 +165,12 @@ class __$$_AppContactCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AppContact implements _AppContact {
   const _$_AppContact(
-      {this.firstName, this.lastName, this.mobile, this.profilePicture = ''});
+      {this.firstName,
+      this.lastName,
+      this.mobile,
+      this.profilePicture = '',
+      this.accountRecordsCounter = 0,
+      this.balance = 0});
 
   factory _$_AppContact.fromJson(Map<String, dynamic> json) =>
       _$$_AppContactFromJson(json);
@@ -153,10 +184,16 @@ class _$_AppContact implements _AppContact {
   @override
   @JsonKey()
   final String profilePicture;
+  @override
+  @JsonKey()
+  final int accountRecordsCounter;
+  @override
+  @JsonKey()
+  final int balance;
 
   @override
   String toString() {
-    return 'AppContact(firstName: $firstName, lastName: $lastName, mobile: $mobile, profilePicture: $profilePicture)';
+    return 'AppContact(firstName: $firstName, lastName: $lastName, mobile: $mobile, profilePicture: $profilePicture, accountRecordsCounter: $accountRecordsCounter, balance: $balance)';
   }
 
   @override
@@ -170,13 +207,16 @@ class _$_AppContact implements _AppContact {
                 other.lastName == lastName) &&
             (identical(other.mobile, mobile) || other.mobile == mobile) &&
             (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture));
+                other.profilePicture == profilePicture) &&
+            (identical(other.accountRecordsCounter, accountRecordsCounter) ||
+                other.accountRecordsCounter == accountRecordsCounter) &&
+            (identical(other.balance, balance) || other.balance == balance));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, firstName, lastName, mobile, profilePicture);
+  int get hashCode => Object.hash(runtimeType, firstName, lastName, mobile,
+      profilePicture, accountRecordsCounter, balance);
 
   @JsonKey(ignore: true)
   @override
@@ -197,7 +237,9 @@ abstract class _AppContact implements AppContact {
       {final String? firstName,
       final String? lastName,
       final String? mobile,
-      final String profilePicture}) = _$_AppContact;
+      final String profilePicture,
+      final int accountRecordsCounter,
+      final int balance}) = _$_AppContact;
 
   factory _AppContact.fromJson(Map<String, dynamic> json) =
       _$_AppContact.fromJson;
@@ -210,6 +252,10 @@ abstract class _AppContact implements AppContact {
   String? get mobile;
   @override
   String get profilePicture;
+  @override
+  int get accountRecordsCounter;
+  @override
+  int get balance;
   @override
   @JsonKey(ignore: true)
   _$$_AppContactCopyWith<_$_AppContact> get copyWith =>

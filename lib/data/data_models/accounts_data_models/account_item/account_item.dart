@@ -5,14 +5,15 @@ part 'account_item.freezed.dart';
 part 'account_item.g.dart';
 
 @freezed
-class AccountItem with _$AccountItem {
-  const factory AccountItem({
+class AccountRecord with _$AccountRecord {
+  const factory AccountRecord({
     @required AppContact? contact,
     @required int? amount,
+    @required String? title,
     @required DateTime? dateTime,
-    @required bool? solved,
-  }) = _AccountItem;
+    @required bool? cleared,
+  }) = _AccountRecord;
 
-  factory AccountItem.fromJson(Map<String, dynamic> json) =>
-      _$AccountItemFromJson(json);
+  factory AccountRecord.fromJson(Map<String, dynamic> json) =>
+      _$AccountRecordFromJson(json);
 }

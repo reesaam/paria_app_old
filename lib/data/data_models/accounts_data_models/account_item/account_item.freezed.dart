@@ -14,39 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AccountItem _$AccountItemFromJson(Map<String, dynamic> json) {
-  return _AccountItem.fromJson(json);
+AccountRecord _$AccountRecordFromJson(Map<String, dynamic> json) {
+  return _AccountRecord.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AccountItem {
+mixin _$AccountRecord {
   AppContact? get contact => throw _privateConstructorUsedError;
   int? get amount => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   DateTime? get dateTime => throw _privateConstructorUsedError;
-  bool? get solved => throw _privateConstructorUsedError;
+  bool? get cleared => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountItemCopyWith<AccountItem> get copyWith =>
+  $AccountRecordCopyWith<AccountRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AccountItemCopyWith<$Res> {
-  factory $AccountItemCopyWith(
-          AccountItem value, $Res Function(AccountItem) then) =
-      _$AccountItemCopyWithImpl<$Res, AccountItem>;
+abstract class $AccountRecordCopyWith<$Res> {
+  factory $AccountRecordCopyWith(
+          AccountRecord value, $Res Function(AccountRecord) then) =
+      _$AccountRecordCopyWithImpl<$Res, AccountRecord>;
   @useResult
   $Res call(
-      {AppContact? contact, int? amount, DateTime? dateTime, bool? solved});
+      {AppContact? contact,
+      int? amount,
+      String? title,
+      DateTime? dateTime,
+      bool? cleared});
 
   $AppContactCopyWith<$Res>? get contact;
 }
 
 /// @nodoc
-class _$AccountItemCopyWithImpl<$Res, $Val extends AccountItem>
-    implements $AccountItemCopyWith<$Res> {
-  _$AccountItemCopyWithImpl(this._value, this._then);
+class _$AccountRecordCopyWithImpl<$Res, $Val extends AccountRecord>
+    implements $AccountRecordCopyWith<$Res> {
+  _$AccountRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,8 +63,9 @@ class _$AccountItemCopyWithImpl<$Res, $Val extends AccountItem>
   $Res call({
     Object? contact = freezed,
     Object? amount = freezed,
+    Object? title = freezed,
     Object? dateTime = freezed,
-    Object? solved = freezed,
+    Object? cleared = freezed,
   }) {
     return _then(_value.copyWith(
       contact: freezed == contact
@@ -70,13 +76,17 @@ class _$AccountItemCopyWithImpl<$Res, $Val extends AccountItem>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      solved: freezed == solved
-          ? _value.solved
-          : solved // ignore: cast_nullable_to_non_nullable
+      cleared: freezed == cleared
+          ? _value.cleared
+          : cleared // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -95,26 +105,30 @@ class _$AccountItemCopyWithImpl<$Res, $Val extends AccountItem>
 }
 
 /// @nodoc
-abstract class _$$_AccountItemCopyWith<$Res>
-    implements $AccountItemCopyWith<$Res> {
-  factory _$$_AccountItemCopyWith(
-          _$_AccountItem value, $Res Function(_$_AccountItem) then) =
-      __$$_AccountItemCopyWithImpl<$Res>;
+abstract class _$$_AccountRecordCopyWith<$Res>
+    implements $AccountRecordCopyWith<$Res> {
+  factory _$$_AccountRecordCopyWith(
+          _$_AccountRecord value, $Res Function(_$_AccountRecord) then) =
+      __$$_AccountRecordCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {AppContact? contact, int? amount, DateTime? dateTime, bool? solved});
+      {AppContact? contact,
+      int? amount,
+      String? title,
+      DateTime? dateTime,
+      bool? cleared});
 
   @override
   $AppContactCopyWith<$Res>? get contact;
 }
 
 /// @nodoc
-class __$$_AccountItemCopyWithImpl<$Res>
-    extends _$AccountItemCopyWithImpl<$Res, _$_AccountItem>
-    implements _$$_AccountItemCopyWith<$Res> {
-  __$$_AccountItemCopyWithImpl(
-      _$_AccountItem _value, $Res Function(_$_AccountItem) _then)
+class __$$_AccountRecordCopyWithImpl<$Res>
+    extends _$AccountRecordCopyWithImpl<$Res, _$_AccountRecord>
+    implements _$$_AccountRecordCopyWith<$Res> {
+  __$$_AccountRecordCopyWithImpl(
+      _$_AccountRecord _value, $Res Function(_$_AccountRecord) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,10 +136,11 @@ class __$$_AccountItemCopyWithImpl<$Res>
   $Res call({
     Object? contact = freezed,
     Object? amount = freezed,
+    Object? title = freezed,
     Object? dateTime = freezed,
-    Object? solved = freezed,
+    Object? cleared = freezed,
   }) {
-    return _then(_$_AccountItem(
+    return _then(_$_AccountRecord(
       contact: freezed == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
@@ -134,13 +149,17 @@ class __$$_AccountItemCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      solved: freezed == solved
-          ? _value.solved
-          : solved // ignore: cast_nullable_to_non_nullable
+      cleared: freezed == cleared
+          ? _value.cleared
+          : cleared // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -148,77 +167,84 @@ class __$$_AccountItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AccountItem implements _AccountItem {
-  const _$_AccountItem({this.contact, this.amount, this.dateTime, this.solved});
+class _$_AccountRecord implements _AccountRecord {
+  const _$_AccountRecord(
+      {this.contact, this.amount, this.title, this.dateTime, this.cleared});
 
-  factory _$_AccountItem.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountItemFromJson(json);
+  factory _$_AccountRecord.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountRecordFromJson(json);
 
   @override
   final AppContact? contact;
   @override
   final int? amount;
   @override
+  final String? title;
+  @override
   final DateTime? dateTime;
   @override
-  final bool? solved;
+  final bool? cleared;
 
   @override
   String toString() {
-    return 'AccountItem(contact: $contact, amount: $amount, dateTime: $dateTime, solved: $solved)';
+    return 'AccountRecord(contact: $contact, amount: $amount, title: $title, dateTime: $dateTime, cleared: $cleared)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AccountItem &&
+            other is _$_AccountRecord &&
             (identical(other.contact, contact) || other.contact == contact) &&
             (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
-            (identical(other.solved, solved) || other.solved == solved));
+            (identical(other.cleared, cleared) || other.cleared == cleared));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, contact, amount, dateTime, solved);
+      Object.hash(runtimeType, contact, amount, title, dateTime, cleared);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountItemCopyWith<_$_AccountItem> get copyWith =>
-      __$$_AccountItemCopyWithImpl<_$_AccountItem>(this, _$identity);
+  _$$_AccountRecordCopyWith<_$_AccountRecord> get copyWith =>
+      __$$_AccountRecordCopyWithImpl<_$_AccountRecord>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountItemToJson(
+    return _$$_AccountRecordToJson(
       this,
     );
   }
 }
 
-abstract class _AccountItem implements AccountItem {
-  const factory _AccountItem(
+abstract class _AccountRecord implements AccountRecord {
+  const factory _AccountRecord(
       {final AppContact? contact,
       final int? amount,
+      final String? title,
       final DateTime? dateTime,
-      final bool? solved}) = _$_AccountItem;
+      final bool? cleared}) = _$_AccountRecord;
 
-  factory _AccountItem.fromJson(Map<String, dynamic> json) =
-      _$_AccountItem.fromJson;
+  factory _AccountRecord.fromJson(Map<String, dynamic> json) =
+      _$_AccountRecord.fromJson;
 
   @override
   AppContact? get contact;
   @override
   int? get amount;
   @override
+  String? get title;
+  @override
   DateTime? get dateTime;
   @override
-  bool? get solved;
+  bool? get cleared;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountItemCopyWith<_$_AccountItem> get copyWith =>
+  _$$_AccountRecordCopyWith<_$_AccountRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
