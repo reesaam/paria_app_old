@@ -16,6 +16,10 @@ class AppColors {
   static Color get _textNormal => _black;
   static Color get _textNormalWhite => _white;
 
+  //Buttons
+  static Color get buttonNormal => _pinkSalmon;
+  static Color get buttonNormalText => _textNormal;
+
   ///Modules
   //AppBar
   // static Color get appBarBackground => _persianGreen;
