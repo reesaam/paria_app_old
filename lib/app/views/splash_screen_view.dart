@@ -24,20 +24,20 @@ class SplashScreenPage extends CoreView<SplashScreenController> {
         alignment: Alignment.center,
         width: Get.width,
         height: Get.height - 100,
-        child: Stack(children: [logo(), appName(), version()]),
+        child: Stack(children: [widgetLogo(), widgetAppName(), widgetVersion()]),
       );
 
-  Widget logo() => Container(
+  Widget widgetLogo() => Container(
       alignment: Alignment.topCenter,
       child: Image.asset(controller.logoSource));
 
-  Widget appName() => Container(
+  Widget widgetAppName() => Container(
       alignment: Alignment.center,
       child: Text(
         controller.appName,
         style: AppTextStyles.splashScreenAppName,
       ));
 
-  Widget version() => Container(
+  Widget widgetVersion() => Container(
       alignment: Alignment.bottomCenter, child: Text(controller.appVersion));
 }
