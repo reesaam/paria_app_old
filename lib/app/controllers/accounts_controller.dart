@@ -4,20 +4,12 @@ import 'package:paria_app/data/resources/app_page_details.dart';
 class AccountsController extends CoreController {
 
   @override
-  void onInit() {
-    dataInit();
-    pageInit();
-    onInitFunction();
-    super.onInit();
-  }
+  void dataInit() {}
 
   @override
-  void dataInit() {
+  void pageInit() {
     pageDetail = AppPageDetails.accounts;
   }
-
-  @override
-  void pageInit() {}
 
   @override
   void onInitFunction() {}

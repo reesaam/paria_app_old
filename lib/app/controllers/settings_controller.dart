@@ -4,20 +4,12 @@ import 'package:paria_app/data/resources/app_page_details.dart';
 class SettingsController extends CoreController {
 
   @override
-  void onInit() {
-    dataInit();
-    pageInit();
-    onInitFunction();
-    super.onInit();
-  }
+  void dataInit() {}
 
   @override
-  void dataInit() {
+  void pageInit() {
     pageDetail = AppPageDetails.settings;
   }
-
-  @override
-  void pageInit() {}
 
   @override
   void onInitFunction() {}
