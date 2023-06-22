@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_paddings.dart';
 
 abstract class CoreView<Controller extends CoreController> extends GetView<Controller> {
   const CoreView({final Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
           physics: const BouncingScrollPhysics(),
           child: Column(children: [
             topBar == null ? const SizedBox.shrink() : topBar!,
-            body,
+            Padding(padding: AppPaddings.pages, child: body),
             footer == null ? const SizedBox.shrink() : footer!,
           ]),
         ),
