@@ -24,7 +24,7 @@ class AppColors {
   //AppBar
   // static Color get appBarBackground => _persianGreen;
   static Color get appBarBackground => appBackground.withOpacity(0.8);
-  static Color get appBarText => _textNormalWhite;
+  static Color get appBarText => _textNormal;
 
   //Bottom Navigation Bar
   static Color get bottomBarBackground => appBarBackground.withOpacity(0.8);
