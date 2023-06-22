@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paria_app/app/controllers/splash_screen_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/resources/app_text_styles.dart';
 
 class SplashScreenPage extends CoreView<SplashScreenController> {
   const SplashScreenPage({Key? key}) : super(key: key);
-
-  @override
-  AppPageDetail get pageDetail => AppPageDetails.splashScreen;
 
   @override
   PreferredSizeWidget? get appBar => null;
@@ -23,6 +20,24 @@ class SplashScreenPage extends CoreView<SplashScreenController> {
   Widget? get bottomNavigationBar => null;
 
   @override
-  Widget get body => Container();
+  Widget get body => Container(
+        alignment: Alignment.center,
+        width: Get.width,
+        height: Get.height - 100,
+        child: Stack(children: [logo(), appName(), version()]),
+      );
 
+  Widget logo() => Container(
+      alignment: Alignment.topCenter,
+      child: Image.asset(controller.logoSource));
+
+  Widget appName() => Container(
+      alignment: Alignment.center,
+      child: Text(
+        controller.appName,
+        style: AppTextStyles.splashScreenAppName,
+      ));
+
+  Widget version() => Container(
+      alignment: Alignment.bottomCenter, child: Text(controller.appVersion));
 }

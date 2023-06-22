@@ -1,20 +1,43 @@
+import 'dart:math';
+
 import 'package:paria_app/core/elements/core_controller.dart';
+import 'package:paria_app/data/resources/app_info.dart';
+import 'package:paria_app/data/resources/app_logos.dart';
+import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/resources/app_texts.dart';
 
 class SplashScreenController extends CoreController {
 
-  @override
-  Function get dataInit => throw UnimplementedError();
+  late String logoSource;
+  late String appName;
+  late String appVersion;
 
   @override
-  Function get pageInit => throw UnimplementedError();
+  void onInit() {
+    dataInit();
+    pageInit();
+    onInitFunction();
+    super.onInit();
+  }
 
   @override
-  Function get onInitFunction => throw UnimplementedError();
+  void dataInit() {
+    pageDetail = AppPageDetails.splashScreen;
+    logoSource = AppLogos.appAnimatedLogo;
+    appName = AppInfo.appName;
+    appVersion = '${AppTexts.version}: ${AppInfo.appCurrentVersion}';
+  }
 
   @override
-  Function get onReadyFunction => throw UnimplementedError();
+  void pageInit() {}
 
   @override
-  Function get onCloseFunction => throw UnimplementedError();
+  void onInitFunction() {}
+
+  @override
+  void onReadyFunction() {}
+
+  @override
+  void onCloseFunction() {}
 
 }
