@@ -12,8 +12,6 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
     return true;
   }
 
-  AppPageDetail get pageDetail;
-
   ///Main Widgets
   PreferredSizeWidget? get appBar;
   Widget get body;

@@ -10,10 +10,7 @@ class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);
 
   @override
-  AppPageDetail get pageDetail => AppPageDetails.accounts;
-
-  @override
-  PreferredSizeWidget? get appBar => AppAppBar().mainBar(pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
 
   @override
   Widget? get topBar => null;
@@ -22,9 +19,9 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget? get footer => null;
 
   @override
-  Widget? get bottomNavigationBar => AppBottomNavigationBar(selectedIndex: pageDetail.bottomBarItemNumber);
+  Widget? get bottomNavigationBar => AppBottomNavigationBar(
+      selectedIndex: controller.pageDetail.bottomBarItemNumber);
 
   @override
   Widget get body => Container();
-
 }

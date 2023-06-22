@@ -10,10 +10,7 @@ class SettingsPage extends CoreView<SettingsController> {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  AppPageDetail get pageDetail => AppPageDetails.settings;
-
-  @override
-  PreferredSizeWidget? get appBar => AppAppBar().mainBar(pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
 
   @override
   Widget? get topBar => null;
@@ -22,9 +19,9 @@ class SettingsPage extends CoreView<SettingsController> {
   Widget? get footer => null;
 
   @override
-  Widget? get bottomNavigationBar => AppBottomNavigationBar(selectedIndex: pageDetail.bottomBarItemNumber);
+  Widget? get bottomNavigationBar => AppBottomNavigationBar(
+      selectedIndex: controller.pageDetail.bottomBarItemNumber);
 
   @override
   Widget get body => Container();
-
 }

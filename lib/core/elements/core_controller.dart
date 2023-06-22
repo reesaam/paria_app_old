@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 
 abstract class CoreController extends GetxController {
 
   BuildContext context = Get.context!;
+  late AppPageDetail pageDetail;
 
   ///Mandatory Functions
-  Function get dataInit;
-  Function get pageInit;
-  Function get onInitFunction;
-  Function get onReadyFunction;
-  Function get onCloseFunction;
+  void dataInit();
+  void pageInit();
+  void onInitFunction();
+  void onReadyFunction();
+  void onCloseFunction();
 
   @override
   void onInit() {

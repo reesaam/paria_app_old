@@ -1,20 +1,31 @@
 import 'package:paria_app/core/elements/core_controller.dart';
+import 'package:paria_app/data/resources/app_page_details.dart';
 
 class AccountsController extends CoreController {
 
   @override
-  Function get dataInit => () {};
+  void onInit() {
+    dataInit();
+    pageInit();
+    onInitFunction();
+    super.onInit();
+  }
 
   @override
-  Function get pageInit => () {};
+  void dataInit() {
+    pageDetail = AppPageDetails.accounts;
+  }
 
   @override
-  Function get onInitFunction => () {};
+  void pageInit() {}
 
   @override
-  Function get onReadyFunction => () {};
+  void onInitFunction() {}
 
   @override
-  Function get onCloseFunction => () {};
+  void onReadyFunction() {}
+
+  @override
+  void onCloseFunction() {}
 
 }
