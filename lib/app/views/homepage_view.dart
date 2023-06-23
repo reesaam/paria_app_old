@@ -29,6 +29,9 @@ class HomePage extends CoreView<HomePageController> {
       selectedIndex: controller.pageDetail.bottomBarItemNumber);
 
   @override
+  Widget? get floatingActionButton => null;
+
+  @override
   Widget get body => Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,

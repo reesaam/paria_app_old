@@ -20,6 +20,9 @@ class SplashScreenPage extends CoreView<SplashScreenController> {
   Widget? get bottomNavigationBar => null;
 
   @override
+  Widget? get floatingActionButton => null;
+
+  @override
   Widget get body => Container(
         alignment: Alignment.center,
         width: Get.width,

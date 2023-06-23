@@ -23,5 +23,8 @@ class SettingsPage extends CoreView<SettingsController> {
       selectedIndex: controller.pageDetail.bottomBarItemNumber);
 
   @override
+  Widget? get floatingActionButton => null;
+
+  @override
   Widget get body => Container();
 }
