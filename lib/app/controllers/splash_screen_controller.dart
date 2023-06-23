@@ -22,7 +22,7 @@ class SplashScreenController extends CoreController {
     pageDetail = AppPageDetails.splashScreen;
     logoSource = AppLogos.appAnimatedLogo;
     appName = AppInfo.appName;
-    appVersion = '${AppTexts.version}: ${AppInfo.appCurrentVersion}';
+    appVersion = '${AppTexts.generalVersion}: ${AppInfo.appCurrentVersion}';
   }
 
   @override
