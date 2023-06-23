@@ -12,7 +12,7 @@ class AccountsController extends CoreController {
       AccountRecord(
           contact: AppContact(firstName: 'Resam'),
           title: 'Rice',
-          amount: 125000,
+          amount: -125000,
           dateTime: DateTime.now(),
           cleared: false),
       AccountRecord(

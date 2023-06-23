@@ -37,7 +37,7 @@ class HomePage extends CoreView<HomePageController> {
   Widget widgetDateTime() => Card(
         color: AppColors.buttonNormal,
         child: Padding(
-          padding: AppPaddings.homepageDateTime,
+          padding: AppPaddings.homepageDateTimeCard,
           child: Column(children: [
             Text(AppTexts.homepageDateTimeTitle),
             AppSpaces.h20,

@@ -5,7 +5,12 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/data_models/accounts_data_models/account_item/account_item.dart';
+import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
+import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AccountsPage extends CoreView<AccountsController> {
@@ -27,14 +32,43 @@ class AccountsPage extends CoreView<AccountsController> {
   @override
   Widget get body => Column(children: [
         widgetContactsButton(),
+        AppSpaces.h10,
+        summary(),
         AppSpaces.h40,
         widgetTable(),
       ]);
 
   Widget widgetContactsButton() => AppGeneralButton(
-      text: AppTexts.accountsContacts,
+      text: AppTexts.accountsContactsBalance,
       leading: Icons.arrow_forward_ios_outlined,
       onTap: () {});
+
+  Widget summary() => Container(
+        // color: AppColors.buttonNormal,
+        decoration: BoxDecoration(
+            color: AppColors.cardDefaultColor,
+            borderRadius: AppElements.borderRadiusDefault),
+        child: Padding(
+          padding: AppPaddings.accountsSummaryCard,
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: List.generate(
+                    AppTexts.accountSummaryItems.length,
+                    (index) => Text(AppTexts.accountSummaryItems[index],
+                        style: AppTextStyles.cardText))),
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(calculateSum().toString(), style: AppTextStyles.cardText),
+                  Text(controller.listRecords.length.toString(), style: AppTextStyles.cardText),
+                  Text(controller.listRecords.length.toString(), style: AppTextStyles.cardText),
+                ]),
+          ]),
+        ),
+      );
 
   Widget widgetTable() => Column(children: [
         Text(AppTexts.accountsRecordsTableTitle),
@@ -43,27 +77,26 @@ class AccountsPage extends CoreView<AccountsController> {
       ]);
 
   Widget widgetRecordsTable() => ListView.builder(
-        shrinkWrap: true,
-        itemCount: controller.listRecords.length,
-        itemBuilder: (context, index) => Row(children: [
-          Checkbox(
-            value: controller.listRecords[index].cleared,
-            onChanged: (checked) {},
-          ),
-          Expanded(
-              flex: 2,
-              child: Text(controller.listRecords[index].contact!.firstName ?? 'N/A')),
-          Expanded(
-              flex: 3,
-              child: Text(controller.listRecords[index].title ?? 'N/A')),
-          Expanded(
-              flex: 2,
-              child: Text(controller.listRecords[index].amount.toString())),
-          Expanded(
-              flex: 2,
-              child: Text(date(controller.listRecords[index].dateTime!))),
-        ]),
-      );
+      shrinkWrap: true,
+      itemCount: controller.listRecords.length,
+      itemBuilder: (context, index) =>
+          widgetRecordsTableItem(controller.listRecords[index]));
+
+  Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
+        Checkbox(value: record.cleared, onChanged: (checked) {}),
+        Expanded(flex: 2, child: Text(record.contact!.firstName ?? AppTexts.notAvailableInitials)),
+        Expanded(flex: 3, child: Text(record.title ?? AppTexts.notAvailableInitials)),
+        Expanded(flex: 2, child: Text(record.amount.toString())),
+        Expanded(flex: 2, child: Text(date(record.dateTime!))),
+      ]);
+
+  int calculateSum() {
+    int sum = 0;
+    for (AccountRecord r in controller.listRecords) {
+      sum += r.amount!;
+    }
+    return sum;
+  }
 
   String date(DateTime date) => '${date.year}/${date.month}/${date.day}';
 }
