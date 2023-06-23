@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:paria_app/core/bindings/core_bindings.dart';
 import 'package:paria_app/core/routes/app_pages.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/resources/app_themes.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MainApp());
 }
 
