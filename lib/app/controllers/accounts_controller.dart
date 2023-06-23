@@ -1,3 +1,4 @@
+import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_item/account_item.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
@@ -37,4 +38,19 @@ class AccountsController extends CoreController {
 
   @override
   void onCloseFunction() {}
+
+  void addRecordFunction() {
+    AppDialogs.addNewAccountsRecordDialog();
+  }
+
+  int calculateSum() {
+    int sum = 0;
+    for (AccountRecord r in listRecords) {
+      sum += r.amount!;
+    }
+    return sum;
+  }
+
+  String date(DateTime date) => '${date.year}/${date.month}/${date.day}';
+
 }

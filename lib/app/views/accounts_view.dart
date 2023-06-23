@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
+import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
@@ -30,6 +31,10 @@ class AccountsPage extends CoreView<AccountsController> {
       selectedIndex: controller.pageDetail.bottomBarItemNumber);
 
   @override
+  Widget? get floatingActionButton => AppFloatingActionButtons(
+      icon: Icons.add, onTap: controller.addRecordFunction);
+
+  @override
   Widget get body => Column(children: [
         widgetContactsButton(),
         AppSpaces.h10,
@@ -47,25 +52,24 @@ class AccountsPage extends CoreView<AccountsController> {
         // color: AppColors.buttonNormal,
         decoration: BoxDecoration(
             color: AppColors.cardDefaultColor,
-            borderRadius: AppElements.borderRadiusDefault),
+            borderRadius: AppElements.defaultBorderWithRadius),
         child: Padding(
           padding: AppPaddings.accountsSummaryCard,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: List.generate(
                     AppTexts.accountSummaryItems.length,
                     (index) => Text(AppTexts.accountSummaryItems[index],
                         style: AppTextStyles.cardText))),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(calculateSum().toString(), style: AppTextStyles.cardText),
-                  Text(controller.listRecords.length.toString(), style: AppTextStyles.cardText),
-                  Text(controller.listRecords.length.toString(), style: AppTextStyles.cardText),
-                ]),
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(controller.calculateSum().toString(), style: AppTextStyles.cardText),
+              Text(controller.listRecords.length.toString(),
+                  style: AppTextStyles.cardText),
+              Text(controller.listRecords.length.toString(),
+                  style: AppTextStyles.cardText),
+            ]),
           ]),
         ),
       );
@@ -84,19 +88,15 @@ class AccountsPage extends CoreView<AccountsController> {
 
   Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
         Checkbox(value: record.cleared, onChanged: (checked) {}),
-        Expanded(flex: 2, child: Text(record.contact!.firstName ?? AppTexts.notAvailableInitials)),
-        Expanded(flex: 3, child: Text(record.title ?? AppTexts.notAvailableInitials)),
+        Expanded(
+            flex: 2,
+            child: Text(
+                record.contact!.firstName ?? AppTexts.generalNotAvailableInitials)),
+        Expanded(
+            flex: 3,
+            child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
         Expanded(flex: 2, child: Text(record.amount.toString())),
-        Expanded(flex: 2, child: Text(date(record.dateTime!))),
+        Expanded(flex: 2, child: Text(controller.date(record.dateTime!))),
       ]);
 
-  int calculateSum() {
-    int sum = 0;
-    for (AccountRecord r in controller.listRecords) {
-      sum += r.amount!;
-    }
-    return sum;
-  }
-
-  String date(DateTime date) => '${date.year}/${date.month}/${date.day}';
 }
