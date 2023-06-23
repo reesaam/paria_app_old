@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_elements.dart';
 
 class AppGeneralButton extends StatelessWidget {
   const AppGeneralButton(
@@ -16,21 +16,18 @@ class AppGeneralButton extends StatelessWidget {
   final IconData? leading;
 
   @override
-  Widget build(BuildContext context) => Container(
-        width: Get.width,
-        child: ElevatedButton(
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(AppColors.buttonNormal),
-                foregroundColor:
-                    MaterialStateProperty.all(AppColors.buttonNormalText)),
-            onPressed: onTap(),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-              Icon(icon),
-              Text(text),
-              Icon(leading),
-            ]),),
-      );
+  Widget build(BuildContext context) => ElevatedButton(
+    style: ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all(AppColors.buttonNormal),
+        foregroundColor:
+            MaterialStateProperty.all(AppColors.buttonNormalText),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: AppElements.borderRadiusDefault))),
+    onPressed: onTap(),
+    child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [Icon(icon), Text(text), Icon(leading)]),
+  );
 }

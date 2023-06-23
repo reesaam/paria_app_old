@@ -5,6 +5,7 @@ class AppColors {
   ///Basics
   static Color get transparent => Colors.transparent;
   static Color get appBackground => _white;
+  static Color get appDefaultColor => _pinkSalmon;
 
   ///Colors
   static Color get _white => Colors.white;
@@ -17,12 +18,19 @@ class AppColors {
   static Color get _textNormalWhite => _white;
 
   //Buttons
-  static Color get buttonNormal => _pinkSalmon;
-  static Color get buttonNormalText => _textNormal;
+  static Color get buttonNormal => appDefaultColor;
+  static Color get buttonNormalText => _textNormalWhite;
+
+  //Cards
+  static Color get cardDefaultColor => appDefaultColor;
+  static Color get cardBackground => appBackground;
+  static Color get cardText => _white;
+
+  //Divider
+  static Color get dividerMainColor => _black;
 
   ///Modules
   //AppBar
-  // static Color get appBarBackground => _persianGreen;
   static Color get appBarBackground => appBackground.withOpacity(0.8);
   static Color get appBarText => _textNormal;
 
