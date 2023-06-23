@@ -10,4 +10,7 @@ class AppPaddings {
 
   ///Accounts
   static EdgeInsets get accountsSummaryCard => const EdgeInsets.all(20);
+
+  ///Accounts Add New Record Modal
+  static EdgeInsets get accountsAddNewRecordModal => const EdgeInsets.all(40);
 }

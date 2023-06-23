@@ -19,6 +19,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
   Widget? get topBar;
   Widget? get footer;
   Widget? get bottomNavigationBar;
+  Widget? get floatingActionButton;
 
   @override
   Widget build(BuildContext context) => WillPopScope(
@@ -29,6 +30,7 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
         appBar: appBar,
         body: _pageBody,
         bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: floatingActionButton,
         backgroundColor: AppColors.appBackground,
       );
 

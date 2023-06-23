@@ -24,7 +24,7 @@ class AppGeneralButton extends StatelessWidget {
             MaterialStateProperty.all(AppColors.buttonNormalText),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-                borderRadius: AppElements.borderRadiusDefault))),
+                borderRadius: AppElements.defaultBorderWithRadius))),
     onPressed: onTap(),
     child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
