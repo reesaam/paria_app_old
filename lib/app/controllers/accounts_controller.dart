@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/accounts_components/accounts_add_new_record_component.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_item/account_item.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
+import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_records.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/storage/local_storage.dart';
 
 class AccountsController extends CoreController {
   late List<AccountRecord> listRecords;
 
   @override
   void dataInit() {
-    listRecords = [
-      AccountRecord(
-          contact: AppContact(firstName: 'Resam'),
-          title: 'Rice',
-          amount: -125000,
-          dateTime: DateTime.now(),
-          cleared: false),
-      AccountRecord(
-          contact: AppContact(firstName: 'Paria'),
-          title: 'STH',
-          amount: 252000,
-          dateTime: DateTime.now(),
-          cleared: false),
-    ];
+    listRecords = AppLocalStorage.to.loadAccountsRecords() ?? List.empty(growable: true);
   }
 
   @override
@@ -40,8 +27,7 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  void addRecordFunction() =>
-      AppAccountsAddNewRecordComponent().addNewAccountsRecord();
+  void addRecordFunction() => AppAccountsAddNewRecordComponent().addNewAccountsRecord(listRecords);
 
   int calculateSum() {
     int sum = 0;
