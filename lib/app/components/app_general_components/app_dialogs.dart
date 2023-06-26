@@ -36,7 +36,8 @@ class AppDialogs {
                     ]),
               ));
 
-  static mainAppDialogWithOkCancel(String title, Widget form, onTapOk) =>
+  static mainAppDialogWithOkCancel(
+          String title, Widget form, Function onTapOk) =>
       showModalBottomSheet(
           context: Get.context!,
           useSafeArea: true,
