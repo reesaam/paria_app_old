@@ -40,9 +40,8 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  void addRecordFunction() {
-    AppAccountsAddNewRecordComponent().addNewAccountsRecord();
-  }
+  void addRecordFunction() =>
+      AppAccountsAddNewRecordComponent().addNewAccountsRecord();
 
   int calculateSum() {
     int sum = 0;
@@ -53,5 +52,4 @@ class AccountsController extends CoreController {
   }
 
   String date(DateTime date) => '${date.year}/${date.month}/${date.day}';
-
 }

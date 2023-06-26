@@ -49,30 +49,29 @@ class AccountsPage extends CoreView<AccountsController> {
       onTap: () {});
 
   Widget summary() => Container(
-        // color: AppColors.buttonNormal,
-        decoration: BoxDecoration(
-            color: AppColors.cardDefaultColor,
-            borderRadius: AppElements.defaultBorderWithRadius),
-        child: Padding(
-          padding: AppPaddings.accountsSummaryCard,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: List.generate(
-                    AppTexts.accountSummaryItems.length,
-                    (index) => Text(AppTexts.accountSummaryItems[index],
-                        style: AppTextStyles.cardText))),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(controller.calculateSum().toString(), style: AppTextStyles.cardText),
-              Text(controller.listRecords.length.toString(),
-                  style: AppTextStyles.cardText),
-              Text(controller.listRecords.length.toString(),
-                  style: AppTextStyles.cardText),
-            ]),
-          ]),
-        ),
-      );
+      // color: AppColors.buttonNormal,
+      padding: AppPaddings.accountsSummaryCard,
+      decoration: BoxDecoration(
+          color: AppColors.cardDefaultColor,
+          borderRadius: AppElements.defaultBorderWithRadius),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        //Titles
+        Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: List.generate(
+                AppTexts.accountSummaryItems.length,
+                (index) => Text(AppTexts.accountSummaryItems[index],
+                    style: AppTextStyles.cardText))),
+        //Values
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(controller.calculateSum().toString(),
+              style: AppTextStyles.cardText),
+          Text(controller.listRecords.length.toString(),
+              style: AppTextStyles.cardText),
+          Text(controller.listRecords.length.toString(),
+              style: AppTextStyles.cardText),
+        ]),
+      ]));
 
   Widget widgetTable() => Column(children: [
         Text(AppTexts.accountsRecordsTableTitle),
@@ -90,13 +89,12 @@ class AccountsPage extends CoreView<AccountsController> {
         Checkbox(value: record.cleared, onChanged: (checked) {}),
         Expanded(
             flex: 2,
-            child: Text(
-                record.contact!.firstName ?? AppTexts.generalNotAvailableInitials)),
+            child: Text(record.contact!.firstName ??
+                AppTexts.generalNotAvailableInitials)),
         Expanded(
             flex: 3,
             child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
         Expanded(flex: 2, child: Text(record.amount.toString())),
         Expanded(flex: 2, child: Text(controller.date(record.dateTime!))),
       ]);
-
 }
