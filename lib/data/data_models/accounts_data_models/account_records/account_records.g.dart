@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'account_item.dart';
+part of 'account_records.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
