@@ -1,6 +1,8 @@
 class AppTexts {
   ///General
   static String get generalVersion => 'Version';
+  static String get generalOK => 'OK';
+  static String get generalCancel => 'Cancel';
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
 

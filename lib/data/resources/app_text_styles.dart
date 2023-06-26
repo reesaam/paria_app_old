@@ -12,13 +12,15 @@ class AppTextStyles {
   ///AppBar
   static TextStyle get appBarTitle => TextStyle(color: AppColors.appBarText);
 
+  ///ModalBottomSheet
+  static TextStyle get modalTitle => const TextStyle(fontSize: 20);
+
   ///SplashScreen
   static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
 
   ///Accounts
 
   ///Accounts Add New Record Modal
-  static TextStyle get accountsAddNewRecordTitle => const TextStyle(fontSize: 20);
   static TextStyle get accountsAddNewRecordTextFieldsLabel => TextStyle(color: AppColors.textNormalGrey);
   static TextStyle get accountsAddNewRecordTextFieldsHint => TextStyle(color: AppColors.textNormalGrey);
 }
