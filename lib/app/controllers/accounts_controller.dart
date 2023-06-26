@@ -1,4 +1,5 @@
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
+import 'package:flutter/material.dart';
+import 'package:paria_app/app/components/accounts_components/accounts_add_new_record_component.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_item/account_item.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
@@ -40,7 +41,7 @@ class AccountsController extends CoreController {
   void onCloseFunction() {}
 
   void addRecordFunction() {
-    AppDialogs.addNewAccountsRecordDialog();
+    AppAccountsAddNewRecordComponent().addNewAccountsRecord();
   }
 
   int calculateSum() {
