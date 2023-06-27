@@ -17,6 +17,13 @@ class AppPageDetails {
     bottomBarIcon: 'home',
   );
 
+  static AppPageDetail contacts = const AppPageDetail(
+    pageName: 'Contacts',
+    pageRoute: AppRoutes.contacts,
+    bottomBarItemNumber: 1,
+    bottomBarIcon: 'contacts',
+  );
+
   static AppPageDetail accounts = const AppPageDetail(
     pageName: 'Accounts',
     pageRoute: AppRoutes.accounts,
