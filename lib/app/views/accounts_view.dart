@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
+import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
@@ -110,6 +111,6 @@ class AccountsPage extends CoreView<AccountsController> {
             flex: 3,
             child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
         Expanded(flex: 2, child: Text(record.amount.toString())),
-        Expanded(flex: 2, child: Text(controller.date(record.dateTime!))),
+        Expanded(flex: 2, child: Text(AppTextProvider.dateText(record.dateTime!))),
       ]);
 }

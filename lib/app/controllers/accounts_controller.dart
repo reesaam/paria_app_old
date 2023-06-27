@@ -38,6 +38,4 @@ class AccountsController extends CoreController {
     }
     return sum;
   }
-
-  String date(DateTime date) => '${date.year}/${date.month}/${date.day}';
 }
