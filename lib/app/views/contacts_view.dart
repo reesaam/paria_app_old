@@ -4,6 +4,8 @@ import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
+import 'package:paria_app/app/components/contacts_components/contacts_contact_page_component.dart';
 import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
@@ -44,21 +46,14 @@ class ContactsPage extends CoreView<ContactsController> {
 
   Widget widgetContactsTableItem(AppContact contact) => Padding(
         padding: AppPaddings.contactsItem,
-        child: Row(children: [
-          getAvatar(contact),
-          AppSpaces.w20,
-          Text(AppTextProvider.getFullName(contact)),
-        ]),
+        child: GestureDetector(
+          onTap: () => controller.showContactFunction(contact),
+          child: Row(children: [
+            AppContactComponents.getAvatar(
+                contact, AppElements.contactsListAvatarMaxRadius),
+            AppSpaces.w20,
+            Text(AppTextProvider.getFullName(contact)),
+          ]),
+        ),
       );
-
-  Widget getAvatar(AppContact contact) {
-    Widget widget = CircleAvatar(
-      maxRadius: AppElements.contactsListAvatarMaxRadius,
-      backgroundColor: AppColors.appDefaultColor,
-      foregroundColor: AppColors.textNormal,
-      child: Text(AppTextProvider.getContactInitials(contact)),
-    );
-
-    return widget;
-  }
 }

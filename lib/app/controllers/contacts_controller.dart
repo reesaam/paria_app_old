@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_add_new_contact_component.dart';
+import 'package:paria_app/app/components/contacts_components/contacts_contact_page_component.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
@@ -29,7 +30,10 @@ class ContactsController extends CoreController {
   void onCloseFunction() {}
 
   void addContactFunction() =>
-      AppContactsAddNewContactComponent().addNewContact(listContacts.value);
+      AppContactsAddNewContactComponent().addNewContact(listContacts);
+
+  void showContactFunction(AppContact contact) =>
+      ContactPageComponent().showContact(contact);
 
   // int calculateSum() {
   //   int sum = 0;

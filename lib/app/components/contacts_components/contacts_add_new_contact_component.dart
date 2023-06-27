@@ -8,7 +8,7 @@ import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppContactsAddNewContactComponent {
-  late List<AppContact> listContacts;
+  late List<AppContact> _listContacts;
 
   //TextEditing Controllers
   final TextEditingController _controllerFirstName = TextEditingController();
@@ -42,14 +42,14 @@ class AppContactsAddNewContactComponent {
         firstName: _controllerFirstName.text,
         lastName: _controllerLastName.text,
         mobile: _controllerMobile.text);
-    listContacts.add(contact);
-    await AppLocalStorage.to.saveContactsRecords(listContacts);
+    _listContacts.add(contact);
+    await AppLocalStorage.to.saveContactsRecords(_listContacts);
     Get.back();
   }
 
   addNewContact(List<AppContact> list) {
-    listContacts = list;
-    AppDialogs.mainAppDialogWithOkCancel(AppTexts.accountsAddNewRecordTitle,
+    _listContacts = list;
+    AppDialogs.mainAppDialogWithOkCancel(AppTexts.contactsAddNewContactTitle,
         _addNewContactDialogWidget(), _addContact);
   }
 }
