@@ -11,12 +11,12 @@ class AppBottomNavigationBarData {
 
         ///Contacts
         BottomNavigationBarItem(
-            icon: _createIcon(Icons.contacts_outlined),
+            icon: _createIcon(Icons.people),
             label: _createLabel(AppPageDetails.contacts.pageName)),
 
         ///Accounts
         BottomNavigationBarItem(
-            icon: _createIcon(Icons.monetization_on_outlined),
+            icon: _createIcon(Icons.monetization_on),
             label: _createLabel(AppPageDetails.accounts.pageName)),
 
         ///Settings

@@ -13,6 +13,7 @@ class AppTexts {
   ///Contacts
 
   ///Contacts Add New Contact Modal
+  static String get contactsAddNewContactTitle => 'Add New Contact';
   static String get contactsAddNewContactFirstNameTitle => 'First Name:';
   static String get contactsAddNewContactFirstNameHint => 'Enter First Name';
   static String get contactsAddNewContactLastNameTitle => 'Last Name:';
