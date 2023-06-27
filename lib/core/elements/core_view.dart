@@ -5,7 +5,8 @@ import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 
-abstract class CoreView<Controller extends CoreController> extends GetView<Controller> {
+abstract class CoreView<Controller extends CoreController>
+    extends GetView<Controller> {
   const CoreView({final Key? key}) : super(key: key);
 
   Future<bool> onWillPop() async {
@@ -22,8 +23,8 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
   Widget? get floatingActionButton;
 
   @override
-  Widget build(BuildContext context) => WillPopScope(
-      onWillPop: () => onWillPop(), child: _pageScaffold);
+  Widget build(BuildContext context) =>
+      WillPopScope(onWillPop: () => onWillPop(), child: _pageScaffold);
 
   Widget get _pageScaffold => Scaffold(
         resizeToAvoidBottomInset: true,
@@ -35,14 +36,17 @@ abstract class CoreView<Controller extends CoreController> extends GetView<Contr
       );
 
   Widget get _pageBody => SafeArea(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          physics: const BouncingScrollPhysics(),
-          child: Column(children: [
-            topBar == null ? const SizedBox.shrink() : topBar!,
-            Padding(padding: AppPaddings.pages, child: body),
-            footer == null ? const SizedBox.shrink() : footer!,
-          ]),
-        ),
+        child: Column(children: [
+          topBar == null ? const SizedBox.shrink() : topBar!,
+          //Main Body
+          Expanded(
+              child: Padding(
+                  padding: AppPaddings.pages,
+                  child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      physics: const BouncingScrollPhysics(),
+                      child: body))),
+          footer == null ? const SizedBox.shrink() : footer!,
+        ]),
       );
 }
