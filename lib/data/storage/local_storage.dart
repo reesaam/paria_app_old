@@ -9,18 +9,25 @@ class AppLocalStorage {
 
   static AppLocalStorage get to => Get.find();
 
+  // List emptyList = List.empty(growable: true);
+
+  // dynamic emptyList(T) => List<T>.empty(growable: true);
+
   ///Keys
-  static const _keyAccountsRecords = 'ACCOUNTS_RECORDS';
+  static const keyAccountsRecords = 'ACCOUNTS_RECORDS';
 
   void clearStorage() {
-    _storage.remove(_keyAccountsRecords);
+    _storage.remove(keyAccountsRecords);
   }
 
   Future<void> saveAccountsRecords(List<AccountRecord> listRecords) async =>
-      await _storage.write(_keyAccountsRecords, listRecords);
+      await _storage.write(keyAccountsRecords, listRecords);
 
   List<AccountRecord>? loadAccountsRecords() {
-    List data = _storage.read(_keyAccountsRecords);
-    return List.generate(data.length, (index) => AccountRecord.fromJson(data[index]));
+    dynamic data = _storage.read(keyAccountsRecords);
+    return data == null
+        ? List.empty(growable: true)
+        : List.generate(
+            data.length, (index) => AccountRecord.fromJson(data[index]));
   }
 }
