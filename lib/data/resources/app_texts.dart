@@ -3,11 +3,22 @@ class AppTexts {
   static String get generalVersion => 'Version';
   static String get generalOK => 'OK';
   static String get generalCancel => 'Cancel';
+  static String get generalEmpty => '';
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
 
   ///Homepage
   static String get homepageDateTimeTitle => 'Today';
+
+  ///Contacts
+
+  ///Contacts Add New Contact Modal
+  static String get contactsAddNewContactFirstNameTitle => 'First Name:';
+  static String get contactsAddNewContactFirstNameHint => 'Enter First Name';
+  static String get contactsAddNewContactLastNameTitle => 'Last Name:';
+  static String get contactsAddNewContactLastNameHint => 'Enter Last Name';
+  static String get contactsAddNewContactMobileTitle => 'Mobile:';
+  static String get contactsAddNewContactMobileHint => 'Enter Mobile';
 
   ///Accounts
   static String get accountsContactsBalance => 'Contacts\' Balance';

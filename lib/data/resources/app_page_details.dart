@@ -27,14 +27,14 @@ class AppPageDetails {
   static AppPageDetail accounts = const AppPageDetail(
     pageName: 'Accounts',
     pageRoute: AppRoutes.accounts,
-    bottomBarItemNumber: 1,
+    bottomBarItemNumber: 2,
     bottomBarIcon: 'currency',
   );
 
   static AppPageDetail settings = const AppPageDetail(
     pageName: 'Settings',
-    pageRoute: AppRoutes.accounts,
-    bottomBarItemNumber: 2,
+    pageRoute: AppRoutes.settings,
+    bottomBarItemNumber: 3,
     bottomBarIcon: 'currency',
   );
 }

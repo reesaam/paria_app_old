@@ -16,4 +16,8 @@ class AppElements {
   static BoxDecoration get shapeBoxDecoration => BoxDecoration(borderRadius: AppElements.defaultBorderWithRadius);
   static RoundedRectangleBorder get defaultBorderShape => RoundedRectangleBorder(borderRadius: defaultBorderWithRadius);
   static RoundedRectangleBorder get defaultModalBorderShape => RoundedRectangleBorder(borderRadius: topBorderWithRadius);
+
+  ///Avatars
+  static double get contactsListAvatarMaxRadius => 15;
+  static double get contactsContactAvatarMaxRadius => 20;
 }

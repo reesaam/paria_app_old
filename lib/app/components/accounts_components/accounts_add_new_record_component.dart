@@ -10,6 +10,8 @@ import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddNewRecordComponent {
   late List<AccountRecord> listRecords;
+
+  //TextEditing Controllers
   final TextEditingController _controllerAddNewRecordContact =
       TextEditingController();
   final TextEditingController _controllerAddNewRecordTitle =
@@ -49,7 +51,7 @@ class AppAccountsAddNewRecordComponent {
         ]),
       );
 
-  addRecord() async {
+  _addRecord() async {
     _controllerAddNewRecordDateTime.text = DateTime.now().toString();
     AccountRecord record = AccountRecord(
         contact: AppContact(firstName: _controllerAddNewRecordContact.text),
@@ -66,6 +68,6 @@ class AppAccountsAddNewRecordComponent {
   addNewAccountsRecord(List<AccountRecord> list) {
     listRecords = list;
     AppDialogs.mainAppDialogWithOkCancel(AppTexts.accountsAddNewRecordTitle,
-        _addNewAccountsRecordDialogWidget(), addRecord);
+        _addNewAccountsRecordDialogWidget(), _addRecord);
   }
 }

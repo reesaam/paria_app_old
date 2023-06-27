@@ -4,6 +4,7 @@ import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 import 'package:paria_app/data/resources/app_bottom_navigation_bar_data.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_page_details.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int? selectedIndex;
@@ -21,8 +22,9 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
     selectedIndex.value = index;
     switch(index) {
       case 0 : _goToPage(AppRoutes.homePage);
-      case 1 : _goToPage(AppRoutes.accounts);
-      case 2 : _goToPage(AppRoutes.settings);
+      case 1 : _goToPage(AppRoutes.contacts);
+      case 2 : _goToPage(AppRoutes.accounts);
+      case 3 : _goToPage(AppRoutes.settings);
       default: break;
     }
     Get.reload();
