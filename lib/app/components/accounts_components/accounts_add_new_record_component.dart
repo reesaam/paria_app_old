@@ -60,7 +60,7 @@ class AppAccountsAddNewRecordComponent {
     listRecords.add(record);
     await AppLocalStorage.to.saveAccountsRecords(listRecords);
     Get.back();
-    Get.reload();
+    Get.reset();
   }
 
   addNewAccountsRecord(List<AccountRecord> list) {

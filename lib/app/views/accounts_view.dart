@@ -22,7 +22,7 @@ class AccountsPage extends CoreView<AccountsController> {
   PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
 
   @override
-  Widget? get topBar => null;
+  Widget? get topBar => widgetTopBar();
 
   @override
   Widget? get footer => null;
@@ -36,13 +36,17 @@ class AccountsPage extends CoreView<AccountsController> {
       icon: Icons.add, onTap: controller.addRecordFunction);
 
   @override
-  Widget get body => Column(children: [
-        widgetContactsButton(),
-        AppSpaces.h10,
-        summary(),
-        AppSpaces.h40,
-        widgetTable(),
-      ]);
+  Widget get body => widgetTable();
+
+  Widget widgetTopBar() => Padding(
+    padding: AppPaddings.pages,
+    child: Column(children: [
+          widgetContactsButton(),
+          AppSpaces.h10,
+          summary(),
+          AppSpaces.h20,
+        ]),
+  );
 
   Widget widgetContactsButton() => AppGeneralButton(
       text: AppTexts.accountsContactsBalance,
@@ -80,11 +84,21 @@ class AccountsPage extends CoreView<AccountsController> {
         widgetRecordsTable(),
       ]);
 
-  Widget widgetRecordsTable() => ListView.builder(
-      shrinkWrap: true,
-      itemCount: controller.listRecords.length,
-      itemBuilder: (context, index) =>
-          widgetRecordsTableItem(controller.listRecords[index]));
+  // Widget widgetRecordsTable() => Obx(() => ListView(
+  //     shrinkWrap: true,
+  //     physics: const BouncingScrollPhysics(),
+  //     children: List.generate(controller.listRecords.length,
+  //         (index) => widgetRecordsTableItem(controller.listRecords[index]))));
+
+  // Widget widgetRecordsTable() => ListView.builder(
+  //     shrinkWrap: true,
+  //     physics: const BouncingScrollPhysics(),
+  //     itemCount: controller.listRecords.length,
+  //     itemBuilder: (context, index) => widgetRecordsTableItem(controller.listRecords[index]));
+
+  Widget widgetRecordsTable() => Obx(() => Column(
+      children: List.generate(controller.listRecords.length,
+          (index) => widgetRecordsTableItem(controller.listRecords[index]))));
 
   Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
         Checkbox(value: record.cleared, onChanged: (checked) {}),
