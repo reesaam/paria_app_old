@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 
