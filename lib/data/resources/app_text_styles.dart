@@ -18,7 +18,11 @@ class AppTextStyles {
   ///SplashScreen
   static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
 
+  ///Contacts
+  static TextStyle get contactsNoContacts => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
+
   ///Accounts
+  static TextStyle get accountNoRecord => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
 
   ///Accounts Add New Record Modal
   static TextStyle get accountsAddNewRecordTextFieldsLabel => TextStyle(color: AppColors.textNormalGrey);

@@ -3,5 +3,5 @@ class AppSizes {
   static double get splashScreenAppName => 30;
 
   ///Buttons
-  static double get buttonsGeneralHeight => 40;
+  static double get buttonsGeneralHeight => 50;
 }

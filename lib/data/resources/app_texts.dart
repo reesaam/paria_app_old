@@ -11,6 +11,7 @@ class AppTexts {
   static String get homepageDateTimeTitle => 'Today';
 
   ///Contacts
+  static String get contactsNoContacts => 'No Contacts';
 
   ///Contacts Add New Contact Modal
   static String get contactsAddNewContactTitle => 'Add New Contact';
@@ -25,6 +26,7 @@ class AppTexts {
   static String get accountsContactsBalance => 'Contacts\' Balance';
   static String get accountsRecordsTableTitle => 'Records Table';
   static List<String> get accountSummaryItems => ['Balance:', 'Items Count:', 'Contacts Count:'];
+  static String get accountsNoRecords => 'No Records';
 
   ///Accounts Add New Record Modal
   static String get accountsAddNewRecordTitle => 'Add New Record';

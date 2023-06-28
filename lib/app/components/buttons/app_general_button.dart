@@ -19,12 +19,11 @@ class AppGeneralButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColors.buttonNormal),
-            foregroundColor:
-                MaterialStateProperty.all(AppColors.buttonNormalText),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: AppElements.defaultBorderWithRadius))),
+            backgroundColor: MaterialStateProperty.all(AppColors.buttonBackgroundNormal),
+            foregroundColor: MaterialStateProperty.all(AppColors.buttonTextNormal),
+            splashFactory: InkSplash.splashFactory,
+            side: MaterialStateProperty.all(AppElements.defaultBorderSideFocused),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderShape)),
         onPressed: () => onTap(),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
