@@ -28,6 +28,8 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
+  void sortAccountsList() => listRecords.value.sort((a, b) => a.dateTime!.compareTo(b.dateTime!));
+
   void addRecordFunction() =>
       AppAccountsAddNewRecordComponent().addNewAccountsRecord(listRecords);
 

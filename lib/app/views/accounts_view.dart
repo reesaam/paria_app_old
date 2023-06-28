@@ -40,49 +40,57 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget get body => widgetTable();
 
   Widget widgetTopBar() => Padding(
-    padding: AppPaddings.pages,
-    child: Column(children: [
+        padding: AppPaddings.pages,
+        child: Column(children: [
           widgetContactsButton(),
           AppSpaces.h10,
           summary(),
           AppSpaces.h20,
         ]),
-  );
+      );
 
   Widget widgetContactsButton() => AppGeneralButton(
       text: AppTexts.accountsContactsBalance,
       leading: Icons.arrow_forward_ios_outlined,
       onTap: () {});
 
-  Widget summary() => Container(
-      // color: AppColors.buttonNormal,
-      padding: AppPaddings.accountsSummaryCard,
-      decoration: BoxDecoration(
-          color: AppColors.cardDefaultColor,
-          borderRadius: AppElements.defaultBorderWithRadius),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        //Titles
-        Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: List.generate(
-                AppTexts.accountSummaryItems.length,
-                (index) => Text(AppTexts.accountSummaryItems[index],
-                    style: AppTextStyles.cardText))),
-        //Values
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(controller.calculateSum().toString(),
-              style: AppTextStyles.cardText),
-          Text(controller.listRecords.length.toString(),
-              style: AppTextStyles.cardText),
-          Text(controller.listRecords.length.toString(),
-              style: AppTextStyles.cardText),
-        ]),
-      ]));
+  Widget summary() => Card(
+        child: Container(
+            // color: AppColors.buttonNormal,
+            padding: AppPaddings.accountsSummaryCard,
+            decoration: BoxDecoration(
+                color: AppColors.cardBackground,
+                borderRadius: AppElements.defaultBorderWithRadius),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //Titles
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: List.generate(
+                          AppTexts.accountSummaryItems.length,
+                          (index) => Text(AppTexts.accountSummaryItems[index],
+                              style: AppTextStyles.cardText))),
+                  //Values
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(controller.calculateSum().toString(),
+                            style: AppTextStyles.cardText),
+                        Text(controller.listRecords.length.toString(),
+                            style: AppTextStyles.cardText),
+                        Text(controller.listRecords.length.toString(),
+                            style: AppTextStyles.cardText),
+                      ]),
+                ])),
+      );
 
   Widget widgetTable() => Column(children: [
         Text(AppTexts.accountsRecordsTableTitle),
         AppDividers.generalDivider(),
-        widgetRecordsTable(),
+        controller.listRecords.isEmpty
+            ? widgetNoRecord()
+            : widgetRecordsTable(),
       ]);
 
   // Widget widgetRecordsTable() => Obx(() => ListView(
@@ -111,6 +119,12 @@ class AccountsPage extends CoreView<AccountsController> {
             flex: 3,
             child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
         Expanded(flex: 2, child: Text(record.amount.toString())),
-        Expanded(flex: 2, child: Text(AppTextProvider.dateText(record.dateTime!))),
+        Expanded(
+            flex: 2, child: Text(AppTextProvider.dateText(record.dateTime!))),
       ]);
+
+  Widget widgetNoRecord() => Container(
+    padding: AppPaddings.accountsNoRecordText,
+    child: Text(AppTexts.accountsNoRecords, style: AppTextStyles.accountNoRecord),
+  );
 }
