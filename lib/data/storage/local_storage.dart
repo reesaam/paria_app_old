@@ -5,7 +5,7 @@ import 'package:paria_app/data/data_models/accounts_data_models/account_records/
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 
 class AppLocalStorage {
-  String keyLocalStorage = 'Local Storage';
+  final String _keyLocalStorage = 'Local Storage';
   final _storage = GetStorage();
 
   static AppLocalStorage get to => Get.find();
@@ -15,19 +15,20 @@ class AppLocalStorage {
   // dynamic emptyList(T) => List<T>.empty(growable: true);
 
   ///Keys
-  static const keyContacts = 'CONTACTS';
-  static const keyAccountsRecords = 'ACCOUNTS_RECORDS';
+  final _keyContacts = 'CONTACTS';
+  final _keyAccountsRecords = 'ACCOUNTS_RECORDS';
 
   void clearStorage() {
-    _storage.remove(keyAccountsRecords);
+    _storage.remove(_keyContacts);
+    _storage.remove(_keyAccountsRecords);
   }
 
   ///Contacts
   Future<void> saveContactsRecords(List<AppContact> listContacts) async =>
-      await _storage.write(keyContacts, listContacts);
+      await _storage.write(_keyContacts, listContacts);
 
   List<AppContact>? loadContactsRecords() {
-    dynamic data = _storage.read(keyContacts);
+    dynamic data = _storage.read(_keyContacts);
     return data == null
         ? List.empty(growable: true)
         : List.generate(
@@ -36,10 +37,10 @@ class AppLocalStorage {
 
   ///Accounts
   Future<void> saveAccountsRecords(List<AccountRecord> listRecords) async =>
-      await _storage.write(keyAccountsRecords, listRecords);
+      await _storage.write(_keyAccountsRecords, listRecords);
 
   List<AccountRecord>? loadAccountsRecords() {
-    dynamic data = _storage.read(keyAccountsRecords);
+    dynamic data = _storage.read(_keyAccountsRecords);
     return data == null
         ? List.empty(growable: true)
         : List.generate(
