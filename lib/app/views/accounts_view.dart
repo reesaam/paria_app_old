@@ -8,7 +8,7 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_records.dart';
+import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
@@ -77,9 +77,9 @@ class AccountsPage extends CoreView<AccountsController> {
                       children: [
                         Text(controller.calculateSum().toString(),
                             style: AppTextStyles.cardText),
-                        Text(controller.listRecords.length.toString(),
+                        Text(controller.listRecords.value.recordsList!.length.toString(),
                             style: AppTextStyles.cardText),
-                        Text(controller.listRecords.length.toString(),
+                        Text(controller.listRecords.value.recordsList!.length.toString(),
                             style: AppTextStyles.cardText),
                       ]),
                 ])),
@@ -88,29 +88,22 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget widgetTable() => Column(children: [
         Text(AppTexts.accountsRecordsTableTitle),
         AppDividers.generalDivider(),
-        controller.listRecords.isEmpty
+        controller.listRecords.value.recordsList!.isEmpty
             ? widgetNoRecord()
             : widgetRecordsTable(),
       ]);
 
-  // Widget widgetRecordsTable() => Obx(() => ListView(
-  //     shrinkWrap: true,
-  //     physics: const BouncingScrollPhysics(),
-  //     children: List.generate(controller.listRecords.length,
-  //         (index) => widgetRecordsTableItem(controller.listRecords[index]))));
-
-  // Widget widgetRecordsTable() => ListView.builder(
-  //     shrinkWrap: true,
-  //     physics: const BouncingScrollPhysics(),
-  //     itemCount: controller.listRecords.length,
-  //     itemBuilder: (context, index) => widgetRecordsTableItem(controller.listRecords[index]));
-
   Widget widgetRecordsTable() => Obx(() => Column(
-      children: List.generate(controller.listRecords.length,
-          (index) => widgetRecordsTableItem(controller.listRecords[index]))));
+      children: List.generate(controller.listRecords.value.recordsList!.length,
+          (index) => widgetRecordsTableItem(controller.listRecords.value.recordsList![index]))));
 
   Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
-        Checkbox(value: record.cleared, onChanged: (checked) {}),
+        Expanded(
+            flex: 1,
+            child: Checkbox(
+                value: record.cleared,
+                onChanged: (checked) =>
+                    controller.clearRecord(record, checked))),
         Expanded(
             flex: 2,
             child: Text(record.contact!.firstName ??
@@ -120,11 +113,12 @@ class AccountsPage extends CoreView<AccountsController> {
             child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
         Expanded(flex: 2, child: Text(record.amount.toString())),
         Expanded(
-            flex: 2, child: Text(AppTextProvider.dateText(record.dateTime!))),
+            flex: 3, child: Text(AppTextProvider.dateText(record.dateTime!))),
       ]);
 
   Widget widgetNoRecord() => Container(
-    padding: AppPaddings.accountsNoRecordText,
-    child: Text(AppTexts.accountsNoRecords, style: AppTextStyles.accountNoRecord),
-  );
+        padding: AppPaddings.accountsNoRecordText,
+        child: Text(AppTexts.accountsNoRecords,
+            style: AppTextStyles.accountNoRecord),
+      );
 }
