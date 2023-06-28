@@ -261,3 +261,150 @@ abstract class _AppContact implements AppContact {
   _$$_AppContactCopyWith<_$_AppContact> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+AppContactsList _$AppContactsListFromJson(Map<String, dynamic> json) {
+  return _AppContactsList.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AppContactsList {
+  List<AppContact> get contactsList => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AppContactsListCopyWith<AppContactsList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AppContactsListCopyWith<$Res> {
+  factory $AppContactsListCopyWith(
+          AppContactsList value, $Res Function(AppContactsList) then) =
+      _$AppContactsListCopyWithImpl<$Res, AppContactsList>;
+  @useResult
+  $Res call({List<AppContact> contactsList});
+}
+
+/// @nodoc
+class _$AppContactsListCopyWithImpl<$Res, $Val extends AppContactsList>
+    implements $AppContactsListCopyWith<$Res> {
+  _$AppContactsListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contactsList = null,
+  }) {
+    return _then(_value.copyWith(
+      contactsList: null == contactsList
+          ? _value.contactsList
+          : contactsList // ignore: cast_nullable_to_non_nullable
+              as List<AppContact>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AppContactsListCopyWith<$Res>
+    implements $AppContactsListCopyWith<$Res> {
+  factory _$$_AppContactsListCopyWith(
+          _$_AppContactsList value, $Res Function(_$_AppContactsList) then) =
+      __$$_AppContactsListCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<AppContact> contactsList});
+}
+
+/// @nodoc
+class __$$_AppContactsListCopyWithImpl<$Res>
+    extends _$AppContactsListCopyWithImpl<$Res, _$_AppContactsList>
+    implements _$$_AppContactsListCopyWith<$Res> {
+  __$$_AppContactsListCopyWithImpl(
+      _$_AppContactsList _value, $Res Function(_$_AppContactsList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contactsList = null,
+  }) {
+    return _then(_$_AppContactsList(
+      contactsList: null == contactsList
+          ? _value._contactsList
+          : contactsList // ignore: cast_nullable_to_non_nullable
+              as List<AppContact>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AppContactsList implements _AppContactsList {
+  const _$_AppContactsList(
+      {final List<AppContact> contactsList = const <AppContact>[]})
+      : _contactsList = contactsList;
+
+  factory _$_AppContactsList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppContactsListFromJson(json);
+
+  final List<AppContact> _contactsList;
+  @override
+  @JsonKey()
+  List<AppContact> get contactsList {
+    if (_contactsList is EqualUnmodifiableListView) return _contactsList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_contactsList);
+  }
+
+  @override
+  String toString() {
+    return 'AppContactsList(contactsList: $contactsList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AppContactsList &&
+            const DeepCollectionEquality()
+                .equals(other._contactsList, _contactsList));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_contactsList));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AppContactsListCopyWith<_$_AppContactsList> get copyWith =>
+      __$$_AppContactsListCopyWithImpl<_$_AppContactsList>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppContactsListToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AppContactsList implements AppContactsList {
+  const factory _AppContactsList({final List<AppContact> contactsList}) =
+      _$_AppContactsList;
+
+  factory _AppContactsList.fromJson(Map<String, dynamic> json) =
+      _$_AppContactsList.fromJson;
+
+  @override
+  List<AppContact> get contactsList;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AppContactsListCopyWith<_$_AppContactsList> get copyWith =>
+      throw _privateConstructorUsedError;
+}

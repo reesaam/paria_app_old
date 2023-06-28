@@ -25,3 +25,16 @@ Map<String, dynamic> _$$_AppContactToJson(_$_AppContact instance) =>
       'accountRecordsCounter': instance.accountRecordsCounter,
       'balance': instance.balance,
     };
+
+_$_AppContactsList _$$_AppContactsListFromJson(Map<String, dynamic> json) =>
+    _$_AppContactsList(
+      contactsList: (json['contactsList'] as List<dynamic>?)
+              ?.map((e) => AppContact.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AppContact>[],
+    );
+
+Map<String, dynamic> _$$_AppContactsListToJson(_$_AppContactsList instance) =>
+    <String, dynamic>{
+      'contactsList': instance.contactsList,
+    };

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'account_records.dart';
+part of 'account_record.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -190,24 +190,6 @@ class _$_AccountRecord implements _AccountRecord {
     return 'AccountRecord(contact: $contact, amount: $amount, title: $title, dateTime: $dateTime, cleared: $cleared)';
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AccountRecord &&
-            (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.dateTime, dateTime) ||
-                other.dateTime == dateTime) &&
-            (identical(other.cleared, cleared) || other.cleared == cleared));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, contact, amount, title, dateTime, cleared);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -246,5 +228,135 @@ abstract class _AccountRecord implements AccountRecord {
   @override
   @JsonKey(ignore: true)
   _$$_AccountRecordCopyWith<_$_AccountRecord> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AccountRecordsList _$AccountRecordsListFromJson(Map<String, dynamic> json) {
+  return _AccountRecordsList.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AccountRecordsList {
+  List<AccountRecord> get recordsList => throw _privateConstructorUsedError;
+  set recordsList(List<AccountRecord> value) =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AccountRecordsListCopyWith<AccountRecordsList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AccountRecordsListCopyWith<$Res> {
+  factory $AccountRecordsListCopyWith(
+          AccountRecordsList value, $Res Function(AccountRecordsList) then) =
+      _$AccountRecordsListCopyWithImpl<$Res, AccountRecordsList>;
+  @useResult
+  $Res call({List<AccountRecord> recordsList});
+}
+
+/// @nodoc
+class _$AccountRecordsListCopyWithImpl<$Res, $Val extends AccountRecordsList>
+    implements $AccountRecordsListCopyWith<$Res> {
+  _$AccountRecordsListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? recordsList = null,
+  }) {
+    return _then(_value.copyWith(
+      recordsList: null == recordsList
+          ? _value.recordsList
+          : recordsList // ignore: cast_nullable_to_non_nullable
+              as List<AccountRecord>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AccountRecordsListCopyWith<$Res>
+    implements $AccountRecordsListCopyWith<$Res> {
+  factory _$$_AccountRecordsListCopyWith(_$_AccountRecordsList value,
+          $Res Function(_$_AccountRecordsList) then) =
+      __$$_AccountRecordsListCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<AccountRecord> recordsList});
+}
+
+/// @nodoc
+class __$$_AccountRecordsListCopyWithImpl<$Res>
+    extends _$AccountRecordsListCopyWithImpl<$Res, _$_AccountRecordsList>
+    implements _$$_AccountRecordsListCopyWith<$Res> {
+  __$$_AccountRecordsListCopyWithImpl(
+      _$_AccountRecordsList _value, $Res Function(_$_AccountRecordsList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? recordsList = null,
+  }) {
+    return _then(_$_AccountRecordsList(
+      recordsList: null == recordsList
+          ? _value.recordsList
+          : recordsList // ignore: cast_nullable_to_non_nullable
+              as List<AccountRecord>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AccountRecordsList implements _AccountRecordsList {
+  _$_AccountRecordsList({this.recordsList = const <AccountRecord>[]});
+
+  factory _$_AccountRecordsList.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountRecordsListFromJson(json);
+
+  @override
+  @JsonKey()
+  List<AccountRecord> recordsList;
+
+  @override
+  String toString() {
+    return 'AccountRecordsList(recordsList: $recordsList)';
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AccountRecordsListCopyWith<_$_AccountRecordsList> get copyWith =>
+      __$$_AccountRecordsListCopyWithImpl<_$_AccountRecordsList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AccountRecordsListToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AccountRecordsList implements AccountRecordsList {
+  factory _AccountRecordsList({List<AccountRecord> recordsList}) =
+      _$_AccountRecordsList;
+
+  factory _AccountRecordsList.fromJson(Map<String, dynamic> json) =
+      _$_AccountRecordsList.fromJson;
+
+  @override
+  List<AccountRecord> get recordsList;
+  set recordsList(List<AccountRecord> value);
+  @override
+  @JsonKey(ignore: true)
+  _$$_AccountRecordsListCopyWith<_$_AccountRecordsList> get copyWith =>
       throw _privateConstructorUsedError;
 }

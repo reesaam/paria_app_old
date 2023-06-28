@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'account_records.dart';
+part of 'account_record.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -26,4 +26,19 @@ Map<String, dynamic> _$$_AccountRecordToJson(_$_AccountRecord instance) =>
       'title': instance.title,
       'dateTime': instance.dateTime?.toIso8601String(),
       'cleared': instance.cleared,
+    };
+
+_$_AccountRecordsList _$$_AccountRecordsListFromJson(
+        Map<String, dynamic> json) =>
+    _$_AccountRecordsList(
+      recordsList: (json['recordsList'] as List<dynamic>?)
+              ?.map((e) => AccountRecord.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AccountRecord>[],
+    );
+
+Map<String, dynamic> _$$_AccountRecordsListToJson(
+        _$_AccountRecordsList instance) =>
+    <String, dynamic>{
+      'recordsList': instance.recordsList,
     };

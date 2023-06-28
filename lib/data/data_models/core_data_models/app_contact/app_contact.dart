@@ -17,3 +17,13 @@ class AppContact with _$AppContact {
   factory AppContact.fromJson(Map<String, dynamic> json) =>
       _$AppContactFromJson(json);
 }
+
+@freezed
+class AppContactsList with _$AppContactsList {
+  const factory AppContactsList({
+    @Default(<AppContact>[]) List<AppContact> contactsList,
+  }) = _AppContactsList;
+
+  factory AppContactsList.fromJson(Map<String, dynamic> json) =>
+      _$AppContactsListFromJson(json);
+}
