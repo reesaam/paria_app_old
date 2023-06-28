@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
+import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
@@ -13,6 +14,7 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
+import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class ContactsPage extends CoreView<ContactsController> {
@@ -49,11 +51,15 @@ class ContactsPage extends CoreView<ContactsController> {
         child: GestureDetector(
           onTap: () => controller.showContactFunction(contact),
           child: Row(children: [
-            AppContactComponents.getAvatar(
-                contact, AppElements.contactsListAvatarMaxRadius),
+            AppContactComponents.getAvatar(contact, AppElements.contactsListAvatarMaxRadius),
             AppSpaces.w20,
             Text(AppTextProvider.getFullName(contact)),
           ]),
         ),
       );
+
+  Widget widgetNoContacts() => Container(
+    padding: AppPaddings.contactsNoContacts,
+    child: Text(AppTexts.contactsNoContacts, style: AppTextStyles.contactsNoContacts),
+  );
 }

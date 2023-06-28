@@ -39,10 +39,11 @@ class AppContactsAddNewContactComponent {
 
   _addContact() async {
     AppContact contact = AppContact(
-        firstName: _controllerFirstName.text,
-        lastName: _controllerLastName.text,
-        mobile: _controllerMobile.text);
+        firstName: _controllerFirstName.text ?? '',
+        lastName: _controllerLastName.text ?? '',
+        mobile: _controllerMobile.text ?? '');
     _listContacts.add(contact);
+    _listContacts.sort();
     await AppLocalStorage.to.saveContactsRecords(_listContacts);
     Get.back();
   }

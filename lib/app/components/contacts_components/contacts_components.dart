@@ -6,10 +6,10 @@ import 'package:paria_app/data/resources/app_colors.dart';
 class AppContactComponents {
   static Widget getAvatar(AppContact contact, double size) {
     Widget widget = CircleAvatar(
-      maxRadius: size,
+      maxRadius: size + 2,
       backgroundColor: AppColors.appDefaultColor,
       foregroundColor: AppColors.textNormal,
-      child: Text(AppTextProvider.getContactInitials(contact)),
+      child: Text(AppTextProvider.getContactInitials(contact), style: TextStyle(fontSize: size),),
     );
     return widget;
   }

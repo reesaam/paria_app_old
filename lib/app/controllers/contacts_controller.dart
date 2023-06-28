@@ -13,6 +13,7 @@ class ContactsController extends CoreController {
   @override
   void dataInit() {
     listContacts.value = AppLocalStorage.to.loadContactsRecords() ?? List.empty(growable: true);
+
   }
 
   @override
@@ -21,13 +22,18 @@ class ContactsController extends CoreController {
   }
 
   @override
-  void onInitFunction() {}
+  void onInitFunction() {
+    sortContactsList();
+  }
 
   @override
   void onReadyFunction() {}
 
   @override
   void onCloseFunction() {}
+
+  void sortContactsList() =>
+    listContacts.sort((a, b) => a.firstName!.compareTo(b.firstName!));
 
   void addContactFunction() =>
       AppContactsAddNewContactComponent().addNewContact(listContacts);
