@@ -42,9 +42,9 @@ class ContactsPage extends CoreView<ContactsController> {
 
   Widget widgetContactsTable() => Obx(() => ListView.builder(
       shrinkWrap: true,
-      itemCount: controller.listContacts.length,
+      itemCount: controller.listContacts.value.contactsList.length,
       itemBuilder: (context, index) =>
-          widgetContactsTableItem(controller.listContacts[index])));
+          widgetContactsTableItem(controller.listContacts.value.contactsList[index])));
 
   Widget widgetContactsTableItem(AppContact contact) => Padding(
         padding: AppPaddings.contactsItem,

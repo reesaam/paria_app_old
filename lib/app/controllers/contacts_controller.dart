@@ -8,12 +8,11 @@ import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class ContactsController extends CoreController {
-  RxList<AppContact> listContacts = List<AppContact>.empty(growable: true).obs;
+  Rx<AppContactsList> listContacts = const AppContactsList().obs;
 
   @override
   void dataInit() {
-    listContacts.value = AppLocalStorage.to.loadContactsRecords() ?? List.empty(growable: true);
-
+    listContacts.value = AppLocalStorage.to.loadContactsRecords();
   }
 
   @override
@@ -32,11 +31,11 @@ class ContactsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  void sortContactsList() =>
-    listContacts.sort((a, b) => a.firstName!.compareTo(b.firstName!));
+  void sortContactsList() {}
+    // listContacts.sort((a, b) => a.firstName!.compareTo(b.firstName!));
 
-  void addContactFunction() =>
-      AppContactsAddNewContactComponent().addNewContact(listContacts);
+  void addContactFunction() {}
+      // AppContactsAddNewContactComponent().addNewContact(listContacts);
 
   void showContactFunction(AppContact contact) =>
       ContactPageComponent().showContact(contact);
