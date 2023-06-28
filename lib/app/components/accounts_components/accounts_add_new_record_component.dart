@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_records.dart';
+import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddNewRecordComponent {
-  late List<AccountRecord> listRecords;
-
   //TextEditing Controllers
   final TextEditingController _controllerAddNewRecordContact =
       TextEditingController();
@@ -51,7 +49,7 @@ class AppAccountsAddNewRecordComponent {
         ]),
       );
 
-  _addRecord() async {
+  AccountRecord _addRecord() {
     _controllerAddNewRecordDateTime.text = DateTime.now().toString();
     AccountRecord record = AccountRecord(
         contact: AppContact(firstName: _controllerAddNewRecordContact.text),
@@ -59,15 +57,16 @@ class AppAccountsAddNewRecordComponent {
         title: _controllerAddNewRecordTitle.text,
         dateTime: DateTime.parse(_controllerAddNewRecordDateTime.text),
         cleared: false);
-    listRecords.add(record);
-    await AppLocalStorage.to.saveAccountsRecords(listRecords);
-    Get.back();
-    Get.reset();
+    return record;
   }
 
-  addNewAccountsRecord(List<AccountRecord> list) {
-    listRecords = list;
-    AppDialogs.mainAppDialogWithOkCancel(AppTexts.accountsAddNewRecordTitle,
-        _addNewAccountsRecordDialogWidget(), _addRecord);
+  Future<AccountRecord> addNewAccountsRecordModal() async {
+    AccountRecord record = const AccountRecord();
+    await AppDialogs.mainAppDialogWithOkCancel(
+            AppTexts.accountsAddNewRecordTitle,
+            _addNewAccountsRecordDialogWidget(),
+            Get.back)
+        .whenComplete(() => record = _addRecord());
+    return record;
   }
 }

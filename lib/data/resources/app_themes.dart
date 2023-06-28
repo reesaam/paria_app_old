@@ -11,6 +11,7 @@ class AppThemes {
         backgroundColor: AppColors.appBackground,
         cardTheme: cardTheme,
         buttonTheme: buttonThemeData,
+        checkboxTheme: checkBoxThemeData,
       );
 
   static get mainAppBar => AppBarTheme(
@@ -20,11 +21,11 @@ class AppThemes {
       );
 
   static get mainBottomBar => BottomNavigationBarThemeData(
-    showUnselectedLabels: true,
-    backgroundColor: AppColors.bottomBarBackground,
-    selectedItemColor: AppColors.bottomBarSelected,
-    unselectedItemColor: AppColors.bottomBarUnselected,
-  );
+        showUnselectedLabels: true,
+        backgroundColor: AppColors.bottomBarBackground,
+        selectedItemColor: AppColors.bottomBarSelected,
+        unselectedItemColor: AppColors.bottomBarUnselected,
+      );
 
   static get defaultTextStyle => TextStyle(color: AppColors.appDefaultColor);
 
@@ -48,4 +49,9 @@ class AppThemes {
   static get buttonThemeData => ButtonThemeData(
         buttonColor: AppColors.buttonBackgroundNormal,
       );
+
+  static get checkBoxThemeData => CheckboxThemeData(
+    checkColor: MaterialStateProperty.all(AppColors.appBackground),
+    fillColor: MaterialStateProperty.all(AppColors.appDefaultColor)
+  );
 }
