@@ -7,9 +7,11 @@ import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
+import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class HomePage extends CoreView<HomePageController> {
@@ -38,7 +40,8 @@ class HomePage extends CoreView<HomePageController> {
       children: [widgetDateTime(), AppSpaces.h20, widgetButtons()]);
 
   Widget widgetDateTime() => Card(
-        color: AppColors.buttonNormal,
+        // color: AppColors.cardBackground,
+        // shape: AppElements.defaultOutlineBorderFocused,
         child: Padding(
           padding: AppPaddings.homepageDateTimeCard,
           child: Column(children: [
