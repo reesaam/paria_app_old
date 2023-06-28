@@ -13,7 +13,7 @@ Paria Assistant App
 
 - Build runner Command:
 
---> flutter pub run build_runner build --delete-conflicting-outputs
+--> dart pub run build_runner build --delete-conflicting-outputs
 
 - for web output:
 
