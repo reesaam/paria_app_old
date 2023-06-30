@@ -42,6 +42,8 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
+  void clearRecordsList() => listRecords.clearRecordsList();
+
   void addRecordFunction() async {
     AccountRecord record =
         await AppAccountsAddNewRecordComponent().addNewAccountsRecordModal();

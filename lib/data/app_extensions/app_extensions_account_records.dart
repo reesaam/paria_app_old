@@ -78,3 +78,15 @@ extension Sum on Rx<AccountRecordsList> {
 
   calculateSumToString() => calculateSum().toString();
 }
+
+extension ClearRecordsList on Rx<AccountRecordsList> {
+  clearRecordsList() {
+    value.recordsList.clear();
+    saveOnStorage();
+    refresh();
+  }
+}
+
+extension Checks on Rx<AccountRecordsList> {
+  isEmpty() =>  value.recordsList.isEmpty;
+}

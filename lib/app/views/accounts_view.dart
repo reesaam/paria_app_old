@@ -15,6 +15,7 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
+import 'package:paria_app/data/resources/app_sizes.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -94,21 +95,29 @@ class AccountsPage extends CoreView<AccountsController> {
               alignment: Alignment.center,
               child: Text(AppTexts.accountsRecordsTableTitle,
                   style: AppTextStyles.accountsRecordsTableTitle)),
-          Align(alignment: Alignment.centerRight, child: threeDotsMenu()),
+          Align(
+              alignment: Alignment.centerRight,
+              child: recordsTableThreeDotsMenu()),
         ]),
         AppDividers.generalDivider(),
-        controller.listRecords.value.recordsList.isEmpty
+        Obx(() => controller.listRecords.isEmpty()
             ? widgetNoRecord()
-            : widgetRecordsTable(),
+            : widgetRecordsTable()),
       ]);
 
-  Widget threeDotsMenu() => SizedBox(
-        height: 5,
-        child: PopupMenuButton(
-            padding: AppPaddings.zero,
-            icon: AppIcons.threeDots.withAppDefaultColor(),
-            itemBuilder: (context) => []),
-      );
+  Widget recordsTableThreeDotsMenu() => SizedBox(
+      height: 20,
+      child: PopupMenuButton(
+          padding: AppPaddings.zero,
+          shape: AppElements.defaultBorderShape,
+          icon: AppIcons.threeDots.withAppDefaultColor(),
+          itemBuilder: (context) => recordsTableThreeDotsMenuList()));
+
+  List<PopupMenuItem> recordsTableThreeDotsMenuList() => List.from([
+        PopupMenuItem(
+            onTap: controller.clearRecordsList,
+            child: Text(AppTexts.accountsTablePopupMenuClearRecords))
+      ]);
 
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(

@@ -28,6 +28,8 @@ class AppTexts {
   static List<String> get accountSummaryItems => ['Balance:', 'Items Count:', 'Contacts Count:'];
   static String get accountsNoRecords => 'No Records';
 
+  static String get accountsTablePopupMenuClearRecords => 'Clear Records';
+
   ///Accounts Add New Record Modal
   static String get accountsAddNewRecordTitle => 'Add New Record';
   static String get accountsAddNewRecordFieldContactTitle => 'Contact';
