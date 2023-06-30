@@ -10,14 +10,10 @@ import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddNewRecordComponent {
   //TextEditing Controllers
-  final TextEditingController _controllerAddNewRecordContact =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordTitle =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordAmount =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordDateTime =
-      TextEditingController();
+  final TextEditingController _controllerAddNewRecordContact = TextEditingController();
+  final TextEditingController _controllerAddNewRecordTitle = TextEditingController();
+  final TextEditingController _controllerAddNewRecordAmount = TextEditingController();
+  final TextEditingController _controllerAddNewRecordDateTime = TextEditingController();
 
   Widget _addNewAccountsRecordDialogWidget() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -49,7 +45,7 @@ class AppAccountsAddNewRecordComponent {
         ]),
       );
 
-  AccountRecord _addRecord() {
+  AccountRecord _provideRecord() {
     _controllerAddNewRecordDateTime.text = DateTime.now().toString();
     AccountRecord record = AccountRecord(
         contact: AppContact(firstName: _controllerAddNewRecordContact.text),
@@ -66,7 +62,7 @@ class AppAccountsAddNewRecordComponent {
             AppTexts.accountsAddNewRecordTitle,
             _addNewAccountsRecordDialogWidget(),
             Get.back)
-        .whenComplete(() => record = _addRecord());
+        .whenComplete(() => record = _provideRecord());
     return record;
   }
 }

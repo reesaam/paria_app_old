@@ -23,6 +23,7 @@ class AppTextStyles {
 
   ///Accounts
   static TextStyle get accountNoRecord => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
+  static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: 18, color: AppColors.appDefaultColor);
 
   ///Accounts Add New Record Modal
   static TextStyle get accountsAddNewRecordTextFieldsLabel => TextStyle(color: AppColors.textNormalGrey);

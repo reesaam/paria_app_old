@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppPaddings {
   ///General
+  static EdgeInsets get zero => const EdgeInsets.all(0);
   static EdgeInsets get pages => const EdgeInsets.all(10);
 
   ///Modals
