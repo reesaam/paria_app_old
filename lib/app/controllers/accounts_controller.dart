@@ -8,7 +8,13 @@ import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class AccountsController extends CoreController {
-  Rx<AccountRecordsList> listRecords = AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true)).obs;
+  Rx<AccountRecordsList> listRecords =
+      AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true))
+          .obs;
+
+  Rx<String> itemsSum = 'N/A'.obs;
+  Rx<int> itemsCount = 0.obs;
+  Rx<int> itemsCountContacts = 0.obs;
 
   @override
   void dataInit() {
@@ -22,7 +28,11 @@ class AccountsController extends CoreController {
 
   @override
   void onInitFunction() {
-    listRecords.value.sortByDateTime();
+    listRecords.defaultSortFunction();
+    itemsSum.value = listRecords.calculateSumToString();
+    itemsCount.value = listRecords.value.recordsList.length;
+    itemsCountContacts.value = listRecords.value.recordsList.length;
+    listRecords.listen((data) => onInitFunction());
     refresh();
   }
 
@@ -33,25 +43,12 @@ class AccountsController extends CoreController {
   void onCloseFunction() {}
 
   void addRecordFunction() async {
-    AccountRecord record = const AccountRecord();
-    record = await AppAccountsAddNewRecordComponent().addNewAccountsRecordModal();
-    listRecords.value.addRecord(record);
-    refresh();
+    AccountRecord record =
+        await AppAccountsAddNewRecordComponent().addNewAccountsRecordModal();
+    listRecords.addRecord(record);
   }
 
-
-  void clearRecord(AccountRecord record, bool? checked) async {
-    // checked == true
-    //     ? AccountsComponents().addClearRecord(listRecords.value, record)
-    //     : AccountsComponents().removeClearRecord(listRecords.value, record);
-    // listRecords.refresh();
-  }
-
-  int calculateSum() {
-    int sum = 0;
-    for (AccountRecord r in listRecords.value.recordsList) {
-      sum += r.amount!;
-    }
-    return sum;
-  }
+  void clearRecord(AccountRecord record, bool? checked) => checked == true
+      ? listRecords.clearRecord(record)
+      : listRecords.unClearRecord(record);
 }

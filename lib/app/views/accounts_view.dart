@@ -8,9 +8,12 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
+import 'package:paria_app/data/app_extensions/app_general_extensions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
@@ -72,30 +75,46 @@ class AccountsPage extends CoreView<AccountsController> {
                           (index) => Text(AppTexts.accountSummaryItems[index],
                               style: AppTextStyles.cardText))),
                   //Values
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(controller.calculateSum().toString(),
-                            style: AppTextStyles.cardText),
-                        Text(controller.listRecords.value.recordsList!.length.toString(),
-                            style: AppTextStyles.cardText),
-                        Text(controller.listRecords.value.recordsList!.length.toString(),
-                            style: AppTextStyles.cardText),
-                      ]),
+                  Obx(() => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(controller.itemsSum.value,
+                                style: AppTextStyles.cardText),
+                            Text(controller.itemsCount.value.toString(),
+                                style: AppTextStyles.cardText),
+                            Text(controller.itemsCountContacts.toString(),
+                                style: AppTextStyles.cardText),
+                          ])),
                 ])),
       );
 
   Widget widgetTable() => Column(children: [
-        Text(AppTexts.accountsRecordsTableTitle),
+        Stack(children: [
+          Align(
+              alignment: Alignment.center,
+              child: Text(AppTexts.accountsRecordsTableTitle,
+                  style: AppTextStyles.accountsRecordsTableTitle)),
+          Align(alignment: Alignment.centerRight, child: threeDotsMenu()),
+        ]),
         AppDividers.generalDivider(),
-        controller.listRecords.value.recordsList!.isEmpty
+        controller.listRecords.value.recordsList.isEmpty
             ? widgetNoRecord()
             : widgetRecordsTable(),
       ]);
 
+  Widget threeDotsMenu() => SizedBox(
+        height: 5,
+        child: PopupMenuButton(
+            padding: AppPaddings.zero,
+            icon: AppIcons.threeDots.withAppDefaultColor(),
+            itemBuilder: (context) => []),
+      );
+
   Widget widgetRecordsTable() => Obx(() => Column(
-      children: List.generate(controller.listRecords.value.recordsList!.length,
-          (index) => widgetRecordsTableItem(controller.listRecords.value.recordsList![index]))));
+      children: List.generate(
+          controller.listRecords.value.recordsList.length,
+          (index) => widgetRecordsTableItem(
+              controller.listRecords.value.recordsList[index]))));
 
   Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
         Expanded(
