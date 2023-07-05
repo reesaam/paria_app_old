@@ -23,9 +23,9 @@ mixin _$AppContact {
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get mobile => throw _privateConstructorUsedError;
-  String get profilePicture => throw _privateConstructorUsedError;
-  int get accountRecordsCounter => throw _privateConstructorUsedError;
-  int get balance => throw _privateConstructorUsedError;
+  String? get profilePicture => throw _privateConstructorUsedError;
+  int? get accountRecordsCounter => throw _privateConstructorUsedError;
+  int? get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +43,9 @@ abstract class $AppContactCopyWith<$Res> {
       {String? firstName,
       String? lastName,
       String? mobile,
-      String profilePicture,
-      int accountRecordsCounter,
-      int balance});
+      String? profilePicture,
+      int? accountRecordsCounter,
+      int? balance});
 }
 
 /// @nodoc
@@ -64,9 +64,9 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? mobile = freezed,
-    Object? profilePicture = null,
-    Object? accountRecordsCounter = null,
-    Object? balance = null,
+    Object? profilePicture = freezed,
+    Object? accountRecordsCounter = freezed,
+    Object? balance = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: freezed == firstName
@@ -81,18 +81,18 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
               as String?,
-      profilePicture: null == profilePicture
+      profilePicture: freezed == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountRecordsCounter: null == accountRecordsCounter
+              as String?,
+      accountRecordsCounter: freezed == accountRecordsCounter
           ? _value.accountRecordsCounter
           : accountRecordsCounter // ignore: cast_nullable_to_non_nullable
-              as int,
-      balance: null == balance
+              as int?,
+      balance: freezed == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -109,9 +109,9 @@ abstract class _$$_AppContactCopyWith<$Res>
       {String? firstName,
       String? lastName,
       String? mobile,
-      String profilePicture,
-      int accountRecordsCounter,
-      int balance});
+      String? profilePicture,
+      int? accountRecordsCounter,
+      int? balance});
 }
 
 /// @nodoc
@@ -128,9 +128,9 @@ class __$$_AppContactCopyWithImpl<$Res>
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? mobile = freezed,
-    Object? profilePicture = null,
-    Object? accountRecordsCounter = null,
-    Object? balance = null,
+    Object? profilePicture = freezed,
+    Object? accountRecordsCounter = freezed,
+    Object? balance = freezed,
   }) {
     return _then(_$_AppContact(
       firstName: freezed == firstName
@@ -145,18 +145,18 @@ class __$$_AppContactCopyWithImpl<$Res>
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
               as String?,
-      profilePicture: null == profilePicture
+      profilePicture: freezed == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountRecordsCounter: null == accountRecordsCounter
+              as String?,
+      accountRecordsCounter: freezed == accountRecordsCounter
           ? _value.accountRecordsCounter
           : accountRecordsCounter // ignore: cast_nullable_to_non_nullable
-              as int,
-      balance: null == balance
+              as int?,
+      balance: freezed == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -168,9 +168,9 @@ class _$_AppContact implements _AppContact {
       {this.firstName,
       this.lastName,
       this.mobile,
-      this.profilePicture = '',
-      this.accountRecordsCounter = 0,
-      this.balance = 0});
+      this.profilePicture,
+      this.accountRecordsCounter,
+      this.balance});
 
   factory _$_AppContact.fromJson(Map<String, dynamic> json) =>
       _$$_AppContactFromJson(json);
@@ -182,14 +182,11 @@ class _$_AppContact implements _AppContact {
   @override
   final String? mobile;
   @override
-  @JsonKey()
-  final String profilePicture;
+  final String? profilePicture;
   @override
-  @JsonKey()
-  final int accountRecordsCounter;
+  final int? accountRecordsCounter;
   @override
-  @JsonKey()
-  final int balance;
+  final int? balance;
 
   @override
   String toString() {
@@ -215,9 +212,9 @@ abstract class _AppContact implements AppContact {
       {final String? firstName,
       final String? lastName,
       final String? mobile,
-      final String profilePicture,
-      final int accountRecordsCounter,
-      final int balance}) = _$_AppContact;
+      final String? profilePicture,
+      final int? accountRecordsCounter,
+      final int? balance}) = _$_AppContact;
 
   factory _AppContact.fromJson(Map<String, dynamic> json) =
       _$_AppContact.fromJson;
@@ -229,11 +226,11 @@ abstract class _AppContact implements AppContact {
   @override
   String? get mobile;
   @override
-  String get profilePicture;
+  String? get profilePicture;
   @override
-  int get accountRecordsCounter;
+  int? get accountRecordsCounter;
   @override
-  int get balance;
+  int? get balance;
   @override
   @JsonKey(ignore: true)
   _$$_AppContactCopyWith<_$_AppContact> get copyWith =>

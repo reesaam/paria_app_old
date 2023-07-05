@@ -11,9 +11,9 @@ _$_AppContact _$$_AppContactFromJson(Map<String, dynamic> json) =>
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       mobile: json['mobile'] as String?,
-      profilePicture: json['profilePicture'] as String? ?? '',
-      accountRecordsCounter: json['accountRecordsCounter'] as int? ?? 0,
-      balance: json['balance'] as int? ?? 0,
+      profilePicture: json['profilePicture'] as String?,
+      accountRecordsCounter: json['accountRecordsCounter'] as int?,
+      balance: json['balance'] as int?,
     );
 
 Map<String, dynamic> _$$_AppContactToJson(_$_AppContact instance) =>

@@ -9,9 +9,9 @@ class AppContact with _$AppContact {
     final String? firstName,
     final String? lastName,
     final String? mobile,
-    @Default('') final String profilePicture,
-    @Default(0) final int accountRecordsCounter,
-    @Default(0) final int balance,
+    final String? profilePicture,
+    final int? accountRecordsCounter,
+    final int? balance,
   }) = _AppContact;
 
   factory AppContact.fromJson(Map<String, dynamic> json) =>
