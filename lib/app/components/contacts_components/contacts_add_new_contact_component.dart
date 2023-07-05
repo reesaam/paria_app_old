@@ -5,7 +5,6 @@ import 'package:paria_app/app/components/app_general_components/app_text_field.d
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppContactsAddNewContactComponent {
   late List<AppContact> _listContacts;
@@ -37,19 +36,18 @@ class AppContactsAddNewContactComponent {
         ]),
       );
 
-  _addContact() async {
-    AppContact contact = AppContact(
-        firstName: _controllerFirstName.text ?? '',
-        lastName: _controllerLastName.text ?? '',
-        mobile: _controllerMobile.text ?? '');
-    _listContacts.add(contact);
-    // await AppLocalStorage.to.saveContactsRecords(_listContacts);
-    Get.back();
-  }
+  AppContact _provideContact() => AppContact(
+      firstName: _controllerFirstName.text ?? '',
+      lastName: _controllerLastName.text ?? '',
+      mobile: _controllerMobile.text ?? '');
 
-  addNewContact(List<AppContact> list) {
-    _listContacts = list;
-    AppDialogs.mainAppDialogWithOkCancel(AppTexts.contactsAddNewContactTitle,
-        _addNewContactDialogWidget(), _addContact);
+  Future<AppContact> addNewContactModal() async {
+    AppContact contact = AppContact();
+    await AppDialogs.mainAppDialogWithOkCancel(
+            AppTexts.contactsAddNewContactTitle,
+            _addNewContactDialogWidget(),
+            Get.back)
+        .whenComplete(() => contact = _provideContact());
+    return contact;
   }
 }

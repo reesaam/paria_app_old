@@ -14,7 +14,7 @@ class ContactPageComponent {
           Row(children: [
             AppContactComponents.getAvatar(
                 _contact, AppElements.contactsContactAvatarMaxRadius),
-            Text(AppTextProvider.getFullName(_contact)),
+            Text(AppTextProvider.getContactFullName(_contact)),
           ]),
         ]),
       );

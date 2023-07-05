@@ -9,6 +9,7 @@ import 'package:paria_app/app/components/contacts_components/contacts_components
 import 'package:paria_app/app/components/contacts_components/contacts_contact_page_component.dart';
 import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_app_contacts.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
@@ -38,28 +39,31 @@ class ContactsPage extends CoreView<ContactsController> {
       icon: Icons.add, onTap: controller.addContactFunction);
 
   @override
-  Widget get body => widgetContactsTable();
+  Widget get body => Obx(() => controller.listContacts.isEmpty()
+      ? widgetNoContacts()
+      : widgetContactsTable());
 
-  Widget widgetContactsTable() => Obx(() => ListView.builder(
-      shrinkWrap: true,
-      itemCount: controller.listContacts.value.contactsList.length,
-      itemBuilder: (context, index) =>
-          widgetContactsTableItem(controller.listContacts.value.contactsList[index])));
+  Widget widgetContactsTable() => Obx(() => Column(
+      children: List.generate(
+          controller.listContacts.count(),
+          (index) => widgetContactsTableItem(
+              controller.listContacts.value.contactsList[index]))));
 
   Widget widgetContactsTableItem(AppContact contact) => Padding(
-        padding: AppPaddings.contactsItem,
-        child: GestureDetector(
-          onTap: () => controller.showContactFunction(contact),
-          child: Row(children: [
-            AppContactComponents.getAvatar(contact, AppElements.contactsListAvatarMaxRadius),
-            AppSpaces.w20,
-            Text(AppTextProvider.getFullName(contact)),
-          ]),
-        ),
-      );
+      padding: AppPaddings.contactsItem,
+      child: GestureDetector(
+        onTap: () => controller.showContactFunction(contact),
+        child: Row(children: [
+          AppContactComponents.getAvatar(
+              contact, AppElements.contactsListAvatarMaxRadius),
+          AppSpaces.w20,
+          Text(AppTextProvider.getContactFullName(contact)),
+        ]),
+      ));
 
   Widget widgetNoContacts() => Container(
-    padding: AppPaddings.contactsNoContacts,
-    child: Text(AppTexts.contactsNoContacts, style: AppTextStyles.contactsNoContacts),
-  );
+        padding: AppPaddings.contactsNoContacts,
+        child: Text(AppTexts.contactsNoContacts,
+            style: AppTextStyles.contactsNoContacts),
+      );
 }
