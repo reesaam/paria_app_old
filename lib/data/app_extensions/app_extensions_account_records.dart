@@ -6,9 +6,7 @@ import 'package:paria_app/data/data_models/accounts_data_models/account_records/
 import 'package:paria_app/data/storage/local_storage.dart';
 
 extension Storage on Rx<AccountRecordsList> {
-  saveOnStorage() async {
-    await AppLocalStorage.to.saveAccountsRecords(value);
-  }
+  saveOnStorage() async => await AppLocalStorage.to.saveAccountsRecords(value);
 }
 
 extension AddRecord on Rx<AccountRecordsList> {
@@ -62,7 +60,8 @@ extension SortRecords on Rx<AccountRecordsList> {
   sortByContact() {
     List<AccountRecord> records = List<AccountRecord>.empty(growable: true);
     records.addAll(value.recordsList);
-    records.sort((a, b) => a.contact!.firstName!.compareTo(b.contact!.firstName!));
+    records
+        .sort((a, b) => a.contact!.firstName!.compareTo(b.contact!.firstName!));
     value.recordsList = records;
   }
 }
@@ -79,14 +78,15 @@ extension Sum on Rx<AccountRecordsList> {
   calculateSumToString() => calculateSum().toString();
 }
 
+extension Details on Rx<AccountRecordsList> {
+  count() => value.recordsList.length;
+  isEmpty() => value.recordsList.isEmpty;
+}
+
 extension ClearRecordsList on Rx<AccountRecordsList> {
   clearRecordsList() {
     value.recordsList.clear();
     saveOnStorage();
     refresh();
   }
-}
-
-extension Checks on Rx<AccountRecordsList> {
-  isEmpty() =>  value.recordsList.isEmpty;
 }

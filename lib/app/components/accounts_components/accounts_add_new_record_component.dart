@@ -6,7 +6,6 @@ import 'package:paria_app/data/data_models/accounts_data_models/account_records/
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddNewRecordComponent {
   //TextEditing Controllers

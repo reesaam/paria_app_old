@@ -15,7 +15,6 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -121,7 +120,7 @@ class AccountsPage extends CoreView<AccountsController> {
 
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(
-          controller.listRecords.value.recordsList.length,
+          controller.listRecords.count(),
           (index) => widgetRecordsTableItem(
               controller.listRecords.value.recordsList[index]))));
 
