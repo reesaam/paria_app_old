@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_add_new_contact_component.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_contact_page_component.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_app_contacts.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
@@ -16,7 +17,7 @@ class ContactsController extends CoreController {
   @override
   void dataInit() {
     listContacts.value = AppLocalStorage.to.loadContactsRecords();
-    debugPrint('Contacts Count: ${listContacts.count()}');
+    appDebugPrint('Contacts Count: ${listContacts.count()}');
   }
 
   @override
@@ -46,7 +47,7 @@ class ContactsController extends CoreController {
         ? null
         : {
             listContacts.addContact(contact),
-            debugPrint('Added Contact: $contact')
+            appDebugPrint('Added Contact: $contact')
           };
   }
 

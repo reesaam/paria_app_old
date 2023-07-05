@@ -57,12 +57,14 @@ class ContactsPage extends CoreView<ContactsController> {
           AppContactComponents.getAvatar(
               contact, AppElements.contactsListAvatarMaxRadius),
           AppSpaces.w20,
-          Text(AppTextProvider.getContactFullName(contact)),
+          Text(AppTextProvider.getContactFullName(contact),
+              style: AppTextStyles.contactsListItem),
         ]),
       ));
 
   Widget widgetNoContacts() => Container(
         padding: AppPaddings.contactsNoContacts,
+        alignment: Alignment.center,
         child: Text(AppTexts.contactsNoContacts,
             style: AppTextStyles.contactsNoContacts),
       );

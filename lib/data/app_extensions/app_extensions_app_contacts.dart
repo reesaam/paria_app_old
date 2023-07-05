@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
@@ -32,7 +34,7 @@ extension SortContacts on Rx<AppContactsList> {
   sortFirstName() {
     List<AppContact> contacts = List<AppContact>.empty(growable: true);
     contacts.addAll(value.contactsList);
-    value.contactsList.sort((a, b) => a.firstName!.compareTo(b.firstName!));
+    contacts.sort((a, b) => a.firstName!.compareTo(b.firstName!));
     value.contactsList = contacts;
   }
 }
