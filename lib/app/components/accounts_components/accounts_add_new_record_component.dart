@@ -8,11 +8,17 @@ import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AppAccountsAddNewRecordComponent {
+  AccountRecord record = const AccountRecord();
+
   //TextEditing Controllers
-  final TextEditingController _controllerAddNewRecordContact = TextEditingController();
-  final TextEditingController _controllerAddNewRecordTitle = TextEditingController();
-  final TextEditingController _controllerAddNewRecordAmount = TextEditingController();
-  final TextEditingController _controllerAddNewRecordDateTime = TextEditingController();
+  final TextEditingController _controllerAddNewRecordContact =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordTitle =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordAmount =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordDateTime =
+      TextEditingController();
 
   Widget _addNewAccountsRecordDialogWidget() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -46,7 +52,7 @@ class AppAccountsAddNewRecordComponent {
 
   AccountRecord _provideRecord() {
     _controllerAddNewRecordDateTime.text = DateTime.now().toString();
-    AccountRecord record = AccountRecord(
+    AccountRecord? record = AccountRecord(
         contact: AppContact(firstName: _controllerAddNewRecordContact.text),
         amount: int.parse(_controllerAddNewRecordAmount.text),
         title: _controllerAddNewRecordTitle.text,
@@ -55,13 +61,15 @@ class AppAccountsAddNewRecordComponent {
     return record;
   }
 
-  Future<AccountRecord> addNewAccountsRecordModal() async {
-    AccountRecord record = const AccountRecord();
+  Future<AccountRecord?> addNewAccountsRecordModal() async {
     await AppDialogs.mainAppDialogWithOkCancel(
-            AppTexts.accountsAddNewRecordTitle,
-            _addNewAccountsRecordDialogWidget(),
-            Get.back)
-        .whenComplete(() => record = _provideRecord());
-    return record;
+        AppTexts.accountsAddNewRecordTitle,
+        _addNewAccountsRecordDialogWidget(),
+        _provideRecord);
+    debugPrint(record == const AccountRecord()
+        ? 'Add Record Canceled'
+        : 'Record: $record');
+    debugPrint('Add Record Modal Closed');
+    return record == const AccountRecord() ? null : record;
   }
 }

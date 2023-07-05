@@ -7,7 +7,7 @@ import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AppContactsAddNewContactComponent {
-  late List<AppContact> _listContacts;
+  AppContact? contact = const AppContact();
 
   //TextEditing Controllers
   final TextEditingController _controllerFirstName = TextEditingController();
@@ -36,18 +36,20 @@ class AppContactsAddNewContactComponent {
         ]),
       );
 
-  AppContact _provideContact() => AppContact(
-      firstName: _controllerFirstName.text ?? '',
-      lastName: _controllerLastName.text ?? '',
-      mobile: _controllerMobile.text ?? '');
+  AppContact _provideContact() => contact = AppContact(
+      firstName: _controllerFirstName.text,
+      lastName: _controllerLastName.text,
+      mobile: _controllerMobile.text);
 
-  Future<AppContact> addNewContactModal() async {
-    AppContact contact = AppContact();
+  Future<AppContact?> addNewContactModal() async {
     await AppDialogs.mainAppDialogWithOkCancel(
-            AppTexts.contactsAddNewContactTitle,
-            _addNewContactDialogWidget(),
-            Get.back)
-        .whenComplete(() => contact = _provideContact());
-    return contact;
+        AppTexts.contactsAddNewContactTitle,
+        _addNewContactDialogWidget(),
+        _provideContact);
+    debugPrint(contact == const AppContact()
+        ? 'Add Contact Canceled'
+        : 'Contact: $contact');
+    debugPrint('Add Contact Modal Closed');
+    return contact == const AppContact() ? null : contact;
   }
 }

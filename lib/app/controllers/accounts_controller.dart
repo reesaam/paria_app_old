@@ -19,6 +19,7 @@ class AccountsController extends CoreController {
   @override
   void dataInit() {
     listRecords.value = AppLocalStorage.to.loadAccountsRecords();
+    debugPrint('Records Count: ${listRecords.count()}');
   }
 
   @override
@@ -45,9 +46,11 @@ class AccountsController extends CoreController {
   void clearRecordsList() => listRecords.clearRecordsList();
 
   void addRecordFunction() async {
-    AccountRecord record =
+    AccountRecord? record =
         await AppAccountsAddNewRecordComponent().addNewAccountsRecordModal();
-    listRecords.addRecord(record);
+    record == null
+        ? null
+        : {listRecords.addRecord(record), debugPrint('Added Record: $record')};
   }
 
   void clearRecord(AccountRecord record, bool? checked) => checked == true
