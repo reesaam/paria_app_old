@@ -196,28 +196,6 @@ class _$_AppContact implements _AppContact {
     return 'AppContact(firstName: $firstName, lastName: $lastName, mobile: $mobile, profilePicture: $profilePicture, accountRecordsCounter: $accountRecordsCounter, balance: $balance)';
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AppContact &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
-            (identical(other.mobile, mobile) || other.mobile == mobile) &&
-            (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture) &&
-            (identical(other.accountRecordsCounter, accountRecordsCounter) ||
-                other.accountRecordsCounter == accountRecordsCounter) &&
-            (identical(other.balance, balance) || other.balance == balance));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, firstName, lastName, mobile,
-      profilePicture, accountRecordsCounter, balance);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -269,6 +247,8 @@ AppContactsList _$AppContactsListFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppContactsList {
   List<AppContact> get contactsList => throw _privateConstructorUsedError;
+  set contactsList(List<AppContact> value) =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -335,7 +315,7 @@ class __$$_AppContactsListCopyWithImpl<$Res>
   }) {
     return _then(_$_AppContactsList(
       contactsList: null == contactsList
-          ? _value._contactsList
+          ? _value.contactsList
           : contactsList // ignore: cast_nullable_to_non_nullable
               as List<AppContact>,
     ));
@@ -345,40 +325,19 @@ class __$$_AppContactsListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AppContactsList implements _AppContactsList {
-  const _$_AppContactsList(
-      {final List<AppContact> contactsList = const <AppContact>[]})
-      : _contactsList = contactsList;
+  _$_AppContactsList({this.contactsList = const <AppContact>[]});
 
   factory _$_AppContactsList.fromJson(Map<String, dynamic> json) =>
       _$$_AppContactsListFromJson(json);
 
-  final List<AppContact> _contactsList;
   @override
   @JsonKey()
-  List<AppContact> get contactsList {
-    if (_contactsList is EqualUnmodifiableListView) return _contactsList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_contactsList);
-  }
+  List<AppContact> contactsList;
 
   @override
   String toString() {
     return 'AppContactsList(contactsList: $contactsList)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AppContactsList &&
-            const DeepCollectionEquality()
-                .equals(other._contactsList, _contactsList));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_contactsList));
 
   @JsonKey(ignore: true)
   @override
@@ -395,7 +354,7 @@ class _$_AppContactsList implements _AppContactsList {
 }
 
 abstract class _AppContactsList implements AppContactsList {
-  const factory _AppContactsList({final List<AppContact> contactsList}) =
+  factory _AppContactsList({List<AppContact> contactsList}) =
       _$_AppContactsList;
 
   factory _AppContactsList.fromJson(Map<String, dynamic> json) =
@@ -403,6 +362,7 @@ abstract class _AppContactsList implements AppContactsList {
 
   @override
   List<AppContact> get contactsList;
+  set contactsList(List<AppContact> value);
   @override
   @JsonKey(ignore: true)
   _$$_AppContactsListCopyWith<_$_AppContactsList> get copyWith =>

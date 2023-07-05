@@ -21,3 +21,18 @@ Map<String, dynamic> _$$_AppPageDetailToJson(_$_AppPageDetail instance) =>
       'bottomBarItemNumber': instance.bottomBarItemNumber,
       'bottomBarIcon': instance.bottomBarIcon,
     };
+
+_$_AppPageDetailsList _$$_AppPageDetailsListFromJson(
+        Map<String, dynamic> json) =>
+    _$_AppPageDetailsList(
+      pageDetailsList: (json['pageDetailsList'] as List<dynamic>?)
+              ?.map((e) => AppPageDetail.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AppPageDetail>[],
+    );
+
+Map<String, dynamic> _$$_AppPageDetailsListToJson(
+        _$_AppPageDetailsList instance) =>
+    <String, dynamic>{
+      'pageDetailsList': instance.pageDetailsList,
+    };

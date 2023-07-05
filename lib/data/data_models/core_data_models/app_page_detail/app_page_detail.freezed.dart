@@ -161,26 +161,6 @@ class _$_AppPageDetail implements _AppPageDetail {
     return 'AppPageDetail(pageName: $pageName, pageRoute: $pageRoute, bottomBarItemNumber: $bottomBarItemNumber, bottomBarIcon: $bottomBarIcon)';
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AppPageDetail &&
-            (identical(other.pageName, pageName) ||
-                other.pageName == pageName) &&
-            (identical(other.pageRoute, pageRoute) ||
-                other.pageRoute == pageRoute) &&
-            (identical(other.bottomBarItemNumber, bottomBarItemNumber) ||
-                other.bottomBarItemNumber == bottomBarItemNumber) &&
-            (identical(other.bottomBarIcon, bottomBarIcon) ||
-                other.bottomBarIcon == bottomBarIcon));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, pageName, pageRoute, bottomBarItemNumber, bottomBarIcon);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -216,5 +196,135 @@ abstract class _AppPageDetail implements AppPageDetail {
   @override
   @JsonKey(ignore: true)
   _$$_AppPageDetailCopyWith<_$_AppPageDetail> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AppPageDetailsList _$AppPageDetailsListFromJson(Map<String, dynamic> json) {
+  return _AppPageDetailsList.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AppPageDetailsList {
+  List<AppPageDetail> get pageDetailsList => throw _privateConstructorUsedError;
+  set pageDetailsList(List<AppPageDetail> value) =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AppPageDetailsListCopyWith<AppPageDetailsList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AppPageDetailsListCopyWith<$Res> {
+  factory $AppPageDetailsListCopyWith(
+          AppPageDetailsList value, $Res Function(AppPageDetailsList) then) =
+      _$AppPageDetailsListCopyWithImpl<$Res, AppPageDetailsList>;
+  @useResult
+  $Res call({List<AppPageDetail> pageDetailsList});
+}
+
+/// @nodoc
+class _$AppPageDetailsListCopyWithImpl<$Res, $Val extends AppPageDetailsList>
+    implements $AppPageDetailsListCopyWith<$Res> {
+  _$AppPageDetailsListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pageDetailsList = null,
+  }) {
+    return _then(_value.copyWith(
+      pageDetailsList: null == pageDetailsList
+          ? _value.pageDetailsList
+          : pageDetailsList // ignore: cast_nullable_to_non_nullable
+              as List<AppPageDetail>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AppPageDetailsListCopyWith<$Res>
+    implements $AppPageDetailsListCopyWith<$Res> {
+  factory _$$_AppPageDetailsListCopyWith(_$_AppPageDetailsList value,
+          $Res Function(_$_AppPageDetailsList) then) =
+      __$$_AppPageDetailsListCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<AppPageDetail> pageDetailsList});
+}
+
+/// @nodoc
+class __$$_AppPageDetailsListCopyWithImpl<$Res>
+    extends _$AppPageDetailsListCopyWithImpl<$Res, _$_AppPageDetailsList>
+    implements _$$_AppPageDetailsListCopyWith<$Res> {
+  __$$_AppPageDetailsListCopyWithImpl(
+      _$_AppPageDetailsList _value, $Res Function(_$_AppPageDetailsList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pageDetailsList = null,
+  }) {
+    return _then(_$_AppPageDetailsList(
+      pageDetailsList: null == pageDetailsList
+          ? _value.pageDetailsList
+          : pageDetailsList // ignore: cast_nullable_to_non_nullable
+              as List<AppPageDetail>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AppPageDetailsList implements _AppPageDetailsList {
+  _$_AppPageDetailsList({this.pageDetailsList = const <AppPageDetail>[]});
+
+  factory _$_AppPageDetailsList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppPageDetailsListFromJson(json);
+
+  @override
+  @JsonKey()
+  List<AppPageDetail> pageDetailsList;
+
+  @override
+  String toString() {
+    return 'AppPageDetailsList(pageDetailsList: $pageDetailsList)';
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AppPageDetailsListCopyWith<_$_AppPageDetailsList> get copyWith =>
+      __$$_AppPageDetailsListCopyWithImpl<_$_AppPageDetailsList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppPageDetailsListToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AppPageDetailsList implements AppPageDetailsList {
+  factory _AppPageDetailsList({List<AppPageDetail> pageDetailsList}) =
+      _$_AppPageDetailsList;
+
+  factory _AppPageDetailsList.fromJson(Map<String, dynamic> json) =
+      _$_AppPageDetailsList.fromJson;
+
+  @override
+  List<AppPageDetail> get pageDetailsList;
+  set pageDetailsList(List<AppPageDetail> value);
+  @override
+  @JsonKey(ignore: true)
+  _$$_AppPageDetailsListCopyWith<_$_AppPageDetailsList> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -3,24 +3,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_contact.freezed.dart';
 part 'app_contact.g.dart';
 
-@freezed
+@unfreezed
 class AppContact with _$AppContact {
   const factory AppContact({
-    @required String? firstName,
-    @required String? lastName,
-    @required String? mobile,
-    @Default('') String profilePicture,
-    @Default(0) int accountRecordsCounter,
-    @Default(0) int balance,
+    final String? firstName,
+    final String? lastName,
+    final String? mobile,
+    @Default('') final String profilePicture,
+    @Default(0) final int accountRecordsCounter,
+    @Default(0) final int balance,
   }) = _AppContact;
 
   factory AppContact.fromJson(Map<String, dynamic> json) =>
       _$AppContactFromJson(json);
 }
 
-@freezed
+@unfreezed
 class AppContactsList with _$AppContactsList {
-  const factory AppContactsList({
+  factory AppContactsList({
     @Default(<AppContact>[]) List<AppContact> contactsList,
   }) = _AppContactsList;
 
