@@ -10,7 +10,8 @@ class AppTextField extends StatelessWidget {
     required this.label,
     required this.hint,
     this.icon,
-    this.textInputType
+    this.textInputType,
+    this.suffixAction,
   });
 
   final TextEditingController controller;
@@ -18,23 +19,30 @@ class AppTextField extends StatelessWidget {
   final String hint;
   final IconData? icon;
   final TextInputType? textInputType;
+  final VoidCallback? suffixAction;
+
+  Widget _icon() => Icon(icon, color: AppColors.textNormalGrey);
+
+  Widget suffix() => suffixAction == null
+      ? _icon()
+      : InkWell(onTap: suffixAction, child: _icon());
 
   @override
   Widget build(BuildContext context) => TextField(
       controller: controller,
-      cursorColor: AppColors.textNormal,
+      textAlign: TextAlign.start,
+      textAlignVertical: TextAlignVertical.center,
+      style: AppTextStyles.textFieldText,
+      cursorColor: AppColors.textNormalGrey,
       keyboardType: textInputType ?? TextInputType.text,
       decoration: InputDecoration(
-        label: Text(label),
-        labelStyle: AppTextStyles.accountsAddNewRecordTextFieldsLabel,
+        labelText: label,
+        labelStyle: AppTextStyles.textFieldLabel,
         hintText: hint,
-        hintStyle: AppTextStyles.accountsAddNewRecordTextFieldsHint,
+        hintStyle: AppTextStyles.textFieldHint,
         hintMaxLines: 1,
         alignLabelWithHint: true,
-        suffixIcon: Icon(icon),
-        suffixIconColor: AppColors.textNormalGrey,
-        // focusColor: AppColors.appDefaultColor,
-        // fillColor: AppColors.appDefaultColor,
+        suffix: suffix(),
         border: AppElements.defaultOutlineBorder,
         enabledBorder: AppElements.defaultOutlineBorder,
         focusedBorder: AppElements.defaultOutlineBorderFocused,

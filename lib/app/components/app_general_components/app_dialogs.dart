@@ -44,12 +44,38 @@ class AppDialogs {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(children: [
-                      Text(title, style: AppTextStyles.modalTitle),
-                      AppSpaces.h40,
-                      form,
-                    ]),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title, style: AppTextStyles.modalTitle),
+                          AppSpaces.h40,
+                          form,
+                        ]),
                     AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
+                  ])));
+
+  static mainAppDialogWithCancel(String title, Widget form) =>
+      showModalBottomSheet(
+          context: Get.context!,
+          useSafeArea: true,
+          showDragHandle: true,
+          isScrollControlled: true,
+          shape: AppElements.defaultModalBorderShape,
+          builder: (context) => Padding(
+              padding: AppPaddings.generalModal,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title, style: AppTextStyles.modalTitle),
+                          AppSpaces.h40,
+                          form,
+                        ]),
+                    AppGeneralButton(
+                        text: AppTexts.generalCancel, onTap: _onTapCancel),
                   ])));
 
   static mainAppDialogWithOkCancel(

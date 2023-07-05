@@ -15,11 +15,11 @@ class AppTexts {
 
   ///Contacts Add New Contact Modal
   static String get contactsAddNewContactTitle => 'Add New Contact';
-  static String get contactsAddNewContactFirstNameTitle => 'First Name:';
+  static String get contactsAddNewContactFirstNameTitle => 'First Name';
   static String get contactsAddNewContactFirstNameHint => 'Enter First Name';
-  static String get contactsAddNewContactLastNameTitle => 'Last Name:';
+  static String get contactsAddNewContactLastNameTitle => 'Last Name';
   static String get contactsAddNewContactLastNameHint => 'Enter Last Name';
-  static String get contactsAddNewContactMobileTitle => 'Mobile:';
+  static String get contactsAddNewContactMobileTitle => 'Mobile';
   static String get contactsAddNewContactMobileHint => 'Enter Mobile';
 
   ///Accounts
@@ -40,4 +40,5 @@ class AppTexts {
   static String get accountsAddNewRecordFieldAmountHint => 'Enter the Amount';
   static String get accountsAddNewRecordFieldDateTimeTitle => 'Date & Time';
   static String get accountsAddNewRecordFieldDateTimeHint => 'Enter Date and Time';
+  static String get accountsAddNewRecordChooseContact => 'Choose a Contact:';
 }

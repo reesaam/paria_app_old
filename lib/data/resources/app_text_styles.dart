@@ -20,12 +20,16 @@ class AppTextStyles {
 
   ///Contacts
   static TextStyle get contactsNoContacts => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
+  static TextStyle get contactsListItem => TextStyle(color: AppColors.textNormalGrey);
+
+  static TextStyle get contactsChooseContact => TextStyle(fontSize: 20, color: AppColors.textNormalGrey);
 
   ///Accounts
   static TextStyle get accountNoRecord => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
   static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: 18, color: AppColors.appDefaultColor);
 
-  ///Accounts Add New Record Modal
-  static TextStyle get accountsAddNewRecordTextFieldsLabel => TextStyle(color: AppColors.textNormalGrey);
-  static TextStyle get accountsAddNewRecordTextFieldsHint => TextStyle(color: AppColors.textNormalGrey);
+  ///Text Fields
+  static TextStyle get textFieldText => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get textFieldLabel => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get textFieldHint => TextStyle(color: AppColors.textNormalGrey);
 }

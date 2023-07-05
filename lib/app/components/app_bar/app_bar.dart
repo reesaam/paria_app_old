@@ -4,9 +4,12 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 
 class AppAppBar {
+  Widget _getPageTitle(AppPageDetail pageDetail) =>
+      Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle);
+
   PreferredSizeWidget? mainBar(AppPageDetail pageDetail) => AppBar(
-    centerTitle: false,
-    backgroundColor: AppColors.appBarBackground,
-    title: Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle),
-  );
+        centerTitle: false,
+        backgroundColor: AppColors.appBarBackground,
+        title: _getPageTitle(pageDetail),
+      );
 }
