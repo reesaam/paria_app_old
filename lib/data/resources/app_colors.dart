@@ -13,7 +13,9 @@ class AppColors {
   static Color get _white => Colors.white;
   static Color get _black => Colors.black;
   static Color get _grey => Colors.grey;
-  static Color get _pinkSalmon => const Color(0xffff9999);
+  // static Color get _pinkSalmon => const Color(0xffff9999);
+  // static Color get _pinkSalmon => const Color(0xfffab072);
+  static Color get _pinkSalmon => const Color(0xfffe7b7c);
 
   ///Generals
   //Texts
@@ -39,7 +41,8 @@ class AppColors {
 
   ///Modules
   //AppBar
-  static Color get appBarBackground => appBackground.withOpacity(0.8);
+  // static Color get appBarBackground => appBackground.withOpacity(0.8);
+  static Color get appBarBackground => appDefaultColor;
   static Color get appBarText => textNormal;
 
   //Bottom Navigation Bar

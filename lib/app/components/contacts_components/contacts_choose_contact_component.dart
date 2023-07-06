@@ -8,8 +8,7 @@ import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class ChooseContactComponent {
-  final AppContactsList _listContacts =
-      AppLocalStorage.to.loadContacts();
+  final AppContactsList _listContacts = AppLocalStorage.to.loadContacts();
   AppContact? _selectedContact;
 
   Widget _chooseContactItem(AppContact contact) => GestureDetector(

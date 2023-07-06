@@ -32,4 +32,7 @@ class AppTextStyles {
   static TextStyle get textFieldText => TextStyle(color: AppColors.textNormalGrey);
   static TextStyle get textFieldLabel => TextStyle(color: AppColors.textNormalGrey);
   static TextStyle get textFieldHint => TextStyle(color: AppColors.textNormalGrey);
+
+  ///Popup Menu
+  static TextStyle get popupMenuItem => const TextStyle(fontSize: 15);
 }

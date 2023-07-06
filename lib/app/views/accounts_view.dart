@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
+import 'package:paria_app/app/components/app_general_components/app_popupmenu.dart';
+import 'package:paria_app/app/components/app_general_components/app_popupmenu_item.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
-import 'package:paria_app/data/app_extensions/app_general_extensions.dart';
+import 'package:paria_app/data/app_extensions/app_string_extensions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
@@ -23,7 +24,7 @@ class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppbar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => widgetTopBar();
@@ -104,18 +105,18 @@ class AccountsPage extends CoreView<AccountsController> {
             : widgetRecordsTable()),
       ]);
 
-  Widget recordsTableThreeDotsMenu() => SizedBox(
+  Widget recordsTableThreeDotsMenu() => Obx(() => SizedBox(
       height: 20,
-      child: PopupMenuButton(
-          padding: AppPaddings.zero,
-          shape: AppElements.defaultBorderShape,
-          icon: AppIcons.threeDots.withAppDefaultColor(),
-          itemBuilder: (context) => recordsTableThreeDotsMenuList()));
+      child: AppPopupMenu(listItems: recordsTableThreeDotsMenuList())));
 
-  List<PopupMenuItem> recordsTableThreeDotsMenuList() => List.from([
-        PopupMenuItem(
-            onTap: controller.clearRecordsList,
-            child: Text(AppTexts.accountsTablePopupMenuClearRecords))
+  List<AppPopupMenuItem> recordsTableThreeDotsMenuList() =>
+      List<AppPopupMenuItem>.from([
+        AppPopupMenuItem(
+            text: AppTexts.accountsTablePopupMenuClearRecords,
+            onTapFunction: controller.clearRecordsList),
+        AppPopupMenuItem(
+            text: controller.showClearedText.value,
+            onTapFunction: controller.changeShowCleared),
       ]);
 
   Widget widgetRecordsTable() => Obx(() => Column(
@@ -124,24 +125,29 @@ class AccountsPage extends CoreView<AccountsController> {
           (index) => widgetRecordsTableItem(
               controller.listRecords.value.recordsList[index]))));
 
-  Widget widgetRecordsTableItem(AccountRecord record) => Row(children: [
-        Expanded(
-            flex: 1,
-            child: Checkbox(
-                value: record.cleared,
-                onChanged: (checked) =>
-                    controller.clearRecord(record, checked))),
-        Expanded(
-            flex: 2,
-            child: Text(record.contact!.firstName ??
-                AppTexts.generalNotAvailableInitials)),
-        Expanded(
-            flex: 3,
-            child: Text(record.title ?? AppTexts.generalNotAvailableInitials)),
-        Expanded(flex: 2, child: Text(record.amount.toString())),
-        Expanded(
-            flex: 3, child: Text(AppTextProvider.dateText(record.dateTime!))),
-      ]);
+  Widget widgetRecordsTableItem(AccountRecord record) =>
+      !controller.showCleared.value && record.cleared == true
+          ? const SizedBox.shrink()
+          : Row(children: [
+              Expanded(
+                  flex: 1,
+                  child: Checkbox(
+                      value: record.cleared,
+                      onChanged: (checked) =>
+                          controller.clearRecord(record, checked))),
+              Expanded(
+                  flex: 2,
+                  child: Text(record.contact!.firstName ??
+                      AppTexts.generalNotAvailableInitials)),
+              Expanded(
+                  flex: 3,
+                  child: Text(
+                      record.title ?? AppTexts.generalNotAvailableInitials)),
+              Expanded(flex: 2, child: Text(record.amount.toCurrency())),
+              Expanded(
+                  flex: 3,
+                  child: Text(AppTextProvider.dateText(record.dateTime!))),
+            ]);
 
   Widget widgetNoRecord() => Container(
         padding: AppPaddings.accountsNoRecordText,

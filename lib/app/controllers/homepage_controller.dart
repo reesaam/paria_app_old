@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/storage/local_storage.dart';
 
 class HomePageController extends CoreController {
 
@@ -8,7 +9,9 @@ class HomePageController extends CoreController {
   late RxString date;
 
   @override
-  void dataInit() {}
+  void dataInit() {
+    // AppLocalStorage.to.clearStorage();
+  }
 
   @override
   void pageInit() {

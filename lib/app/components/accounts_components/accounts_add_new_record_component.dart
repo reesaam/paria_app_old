@@ -13,6 +13,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddNewRecordComponent {
   AccountRecord record = const AccountRecord();
+  AppContact? selectedContact = const AppContact();
 
   //TextEditing Controllers
   final TextEditingController _controllerAddNewRecordContact =
@@ -56,18 +57,17 @@ class AppAccountsAddNewRecordComponent {
       );
 
   _chooseContact() async {
-    AppContact? selectedContact =
-        await ChooseContactComponent().chooseContact();
+    selectedContact = await ChooseContactComponent().chooseContact();
     selectedContact == null
         ? null
         : _controllerAddNewRecordContact.text =
-            '${selectedContact.firstName} ${selectedContact.lastName}';
+            '${selectedContact!.firstName} ${selectedContact!.lastName}';
   }
 
   provideRecord() {
     _controllerAddNewRecordDateTime.text = DateTime.now().toString();
     record = AccountRecord(
-        contact: AppContact(firstName: _controllerAddNewRecordContact.text),
+        contact: selectedContact,
         amount: int.parse(_controllerAddNewRecordAmount.text),
         title: _controllerAddNewRecordTitle.text,
         dateTime: DateTime.parse(_controllerAddNewRecordDateTime.text),

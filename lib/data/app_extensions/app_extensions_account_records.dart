@@ -67,20 +67,18 @@ extension SortRecords on Rx<AccountRecordsList> {
 }
 
 extension Sum on Rx<AccountRecordsList> {
-  calculateSum() {
+  int calculateSum() {
     int sum = 0;
     for (AccountRecord r in value.recordsList) {
       sum += r.amount!;
     }
     return sum;
   }
-
-  calculateSumToString() => calculateSum().toString();
 }
 
 extension Details on Rx<AccountRecordsList> {
-  count() => value.recordsList.length;
-  isEmpty() => value.recordsList.isEmpty;
+  int count() => value.recordsList.length;
+  bool isEmpty() => value.recordsList.isEmpty;
 }
 
 extension ClearRecordsList on Rx<AccountRecordsList> {

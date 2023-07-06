@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/resources/app_info.dart';
@@ -17,7 +18,8 @@ class SplashScreenController extends CoreController {
 
   @override
   void dataInit() {
-    AppSharedPreferences().loadData();
+    // clearAppData();
+    // AppSharedPreferences.to.loadData();
   }
 
   @override

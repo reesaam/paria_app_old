@@ -1,3 +1,7 @@
+enum AppRegions {
+  en_us,
+}
+
 enum AppStorageKeys {
   keyContacts,
   keyAccountRecords,

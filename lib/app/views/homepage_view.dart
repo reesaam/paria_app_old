@@ -18,7 +18,7 @@ class HomePage extends CoreView<HomePageController> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppbar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => null;

@@ -10,7 +10,7 @@ class SettingsPage extends CoreView<SettingsController> {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppBar().mainBar(controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppbar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => null;

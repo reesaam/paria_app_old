@@ -29,6 +29,8 @@ class AppTexts {
   static String get accountsNoRecords => 'No Records';
 
   static String get accountsTablePopupMenuClearRecords => 'Clear Records';
+  static String get accountsTablePopupMenuShowClearedRecords => 'Show Cleared Records';
+  static String get accountsTablePopupMenuHideClearedRecords => 'Hide Cleared Records';
 
   ///Accounts Add New Record Modal
   static String get accountsAddNewRecordTitle => 'Add New Record';
