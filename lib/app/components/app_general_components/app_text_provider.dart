@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 
 class AppTextProvider {
@@ -7,5 +8,6 @@ class AppTextProvider {
   static String getContactInitials(AppContact contact) =>
       '${contact.firstName![0]}${contact.lastName![0]}';
 
-  static dateText(DateTime date) => '${date.year}/${date.month}/${date.day}';
+  static String dateText(DateTime date) =>
+      '${date.year.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.day.toString().padLeft(2, '0')}';
 }
