@@ -43,4 +43,8 @@ class AppTexts {
   static String get accountsAddNewRecordFieldDateTimeTitle => 'Date & Time';
   static String get accountsAddNewRecordFieldDateTimeHint => 'Enter Date and Time';
   static String get accountsAddNewRecordChooseContact => 'Choose a Contact:';
+
+  ///Settings
+  static String get settingSectionTitleGeneral => 'General';
+  static String get settingSectionTitleStorage => 'Storage';
 }

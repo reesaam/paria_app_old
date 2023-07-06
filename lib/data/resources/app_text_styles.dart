@@ -18,6 +18,14 @@ class AppTextStyles {
   ///SplashScreen
   static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
 
+  ///Text Fields
+  static TextStyle get textFieldText => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get textFieldLabel => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get textFieldHint => TextStyle(color: AppColors.textNormalGrey);
+
+  ///Popup Menu
+  static TextStyle get popupMenuItem => const TextStyle(fontSize: 15);
+
   ///Contacts
   static TextStyle get contactsNoContacts => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
   static TextStyle get contactsListItem => TextStyle(color: AppColors.textNormalGrey);
@@ -28,11 +36,6 @@ class AppTextStyles {
   static TextStyle get accountNoRecord => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
   static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: 18, color: AppColors.appDefaultColor);
 
-  ///Text Fields
-  static TextStyle get textFieldText => TextStyle(color: AppColors.textNormalGrey);
-  static TextStyle get textFieldLabel => TextStyle(color: AppColors.textNormalGrey);
-  static TextStyle get textFieldHint => TextStyle(color: AppColors.textNormalGrey);
-
-  ///Popup Menu
-  static TextStyle get popupMenuItem => const TextStyle(fontSize: 15);
+  ///Settings
+  static TextStyle get settingsSectionTitle => const TextStyle(fontSize: 18);
 }
