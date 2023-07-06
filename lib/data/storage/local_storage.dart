@@ -11,10 +11,6 @@ class AppLocalStorage {
 
   static AppLocalStorage get to => Get.find();
 
-  // List emptyList = List.empty(growable: true);
-
-  // dynamic emptyList(T) => List<T>.empty(growable: true);
-
   ///Keys
   final _keyContacts = AppStorageKeys.keyContacts;
   final _keyAccountsRecords = AppStorageKeys.keyAccountRecords;
@@ -42,7 +38,7 @@ class AppLocalStorage {
   AccountRecordsList loadAccountsRecords() {
     final data = _storage.read<Map<String, dynamic>>(_keyAccountsRecords.name);
     return data == null
-        ? AccountRecordsList()
+        ? AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true))
         : AccountRecordsList.fromJson(data);
   }
 }

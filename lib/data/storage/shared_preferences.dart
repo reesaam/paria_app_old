@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
@@ -7,11 +8,14 @@ import 'package:paria_app/data/storage/local_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppSharedPreferences {
+
+  static AppSharedPreferences get to => Get.find();
+
   ///Keys
   final _keyContacts = AppStorageKeys.keyContacts;
   final _keyAccountsRecords = AppStorageKeys.keyAccountRecords;
 
-  Future<void> saveData() async {
+  void saveData() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
 
     AppContactsList storageContacts = AppLocalStorage.to.loadContacts();
@@ -23,12 +27,12 @@ class AppSharedPreferences {
     sp.setString(_keyAccountsRecords.name, jsonAccountRecords);
   }
 
-  Future<void> loadData() async {
+  void loadData() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
 
     String? dataContacts = sp.getString(_keyContacts.name);
     AppContactsList contacts = dataContacts == null
-        ? AppContactsList()
+        ? AppContactsList(contactsList: List<AppContact>.empty(growable: true))
         : AppContactsList.fromJson(json.decode(dataContacts));
     AppLocalStorage.to.saveContacts(contacts);
 
@@ -39,7 +43,7 @@ class AppSharedPreferences {
     AppLocalStorage.to.saveAccountsRecords(accountRecords);
   }
 
-  Future<void> clearData() async {
+  void clearData() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();
   }
