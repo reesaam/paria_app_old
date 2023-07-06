@@ -1,3 +1,8 @@
+enum AppStorageKeys {
+  keyContacts,
+  keyAccountRecords,
+}
+
 enum AppBottomNavigationPages {
   homepage,
   contacts,
