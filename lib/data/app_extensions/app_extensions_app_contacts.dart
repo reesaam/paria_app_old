@@ -5,7 +5,7 @@ import 'package:paria_app/data/data_models/core_data_models/app_contact/app_cont
 import 'package:paria_app/data/storage/local_storage.dart';
 
 extension Storage on Rx<AppContactsList> {
-  saveOnStorage() async => await AppLocalStorage.to.saveContactsRecords(value);
+  saveOnStorage() async => await AppLocalStorage.to.saveContacts(value);
 }
 
 extension AddContact on Rx<AppContactsList> {

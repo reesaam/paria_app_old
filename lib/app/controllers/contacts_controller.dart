@@ -16,7 +16,7 @@ class ContactsController extends CoreController {
 
   @override
   void dataInit() {
-    listContacts.value = AppLocalStorage.to.loadContactsRecords();
+    listContacts.value = AppLocalStorage.to.loadContacts();
     appDebugPrint('Contacts Count: ${listContacts.count()}');
   }
 
