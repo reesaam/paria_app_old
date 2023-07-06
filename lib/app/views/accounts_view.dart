@@ -24,7 +24,7 @@ class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppbar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => widgetTopBar();

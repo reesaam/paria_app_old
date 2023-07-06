@@ -3,18 +3,17 @@ import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 
-class AppAppbar extends AppBar {
-  AppAppbar({super.key, required this.pageDetail});
+class AppAppBar extends AppBar {
+  AppAppBar({super.key, required this.pageDetail}) : super();
 
   final AppPageDetail pageDetail;
 
-  Widget _getPageTitle(AppPageDetail pageDetail) =>
-      Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle);
+  @override
+  Widget? get title => Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle);
 
-  Widget build(BuildContext context) =>
-      AppBar(
-        centerTitle: false,
-        backgroundColor: AppColors.appBarBackground,
-        title: _getPageTitle(pageDetail),
-      );
+  @override
+  Color? get backgroundColor => AppColors.appBarBackground;
+
+  @override
+  bool? get centerTitle => false;
 }

@@ -22,7 +22,7 @@ class ContactsPage extends CoreView<ContactsController> {
   const ContactsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppbar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => null;
