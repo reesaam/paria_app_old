@@ -7,6 +7,7 @@ import 'package:paria_app/data/resources/app_info.dart';
 import 'package:paria_app/data/resources/app_logos.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
+import 'package:paria_app/data/storage/shared_preferences.dart';
 
 class SplashScreenController extends CoreController {
 
@@ -15,7 +16,9 @@ class SplashScreenController extends CoreController {
   late String appVersion;
 
   @override
-  void dataInit() {}
+  void dataInit() {
+    AppSharedPreferences().loadData();
+  }
 
   @override
   void pageInit() {
