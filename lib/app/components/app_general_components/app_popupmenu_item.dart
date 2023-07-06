@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:paria_app/app/components/app_general_components/app_popupmenu.dart';
+import 'package:paria_app/data/app_extensions/app_general_extensions.dart';
+import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_icons.dart';
+import 'package:paria_app/data/resources/app_paddings.dart';
+import 'package:paria_app/data/resources/app_text_styles.dart';
+
+class AppPopupMenu extends StatelessWidget {
+  const AppPopupMenu({super.key, required this.listItems});
+
+  final List<AppPopupMenuItem> listItems;
+
+  @override
+  Widget build(BuildContext context) => PopupMenuButton(
+      padding: AppPaddings.zero,
+      shape: AppElements.defaultBorderShape,
+      icon: AppIcons.threeDots.withAppDefaultColor(),
+      itemBuilder: (context) => List<PopupMenuItem>.generate(
+          listItems.length,
+          (index) => AppPopupMenuItem(
+              text: listItems[index].text, onTapFunction: listItems[index].onTap)));
+}
