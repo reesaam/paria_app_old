@@ -39,9 +39,9 @@ class AppContactsAddNewContactComponent {
 
   _provideContact() {
     contact = AppContact(
-        firstName: _controllerFirstName.text,
-        lastName: _controllerLastName.text,
-        mobile: _controllerMobile.text);
+        firstName: _controllerFirstName.text ?? '',
+        lastName: _controllerLastName.text ?? '',
+        mobile: _controllerMobile.text ?? '');
     Get.back();
   }
 
