@@ -146,7 +146,7 @@ class AccountsPage extends CoreView<AccountsController> {
               Expanded(flex: 2, child: Text(record.amount.toCurrency())),
               Expanded(
                   flex: 3,
-                  child: Text(AppTextProvider.dateText(record.dateTime!))),
+                  child: Text(AppTextProvider.formatDate(record.dateTime!))),
             ]);
 
   Widget widgetNoRecord() => Container(

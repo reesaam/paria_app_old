@@ -12,6 +12,7 @@ class AppTextField extends StatelessWidget {
     this.icon,
     this.textInputType,
     this.suffixAction,
+    this.editable,
   });
 
   final TextEditingController controller;
@@ -20,6 +21,7 @@ class AppTextField extends StatelessWidget {
   final IconData? icon;
   final TextInputType? textInputType;
   final VoidCallback? suffixAction;
+  final bool? editable;
 
   Widget _icon() => Icon(icon, color: AppColors.textNormalGrey);
 
@@ -35,6 +37,8 @@ class AppTextField extends StatelessWidget {
       style: AppTextStyles.textFieldText,
       cursorColor: AppColors.textNormalGrey,
       keyboardType: textInputType ?? TextInputType.text,
+      enableInteractiveSelection: editable == false ? false : true,
+      canRequestFocus: editable == false ? false : true,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: AppTextStyles.textFieldLabel,

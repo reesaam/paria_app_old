@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
+import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_choose_contact_component.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
@@ -14,6 +15,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 class AppAccountsAddNewRecordComponent {
   AccountRecord record = const AccountRecord();
   AppContact? selectedContact = const AppContact();
+  DateTime dateTime = DateTime.now();
 
   //TextEditing Controllers
   final TextEditingController _controllerAddNewRecordContact =
@@ -23,7 +25,8 @@ class AppAccountsAddNewRecordComponent {
   final TextEditingController _controllerAddNewRecordAmount =
       TextEditingController();
   final TextEditingController _controllerAddNewRecordDateTime =
-      TextEditingController();
+      TextEditingController(
+          text: AppTextProvider.formatDateTime(DateTime.now()));
 
   Widget _addNewAccountsRecordDialogWidget() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -52,7 +55,9 @@ class AppAccountsAddNewRecordComponent {
               label: AppTexts.accountsAddNewRecordFieldDateTimeTitle,
               hint: AppTexts.accountsAddNewRecordFieldDateTimeHint,
               icon: Icons.calendar_today_outlined,
-              textInputType: TextInputType.datetime),
+              textInputType: TextInputType.datetime,
+              suffixAction: _chooseDateTime,
+              editable: false),
         ]),
       );
 
@@ -65,14 +70,17 @@ class AppAccountsAddNewRecordComponent {
   }
 
   provideRecord() {
-    _controllerAddNewRecordDateTime.text = DateTime.now().toString();
     record = AccountRecord(
         contact: selectedContact,
         amount: int.parse(_controllerAddNewRecordAmount.text),
         title: _controllerAddNewRecordTitle.text,
-        dateTime: DateTime.parse(_controllerAddNewRecordDateTime.text),
+        dateTime: dateTime,
         cleared: false);
     Get.back();
+  }
+
+  _chooseDateTime() {
+    appDebugPrint('DATE TIME CHOSEN');
   }
 
   Future<AccountRecord?> addNewAccountsRecordModal() async {
