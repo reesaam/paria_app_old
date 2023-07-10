@@ -24,6 +24,6 @@ class AppPaddings {
   ///Accounts Add New Record Modal
 
   ///Settings
-  static EdgeInsets get settingsSection => const EdgeInsets.fromLTRB(0, 5, 0, 10);
-  static EdgeInsets get settingsItem => const EdgeInsets.fromLTRB(10, 5, 10, 5);
+  static EdgeInsets get settingsSection => const EdgeInsets.fromLTRB(0, 20, 0, 10);
+  static EdgeInsets get settingsItem => const EdgeInsets.fromLTRB(15, 15, 15, 15);
 }

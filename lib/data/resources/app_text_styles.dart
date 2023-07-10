@@ -38,4 +38,5 @@ class AppTextStyles {
 
   ///Settings
   static TextStyle get settingsSectionTitle => const TextStyle(fontSize: 18);
+  static TextStyle get settingsSectionItem => TextStyle(color: AppColors.textNormalGrey);
 }

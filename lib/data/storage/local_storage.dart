@@ -20,15 +20,15 @@ class AppLocalStorage {
     _storage.remove(_keyAccountsRecords.name);
   }
 
+  void clearSpecificKey(AppStorageKeys key) => _storage.remove(key.name);
+
   ///Contacts
   Future<void> saveContacts(AppContactsList listContacts) async =>
       await _storage.write(_keyContacts.name, listContacts);
 
   AppContactsList loadContacts() {
     final data = _storage.read<Map<String, dynamic>>(_keyContacts.name);
-    return data == null
-        ? AppContactsList()
-        : AppContactsList.fromJson(data);
+    return data == null ? AppContactsList() : AppContactsList.fromJson(data);
   }
 
   ///Accounts
@@ -38,7 +38,8 @@ class AppLocalStorage {
   AccountRecordsList loadAccountsRecords() {
     final data = _storage.read<Map<String, dynamic>>(_keyAccountsRecords.name);
     return data == null
-        ? AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true))
+        ? AccountRecordsList(
+            recordsList: List<AccountRecord>.empty(growable: true))
         : AccountRecordsList.fromJson(data);
   }
 }

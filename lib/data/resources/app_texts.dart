@@ -46,5 +46,14 @@ class AppTexts {
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';
+  static String get settingSectionGeneralItemDarkMode => 'Dark Mode';
+
+  static String get settingSectionTitleBackup => 'Backup';
+  static String get settingSectionBackupBackup => 'Backup Data';
+  static String get settingSectionBackupRestore => 'Restore Data';
+
   static String get settingSectionTitleStorage => 'Storage';
+  static String get settingSectionStorageItemEraseContacts => 'Erase Contacts';
+  static String get settingSectionStorageItemEraseRecords => 'Erase Account Records';
+  static String get settingSectionStorageItemEraseAllData => 'Erase All Data';
 }

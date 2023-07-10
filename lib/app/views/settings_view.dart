@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
@@ -30,18 +31,59 @@ class SettingsPage extends CoreView<SettingsController> {
   @override
   Widget get body => Column(children: [
         widgetGeneral(),
-        widgetGeneral(),
-        widgetStorage(),
+        widgetBackup(),
         widgetStorage(),
       ]);
 
   Widget widgetGeneral() {
+    Widget widgetDarkMode() => Obx(() => Switch(
+        value: controller.darkMode.value,
+        onChanged: (value) => controller.functionDarkModeOnChange(value)));
+
     return SettingsComponents.widgetSettingSection(
-        AppTexts.settingSectionTitleGeneral, []);
+        SettingsComponents.widgetSectionTitle(
+            AppTexts.settingSectionTitleGeneral),
+        [
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionGeneralItemDarkMode,
+              widgetDarkMode(),
+              null)
+        ]);
+  }
+
+  Widget widgetBackup() {
+    return SettingsComponents.widgetSettingSection(
+        SettingsComponents.widgetSectionTitle(
+            AppTexts.settingSectionTitleBackup),
+        [
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionBackupBackup,
+              null,
+              null),
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionBackupRestore,
+              null,
+              null),
+        ]);
   }
 
   Widget widgetStorage() {
     return SettingsComponents.widgetSettingSection(
-        AppTexts.settingSectionTitleStorage, []);
+        SettingsComponents.widgetSectionTitle(
+            AppTexts.settingSectionTitleStorage),
+        [
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionStorageItemEraseContacts,
+              null,
+              controller.functionClearContacts),
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionStorageItemEraseRecords,
+              null,
+              controller.functionClearRecords),
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionStorageItemEraseAllData,
+              null,
+              controller.functionClearAllData),
+        ]);
   }
 }
