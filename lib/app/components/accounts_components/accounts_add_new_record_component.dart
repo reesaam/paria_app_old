@@ -82,8 +82,7 @@ class AppAccountsAddNewRecordComponent {
         provideRecord);
     appDebugPrint(record == const AccountRecord()
         ? 'Add Record Canceled'
-        : 'Record: $record');
-    appDebugPrint('Add Record Modal Closed');
+        : {'Record: $record', appDebugPrint('Add Record Modal Closed')});
     return record == const AccountRecord() ? null : record;
   }
 }

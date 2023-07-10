@@ -52,8 +52,7 @@ class AppContactsAddNewContactComponent {
         _provideContact);
     appDebugPrint(contact == const AppContact()
         ? 'Add Contact Canceled'
-        : 'Contact: $contact');
-    appDebugPrint('Add Contact Modal Closed');
+        : {'Contact: $contact', appDebugPrint('Add Contact Modal Closed')});
     return contact == const AppContact() ? null : contact;
   }
 }
