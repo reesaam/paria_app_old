@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/app_general_components/app_date_time_picker.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
@@ -15,7 +16,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 class AppAccountsAddNewRecordComponent {
   AccountRecord record = const AccountRecord();
   AppContact? selectedContact = const AppContact();
-  DateTime dateTime = DateTime.now();
+  DateTime? dateTime = DateTime.now();
 
   //TextEditing Controllers
   final TextEditingController _controllerAddNewRecordContact =
@@ -26,7 +27,7 @@ class AppAccountsAddNewRecordComponent {
       TextEditingController();
   final TextEditingController _controllerAddNewRecordDateTime =
       TextEditingController(
-          text: AppTextProvider.formatDateTime(DateTime.now()));
+          text: '${AppTextProvider.formatDate(DateTime.now())} - Today');
 
   Widget _addNewAccountsRecordDialogWidget() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -69,7 +70,20 @@ class AppAccountsAddNewRecordComponent {
             '${selectedContact!.firstName} ${selectedContact!.lastName}';
   }
 
-  provideRecord() {
+  String _additionalText() => AppTextProvider.formatDate(dateTime!) ==
+          AppTextProvider.formatDate(DateTime.now())
+      ? ' - Today'
+      : '';
+
+  _chooseDateTime() async {
+    dateTime = await AppDateTimePicker().defaultDatetimePicker();
+    _controllerAddNewRecordDateTime.text =
+        '${AppTextProvider.formatDate(dateTime!)}${_additionalText()}';
+    appDebugPrint(
+        'DATE TIME CHOSEN: ${AppTextProvider.formatDateTime(dateTime!)}');
+  }
+
+  _provideRecord() {
     record = AccountRecord(
         contact: selectedContact,
         amount: int.parse(_controllerAddNewRecordAmount.text),
@@ -79,15 +93,11 @@ class AppAccountsAddNewRecordComponent {
     Get.back();
   }
 
-  _chooseDateTime() {
-    appDebugPrint('DATE TIME CHOSEN');
-  }
-
   Future<AccountRecord?> addNewAccountsRecordModal() async {
     await AppDialogs.mainAppDialogWithOkCancel(
         AppTexts.accountsAddNewRecordTitle,
         _addNewAccountsRecordDialogWidget(),
-        provideRecord);
+        _provideRecord);
     appDebugPrint(record == const AccountRecord()
         ? 'Add Record Canceled'
         : {'Record: $record', appDebugPrint('Add Record Modal Closed')});
