@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
+import 'package:paria_app/app/components/app_general_components/app_switch.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
 import 'package:paria_app/app/controllers/settings_controller.dart';
@@ -36,18 +37,26 @@ class SettingsPage extends CoreView<SettingsController> {
       ]);
 
   Widget widgetGeneral() {
-    Widget widgetDarkMode() => Obx(() => Switch(
+    ///TODO: Calendar Types Implementation
+    Widget widgetCalendar() => Text(controller.selectedCalendar.value!);
+
+    Widget widgetDarkMode() => Obx(() => AppSwitch(
         value: controller.darkMode.value,
-        onChanged: (value) => controller.functionDarkModeOnChange(value)));
+        onChanged: (value) => controller.functionDarkModeOnChange(value),
+        enabled: false));
 
     return SettingsComponents.widgetSettingSection(
         SettingsComponents.widgetSectionTitle(
             AppTexts.settingSectionTitleGeneral),
         [
           SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionTitleGeneralCalendar,
+              widgetCalendar(),
+              null),
+          SettingsComponents.widgetSettingItem(
               AppTexts.settingSectionGeneralItemDarkMode,
               widgetDarkMode(),
-              null)
+              null),
         ]);
   }
 
@@ -57,13 +66,9 @@ class SettingsPage extends CoreView<SettingsController> {
             AppTexts.settingSectionTitleBackup),
         [
           SettingsComponents.widgetSettingItem(
-              AppTexts.settingSectionBackupBackup,
-              null,
-              null),
+              AppTexts.settingSectionBackupBackup, null, null),
           SettingsComponents.widgetSettingItem(
-              AppTexts.settingSectionBackupRestore,
-              null,
-              null),
+              AppTexts.settingSectionBackupRestore, null, null),
         ]);
   }
 

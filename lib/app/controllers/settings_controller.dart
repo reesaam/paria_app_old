@@ -10,6 +10,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 class SettingsController extends CoreController {
 
   Rx<bool> darkMode = false.obs;
+  Rx<String?> selectedCalendar = CalendarTypes.georgian.name.capitalizeFirst.obs;
 
   @override
   void dataInit() {}
