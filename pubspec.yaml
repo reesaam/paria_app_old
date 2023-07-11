@@ -20,11 +20,13 @@ dependencies:
   json_annotation: ^4.8.1
   path_provider: ^2.0.12
   url_strategy: ^0.2.0
-  auto_size_text: ^3.0.0
-  loading_animation_widget: ^1.2.0+4
-  flutter_animate: ^4.1.0
   intl: ^0.18.1
 
+  auto_size_text: ^3.0.0
+  syncfusion_flutter_datepicker: ^22.1.37
+  persian_datetime_picker: ^2.6.0
+  flutter_animate: ^4.1.0
+  loading_animation_widget: ^1.2.0+4
 
   cupertino_icons: ^1.0.2
 
