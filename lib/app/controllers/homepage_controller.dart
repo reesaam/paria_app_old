@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
 
 class HomePageController extends CoreController {
 
-  late RxString time;
-  late RxString date;
+  Rx<DateTime> dt = DateTime.now().obs;
+  Rx<String> time = ''.obs;
+  Rx<String> date = ''.obs;
 
   @override
   void dataInit() {
@@ -16,13 +19,14 @@ class HomePageController extends CoreController {
   @override
   void pageInit() {
     pageDetail = AppPageDetails.homepage;
-    DateTime dt = DateTime.now();
-    time = '${dt.year}/${dt.month}/${dt.day}'.obs;
-    date = '${dt.hour}:${dt.minute}:${dt.second}'.obs;
+    time.value = AppTextProvider.formatDate(dt.value);
+    date.value = AppTextProvider.formatTimeWithSeconds(dt.value);
   }
 
   @override
-  void onInitFunction() {}
+  void onInitFunction() {
+    timeUpdate();
+  }
 
   @override
   void onReadyFunction() {}
@@ -30,4 +34,9 @@ class HomePageController extends CoreController {
   @override
   void onCloseFunction() {}
 
+  void timeUpdate() => Timer.periodic(const Duration(seconds: 1), (timer) {
+        dt.value = DateTime.now();
+        time.value = AppTextProvider.formatDate(dt.value);
+        date.value = AppTextProvider.formatTimeWithSeconds(dt.value);
+      });
 }

@@ -112,7 +112,7 @@ class AccountsPage extends CoreView<AccountsController> {
   List<AppPopupMenuItem> recordsTableThreeDotsMenuList() =>
       List<AppPopupMenuItem>.from([
         AppPopupMenuItem(
-            text: AppTexts.accountsTablePopupMenuClearRecords,
+            text: AppTexts.accountsTablePopupMenuRemoveAllRecords,
             onTapFunction: controller.clearRecordsList),
         AppPopupMenuItem(
             text: controller.showClearedText.value,

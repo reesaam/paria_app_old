@@ -5,11 +5,8 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -18,7 +15,8 @@ class HomePage extends CoreView<HomePageController> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppBar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar =>
+      AppAppBar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => null;
@@ -45,15 +43,16 @@ class HomePage extends CoreView<HomePageController> {
         child: Padding(
           padding: AppPaddings.homepageDateTimeCard,
           child: Column(children: [
-            Text(AppTexts.homepageDateTimeTitle),
+            Text(AppTexts.homepageDateTimeTitle,
+                style: AppTextStyles.cardTitle),
             AppSpaces.h20,
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(controller.time.value),
-                  Text(controller.date.value)
-                ]),
+            Obx(() => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(controller.time.value),
+                      Text(controller.date.value)
+                    ])),
           ]),
         ),
       );
@@ -67,6 +66,13 @@ class HomePage extends CoreView<HomePageController> {
       );
 
   List<Widget> listButtons() => [
-        AppGeneralButton(text: 'Accounts', onTap: () {}),
+        AppGeneralButton(
+            text: 'Splash Screen', onTap: () => Get.toNamed(AppRoutes.splashScreen)),
+        AppGeneralButton(
+            text: 'Accounts', onTap: () => Get.toNamed(AppRoutes.accounts)),
+        AppGeneralButton(
+            text: 'Contacts', onTap: () => Get.toNamed(AppRoutes.contacts)),
+        AppGeneralButton(
+            text: 'Settings', onTap: () => Get.toNamed(AppRoutes.settings)),
       ];
 }
