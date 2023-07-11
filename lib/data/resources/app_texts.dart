@@ -28,7 +28,7 @@ class AppTexts {
   static List<String> get accountSummaryItems => ['Balance:', 'Items Count:', 'Contacts Count:'];
   static String get accountsNoRecords => 'No Records';
 
-  static String get accountsTablePopupMenuClearRecords => 'Clear Records';
+  static String get accountsTablePopupMenuRemoveAllRecords => 'Remove All Records';
   static String get accountsTablePopupMenuShowClearedRecords => 'Show Cleared Records';
   static String get accountsTablePopupMenuHideClearedRecords => 'Hide Cleared Records';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_sizes.dart';
 
 class AppThemes {
   static get mainTheme => ThemeData(
@@ -28,7 +29,8 @@ class AppThemes {
         unselectedItemColor: AppColors.bottomBarUnselected,
       );
 
-  static get defaultTextStyle => TextStyle(color: AppColors.appDefaultColor);
+  static get defaultTextStyle => TextStyle(
+      color: AppColors.appDefaultColor, fontSize: AppSizes.defaultFontSize);
 
   static get textTheme => TextTheme(
         bodyLarge: defaultTextStyle,

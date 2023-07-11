@@ -3,20 +3,28 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
 
 class AppTextStyles {
+  static get defaultSize => AppSizes.defaultFontSize;
+  static get normalSize => defaultSize;
+  static get bigSize => defaultSize + 3;
+  static get titleSize => defaultSize + 5;
+  static get bigTitleSize => defaultSize + 8;
+  static get smallSize => defaultSize - 2;
+
   ///Generals
   static TextStyle get general => const TextStyle(overflow: TextOverflow.ellipsis);
 
-  ///Card and Container
-  static TextStyle get cardText => TextStyle(color: AppColors.cardText);
-
-  ///AppBar
-  static TextStyle get appBarTitle => TextStyle(color: AppColors.appBarText);
-
-  ///ModalBottomSheet
-  static TextStyle get modalTitle => const TextStyle(fontSize: 20);
-
   ///SplashScreen
   static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
+
+  ///Card and Container
+  static TextStyle get cardText => TextStyle(color: AppColors.cardText);
+  static TextStyle get cardTitle => TextStyle(color: AppColors.cardText, fontSize: bigSize);
+
+  ///AppBar
+  static TextStyle get appBarTitle => TextStyle(color: AppColors.appBarText, fontSize: bigTitleSize);
+
+  ///ModalBottomSheet
+  static TextStyle get modalTitle => TextStyle(fontSize: titleSize);
 
   ///Text Fields
   static TextStyle get textFieldText => TextStyle(color: AppColors.textNormalGrey);
@@ -24,19 +32,19 @@ class AppTextStyles {
   static TextStyle get textFieldHint => TextStyle(color: AppColors.textNormalGrey);
 
   ///Popup Menu
-  static TextStyle get popupMenuItem => const TextStyle(fontSize: 15);
+  static TextStyle get popupMenuItem => const TextStyle();
 
   ///Contacts
-  static TextStyle get contactsNoContacts => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
-  static TextStyle get contactsListItem => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get contactsNoContacts => TextStyle(fontSize: titleSize, color: AppColors.appDefaultColor);
+  static TextStyle get contactsListItem => TextStyle(color: AppColors.textNormalGrey, fontSize: bigSize);
 
-  static TextStyle get contactsChooseContact => TextStyle(fontSize: 20, color: AppColors.textNormalGrey);
+  static TextStyle get contactsChooseContact => TextStyle(fontSize: titleSize, color: AppColors.textNormalGrey);
 
   ///Accounts
-  static TextStyle get accountNoRecord => TextStyle(fontSize: 20, color: AppColors.appDefaultColor);
-  static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: 18, color: AppColors.appDefaultColor);
+  static TextStyle get accountNoRecord => TextStyle(fontSize: titleSize, color: AppColors.appDefaultColor);
+  static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: bigSize, color: AppColors.appDefaultColor);
 
   ///Settings
-  static TextStyle get settingsSectionTitle => const TextStyle(fontSize: 18);
+  static TextStyle get settingsSectionTitle => TextStyle(fontSize: bigSize);
   static TextStyle get settingsSectionItem => TextStyle(color: AppColors.textNormalGrey);
 }
