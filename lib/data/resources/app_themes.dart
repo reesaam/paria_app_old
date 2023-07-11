@@ -12,6 +12,7 @@ class AppThemes {
         cardTheme: cardTheme,
         buttonTheme: buttonThemeData,
         checkboxTheme: checkBoxThemeData,
+        switchTheme: switchThemeData,
       );
 
   static get mainAppBar => AppBarTheme(
@@ -51,7 +52,8 @@ class AppThemes {
       );
 
   static get checkBoxThemeData => CheckboxThemeData(
-    checkColor: MaterialStateProperty.all(AppColors.appBackground),
-    fillColor: MaterialStateProperty.all(AppColors.appDefaultColor)
-  );
+      checkColor: MaterialStateProperty.all(AppColors.appBackground),
+      fillColor: MaterialStateProperty.all(AppColors.appDefaultColor));
+
+  static get switchThemeData => const SwitchThemeData();
 }

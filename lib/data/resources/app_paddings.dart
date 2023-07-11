@@ -25,5 +25,5 @@ class AppPaddings {
 
   ///Settings
   static EdgeInsets get settingsSection => const EdgeInsets.fromLTRB(0, 20, 0, 10);
-  static EdgeInsets get settingsItem => const EdgeInsets.fromLTRB(15, 15, 15, 15);
+  static EdgeInsets get settingsItem => const EdgeInsets.fromLTRB(15, 10, 15, 10);
 }

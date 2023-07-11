@@ -46,6 +46,7 @@ class AppTexts {
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';
+  static String get settingSectionTitleGeneralCalendar => 'Calendar Type';
   static String get settingSectionGeneralItemDarkMode => 'Dark Mode';
 
   static String get settingSectionTitleBackup => 'Backup';

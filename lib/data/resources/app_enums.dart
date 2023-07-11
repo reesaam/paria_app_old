@@ -2,6 +2,10 @@ enum AppRegions {
   en_us,
 }
 
+enum CalendarTypes {
+  georgian,
+}
+
 enum AppStorageKeys {
   keyContacts,
   keyAccountRecords,
