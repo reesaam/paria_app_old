@@ -10,4 +10,7 @@ class AppSizes {
 
   ///Elements
   static Size get switchHeight => const Size.fromHeight(20);
+
+  ///Contacts
+  static double get contactsShowContactIcon => 15;
 }

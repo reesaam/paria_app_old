@@ -23,6 +23,9 @@ mixin _$AppContact {
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get mobile => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get webLink => throw _privateConstructorUsedError;
   String? get profilePicture => throw _privateConstructorUsedError;
   int? get accountRecordsCounter => throw _privateConstructorUsedError;
   int? get balance => throw _privateConstructorUsedError;
@@ -43,6 +46,9 @@ abstract class $AppContactCopyWith<$Res> {
       {String? firstName,
       String? lastName,
       String? mobile,
+      String? phone,
+      String? email,
+      String? webLink,
       String? profilePicture,
       int? accountRecordsCounter,
       int? balance});
@@ -64,6 +70,9 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? mobile = freezed,
+    Object? phone = freezed,
+    Object? email = freezed,
+    Object? webLink = freezed,
     Object? profilePicture = freezed,
     Object? accountRecordsCounter = freezed,
     Object? balance = freezed,
@@ -80,6 +89,18 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
       mobile: freezed == mobile
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      webLink: freezed == webLink
+          ? _value.webLink
+          : webLink // ignore: cast_nullable_to_non_nullable
               as String?,
       profilePicture: freezed == profilePicture
           ? _value.profilePicture
@@ -109,6 +130,9 @@ abstract class _$$_AppContactCopyWith<$Res>
       {String? firstName,
       String? lastName,
       String? mobile,
+      String? phone,
+      String? email,
+      String? webLink,
       String? profilePicture,
       int? accountRecordsCounter,
       int? balance});
@@ -128,6 +152,9 @@ class __$$_AppContactCopyWithImpl<$Res>
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? mobile = freezed,
+    Object? phone = freezed,
+    Object? email = freezed,
+    Object? webLink = freezed,
     Object? profilePicture = freezed,
     Object? accountRecordsCounter = freezed,
     Object? balance = freezed,
@@ -144,6 +171,18 @@ class __$$_AppContactCopyWithImpl<$Res>
       mobile: freezed == mobile
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      webLink: freezed == webLink
+          ? _value.webLink
+          : webLink // ignore: cast_nullable_to_non_nullable
               as String?,
       profilePicture: freezed == profilePicture
           ? _value.profilePicture
@@ -168,6 +207,9 @@ class _$_AppContact implements _AppContact {
       {this.firstName,
       this.lastName,
       this.mobile,
+      this.phone,
+      this.email,
+      this.webLink,
       this.profilePicture,
       this.accountRecordsCounter,
       this.balance});
@@ -182,6 +224,12 @@ class _$_AppContact implements _AppContact {
   @override
   final String? mobile;
   @override
+  final String? phone;
+  @override
+  final String? email;
+  @override
+  final String? webLink;
+  @override
   final String? profilePicture;
   @override
   final int? accountRecordsCounter;
@@ -190,7 +238,7 @@ class _$_AppContact implements _AppContact {
 
   @override
   String toString() {
-    return 'AppContact(firstName: $firstName, lastName: $lastName, mobile: $mobile, profilePicture: $profilePicture, accountRecordsCounter: $accountRecordsCounter, balance: $balance)';
+    return 'AppContact(firstName: $firstName, lastName: $lastName, mobile: $mobile, phone: $phone, email: $email, webLink: $webLink, profilePicture: $profilePicture, accountRecordsCounter: $accountRecordsCounter, balance: $balance)';
   }
 
   @JsonKey(ignore: true)
@@ -212,6 +260,9 @@ abstract class _AppContact implements AppContact {
       {final String? firstName,
       final String? lastName,
       final String? mobile,
+      final String? phone,
+      final String? email,
+      final String? webLink,
       final String? profilePicture,
       final int? accountRecordsCounter,
       final int? balance}) = _$_AppContact;
@@ -225,6 +276,12 @@ abstract class _AppContact implements AppContact {
   String? get lastName;
   @override
   String? get mobile;
+  @override
+  String? get phone;
+  @override
+  String? get email;
+  @override
+  String? get webLink;
   @override
   String? get profilePicture;
   @override

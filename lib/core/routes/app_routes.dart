@@ -6,6 +6,7 @@ class AppRoutes {
   static const String homePage = '/homepage';
   static const String settings = '/settings';
   static const String contacts = '/contacts';
+  static const String contactsBalance = '/contacts_balance';
   static const String accounts = '/accounts';
 
   ///Other Pages

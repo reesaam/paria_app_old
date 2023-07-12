@@ -10,11 +10,13 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
-import 'package:paria_app/data/app_extensions/app_string_extensions.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
@@ -46,17 +48,17 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget widgetTopBar() => Padding(
         padding: AppPaddings.pages,
         child: Column(children: [
-          widgetContactsButton(),
+          widgetContactsBalanceButton(),
           AppSpaces.h10,
           summary(),
           AppSpaces.h20,
         ]),
       );
 
-  Widget widgetContactsButton() => AppGeneralButton(
+  Widget widgetContactsBalanceButton() => AppGeneralButton(
       text: AppTexts.accountsContactsBalance,
-      leading: Icons.arrow_forward_ios_outlined,
-      onTap: () {});
+      leading: AppIcons.arrowForward.icon,
+      onTap: () => Get.toNamed(AppRoutes.contactsBalance));
 
   Widget summary() => Card(
         child: Container(
@@ -79,7 +81,7 @@ class AccountsPage extends CoreView<AccountsController> {
                   Obx(() => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(controller.itemsSum.value,
+                            Text(controller.itemsBalance.value.toCurrency(),
                                 style: AppTextStyles.cardText),
                             Text(controller.itemsCount.value.toString(),
                                 style: AppTextStyles.cardText),

@@ -16,6 +16,14 @@ class AppPaddings {
   static EdgeInsets get contactsNoContacts => const EdgeInsets.all(50);
   static EdgeInsets get contactsItem => const EdgeInsets.only(left: 20, top: 10);
 
+  ///Contacts Show Contact
+  static EdgeInsets get contactsShowContactItems => const EdgeInsets.fromLTRB(20, 50, 40, 20);
+  static EdgeInsets get contactsShowContactItem => const EdgeInsets.fromLTRB(0, 5, 0, 5);
+
+  ///Contacts balance
+  static EdgeInsets get contactsBalanceTitle => const EdgeInsets.fromLTRB(5, 5, 5, 0);
+  static EdgeInsets get contactsBalanceItem => const EdgeInsets.fromLTRB(5, 5, 5, 5);
+
   ///Accounts
   static EdgeInsets get accountsSummaryCard => const EdgeInsets.all(20);
   static EdgeInsets get accountsNoRecordText => const EdgeInsets.all(40);

@@ -5,7 +5,7 @@ import 'package:paria_app/app/components/accounts_components/accounts_add_new_re
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
-import 'package:paria_app/data/app_extensions/app_string_extensions.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -16,13 +16,13 @@ class AccountsController extends CoreController {
       AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true))
           .obs;
 
-  Rx<String> itemsSum = AppTexts.generalNotAvailableInitials.obs;
+  Rx<int> itemsBalance = 0.obs;
   Rx<int> itemsCount = 0.obs;
   Rx<int> itemsCountContacts = 0.obs;
 
   Rx<bool> showCleared = false.obs;
-  Rx<String> showClearedText =
-      AppTexts.accountsTablePopupMenuHideClearedRecords.obs;
+  Rx<bool> clearedIncluded = false.obs;
+  Rx<String> showClearedText = AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
 
   @override
   void dataInit() {
@@ -39,9 +39,9 @@ class AccountsController extends CoreController {
   @override
   void onInitFunction() {
     listRecords.defaultSortFunction();
-    itemsSum.value = listRecords.calculateSum().toCurrency();
-    itemsCount.value = listRecords.value.recordsList.length;
-    itemsCountContacts.value = listRecords.value.recordsList.length;
+    itemsBalance.value = listRecords.calculateSum(clearedIncluded.value).balance!;
+    itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
+    itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
     listRecords.listen((data) => onInitFunction());
     refresh();
   }
@@ -66,14 +66,17 @@ class AccountsController extends CoreController {
   }
 
   void clearRecord(AccountRecord record, bool? checked) => checked == true
-      ? listRecords.clearRecord(record)
-      : listRecords.unClearRecord(record);
+      ? {listRecords.clearRecord(record), onInitFunction()}
+      : {listRecords.unClearRecord(record), onInitFunction()};
 
   void changeShowCleared() {
     showCleared.value = !showCleared.value;
+    clearedIncluded.value = showCleared.value;
     showCleared.value
-        ? showClearedText.value = AppTexts.accountsTablePopupMenuHideClearedRecords
-        : showClearedText.value = AppTexts.accountsTablePopupMenuShowClearedRecords;
-    refresh();
+        ? showClearedText.value =
+            AppTexts.accountsTablePopupMenuHideClearedRecords
+        : showClearedText.value =
+            AppTexts.accountsTablePopupMenuShowClearedRecords;
+    onInitFunction();
   }
 }

@@ -37,4 +37,11 @@ class AppPageDetails {
     bottomBarItemNumber: 3,
     bottomBarIcon: 'currency',
   );
+
+  static AppPageDetail contactsBalance = const AppPageDetail(
+    pageName: 'Contacts Balance',
+    pageRoute: AppRoutes.contactsBalance,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: 'currency',
+  );
 }

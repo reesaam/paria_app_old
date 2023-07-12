@@ -67,11 +67,15 @@ class HomePage extends CoreView<HomePageController> {
 
   List<Widget> listButtons() => [
         AppGeneralButton(
-            text: 'Splash Screen', onTap: () => Get.toNamed(AppRoutes.splashScreen)),
+            text: 'Splash Screen',
+            onTap: () => Get.toNamed(AppRoutes.splashScreen)),
         AppGeneralButton(
             text: 'Accounts', onTap: () => Get.toNamed(AppRoutes.accounts)),
         AppGeneralButton(
             text: 'Contacts', onTap: () => Get.toNamed(AppRoutes.contacts)),
+        AppGeneralButton(
+            text: 'Contacts Balance',
+            onTap: () => Get.toNamed(AppRoutes.contactsBalance)),
         AppGeneralButton(
             text: 'Settings', onTap: () => Get.toNamed(AppRoutes.settings)),
       ];

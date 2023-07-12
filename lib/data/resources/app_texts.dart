@@ -13,6 +13,17 @@ class AppTexts {
   ///Contacts
   static String get contactsNoContacts => 'No Contacts';
 
+  ///Contacts Show Contact
+  static String get contactsShowContactTitle => 'Contact Page';
+  static String get contactsShowContactTitleInfo => 'Personal Info:';
+  static String get contactsShowContactItemMobile => 'Mobile:';
+  static String get contactsShowContactItemPhone => 'Phone:';
+  static String get contactsShowContactItemEmail => 'Email:';
+  static String get contactsShowContactItemWebLink => 'Web Link:';
+  static String get contactsShowContactTitleAccount => 'Account Info:';
+  static String get contactsShowContactTitleBalance => 'Balance:';
+  static String get contactsShowContactTitleRecords => 'Records Count:';
+
   ///Contacts Add New Contact Modal
   static String get contactsAddNewContactTitle => 'Add New Contact';
   static String get contactsAddNewContactFirstNameTitle => 'First Name';
@@ -21,6 +32,17 @@ class AppTexts {
   static String get contactsAddNewContactLastNameHint => 'Enter Last Name';
   static String get contactsAddNewContactMobileTitle => 'Mobile';
   static String get contactsAddNewContactMobileHint => 'Enter Mobile';
+  static String get contactsAddNewContactPhoneTitle => 'Phone';
+  static String get contactsAddNewContactPhoneHint => 'Enter Phone';
+  static String get contactsAddNewContactEmailTitle => 'Email';
+  static String get contactsAddNewContactEmailHint => 'Enter Email';
+  static String get contactsAddNewContactWebLinkTitle => 'Web Link';
+  static String get contactsAddNewContactWebLinkHint => 'Enter Web Link';
+
+  ///Contacts Balance
+  static String get contactsBalanceTitleContact => 'Contact';
+  static String get contactsBalanceTitleBalance => 'Balance';
+  static String get contactsBalanceTitleCount => 'Count';
 
   ///Accounts
   static String get accountsContactsBalance => 'Contacts\' Balance';
@@ -46,6 +68,7 @@ class AppTexts {
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';
+  static String get settingSectionTitleGeneralLanguage => 'Language';
   static String get settingSectionTitleGeneralCalendar => 'Calendar Type';
   static String get settingSectionGeneralItemDarkMode => 'Dark Mode';
 

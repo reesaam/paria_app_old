@@ -40,6 +40,17 @@ class AppTextStyles {
 
   static TextStyle get contactsChooseContact => TextStyle(fontSize: titleSize, color: AppColors.textNormalGrey);
 
+  ///Contacts Balance
+  static TextStyle get contactsBalanceTitle => TextStyle(fontSize: bigSize);
+  static TextStyle get contactsBalanceItems => TextStyle(color: AppColors.textNormalGrey);
+  static TextStyle get contactsBalanceItemsContact => TextStyle(color: AppColors.textNormalGrey, fontWeight: FontWeight.bold);
+
+  ///Contacts Show Contact
+  static TextStyle get contactsShowContactSectionTitle => const TextStyle(fontWeight: FontWeight.bold);
+  static TextStyle get contactsShowContactFullName => TextStyle(fontSize: bigTitleSize, color: AppColors.textNormalGrey);
+  static TextStyle get contactsShowContactInfoTitle => TextStyle(color: AppColors.textNormalGrey, fontWeight: FontWeight.bold);
+  static TextStyle get contactsShowContactInfoItem => TextStyle(color: AppColors.textNormalGrey, );
+
   ///Accounts
   static TextStyle get accountNoRecord => TextStyle(fontSize: titleSize, color: AppColors.appDefaultColor);
   static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: bigSize, color: AppColors.appDefaultColor);

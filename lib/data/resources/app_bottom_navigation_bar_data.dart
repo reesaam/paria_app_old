@@ -30,10 +30,10 @@ class AppBottomNavigationBarData {
   Widget _createIcon(AppBottomNavigationPages page) {
     Icon icon = const Icon(Icons.not_interested);
     switch(page) {
-      case(AppBottomNavigationPages.homepage) : icon = AppIcons.homepage; break;
-      case(AppBottomNavigationPages.contacts) : icon = AppIcons.contacts; break;
-      case(AppBottomNavigationPages.accounts) : icon = AppIcons.accounts; break;
-      case(AppBottomNavigationPages.settings) : icon = AppIcons.settings; break;
+      case(AppBottomNavigationPages.homepage) : icon = AppIcons.bottomNavigationHomepage; break;
+      case(AppBottomNavigationPages.contacts) : icon = AppIcons.bottomNavigationContacts; break;
+      case(AppBottomNavigationPages.accounts) : icon = AppIcons.bottomNavigationAccounts; break;
+      case(AppBottomNavigationPages.settings) : icon = AppIcons.bottomNavigationSettings; break;
       default: break;
     }
     return icon;

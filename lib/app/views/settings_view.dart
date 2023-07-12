@@ -36,6 +36,10 @@ class SettingsPage extends CoreView<SettingsController> {
       ]);
 
   Widget widgetGeneral() {
+
+    ///TODO: Languages Implementation
+    Widget widgetLanguages() => Text(controller.selectedLanguage.value!);
+
     ///TODO: Calendar Types Implementation
     Widget widgetCalendar() => Text(controller.selectedCalendar.value!);
 
@@ -48,6 +52,10 @@ class SettingsPage extends CoreView<SettingsController> {
         SettingsComponents.widgetSectionTitle(
             AppTexts.settingSectionTitleGeneral),
         [
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionTitleGeneralLanguage,
+              widgetLanguages(),
+              null),
           SettingsComponents.widgetSettingItem(
               AppTexts.settingSectionTitleGeneralCalendar,
               widgetCalendar(),
