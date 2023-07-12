@@ -6,7 +6,6 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
 import 'package:paria_app/app/controllers/settings_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class SettingsPage extends CoreView<SettingsController> {
