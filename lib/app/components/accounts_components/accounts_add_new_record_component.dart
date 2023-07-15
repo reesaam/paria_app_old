@@ -83,15 +83,12 @@ class AppAccountsAddNewRecordComponent {
         'DATE TIME CHOSEN: ${AppTextProvider.formatDateTime(dateTime!)}');
   }
 
-  _provideRecord() {
-    record = AccountRecord(
-        contact: selectedContact,
-        amount: int.parse(_controllerAddNewRecordAmount.text),
-        title: _controllerAddNewRecordTitle.text,
-        dateTime: dateTime,
-        cleared: false);
-    Get.back();
-  }
+  _provideRecord() => record = AccountRecord(
+      contact: selectedContact,
+      amount: int.parse(_controllerAddNewRecordAmount.text),
+      title: _controllerAddNewRecordTitle.text,
+      dateTime: dateTime,
+      cleared: false);
 
   Future<AccountRecord?> addNewAccountsRecordModal() async {
     await AppDialogs.appBottomDialogWithOkCancel(

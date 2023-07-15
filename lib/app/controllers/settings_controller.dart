@@ -39,7 +39,6 @@ class SettingsController extends CoreController {
   functionClearContacts() {
     function() {
       AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyContacts);
-      Get.back();
       appDebugPrint('Contacts Cleared');
     }
     AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
@@ -48,7 +47,6 @@ class SettingsController extends CoreController {
   functionClearRecords() {
     function() {
       AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyAccountRecords);
-      Get.back();
       appDebugPrint('Records Cleared');
     }
     AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
@@ -57,7 +55,6 @@ class SettingsController extends CoreController {
   functionClearAllData() {
     function() {
       AppLocalStorage.to.clearStorage();
-      Get.back();
       appDebugPrint('All Data Cleared');
     }
     AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);

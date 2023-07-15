@@ -41,8 +41,7 @@ class ContactsController extends CoreController {
   void clearContactsList() => listContacts.clearContactsList();
 
   void addContactFunction() async {
-    AppContact? contact =
-        await AppContactsAddNewContactComponent().addNewContactModal();
+    AppContact? contact = await AppContactsAddNewContactComponent().addNewContactModal();
     contact == null
         ? null
         : {

@@ -36,12 +36,12 @@ class AppDialogs {
   }
 
   static appBottomDialogWithOkCancel(
-      String title, Widget form, Function onTapOk) {
+      String title, Widget form, Function onTapOk) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
     ];
-    _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons);
   }
 
   static appAlertDialogWithOkCancel(
@@ -54,7 +54,7 @@ class AppDialogs {
   }
 
   static _appBottomDialogGeneral(
-          String title, Widget form, List<Widget> buttons) =>
+          String title, Widget form, List<Widget> buttons) async =>
       showModalBottomSheet(
           context: Get.context!,
           useSafeArea: true,
@@ -76,7 +76,7 @@ class AppDialogs {
                           form,
                         ]),
                     _renderButtonsBottomDialog(buttons),
-                  ])));
+                  ]))).whenComplete(() => Get.back());
 
   static Widget _renderButtonsBottomDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);
@@ -108,7 +108,7 @@ class AppDialogs {
                   actions: [_renderButtonsAlertDialog(buttons)],
                   actionsAlignment: MainAxisAlignment.center,
                 ),
-              ));
+              )).whenComplete(() => Get.back());
 
   static Widget _renderButtonsAlertDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);

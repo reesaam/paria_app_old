@@ -59,17 +59,14 @@ class AppContactsAddNewContactComponent {
         ]),
       );
 
-  _provideContact() {
-    contact = AppContact(
+  _provideContact() => contact = AppContact(
         firstName: _controllerFirstName.text ?? '',
         lastName: _controllerLastName.text ?? '',
         mobile: _controllerMobile.text ?? '',
         phone: _controllerPhone.text ?? '',
         email: _controllerEmail.text ?? '',
         webLink: _controllerWebLink.text ?? '',
-    );
-    Get.back();
-  }
+      );
 
   Future<AppContact?> addNewContactModal() async {
     await AppDialogs.appBottomDialogWithOkCancel(
