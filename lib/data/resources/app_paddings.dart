@@ -6,7 +6,7 @@ class AppPaddings {
   static EdgeInsets get pages => const EdgeInsets.all(10);
 
   ///Modules
-  static EdgeInsets get textFieldContent => const EdgeInsets.fromLTRB(10, 5, 10, 15);
+  static EdgeInsets get textFieldContent => const EdgeInsets.fromLTRB(20, 10, 20, 10);
 
   ///Modals
   static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);

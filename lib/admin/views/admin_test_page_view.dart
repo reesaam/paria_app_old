@@ -4,6 +4,7 @@ import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 
 class AdminUITestPage extends CoreView<AdminUITestPageController> {
@@ -43,9 +44,11 @@ class AdminUITestPage extends CoreView<AdminUITestPageController> {
         padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
         child: Column(children: [
           AppTextField(
-              controller: controller.controllerTextField1,
-              label: 'Text Field 1 Label',
-              hint: 'TextField 1 Hint'),
+            controller: controller.controllerTextField1,
+            label: 'Text Field 1 Label',
+            hint: 'TextField 1 Hint',
+            icon: AppIcons.contacts.icon,
+          ),
         ]),
       );
 }

@@ -24,17 +24,14 @@ class AppTextField extends StatelessWidget {
   final VoidCallback? suffixAction;
   final bool? editable;
 
-  Widget _icon() => Icon(icon, color: AppColors.textNormalGrey);
-
-  Widget suffix() => suffixAction == null
-      ? _icon()
-      : InkWell(onTap: suffixAction, child: _icon());
+  Widget suffix() => InkWell(
+      onTap: suffixAction, child: Icon(icon, color: AppColors.textNormalGrey));
 
   @override
   Widget build(BuildContext context) => TextField(
       controller: controller,
       textAlign: TextAlign.start,
-      textAlignVertical: TextAlignVertical.top,
+      textAlignVertical: TextAlignVertical.center,
       style: AppTextStyles.textFieldText,
       cursorColor: AppColors.textNormalGrey,
       keyboardType: textInputType ?? TextInputType.text,
@@ -48,10 +45,11 @@ class AppTextField extends StatelessWidget {
         hintStyle: AppTextStyles.textFieldHint,
         hintMaxLines: 1,
         alignLabelWithHint: true,
-        suffix: suffix(),
+        suffixIcon: suffix(),
         border: AppElements.defaultOutlineBorder,
         enabledBorder: AppElements.defaultOutlineBorder,
         focusedBorder: AppElements.defaultOutlineBorderFocused,
         isDense: true,
+        isCollapsed: true,
       ));
 }
