@@ -7,6 +7,7 @@ import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
+import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -65,17 +66,27 @@ class HomePage extends CoreView<HomePageController> {
           children: listButtons()));
 
   List<Widget> listButtons() => [
+        const Text('Admin Pages:'),
+        AppGeneralButton(
+            text: 'Admin Test Page',
+            onTap: () => Get.toNamed(AppPageDetails.adminUITestPage.pageRoute!)),
+        AppSpaces.h40,
+        const Text('Pages:'),
         AppGeneralButton(
             text: 'Splash Screen',
-            onTap: () => Get.toNamed(AppRoutes.splashScreen)),
+            onTap: () => Get.toNamed(AppPageDetails.splashScreen.pageRoute!)),
         AppGeneralButton(
-            text: 'Accounts', onTap: () => Get.toNamed(AppRoutes.accounts)),
+            text: 'Accounts',
+            onTap: () => Get.toNamed(AppPageDetails.accounts.pageRoute!)),
         AppGeneralButton(
-            text: 'Contacts', onTap: () => Get.toNamed(AppRoutes.contacts)),
+            text: 'Contacts',
+            onTap: () => Get.toNamed(AppPageDetails.contacts.pageRoute!)),
         AppGeneralButton(
             text: 'Contacts Balance',
-            onTap: () => Get.toNamed(AppRoutes.contactsBalance)),
+            onTap: () =>
+                Get.toNamed(AppPageDetails.contactsBalance.pageRoute!)),
         AppGeneralButton(
-            text: 'Settings', onTap: () => Get.toNamed(AppRoutes.settings)),
+            text: 'Settings',
+            onTap: () => Get.toNamed(AppPageDetails.settings.pageRoute!)),
       ];
 }

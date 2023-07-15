@@ -12,4 +12,5 @@ class AppRoutes {
   ///Other Pages
   static const String adminPage = '/admin';
   static const String adminStartPage = '/admin_start_page';
+  static const String adminUITestPage = '/admin_ui_test_page';
 }

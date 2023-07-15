@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 
 class AppTextField extends StatelessWidget {
@@ -33,13 +34,14 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) => TextField(
       controller: controller,
       textAlign: TextAlign.start,
-      textAlignVertical: TextAlignVertical.center,
+      textAlignVertical: TextAlignVertical.top,
       style: AppTextStyles.textFieldText,
       cursorColor: AppColors.textNormalGrey,
       keyboardType: textInputType ?? TextInputType.text,
       enableInteractiveSelection: editable == false ? false : true,
       canRequestFocus: editable == false ? false : true,
       decoration: InputDecoration(
+        contentPadding: AppPaddings.textFieldContent,
         labelText: label,
         labelStyle: AppTextStyles.textFieldLabel,
         hintText: hint,
