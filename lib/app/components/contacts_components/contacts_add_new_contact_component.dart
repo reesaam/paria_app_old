@@ -72,7 +72,7 @@ class AppContactsAddNewContactComponent {
   }
 
   Future<AppContact?> addNewContactModal() async {
-    await AppDialogs.mainAppDialogWithOkCancel(
+    await AppDialogs.appBottomDialogWithOkCancel(
         AppTexts.contactsAddNewContactTitle,
         _addNewContactDialogWidget(),
         _provideContact);

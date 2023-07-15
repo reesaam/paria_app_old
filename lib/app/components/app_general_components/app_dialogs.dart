@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
+import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
@@ -13,73 +16,45 @@ class AppDialogs {
 
   static _onTapCancel() => Get.back();
 
-  static mainAppDialogWithoutButton(String title, Widget form) =>
-      showModalBottomSheet(
-          context: Get.context!,
-          useSafeArea: true,
-          showDragHandle: true,
-          isScrollControlled: true,
-          shape: AppElements.defaultModalBorderShape,
-          builder: (context) => Padding(
-              padding: AppPaddings.generalModal,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title, style: AppTextStyles.modalTitle),
-                    AppSpaces.h40,
-                    Expanded(child: ListView(children: [form])),
-                  ])));
+  static appBottomDialogWithoutButton(String title, Widget form) {
+    List<Widget> buttons = [];
+    _appBottomDialogGeneral(title, form, buttons);
+  }
 
-  static mainAppDialogWithOk(String title, Widget form, onTapOk) =>
-      showModalBottomSheet(
-          context: Get.context!,
-          useSafeArea: true,
-          showDragHandle: true,
-          isScrollControlled: true,
-          shape: AppElements.defaultModalBorderShape,
-          builder: (context) => Padding(
-              padding: AppPaddings.generalModal,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title, style: AppTextStyles.modalTitle),
-                          AppSpaces.h40,
-                          form,
-                        ]),
-                    AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
-                  ])));
+  static appBottomDialogWithOk(String title, Widget form, onTapOk) {
+    List<Widget> buttons = [
+      AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk)
+    ];
+    _appBottomDialogGeneral(title, form, buttons);
+  }
 
-  static mainAppDialogWithCancel(String title, Widget form) =>
-      showModalBottomSheet(
-          context: Get.context!,
-          useSafeArea: true,
-          showDragHandle: true,
-          isScrollControlled: true,
-          shape: AppElements.defaultModalBorderShape,
-          builder: (context) => Padding(
-              padding: AppPaddings.generalModal,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title, style: AppTextStyles.modalTitle),
-                          AppSpaces.h40,
-                          form,
-                        ]),
-                    AppGeneralButton(
-                        text: AppTexts.generalCancel, onTap: _onTapCancel),
-                  ])));
+  static appBottomDialogWithCancel(String title, Widget form) {
+    List<Widget> buttons = [
+      AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel)
+    ];
+    _appBottomDialogGeneral(title, form, buttons);
+  }
 
-  static mainAppDialogWithOkCancel(
-          String title, Widget form, Function onTapOk) =>
+  static appBottomDialogWithOkCancel(
+      String title, Widget form, Function onTapOk) {
+    List<Widget> buttons = [
+      AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
+      AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
+    ];
+    _appBottomDialogGeneral(title, form, buttons);
+  }
+
+  static appAlertDialogWithOkCancel(
+      String title, String text, Function onTapOk) {
+    List<Widget> buttons = [
+      AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
+      AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
+    ];
+    _appAlertDialog(title, text, buttons);
+  }
+
+  static _appBottomDialogGeneral(
+          String title, Widget form, List<Widget> buttons) =>
       showModalBottomSheet(
           context: Get.context!,
           useSafeArea: true,
@@ -88,7 +63,7 @@ class AppDialogs {
           isScrollControlled: true,
           shape: AppElements.defaultModalBorderShape,
           builder: (context) => Padding(
-              padding: AppPaddings.generalModal,
+              padding: AppPaddings.generalBottomModal,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -100,21 +75,50 @@ class AppDialogs {
                           AppSpaces.h40,
                           form,
                         ]),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _shrinkOneExpanded(),
-                          Expanded(
-                              flex: 10,
-                              child: AppGeneralButton(
-                                  text: AppTexts.generalOK, onTap: onTapOk)),
-                          _shrinkOneExpanded(),
-                          Expanded(
-                              flex: 10,
-                              child: AppGeneralButton(
-                                  text: AppTexts.generalCancel,
-                                  onTap: _onTapCancel)),
-                          _shrinkOneExpanded(),
-                        ]),
+                    _renderButtonsBottomDialog(buttons),
                   ])));
+
+  static Widget _renderButtonsBottomDialog(List<Widget> buttons) {
+    List<Widget> list = List.empty(growable: true);
+    int length = buttons.length;
+    for (int i = 0; i < length; i++) {
+      list.addIf(i == 0, _shrinkOneExpanded());
+      list.add(Expanded(flex: (20 ~/ length), child: buttons[i]));
+      list.add(_shrinkOneExpanded());
+    }
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
+  }
+
+  static _appAlertDialog(String title, String text, List<Widget> buttons) =>
+      showDialog(
+          context: Get.context!,
+          useSafeArea: true,
+          useRootNavigator: true,
+          builder: (context) => Container(
+                padding: AppPaddings.generalAlertDialog,
+                child: AlertDialog(
+                  backgroundColor: AppColors.appBackground,
+                  shape: AppElements.defaultAlertBorderShape,
+                  title: Column(children: [
+                    Text(title, style: AppTextStyles.dialogAlertTitle),
+                    AppDividers.generalDividerWithAppDefaultColor(),
+                  ]),
+                  content: Text(text, style: AppTextStyles.dialogAlertText),
+                  actions: [_renderButtonsAlertDialog(buttons)],
+                  actionsAlignment: MainAxisAlignment.center,
+                ),
+              ));
+
+  static Widget _renderButtonsAlertDialog(List<Widget> buttons) {
+    List<Widget> list = List.empty(growable: true);
+    int length = buttons.length;
+    for (int i = 0; i < length; i++) {
+      list.addIf(i == 0, _shrinkOneExpanded());
+      list.add(Expanded(flex: (10 ~/ length), child: buttons[i]));
+      list.add(_shrinkOneExpanded());
+    }
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
+  }
 }

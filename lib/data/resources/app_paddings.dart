@@ -6,7 +6,8 @@ class AppPaddings {
   static EdgeInsets get pages => const EdgeInsets.all(10);
 
   ///Modals
-  static EdgeInsets get generalModal => const EdgeInsets.all(20);
+  static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);
+  static EdgeInsets get generalAlertDialog => const EdgeInsets.all(20);
 
   ///HomePage
   static EdgeInsets get homepageDateTimeCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);

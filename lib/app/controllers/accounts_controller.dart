@@ -72,6 +72,7 @@ class AccountsController extends CoreController {
   void changeShowCleared() {
     showCleared.value = !showCleared.value;
     clearedIncluded.value = showCleared.value;
+    appDebugPrint('Show Cleared changed to: ${showCleared.value}');
     showCleared.value
         ? showClearedText.value =
             AppTexts.accountsTablePopupMenuHideClearedRecords

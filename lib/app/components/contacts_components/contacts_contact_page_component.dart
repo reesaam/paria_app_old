@@ -78,7 +78,7 @@ class ContactPageComponent {
   showContact(AppContact selectedContact) {
     _contact = selectedContact;
     _balance = _contact.calculateBalance(false);
-    AppDialogs.mainAppDialogWithoutButton(
+    AppDialogs.appBottomDialogWithoutButton(
         AppTexts.contactsShowContactTitle, _contactForm());
   }
 }

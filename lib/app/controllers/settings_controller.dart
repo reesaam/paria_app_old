@@ -1,15 +1,17 @@
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class SettingsController extends CoreController {
-
   Rx<bool> darkMode = false.obs;
   Rx<String?> selectedLanguage = AppLanguages.english.name.capitalizeFirst.obs;
-  Rx<String?> selectedCalendar = CalendarTypes.georgian.name.capitalizeFirst.obs;
+  Rx<String?> selectedCalendar =
+      CalendarTypes.georgian.name.capitalizeFirst.obs;
 
   @override
   void dataInit() {}
@@ -35,17 +37,29 @@ class SettingsController extends CoreController {
   }
 
   functionClearContacts() {
-    AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyContacts);
-    appDebugPrint('Contacts Cleared');
+    function() {
+      AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyContacts);
+      Get.back();
+      appDebugPrint('Contacts Cleared');
+    }
+    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
   }
 
   functionClearRecords() {
-    AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyAccountRecords);
-    appDebugPrint('Records Cleared');
+    function() {
+      AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyAccountRecords);
+      Get.back();
+      appDebugPrint('Records Cleared');
+    }
+    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
   }
 
   functionClearAllData() {
-    AppLocalStorage.to.clearStorage();
-    appDebugPrint('All Data Cleared');
+    function() {
+      AppLocalStorage.to.clearStorage();
+      Get.back();
+      appDebugPrint('All Data Cleared');
+    }
+    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
+import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_switch.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
@@ -36,7 +37,6 @@ class SettingsPage extends CoreView<SettingsController> {
       ]);
 
   Widget widgetGeneral() {
-
     ///TODO: Languages Implementation
     Widget widgetLanguages() => Text(controller.selectedLanguage.value!);
 

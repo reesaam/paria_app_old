@@ -13,9 +13,6 @@ class AppTextStyles {
   ///Generals
   static TextStyle get general => const TextStyle(overflow: TextOverflow.ellipsis);
 
-  ///SplashScreen
-  static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
-
   ///Card and Container
   static TextStyle get cardText => TextStyle(color: AppColors.cardText);
   static TextStyle get cardTitle => TextStyle(color: AppColors.cardText, fontSize: bigSize);
@@ -33,6 +30,13 @@ class AppTextStyles {
 
   ///Popup Menu
   static TextStyle get popupMenuItem => const TextStyle();
+
+  ///Dialogs
+  static TextStyle get dialogAlertTitle => TextStyle(fontSize: titleSize);
+  static TextStyle get dialogAlertText => TextStyle(fontSize: bigSize, color: AppColors.textNormalGrey);
+
+  ///SplashScreen
+  static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);
 
   ///Contacts
   static TextStyle get contactsNoContacts => TextStyle(fontSize: titleSize, color: AppColors.appDefaultColor);

@@ -58,12 +58,11 @@ class HomePage extends CoreView<HomePageController> {
       );
 
   Widget widgetButtons() => Padding(
-        padding: AppPaddings.homepageButtons,
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: listButtons()),
-      );
+      padding: AppPaddings.homepageButtons,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: listButtons()));
 
   List<Widget> listButtons() => [
         AppGeneralButton(

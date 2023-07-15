@@ -18,9 +18,9 @@ class SettingsComponents {
       Text(text, style: AppTextStyles.settingsSectionTitle);
 
   static Widget widgetSettingItem(
-          String text, Widget? leading, VoidCallback? wholeItemFunction) =>
+          String text, Widget? leading, Function? wholeItemFunction) =>
       InkWell(
-          onTap: wholeItemFunction,
+          onTap: wholeItemFunction == null ? null : () => wholeItemFunction(),
           child: Padding(
               padding: AppPaddings.settingsItem,
               child: Row(

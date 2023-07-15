@@ -94,7 +94,7 @@ class AppAccountsAddNewRecordComponent {
   }
 
   Future<AccountRecord?> addNewAccountsRecordModal() async {
-    await AppDialogs.mainAppDialogWithOkCancel(
+    await AppDialogs.appBottomDialogWithOkCancel(
         AppTexts.accountsAddNewRecordTitle,
         _addNewAccountsRecordDialogWidget(),
         _provideRecord);
