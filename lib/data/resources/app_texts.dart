@@ -8,7 +8,7 @@ class AppTexts {
   static String get generalNotAvailableInitials => 'N/A';
   static String get warning => 'Warning';
   static String get alert => 'Alert!';
-  static String get areYouSure => 'Are you sure?\nData will lost with this Function.';
+  static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';
 
   ///Homepage
   static String get homepageDateTimeTitle => 'Today';

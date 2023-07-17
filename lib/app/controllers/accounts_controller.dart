@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:paria_app/app/components/accounts_components/accounts_add_record_component.dart';
+import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
+import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
@@ -22,7 +24,8 @@ class AccountsController extends CoreController {
 
   Rx<bool> showCleared = false.obs;
   Rx<bool> clearedIncluded = false.obs;
-  Rx<String> showClearedText = AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
+  Rx<String> showClearedText =
+      AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
 
   @override
   void dataInit() {
@@ -39,7 +42,8 @@ class AccountsController extends CoreController {
   @override
   void onInitFunction() {
     listRecords.defaultSortFunction();
-    itemsBalance.value = listRecords.calculateSum(clearedIncluded.value).balance!;
+    itemsBalance.value =
+        listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
     listRecords.listen((data) => onInitFunction());
@@ -52,7 +56,18 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  clearRecordsList() => listRecords.clearRecordsList();
+  clearRecordsList() {
+    function() {
+      listRecords.clearRecordsList();
+      AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyAccountRecords);
+      Get.back();
+      appDebugPrint('Contacts Cleared');
+    }
+
+    Get.back();
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSure, function);
+  }
 
   addRecordFunction() async {
     AccountRecord? record =
@@ -70,6 +85,7 @@ class AccountsController extends CoreController {
       : {listRecords.unClearRecord(record), onInitFunction()};
 
   changeShowCleared() {
+    Get.back();
     showCleared.value = !showCleared.value;
     clearedIncluded.value = showCleared.value;
     appDebugPrint('Show Cleared changed to: ${showCleared.value}');

@@ -42,7 +42,9 @@ class SettingsController extends CoreController {
       Get.back();
       appDebugPrint('Contacts Cleared');
     }
-    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
+
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSure, function);
   }
 
   functionClearRecords() {
@@ -51,7 +53,9 @@ class SettingsController extends CoreController {
       Get.back();
       appDebugPrint('Records Cleared');
     }
-    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
+
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSure, function);
   }
 
   functionClearAllData() {
@@ -60,6 +64,8 @@ class SettingsController extends CoreController {
       Get.back();
       appDebugPrint('All Data Cleared');
     }
-    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
+
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSure, function);
   }
 }
