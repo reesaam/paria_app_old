@@ -7,15 +7,16 @@ import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 
 class AppPopupMenu extends StatelessWidget {
-  const AppPopupMenu({super.key, required this.listItems});
+  const AppPopupMenu({super.key, required this.listItems, this.icon});
 
   final List<AppPopupMenuItem> listItems;
+  final Icon? icon;
 
   @override
   Widget build(BuildContext context) => PopupMenuButton(
       padding: AppPaddings.zero,
       shape: AppElements.defaultBorderShape,
-      icon: AppIcons.threeDots.withAppDefaultColor(),
+      icon: icon == null ? AppIcons.threeDots.withAppDefaultColor() : icon!.withAppDefaultColor(),
       itemBuilder: (context) => List<AppPopupMenuItem>.generate(
           listItems.length,
           (index) => AppPopupMenuItem(
