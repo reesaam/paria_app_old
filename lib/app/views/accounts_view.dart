@@ -8,16 +8,20 @@ import 'package:paria_app/app/components/app_general_components/app_popup_menu.d
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
+import 'package:paria_app/app/components/buttons/app_material_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_general.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
+import 'package:paria_app/data/resources/app_sizes.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
@@ -26,7 +30,8 @@ class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar => AppAppBar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar =>
+      AppAppBar(pageDetail: controller.pageDetail);
 
   @override
   Widget? get topBar => widgetTopBar();
@@ -51,7 +56,6 @@ class AccountsPage extends CoreView<AccountsController> {
           widgetContactsBalanceButton(),
           AppSpaces.h10,
           summary(),
-          AppSpaces.h20,
         ]),
       );
 
@@ -91,15 +95,19 @@ class AccountsPage extends CoreView<AccountsController> {
                 ])),
       );
 
+  //Whole Table
   Widget widgetTable() => Column(children: [
-        Stack(children: [
+        Stack(alignment: Alignment.center, children: [
           Align(
-              alignment: Alignment.center,
+              alignment: Alignment.centerLeft,
               child: Text(AppTexts.accountsRecordsTableTitle,
                   style: AppTextStyles.accountsRecordsTableTitle)),
           Align(
               alignment: Alignment.centerRight,
-              child: recordsTableThreeDotsMenu()),
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                widgetFilter(),
+                recordsTableThreeDotsMenu(),
+              ])),
         ]),
         AppDividers.generalDivider(),
         Obx(() => controller.listRecords.isEmpty()
@@ -107,8 +115,14 @@ class AccountsPage extends CoreView<AccountsController> {
             : widgetRecordsTable()),
       ]);
 
+  //Filter
+  Widget widgetFilter() => Obx(() => AppIconButton(
+      icon: controller.filterIcon.value.icon!,
+      onPressed: controller.changeFilter));
+
+  //ThreeDots Button
   Widget recordsTableThreeDotsMenu() => Obx(() => SizedBox(
-      height: 20,
+      height: AppSizes.popUpMenuButton,
       child: AppPopupMenu(listItems: recordsTableThreeDotsMenuList())));
 
   List<AppPopupMenuItem> recordsTableThreeDotsMenuList() =>
@@ -121,6 +135,7 @@ class AccountsPage extends CoreView<AccountsController> {
             onTapFunction: () => controller.changeShowCleared()),
       ]);
 
+  //Table
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(
           controller.listRecords.count(),
@@ -151,6 +166,7 @@ class AccountsPage extends CoreView<AccountsController> {
                   child: Text(AppTextProvider.formatDate(record.dateTime!))),
             ]);
 
+  //Table No Record
   Widget widgetNoRecord() => Container(
         padding: AppPaddings.accountsNoRecordText,
         child: Text(AppTexts.accountsNoRecords,
