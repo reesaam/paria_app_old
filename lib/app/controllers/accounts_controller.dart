@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/accounts_components/accounts_add_record_component.dart';
+import 'package:paria_app/app/components/accounts_components/accounts_filter_component.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
+import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
+import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
+import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
@@ -13,9 +16,9 @@ import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class AccountsController extends CoreController {
-  Rx<AccountRecordsList> listRecords =
-      AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true))
-          .obs;
+  Rx<AccountRecordsList> listRecords = AccountRecordsList(
+          recordsList: List<AppAccountRecord>.empty(growable: true))
+      .obs;
 
   Rx<int> itemsBalance = 0.obs;
   Rx<int> itemsCount = 0.obs;
@@ -27,6 +30,7 @@ class AccountsController extends CoreController {
       AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
 
   Rx<bool> hasFilter = false.obs;
+  Rx<AccountsFilter> filter = const AccountsFilter().obs;
   Rx<Icon> filterIcon = AppIcons.noFilter.obs;
 
   @override
@@ -47,12 +51,18 @@ class AccountsController extends CoreController {
   @override
   void onInitFunction() {
     listRecords.defaultSortFunction();
+    summeryInit();
+    listRecords.listen((data) => summeryInit());
+    filter.listen((data) =>
+        data.isEmpty() ? clearFilter() : {filter.value = data, refresh()});
+    refresh();
+  }
+
+  void summeryInit() {
     itemsBalance.value =
         listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
-    listRecords.listen((data) => onInitFunction());
-    refresh();
   }
 
   @override
@@ -75,7 +85,7 @@ class AccountsController extends CoreController {
   }
 
   addRecordFunction() async {
-    AccountRecord? record =
+    AppAccountRecord? record =
         await AppAccountsAddRecordComponent().addAccountsRecordModal();
     record == null
         ? null
@@ -85,7 +95,7 @@ class AccountsController extends CoreController {
           };
   }
 
-  clearRecord(AccountRecord record, bool? checked) => checked == true
+  clearRecord(AppAccountRecord record, bool? checked) => checked == true
       ? {listRecords.clearRecord(record), onInitFunction()}
       : {listRecords.unClearRecord(record), onInitFunction()};
 
@@ -102,5 +112,11 @@ class AccountsController extends CoreController {
     onInitFunction();
   }
 
-  changeFilter() {}
+  clearFilter() {
+    hasFilter.value = false;
+    filter.value = const AccountsFilter();
+  }
+
+  changeFilter() async =>
+      filter.value = await AppAccountsFilterComponent().showFilterModal();
 }

@@ -14,7 +14,7 @@ import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddRecordComponent {
-  AccountRecord record = const AccountRecord();
+  AppAccountRecord record = const AppAccountRecord();
   AppContact? selectedContact = const AppContact();
   DateTime? dateTime = DateTime.now();
 
@@ -84,7 +84,7 @@ class AppAccountsAddRecordComponent {
   }
 
   _provideRecord() {
-    record = AccountRecord(
+    record = AppAccountRecord(
         contact: selectedContact,
         amount: int.parse(_controllerAddNewRecordAmount.text),
         title: _controllerAddNewRecordTitle.text,
@@ -93,14 +93,14 @@ class AppAccountsAddRecordComponent {
     Get.back();
   }
 
-  Future<AccountRecord?> addAccountsRecordModal() async {
+  Future<AppAccountRecord?> addAccountsRecordModal() async {
     await AppDialogs.appBottomDialogWithOkCancel(
         AppTexts.accountsAddRecordTitle,
         _addAccountsRecordDialogWidget(),
         _provideRecord);
-    appDebugPrint(record == const AccountRecord()
+    appDebugPrint(record == const AppAccountRecord()
         ? 'Add Record Canceled'
         : {'Record: $record', appDebugPrint('Add Record Modal Closed')});
-    return record == const AccountRecord() ? null : record;
+    return record == const AppAccountRecord() ? null : record;
   }
 }

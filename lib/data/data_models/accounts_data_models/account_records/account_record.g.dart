@@ -32,9 +32,9 @@ _$_AccountRecordsList _$$_AccountRecordsListFromJson(
         Map<String, dynamic> json) =>
     _$_AccountRecordsList(
       recordsList: (json['recordsList'] as List<dynamic>?)
-              ?.map((e) => AccountRecord.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => AppAccountRecord.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <AccountRecord>[],
+          const <AppAccountRecord>[],
     );
 
 Map<String, dynamic> _$$_AccountRecordsListToJson(

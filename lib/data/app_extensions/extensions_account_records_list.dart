@@ -12,9 +12,9 @@ extension Storage on Rx<AccountRecordsList> {
 }
 
 extension AddRecord on Rx<AccountRecordsList> {
-  addRecord(AccountRecord record) {
-    List<AccountRecord> records = List<AccountRecord>.empty(growable: true);
-    records.addAll(value.recordsList);
+  addRecord(AppAccountRecord record) {
+    List<AppAccountRecord> records = List<AppAccountRecord>.empty(growable: true);
+    records.addAll(membersList());
     records.add(record);
     defaultSortFunction();
     value.recordsList = records;
@@ -24,17 +24,17 @@ extension AddRecord on Rx<AccountRecordsList> {
 }
 
 extension ClearRecord on Rx<AccountRecordsList> {
-  clearRecord(AccountRecord record) {
-    value.recordsList.remove(record);
-    value.recordsList.add(record.copyWith(cleared: true));
+  clearRecord(AppAccountRecord record) {
+    membersList().remove(record);
+    membersList().add(record.copyWith(cleared: true));
     defaultSortFunction();
     saveOnStorage();
     refresh();
   }
 
   unClearRecord(record) {
-    value.recordsList.remove(record);
-    value.recordsList.add(record.copyWith(cleared: false));
+    membersList().remove(record);
+    membersList().add(record.copyWith(cleared: false));
     defaultSortFunction();
     saveOnStorage();
     refresh();
@@ -42,8 +42,8 @@ extension ClearRecord on Rx<AccountRecordsList> {
 }
 
 extension RemoveRecord on Rx<AccountRecordsList> {
-  removeRecord(AccountRecord record) {
-    value.recordsList.remove(record);
+  removeRecord(AppAccountRecord record) {
+    membersList().remove(record);
     saveOnStorage();
     refresh();
   }
@@ -53,14 +53,14 @@ extension SortRecords on Rx<AccountRecordsList> {
   defaultSortFunction() => sortByContact();
 
   sortByDateTime() {
-    List<AccountRecord> records = List<AccountRecord>.empty(growable: true);
-    records.addAll(value.recordsList);
+    List<AppAccountRecord> records = List<AppAccountRecord>.empty(growable: true);
+    records.addAll(membersList());
     records.sort((a, b) => a.dateTime!.compareTo(b.dateTime!));
     value.recordsList = records;
   }
 
   sortByContact() {
-    List<AccountRecord> records = List<AccountRecord>.empty(growable: true);
+    List<AppAccountRecord> records = List<AppAccountRecord>.empty(growable: true);
     records.addAll(value.recordsList);
     records
         .sort((a, b) => a.contact!.firstName!.compareTo(b.contact!.firstName!));
@@ -69,10 +69,10 @@ extension SortRecords on Rx<AccountRecordsList> {
 }
 
 extension Sum on Rx<AccountRecordsList> {
-  AccountBalance calculateSum(bool clearedIncluded) {
+  calculateSum(bool clearedIncluded) {
     int balance = 0;
     int count = 0;
-    for (AccountRecord record in value.recordsList) {
+    for (AppAccountRecord record in membersList()) {
       clearedIncluded
           ? {balance += record.amount!, count++}
           : record.cleared!
@@ -84,9 +84,9 @@ extension Sum on Rx<AccountRecordsList> {
 }
 
 extension Contacts on Rx<AccountRecordsList> {
-  int countContacts(bool clearedIncluded) {
+  countContacts(bool clearedIncluded) {
     List<AppContact> list = List<AppContact>.empty(growable: true);
-    for (AccountRecord record in value.recordsList) {
+    for (AppAccountRecord record in membersList()) {
       if (!list.any((element) =>
           element.firstName == record.contact!.firstName &&
           element.lastName == record.contact!.lastName)) {
@@ -102,8 +102,9 @@ extension Contacts on Rx<AccountRecordsList> {
 }
 
 extension Details on Rx<AccountRecordsList> {
-  int count() => value.recordsList.length;
-  bool isEmpty() => value.recordsList.isEmpty;
+  membersList() => value.recordsList;
+  count() => value.recordsList.length;
+  isEmpty() => value.recordsList.isEmpty;
 }
 
 extension ClearRecordsList on Rx<AccountRecordsList> {

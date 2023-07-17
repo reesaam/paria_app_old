@@ -22,6 +22,7 @@ class AppColors {
   static Color get textNormal => _black;
   static Color get textNormalGrey => _grey;
   static Color get textNormalWhite => _white;
+  static Color get textNormalAppDefaultColor => appDefaultColor;
 
   //Buttons
   static Color get buttonBackgroundNormal => appBackground;
@@ -48,8 +49,8 @@ class AppColors {
   //Bottom Navigation Bar
   static Color get bottomBarBackground => appBarBackground.withOpacity(0.8);
   static Color get bottomBarCircleBackground => bottomBarBackground;
-  static Color get bottomBarSelected => textNormal;
-  static Color get bottomBarUnselected => textNormal;
+  static Color get bottomBarSelected => textNormalAppDefaultColor;
+  static Color get bottomBarUnselected => textNormalGrey;
   static Color get bottomBarIcon => textNormal;
   static Color get bottomBarText => textNormal;
 

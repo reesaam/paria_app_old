@@ -7,7 +7,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 class ContactsBalanceController extends CoreController {
 
   AppContactsList listContacts = AppContactsList(contactsList: List<AppContact>.empty(growable: true));
-  AccountRecordsList listRecords = AccountRecordsList(recordsList: List<AccountRecord>.empty(growable: true));
+  AccountRecordsList listRecords = AccountRecordsList(recordsList: List<AppAccountRecord>.empty(growable: true));
 
   @override
   void dataInit() {

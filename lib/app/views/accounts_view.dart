@@ -12,9 +12,9 @@ import 'package:paria_app/app/components/buttons/app_material_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_general.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
+import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extensions_general.dart';
+import 'package:paria_app/data/app_extensions/extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
@@ -95,26 +95,6 @@ class AccountsPage extends CoreView<AccountsController> {
                 ])),
       );
 
-  //Whole Table
-  Widget widgetTable() => Column(children: [
-        Stack(alignment: Alignment.center, children: [
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Text(AppTexts.accountsRecordsTableTitle,
-                  style: AppTextStyles.accountsRecordsTableTitle)),
-          Align(
-              alignment: Alignment.centerRight,
-              child: Row(mainAxisSize: MainAxisSize.min, children: [
-                widgetFilter(),
-                recordsTableThreeDotsMenu(),
-              ])),
-        ]),
-        AppDividers.generalDivider(),
-        Obx(() => controller.listRecords.isEmpty()
-            ? widgetNoRecord()
-            : widgetRecordsTable()),
-      ]);
-
   //Filter
   Widget widgetFilter() => Obx(() => AppIconButton(
       icon: controller.filterIcon.value.icon!,
@@ -135,6 +115,26 @@ class AccountsPage extends CoreView<AccountsController> {
             onTapFunction: () => controller.changeShowCleared()),
       ]);
 
+  //Whole Table
+  Widget widgetTable() => Column(children: [
+        Stack(alignment: Alignment.center, children: [
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Text(AppTexts.accountsRecordsTableTitle,
+                  style: AppTextStyles.accountsRecordsTableTitle)),
+          Align(
+              alignment: Alignment.centerRight,
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                widgetFilter(),
+                recordsTableThreeDotsMenu(),
+              ])),
+        ]),
+        AppDividers.generalDivider(),
+        Obx(() => controller.listRecords.isEmpty()
+            ? widgetNoRecord()
+            : widgetRecordsTable()),
+      ]);
+
   //Table
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(
@@ -142,7 +142,14 @@ class AccountsPage extends CoreView<AccountsController> {
           (index) => widgetRecordsTableItem(
               controller.listRecords.value.recordsList[index]))));
 
-  Widget widgetRecordsTableItem(AccountRecord record) =>
+  //Table
+  // Widget widgetRecordsTable() => Obx(() => ListView.builder(
+  //     shrinkWrap: true,
+  //     itemCount: controller.listRecords.count(),
+  //     itemBuilder: (context, index) =>
+  //         widgetRecordsTableItem(controller.listRecords.membersList()[index])));
+
+  Widget widgetRecordsTableItem(AppAccountRecord record) =>
       !controller.showCleared.value && record.cleared == true
           ? const SizedBox.shrink()
           : Row(children: [

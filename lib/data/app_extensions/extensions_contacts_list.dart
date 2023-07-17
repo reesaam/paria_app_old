@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_contact.dart';
+import 'package:paria_app/data/app_extensions/extensions_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 

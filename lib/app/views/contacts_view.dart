@@ -9,7 +9,7 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
 import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/app_extensions/app_extensions_contacts_list.dart';
+import 'package:paria_app/data/app_extensions/extensions_contacts_list.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
@@ -50,13 +50,13 @@ class ContactsPage extends CoreView<ContactsController> {
           (index) => widgetContactsTableItem(
               controller.listContacts.membersList()[index]))));
 
-  Widget widgetContactsTableItem(AppContact contact) => Card(
-    shape: AppElements.cardTransparentOutlineBorder,
-    child: Padding(
+  Widget widgetContactsTableItem(AppContact contact) => GestureDetector(
+    onTap: () => controller.showContactFunction(contact),
+    child: Card(
+      shape: AppElements.cardTransparentOutlineBorder,
+      child: Padding(
         padding: AppPaddings.contactsItem,
-        child: GestureDetector(
-          onTap: () => controller.showContactFunction(contact),
-          child:
+        child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Row(children: [
               AppContactComponents.getAvatar(
@@ -67,7 +67,8 @@ class ContactsPage extends CoreView<ContactsController> {
             ]),
             AppPopupMenu(listItems: contactOptions(contact)),
           ]),
-        )),
+      ),
+    ),
   );
 
   List<AppPopupMenuItem> contactOptions(AppContact contact) =>

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AccountRecord _$AccountRecordFromJson(Map<String, dynamic> json) {
+AppAccountRecord _$AccountRecordFromJson(Map<String, dynamic> json) {
   return _AccountRecord.fromJson(json);
 }
 
@@ -28,15 +28,15 @@ mixin _$AccountRecord {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountRecordCopyWith<AccountRecord> get copyWith =>
+  $AccountRecordCopyWith<AppAccountRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountRecordCopyWith<$Res> {
   factory $AccountRecordCopyWith(
-          AccountRecord value, $Res Function(AccountRecord) then) =
-      _$AccountRecordCopyWithImpl<$Res, AccountRecord>;
+          AppAccountRecord value, $Res Function(AppAccountRecord) then) =
+      _$AccountRecordCopyWithImpl<$Res, AppAccountRecord>;
   @useResult
   $Res call(
       {AppContact? contact,
@@ -49,7 +49,7 @@ abstract class $AccountRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountRecordCopyWithImpl<$Res, $Val extends AccountRecord>
+class _$AccountRecordCopyWithImpl<$Res, $Val extends AppAccountRecord>
     implements $AccountRecordCopyWith<$Res> {
   _$AccountRecordCopyWithImpl(this._value, this._then);
 
@@ -204,7 +204,7 @@ class _$_AccountRecord implements _AccountRecord {
   }
 }
 
-abstract class _AccountRecord implements AccountRecord {
+abstract class _AccountRecord implements AppAccountRecord {
   const factory _AccountRecord(
       {final AppContact? contact,
       final int? amount,
@@ -237,8 +237,8 @@ AccountRecordsList _$AccountRecordsListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountRecordsList {
-  List<AccountRecord> get recordsList => throw _privateConstructorUsedError;
-  set recordsList(List<AccountRecord> value) =>
+  List<AppAccountRecord> get recordsList => throw _privateConstructorUsedError;
+  set recordsList(List<AppAccountRecord> value) =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -253,7 +253,7 @@ abstract class $AccountRecordsListCopyWith<$Res> {
           AccountRecordsList value, $Res Function(AccountRecordsList) then) =
       _$AccountRecordsListCopyWithImpl<$Res, AccountRecordsList>;
   @useResult
-  $Res call({List<AccountRecord> recordsList});
+  $Res call({List<AppAccountRecord> recordsList});
 }
 
 /// @nodoc
@@ -275,7 +275,7 @@ class _$AccountRecordsListCopyWithImpl<$Res, $Val extends AccountRecordsList>
       recordsList: null == recordsList
           ? _value.recordsList
           : recordsList // ignore: cast_nullable_to_non_nullable
-              as List<AccountRecord>,
+              as List<AppAccountRecord>,
     ) as $Val);
   }
 }
@@ -288,7 +288,7 @@ abstract class _$$_AccountRecordsListCopyWith<$Res>
       __$$_AccountRecordsListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AccountRecord> recordsList});
+  $Res call({List<AppAccountRecord> recordsList});
 }
 
 /// @nodoc
@@ -308,7 +308,7 @@ class __$$_AccountRecordsListCopyWithImpl<$Res>
       recordsList: null == recordsList
           ? _value.recordsList
           : recordsList // ignore: cast_nullable_to_non_nullable
-              as List<AccountRecord>,
+              as List<AppAccountRecord>,
     ));
   }
 }
@@ -316,14 +316,14 @@ class __$$_AccountRecordsListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AccountRecordsList implements _AccountRecordsList {
-  _$_AccountRecordsList({this.recordsList = const <AccountRecord>[]});
+  _$_AccountRecordsList({this.recordsList = const <AppAccountRecord>[]});
 
   factory _$_AccountRecordsList.fromJson(Map<String, dynamic> json) =>
       _$$_AccountRecordsListFromJson(json);
 
   @override
   @JsonKey()
-  List<AccountRecord> recordsList;
+  List<AppAccountRecord> recordsList;
 
   @override
   String toString() {
@@ -346,15 +346,15 @@ class _$_AccountRecordsList implements _AccountRecordsList {
 }
 
 abstract class _AccountRecordsList implements AccountRecordsList {
-  factory _AccountRecordsList({List<AccountRecord> recordsList}) =
+  factory _AccountRecordsList({List<AppAccountRecord> recordsList}) =
       _$_AccountRecordsList;
 
   factory _AccountRecordsList.fromJson(Map<String, dynamic> json) =
       _$_AccountRecordsList.fromJson;
 
   @override
-  List<AccountRecord> get recordsList;
-  set recordsList(List<AccountRecord> value);
+  List<AppAccountRecord> get recordsList;
+  set recordsList(List<AppAccountRecord> value);
   @override
   @JsonKey(ignore: true)
   _$$_AccountRecordsListCopyWith<_$_AccountRecordsList> get copyWith =>

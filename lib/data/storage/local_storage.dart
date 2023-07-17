@@ -39,7 +39,7 @@ class AppLocalStorage {
     final data = _storage.read<Map<String, dynamic>>(_keyAccountsRecords.name);
     return data == null
         ? AccountRecordsList(
-            recordsList: List<AccountRecord>.empty(growable: true))
+            recordsList: List<AppAccountRecord>.empty(growable: true))
         : AccountRecordsList.fromJson(data);
   }
 }
