@@ -11,6 +11,7 @@ import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_contacts_list.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
+import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
@@ -49,22 +50,25 @@ class ContactsPage extends CoreView<ContactsController> {
           (index) => widgetContactsTableItem(
               controller.listContacts.membersList()[index]))));
 
-  Widget widgetContactsTableItem(AppContact contact) => Padding(
-      padding: AppPaddings.contactsItem,
-      child: GestureDetector(
-        onTap: () => controller.showContactFunction(contact),
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Row(children: [
-            AppContactComponents.getAvatar(
-                contact, AppElements.contactsListAvatarMaxRadius),
-            AppSpaces.w20,
-            Text(AppTextProvider.getContactFullName(contact),
-                style: AppTextStyles.contactsListItem),
+  Widget widgetContactsTableItem(AppContact contact) => Card(
+    shape: AppElements.cardTransparentOutlineBorder,
+    child: Padding(
+        padding: AppPaddings.contactsItem,
+        child: GestureDetector(
+          onTap: () => controller.showContactFunction(contact),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Row(children: [
+              AppContactComponents.getAvatar(
+                  contact, AppElements.contactsListAvatarMaxRadius),
+              AppSpaces.w20,
+              Text(AppTextProvider.getContactFullName(contact),
+                  style: AppTextStyles.contactsListItem),
+            ]),
+            AppPopupMenu(listItems: contactOptions(contact)),
           ]),
-          AppPopupMenu(listItems: contactOptions(contact)),
-        ]),
-      ));
+        )),
+  );
 
   List<AppPopupMenuItem> contactOptions(AppContact contact) =>
       List<AppPopupMenuItem>.from([
