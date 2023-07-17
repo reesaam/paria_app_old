@@ -16,6 +16,8 @@ class AppIcons {
   static Icon get web => const Icon(Icons.language);
   static Icon get arrowForward => const Icon(Icons.arrow_forward_ios);
   static Icon get arrowBack => const Icon(Icons.arrow_back_ios);
+  static Icon get filter => const Icon(Icons.filter_alt);
+  static Icon get noFilter => const Icon(Icons.filter_alt_off);
 
   ///BottomNavigationBar Icons
   static Icon get bottomNavigationHomepage => home;

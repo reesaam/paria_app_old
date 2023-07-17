@@ -6,6 +6,7 @@ class AppTexts {
   static String get generalEmpty => '';
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
+  static String get filter => 'Filter';
   static String get warning => 'Warning';
   static String get alert => 'Alert!';
   static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';

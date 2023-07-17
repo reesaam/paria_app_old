@@ -21,3 +21,9 @@ enum AppBottomNavigationPages {
   accounts,
   settings,
 }
+
+enum AppAccountsTableFilterType {
+  byContact,
+  byAmount,
+  byDate,
+}
