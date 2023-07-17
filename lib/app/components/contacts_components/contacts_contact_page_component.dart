@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_contact.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_general.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_string.dart';
@@ -19,7 +20,7 @@ class ContactPageComponent {
   late AppContact _contact;
   late AccountBalance _balance;
 
-  Widget _contactForm() => Form(
+  Widget contactForm() => Form(
         child: Column(children: [
           Row(children: [
             AppContactComponents.getAvatar(
@@ -75,10 +76,11 @@ class ContactPageComponent {
             _balance.count.toCurrency() ?? ''),
       ]));
 
-  showContact(AppContact selectedContact) {
+  showContact(AppContact selectedContact) async {
     _contact = selectedContact;
     _balance = _contact.calculateBalance(false);
-    AppDialogs.appBottomDialogWithoutButton(
-        AppTexts.contactsShowContactTitle, _contactForm());
+    await AppDialogs.appBottomDialogWithoutButton(
+        AppTexts.contactsShowContactTitle, contactForm());
+    appDebugPrint('Show Contact Modal Closed');
   }
 }

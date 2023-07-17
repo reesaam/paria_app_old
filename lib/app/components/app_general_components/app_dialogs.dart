@@ -16,23 +16,23 @@ class AppDialogs {
 
   static _onTapCancel() => Get.back();
 
-  static appBottomDialogWithoutButton(String title, Widget form) {
+  static appBottomDialogWithoutButton(String title, Widget form) async {
     List<Widget> buttons = [];
-    _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons);
   }
 
-  static appBottomDialogWithOk(String title, Widget form, onTapOk) {
+  static appBottomDialogWithOk(String title, Widget form, onTapOk) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk)
     ];
-    _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons);
   }
 
-  static appBottomDialogWithCancel(String title, Widget form) {
+  static appBottomDialogWithCancel(String title, Widget form) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel)
     ];
-    _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons);
   }
 
   static appBottomDialogWithOkCancel(
@@ -45,17 +45,17 @@ class AppDialogs {
   }
 
   static appAlertDialogWithOkCancel(
-      String title, String text, Function onTapOk) {
+      String title, String text, Function onTapOk) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
     ];
-    _appAlertDialog(title, text, buttons);
+    await _appAlertDialog(title, text, buttons);
   }
 
   static _appBottomDialogGeneral(
           String title, Widget form, List<Widget> buttons) async =>
-      showModalBottomSheet(
+      await showModalBottomSheet(
           context: Get.context!,
           useSafeArea: true,
           useRootNavigator: true,
@@ -76,7 +76,7 @@ class AppDialogs {
                           form,
                         ]),
                     _renderButtonsBottomDialog(buttons),
-                  ]))).whenComplete(() => Get.back());
+                  ])));
 
   static Widget _renderButtonsBottomDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);
@@ -90,8 +90,8 @@ class AppDialogs {
         mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
   }
 
-  static _appAlertDialog(String title, String text, List<Widget> buttons) =>
-      showDialog(
+  static _appAlertDialog(String title, String text, List<Widget> buttons) async =>
+      await showDialog(
           context: Get.context!,
           useSafeArea: true,
           useRootNavigator: true,
@@ -108,7 +108,7 @@ class AppDialogs {
                   actions: [_renderButtonsAlertDialog(buttons)],
                   actionsAlignment: MainAxisAlignment.center,
                 ),
-              )).whenComplete(() => Get.back());
+              ));
 
   static Widget _renderButtonsAlertDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);

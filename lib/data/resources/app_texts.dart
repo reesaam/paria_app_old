@@ -15,6 +15,9 @@ class AppTexts {
 
   ///Contacts
   static String get contactsNoContacts => 'No Contacts';
+  static String get contactsOptionShow => 'Show Contact';
+  static String get contactsOptionEdit => 'Edit Contact';
+  static String get contactsOptionRemove => 'Remove Contact';
 
   ///Contacts Show Contact
   static String get contactsShowContactTitle => 'Contact Page';
@@ -28,19 +31,20 @@ class AppTexts {
   static String get contactsShowContactTitleRecords => 'Records Count:';
 
   ///Contacts Add New Contact Modal
-  static String get contactsAddNewContactTitle => 'Add New Contact';
-  static String get contactsAddNewContactFirstNameTitle => 'First Name';
-  static String get contactsAddNewContactFirstNameHint => 'Enter First Name';
-  static String get contactsAddNewContactLastNameTitle => 'Last Name';
-  static String get contactsAddNewContactLastNameHint => 'Enter Last Name';
-  static String get contactsAddNewContactMobileTitle => 'Mobile';
-  static String get contactsAddNewContactMobileHint => 'Enter Mobile';
-  static String get contactsAddNewContactPhoneTitle => 'Phone';
-  static String get contactsAddNewContactPhoneHint => 'Enter Phone';
-  static String get contactsAddNewContactEmailTitle => 'Email';
-  static String get contactsAddNewContactEmailHint => 'Enter Email';
-  static String get contactsAddNewContactWebLinkTitle => 'Web Link';
-  static String get contactsAddNewContactWebLinkHint => 'Enter Web Link';
+  static String get contactsAddContactTitle => 'Add New Contact';
+  static String get contactsEditContactTitle => 'Edit Contact';
+  static String get contactsAddContactFirstNameTitle => 'First Name';
+  static String get contactsAddContactFirstNameHint => 'Enter First Name';
+  static String get contactsAddContactLastNameTitle => 'Last Name';
+  static String get contactsAddContactLastNameHint => 'Enter Last Name';
+  static String get contactsAddContactMobileTitle => 'Mobile';
+  static String get contactsAddContactMobileHint => 'Enter Mobile';
+  static String get contactsAddContactPhoneTitle => 'Phone';
+  static String get contactsAddContactPhoneHint => 'Enter Phone';
+  static String get contactsAddContactEmailTitle => 'Email';
+  static String get contactsAddContactEmailHint => 'Enter Email';
+  static String get contactsAddContactWebLinkTitle => 'Web Link';
+  static String get contactsAddContactWebLinkHint => 'Enter Web Link';
 
   ///Contacts Balance
   static String get contactsBalanceTitleContact => 'Contact';
@@ -58,16 +62,16 @@ class AppTexts {
   static String get accountsTablePopupMenuHideClearedRecords => 'Hide Cleared Records';
 
   ///Accounts Add New Record Modal
-  static String get accountsAddNewRecordTitle => 'Add New Record';
-  static String get accountsAddNewRecordFieldContactTitle => 'Contact';
-  static String get accountsAddNewRecordFieldContactHint => 'Enter a Contact or Name';
-  static String get accountsAddNewRecordFieldTitleTitle => 'Description';
-  static String get accountsAddNewRecordFieldTitleHint => 'Enter a Description';
-  static String get accountsAddNewRecordFieldAmountTitle => 'Amount';
-  static String get accountsAddNewRecordFieldAmountHint => 'Enter the Amount';
-  static String get accountsAddNewRecordFieldDateTimeTitle => 'Date & Time';
-  static String get accountsAddNewRecordFieldDateTimeHint => 'Enter Date and Time';
-  static String get accountsAddNewRecordChooseContact => 'Choose a Contact:';
+  static String get accountsAddRecordTitle => 'Add New Record';
+  static String get accountsAddRecordFieldContactTitle => 'Contact';
+  static String get accountsAddRecordFieldContactHint => 'Enter a Contact or Name';
+  static String get accountsAddRecordFieldTitleTitle => 'Description';
+  static String get accountsAddRecordFieldTitleHint => 'Enter a Description';
+  static String get accountsAddRecordFieldAmountTitle => 'Amount';
+  static String get accountsAddRecordFieldAmountHint => 'Enter the Amount';
+  static String get accountsAddRecordFieldDateTimeTitle => 'Date & Time';
+  static String get accountsAddRecordFieldDateTimeHint => 'Enter Date and Time';
+  static String get accountsAddRecordChooseContact => 'Choose a Contact:';
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';

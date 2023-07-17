@@ -13,7 +13,7 @@ import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
-class AppAccountsAddNewRecordComponent {
+class AppAccountsAddRecordComponent {
   AccountRecord record = const AccountRecord();
   AppContact? selectedContact = const AppContact();
   DateTime? dateTime = DateTime.now();
@@ -29,32 +29,32 @@ class AppAccountsAddNewRecordComponent {
       TextEditingController(
           text: '${AppTextProvider.formatDate(DateTime.now())} - Today');
 
-  Widget _addNewAccountsRecordDialogWidget() => Form(
+  Widget _addAccountsRecordDialogWidget() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           AppTextField(
               controller: _controllerAddNewRecordContact,
-              label: AppTexts.accountsAddNewRecordFieldContactTitle,
-              hint: AppTexts.accountsAddNewRecordFieldContactHint,
+              label: AppTexts.accountsAddRecordFieldContactTitle,
+              hint: AppTexts.accountsAddRecordFieldContactHint,
               icon: Icons.person,
               suffixAction: _chooseContact),
           AppSpaces.h10,
           AppTextField(
               controller: _controllerAddNewRecordTitle,
-              label: AppTexts.accountsAddNewRecordFieldTitleTitle,
-              hint: AppTexts.accountsAddNewRecordFieldTitleHint,
+              label: AppTexts.accountsAddRecordFieldTitleTitle,
+              hint: AppTexts.accountsAddRecordFieldTitleHint,
               icon: Icons.text_snippet_outlined),
           AppSpaces.h10,
           AppTextField(
               controller: _controllerAddNewRecordAmount,
-              label: AppTexts.accountsAddNewRecordFieldAmountTitle,
-              hint: AppTexts.accountsAddNewRecordFieldAmountHint,
+              label: AppTexts.accountsAddRecordFieldAmountTitle,
+              hint: AppTexts.accountsAddRecordFieldAmountHint,
               icon: Icons.monetization_on_outlined,
               textInputType: TextInputType.number),
           AppSpaces.h10,
           AppTextField(
               controller: _controllerAddNewRecordDateTime,
-              label: AppTexts.accountsAddNewRecordFieldDateTimeTitle,
-              hint: AppTexts.accountsAddNewRecordFieldDateTimeHint,
+              label: AppTexts.accountsAddRecordFieldDateTimeTitle,
+              hint: AppTexts.accountsAddRecordFieldDateTimeHint,
               icon: Icons.calendar_today_outlined,
               textInputType: TextInputType.datetime,
               suffixAction: _chooseDateTime,
@@ -93,10 +93,10 @@ class AppAccountsAddNewRecordComponent {
     Get.back();
   }
 
-  Future<AccountRecord?> addNewAccountsRecordModal() async {
+  Future<AccountRecord?> addAccountsRecordModal() async {
     await AppDialogs.appBottomDialogWithOkCancel(
-        AppTexts.accountsAddNewRecordTitle,
-        _addNewAccountsRecordDialogWidget(),
+        AppTexts.accountsAddRecordTitle,
+        _addAccountsRecordDialogWidget(),
         _provideRecord);
     appDebugPrint(record == const AccountRecord()
         ? 'Add Record Canceled'

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:paria_app/app/components/accounts_components/accounts_add_new_record_component.dart';
+import 'package:paria_app/app/components/accounts_components/accounts_add_record_component.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/app_extensions_account_records.dart';
@@ -52,11 +52,11 @@ class AccountsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  void clearRecordsList() => listRecords.clearRecordsList();
+  clearRecordsList() => listRecords.clearRecordsList();
 
-  void addRecordFunction() async {
+  addRecordFunction() async {
     AccountRecord? record =
-        await AppAccountsAddNewRecordComponent().addNewAccountsRecordModal();
+        await AppAccountsAddRecordComponent().addAccountsRecordModal();
     record == null
         ? null
         : {
@@ -65,11 +65,11 @@ class AccountsController extends CoreController {
           };
   }
 
-  void clearRecord(AccountRecord record, bool? checked) => checked == true
+  clearRecord(AccountRecord record, bool? checked) => checked == true
       ? {listRecords.clearRecord(record), onInitFunction()}
       : {listRecords.unClearRecord(record), onInitFunction()};
 
-  void changeShowCleared() {
+  changeShowCleared() {
     showCleared.value = !showCleared.value;
     clearedIncluded.value = showCleared.value;
     appDebugPrint('Show Cleared changed to: ${showCleared.value}');

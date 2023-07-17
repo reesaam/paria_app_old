@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
-import 'package:paria_app/app/components/app_general_components/app_popupmenu.dart';
-import 'package:paria_app/app/components/app_general_components/app_popupmenu_item.dart';
+import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
+import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
@@ -115,10 +115,10 @@ class AccountsPage extends CoreView<AccountsController> {
       List<AppPopupMenuItem>.from([
         AppPopupMenuItem(
             text: AppTexts.accountsTablePopupMenuRemoveAllRecords,
-            onTapFunction: controller.clearRecordsList),
+            onTapFunction: () => controller.clearRecordsList()),
         AppPopupMenuItem(
             text: controller.showClearedText.value,
-            onTapFunction: controller.changeShowCleared),
+            onTapFunction: () => controller.changeShowCleared()),
       ]);
 
   Widget widgetRecordsTable() => Obx(() => Column(

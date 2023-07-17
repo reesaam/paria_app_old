@@ -21,16 +21,15 @@ class ChooseContactComponent {
       ));
 
   Widget _chooseContactForm() => Form(
-        child: Column(
-            children: List.generate(
-                _listContacts.contactsList.length,
-                (index) =>
-                    _chooseContactItem(_listContacts.contactsList[index]))),
-      );
+      child: Column(
+          children: List.generate(
+              _listContacts.contactsList.length,
+              (index) =>
+                  _chooseContactItem(_listContacts.contactsList[index]))));
 
   Future<AppContact?> chooseContact() async {
     await AppDialogs.appBottomDialogWithCancel(
-        AppTexts.accountsAddNewRecordChooseContact, _chooseContactForm());
+        AppTexts.accountsAddRecordChooseContact, _chooseContactForm());
     return _selectedContact;
   }
 }

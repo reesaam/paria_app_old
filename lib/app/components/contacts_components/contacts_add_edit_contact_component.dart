@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
+import 'package:paria_app/data/app_extensions/app_extensions_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
@@ -60,32 +61,31 @@ class AppContactsAddOrEditContactComponent {
         ]),
       );
 
-  _provideContact() {
+  _provideContact() async {
     _contact = AppContact(
-        firstName: _controllerFirstName.text,
-        lastName: _controllerLastName.text,
-        mobile: _controllerMobile.text,
-        phone: _controllerPhone.text,
-        email: _controllerEmail.text,
-        webLink: _controllerWebLink.text,
+      firstName: _controllerFirstName.text,
+      lastName: _controllerLastName.text,
+      mobile: _controllerMobile.text,
+      phone: _controllerPhone.text,
+      email: _controllerEmail.text,
+      webLink: _controllerWebLink.text,
     );
     Get.back();
   }
 
-  Future<AppContact?> addContactModal() async {
+  addContact() async {
     title = AppTexts.contactsAddContactTitle;
 
     await _raiseModal();
 
-    appDebugPrint(_contact == const AppContact()
+    appDebugPrint(_contact!.isEmpty()
         ? 'Add Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Add Contact Modal Closed')});
-    return _contact == const AppContact() ? null : _contact;
+    return _contact!.isEmpty() ? null : _contact;
   }
 
-  Future<AppContact?> editContactModal(AppContact contact) async {
-    AppContact prevContact = contact;
-    title = AppTexts.contactsAddContactTitle;
+  editContact(AppContact prevContact) async {
+    title = AppTexts.contactsEditContactTitle;
 
     ///Controllers
     _controllerFirstName.text = prevContact.firstName ?? '';
@@ -96,15 +96,17 @@ class AppContactsAddOrEditContactComponent {
     _controllerWebLink.text = prevContact.webLink ?? '';
 
     await _raiseModal();
+    _provideContact();
 
-    appDebugPrint(_contact == const AppContact()
+    appDebugPrint(_contact!.equalTo(prevContact)
         ? 'Edit Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Edit Contact Modal Closed')});
-    return _contact == prevContact ? null : _contact;
+    appDebugPrint(_contact);
+    appDebugPrint(prevContact);
+    appDebugPrint(_contact!.equalTo(prevContact));
+    return _contact!.equalTo(prevContact) ? null : _contact;
   }
 
   _raiseModal() async => await AppDialogs.appBottomDialogWithOkCancel(
-      title!,
-      _widgetAddOrEditContactDialog(),
-      _provideContact);
+      title!, _widgetAddOrEditContactDialog(), _provideContact);
 }
