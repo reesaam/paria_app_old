@@ -8,19 +8,22 @@ extension Storage on Rx<AppContactsList> {
   saveOnStorage() async => await AppLocalStorage.to.saveContacts(value);
 }
 
-extension AddContact on Rx<AppContactsList> {
+extension ContactFunctions on Rx<AppContactsList> {
   addContact(AppContact contact) {
     List<AppContact> contacts = List<AppContact>.empty(growable: true);
     contacts.addAll(value.contactsList);
     contacts.add(contact);
-    defaultSortFunction();
     value.contactsList = contacts;
+    defaultSortFunction();
     saveOnStorage();
     refresh();
   }
-}
 
-extension RemoveContact on Rx<AppContactsList> {
+  editContact(AppContact contact) {
+    value.contactsList.remove(contact);
+    addContact(contact);
+  }
+
   removeContact(AppContact contact) {
     value.contactsList.remove(contact);
     saveOnStorage();
@@ -44,7 +47,7 @@ extension Details on Rx<AppContactsList> {
   isEmpty() => value.contactsList.isEmpty;
 }
 
-extension ClearContactsList on Rx<AppContactsList> {
+extension ListFunctions on Rx<AppContactsList> {
   clearContactsList() {
     value.contactsList.clear();
     saveOnStorage();

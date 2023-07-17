@@ -19,5 +19,6 @@ class AppPopupMenu extends StatelessWidget {
       itemBuilder: (context) => List<PopupMenuItem>.generate(
           listItems.length,
           (index) => AppPopupMenuItem(
-              text: listItems[index].text, onTapFunction: listItems[index].onTap)));
+              text: listItems[index].text,
+              onTapFunction: () => listItems[index].onTap)));
 }
