@@ -15,12 +15,9 @@ import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
@@ -28,8 +25,8 @@ class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar =>
-      AppAppBar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar(
+      pageDetail: controller.pageDetail, barAction: widgetAppBarAction());
 
   @override
   Widget? get topBar => widgetTopBar();
@@ -49,60 +46,48 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget get body => widgetTable();
 
   Widget widgetTopBar() => Padding(
-        padding: AppPaddings.pages,
-        child: Column(children: [
-          widgetContactsBalanceButton(),
-          AppSpaces.h10,
-          summary(),
-        ]),
-      );
+      padding: AppPaddings.accountsTopBar,
+      child: summary());
 
-  Widget widgetContactsBalanceButton() => AppGeneralButton(
-      text: AppTexts.accountsContactsBalance,
-      leading: AppIcons.arrowForward.icon,
-      onTap: () => Get.toNamed(AppRoutes.contactsBalance));
+  Widget widgetAppBarAction() => AppIconButton(
+      icon: AppIcons.list.icon!,
+      onPressed: () => Get.toNamed(AppRoutes.contactsBalance),
+      brightIcon: true);
 
   Widget summary() => Card(
-        child: Container(
-            // color: AppColors.buttonNormal,
-            padding: AppPaddings.accountsSummaryCard,
-            decoration: BoxDecoration(
-                color: AppColors.cardBackground,
-                borderRadius: AppElements.defaultBorderWithRadius),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  //Titles
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: List.generate(
-                          AppTexts.accountSummaryItems.length,
-                          (index) => Text(AppTexts.accountSummaryItems[index],
-                              style: AppTextStyles.cardText))),
-                  //Values
-                  Obx(() => Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(controller.itemsBalance.value.toCurrency(),
-                                style: AppTextStyles.cardText),
-                            Text(controller.itemsCount.value.toString(),
-                                style: AppTextStyles.cardText),
-                            Text(controller.itemsCountContacts.toString(),
-                                style: AppTextStyles.cardText),
-                          ])),
+      child: Padding(
+          padding: AppPaddings.accountsSummaryCard,
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            //Titles
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: List.generate(
+                    AppTexts.accountSummaryItems.length,
+                    (index) => Text(AppTexts.accountSummaryItems[index],
+                        style: AppTextStyles.cardText))),
+            //Values
+            Obx(() =>
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(controller.itemsBalance.value.toCurrency(),
+                      style: AppTextStyles.cardText),
+                  Text(controller.itemsCount.value.toString(),
+                      style: AppTextStyles.cardText),
+                  Text(controller.itemsCountContacts.toString(),
+                      style: AppTextStyles.cardText),
                 ])),
-      );
+          ])));
 
   //Filter
   Widget widgetFilter() => Obx(() => Row(children: [
         controller.hasFilter.value
             ? AppIconButton(
                 icon: AppIcons.removeFilter.icon!,
-                onPressed: controller.clearFilter)
+                onPressed: controller.clearAllFilters)
             : const SizedBox.shrink(),
         AppIconButton(
             icon: controller.filterIcon.value.icon!,
-            onPressed: controller.changeFilter),
+            onPressed: controller.addFilterModal),
       ]));
 
   //ThreeDots Button
@@ -117,7 +102,7 @@ class AccountsPage extends CoreView<AccountsController> {
             onTapFunction: () => controller.clearRecordsList()),
         AppPopupMenuItem(
             text: controller.showClearedText.value,
-            onTapFunction: () => controller.changeShowCleared()),
+            onTapFunction: () => controller.changeShowClearedStatus()),
       ]);
 
   //Whole Table
@@ -144,8 +129,11 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(
           controller.listRecords.count(),
-          (index) => widgetRecordsTableItem(
-              controller.listRecords.value.recordsList[index]))));
+          (index) => controller.checkFilter(controller.filter.value,
+                  controller.listRecords.membersList()[index])
+              ? const SizedBox.shrink()
+              : widgetRecordsTableItem(
+                  controller.listRecords.membersList()[index]))));
 
   //Table
   // Widget widgetRecordsTable() => Obx(() => ListView.builder(
@@ -154,29 +142,30 @@ class AccountsPage extends CoreView<AccountsController> {
   //     itemBuilder: (context, index) =>
   //         widgetRecordsTableItem(controller.listRecords.membersList()[index])));
 
-  Widget widgetRecordsTableItem(AppAccountRecord record) =>
-      !controller.showCleared.value && record.cleared == true
-          ? const SizedBox.shrink()
-          : Row(children: [
-              Expanded(
-                  flex: 1,
-                  child: Checkbox(
-                      value: record.cleared,
-                      onChanged: (checked) =>
-                          controller.clearRecord(record, checked))),
-              Expanded(
-                  flex: 2,
-                  child: Text(record.contact!.firstName ??
-                      AppTexts.generalNotAvailableInitials)),
-              Expanded(
-                  flex: 3,
-                  child: Text(
-                      record.title ?? AppTexts.generalNotAvailableInitials)),
-              Expanded(flex: 2, child: Text(record.amount.toCurrency())),
-              Expanded(
-                  flex: 3,
-                  child: Text(AppTextProvider.formatDate(record.dateTime!))),
-            ]);
+  Widget widgetRecordsTableItem(AppAccountRecord record) => !controller
+              .showCleared.value &&
+          record.cleared == true
+      ? const SizedBox.shrink()
+      : Row(children: [
+          Expanded(
+              flex: 1,
+              child: Checkbox(
+                  value: record.cleared,
+                  onChanged: (checked) =>
+                      controller.changeRecordClearanceStatus(record, checked))),
+          Expanded(
+              flex: 2,
+              child: Text(record.contact!.firstName ??
+                  AppTexts.generalNotAvailableInitials)),
+          Expanded(
+              flex: 3,
+              child:
+                  Text(record.title ?? AppTexts.generalNotAvailableInitials)),
+          Expanded(flex: 2, child: Text(record.amount.toCurrency())),
+          Expanded(
+              flex: 3,
+              child: Text(AppTextProvider.formatDate(record.dateTime!))),
+        ]);
 
   //Table No Record
   Widget widgetNoRecord() => Container(
