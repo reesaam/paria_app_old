@@ -62,21 +62,27 @@ class AppDialogs {
           showDragHandle: true,
           isScrollControlled: true,
           shape: AppElements.defaultModalBorderShape,
-          builder: (context) => Padding(
-              padding: AppPaddings.generalBottomModal,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title, style: AppTextStyles.modalTitle),
-                          AppSpaces.h40,
-                          form,
-                        ]),
-                    _renderButtonsBottomDialog(buttons),
-                  ])));
+          builder: (context) => SingleChildScrollView(
+                child: Column(children: [
+                  Padding(
+                      padding: AppPaddings.generalBottomModal,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(title, style: AppTextStyles.modalTitle),
+                                  AppSpaces.h40,
+                                  form,
+                                ]),
+                            AppSpaces.h40,
+                            _renderButtonsBottomDialog(buttons),
+                          ])),
+                  AppSpaces.h20,
+                ]),
+              ));
 
   static Widget _renderButtonsBottomDialog(List<Widget> buttons) {
     List<Widget> list = List.empty(growable: true);
@@ -90,7 +96,8 @@ class AppDialogs {
         mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
   }
 
-  static _appAlertDialog(String title, String text, List<Widget> buttons) async =>
+  static _appAlertDialog(
+          String title, String text, List<Widget> buttons) async =>
       await showDialog(
           context: Get.context!,
           useSafeArea: true,
