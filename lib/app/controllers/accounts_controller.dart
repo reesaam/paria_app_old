@@ -30,7 +30,7 @@ class AccountsController extends CoreController {
       AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
 
   Rx<bool> hasFilter = false.obs;
-  Rx<AccountsFilter> filter = const AccountsFilter().obs;
+  Rx<AppAccountsFilter> filter = const AppAccountsFilter().obs;
   Rx<Icon> filterIcon = AppIcons.noFilter.obs;
 
   @override
@@ -43,18 +43,15 @@ class AccountsController extends CoreController {
   @override
   void pageInit() {
     pageDetail = AppPageDetails.accounts;
-    hasFilter.listen((value) => value == true
-        ? filterIcon.value = AppIcons.filter
-        : filterIcon.value = AppIcons.noFilter);
   }
 
   @override
   void onInitFunction() {
     listRecords.defaultSortFunction();
     summeryInit();
+    filterInit();
+    filter.listen((data) => filterInit());
     listRecords.listen((data) => summeryInit());
-    filter.listen((data) =>
-        data.isEmpty() ? clearFilter() : {filter.value = data, refresh()});
     refresh();
   }
 
@@ -63,6 +60,16 @@ class AccountsController extends CoreController {
         listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
+  }
+
+  void filterInit() {
+    hasFilter.value = !filter.value.isEmpty();
+    hasFilter.listen((value) => value
+        ? filterIcon.value = AppIcons.filter
+        : {
+            filterIcon.value = AppIcons.noFilter,
+            filter.value = const AppAccountsFilter()
+          });
   }
 
   @override
@@ -112,11 +119,8 @@ class AccountsController extends CoreController {
     onInitFunction();
   }
 
-  clearFilter() {
-    hasFilter.value = false;
-    filter.value = const AccountsFilter();
+  changeFilter() async {
+    filter.value = await AppAccountsFilterComponent().showFilterModal();
+    refresh();
   }
-
-  changeFilter() async =>
-      filter.value = await AppAccountsFilterComponent().showFilterModal();
 }

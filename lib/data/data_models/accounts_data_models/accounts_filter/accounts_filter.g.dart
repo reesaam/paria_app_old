@@ -36,9 +36,9 @@ _$_AccountsFiltersList _$$_AccountsFiltersListFromJson(
         Map<String, dynamic> json) =>
     _$_AccountsFiltersList(
       recordsList: (json['recordsList'] as List<dynamic>?)
-              ?.map((e) => AccountsFilter.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => AppAccountsFilter.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <AccountsFilter>[],
+          const <AppAccountsFilter>[],
     );
 
 Map<String, dynamic> _$$_AccountsFiltersListToJson(

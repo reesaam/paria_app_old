@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AccountsFilter _$AccountsFilterFromJson(Map<String, dynamic> json) {
+AppAccountsFilter _$AccountsFilterFromJson(Map<String, dynamic> json) {
   return _AccountsFilter.fromJson(json);
 }
 
@@ -29,15 +29,15 @@ mixin _$AccountsFilter {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountsFilterCopyWith<AccountsFilter> get copyWith =>
+  $AccountsFilterCopyWith<AppAccountsFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountsFilterCopyWith<$Res> {
   factory $AccountsFilterCopyWith(
-          AccountsFilter value, $Res Function(AccountsFilter) then) =
-      _$AccountsFilterCopyWithImpl<$Res, AccountsFilter>;
+          AppAccountsFilter value, $Res Function(AppAccountsFilter) then) =
+      _$AccountsFilterCopyWithImpl<$Res, AppAccountsFilter>;
   @useResult
   $Res call(
       {AppContact? contact,
@@ -51,7 +51,7 @@ abstract class $AccountsFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountsFilterCopyWithImpl<$Res, $Val extends AccountsFilter>
+class _$AccountsFilterCopyWithImpl<$Res, $Val extends AppAccountsFilter>
     implements $AccountsFilterCopyWith<$Res> {
   _$AccountsFilterCopyWithImpl(this._value, this._then);
 
@@ -224,7 +224,7 @@ class _$_AccountsFilter implements _AccountsFilter {
   }
 }
 
-abstract class _AccountsFilter implements AccountsFilter {
+abstract class _AccountsFilter implements AppAccountsFilter {
   const factory _AccountsFilter(
       {final AppContact? contact,
       final int? amountUp,
@@ -260,8 +260,8 @@ AccountsFiltersList _$AccountsFiltersListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountsFiltersList {
-  List<AccountsFilter> get recordsList => throw _privateConstructorUsedError;
-  set recordsList(List<AccountsFilter> value) =>
+  List<AppAccountsFilter> get recordsList => throw _privateConstructorUsedError;
+  set recordsList(List<AppAccountsFilter> value) =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -276,7 +276,7 @@ abstract class $AccountsFiltersListCopyWith<$Res> {
           AccountsFiltersList value, $Res Function(AccountsFiltersList) then) =
       _$AccountsFiltersListCopyWithImpl<$Res, AccountsFiltersList>;
   @useResult
-  $Res call({List<AccountsFilter> recordsList});
+  $Res call({List<AppAccountsFilter> recordsList});
 }
 
 /// @nodoc
@@ -298,7 +298,7 @@ class _$AccountsFiltersListCopyWithImpl<$Res, $Val extends AccountsFiltersList>
       recordsList: null == recordsList
           ? _value.recordsList
           : recordsList // ignore: cast_nullable_to_non_nullable
-              as List<AccountsFilter>,
+              as List<AppAccountsFilter>,
     ) as $Val);
   }
 }
@@ -311,7 +311,7 @@ abstract class _$$_AccountsFiltersListCopyWith<$Res>
       __$$_AccountsFiltersListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AccountsFilter> recordsList});
+  $Res call({List<AppAccountsFilter> recordsList});
 }
 
 /// @nodoc
@@ -331,7 +331,7 @@ class __$$_AccountsFiltersListCopyWithImpl<$Res>
       recordsList: null == recordsList
           ? _value.recordsList
           : recordsList // ignore: cast_nullable_to_non_nullable
-              as List<AccountsFilter>,
+              as List<AppAccountsFilter>,
     ));
   }
 }
@@ -339,14 +339,14 @@ class __$$_AccountsFiltersListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AccountsFiltersList implements _AccountsFiltersList {
-  _$_AccountsFiltersList({this.recordsList = const <AccountsFilter>[]});
+  _$_AccountsFiltersList({this.recordsList = const <AppAccountsFilter>[]});
 
   factory _$_AccountsFiltersList.fromJson(Map<String, dynamic> json) =>
       _$$_AccountsFiltersListFromJson(json);
 
   @override
   @JsonKey()
-  List<AccountsFilter> recordsList;
+  List<AppAccountsFilter> recordsList;
 
   @override
   String toString() {
@@ -369,15 +369,15 @@ class _$_AccountsFiltersList implements _AccountsFiltersList {
 }
 
 abstract class _AccountsFiltersList implements AccountsFiltersList {
-  factory _AccountsFiltersList({List<AccountsFilter> recordsList}) =
+  factory _AccountsFiltersList({List<AppAccountsFilter> recordsList}) =
       _$_AccountsFiltersList;
 
   factory _AccountsFiltersList.fromJson(Map<String, dynamic> json) =
       _$_AccountsFiltersList.fromJson;
 
   @override
-  List<AccountsFilter> get recordsList;
-  set recordsList(List<AccountsFilter> value);
+  List<AppAccountsFilter> get recordsList;
+  set recordsList(List<AppAccountsFilter> value);
   @override
   @JsonKey(ignore: true)
   _$$_AccountsFiltersListCopyWith<_$_AccountsFiltersList> get copyWith =>

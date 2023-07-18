@@ -8,7 +8,7 @@ import 'package:paria_app/app/components/app_general_components/app_popup_menu.d
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
-import 'package:paria_app/app/components/buttons/app_material_button.dart';
+import 'package:paria_app/app/components/buttons/app_icon_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
@@ -101,7 +101,7 @@ class AccountsPage extends CoreView<AccountsController> {
       onPressed: controller.changeFilter));
 
   //ThreeDots Button
-  Widget recordsTableThreeDotsMenu() => Obx(() => SizedBox(
+  Widget widgetRecordsTableThreeDotsMenu() => Obx(() => SizedBox(
       height: AppSizes.popUpMenuButton,
       child: AppPopupMenu(listItems: recordsTableThreeDotsMenuList())));
 
@@ -126,7 +126,7 @@ class AccountsPage extends CoreView<AccountsController> {
               alignment: Alignment.centerRight,
               child: Row(mainAxisSize: MainAxisSize.min, children: [
                 widgetFilter(),
-                recordsTableThreeDotsMenu(),
+                widgetRecordsTableThreeDotsMenu(),
               ])),
         ]),
         AppDividers.generalDivider(),
