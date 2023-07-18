@@ -7,6 +7,8 @@ class AppTexts {
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
   static String get filter => 'Filter';
+  static String get from => 'From';
+  static String get to => 'To';
   static String get warning => 'Warning';
   static String get alert => 'Alert!';
   static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';
@@ -67,12 +69,16 @@ class AppTexts {
   static String get accountsAddRecordFieldContactTitle => 'Contact';
   static String get accountsAddRecordFieldContactHint => 'Enter a Contact or Name';
   static String get accountsAddRecordFieldTitleTitle => 'Description';
-  static String get accountsAddRecordFieldTitleHint => 'Enter a Description';
-  static String get accountsAddRecordFieldAmountTitle => 'Amount';
+  static String get accountsAddRecordFieldDescriptionHint => 'Enter a Description';
+  static String get accountsAddRecordFieldAmountDescription => 'Amount';
   static String get accountsAddRecordFieldAmountHint => 'Enter the Amount';
   static String get accountsAddRecordFieldDateTimeTitle => 'Date & Time';
   static String get accountsAddRecordFieldDateTimeHint => 'Enter Date and Time';
   static String get accountsAddRecordChooseContact => 'Choose a Contact:';
+
+  ///Accounts Filter
+  static String get accountsFilterPanelTitleAmount => 'Amount';
+  static String get accountsFilterPanelTitleDateTime => 'Date & Time';
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';

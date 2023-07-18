@@ -33,4 +33,8 @@ class AppElements {
   ///Avatars
   static double get contactsListAvatarMaxRadius => 15;
   static double get contactsContactAvatarMaxRadius => 20;
+
+  ///Panel
+  static BoxBorder get defaultPanelBorder => Border.all(color: AppColors.panelBorder);
+  static BoxDecoration get defaultPanel => BoxDecoration(border: defaultPanelBorder, borderRadius: defaultBorderWithRadius);
 }

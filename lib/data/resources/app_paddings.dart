@@ -7,6 +7,8 @@ class AppPaddings {
 
   ///Modules
   static EdgeInsets get textFieldContent => const EdgeInsets.fromLTRB(20, 10, 20, 10);
+  static EdgeInsets get panel => const EdgeInsets.all(20);
+  static EdgeInsets get panelTitle => const EdgeInsets.only(left: 20);
 
   ///Modals
   static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);
@@ -34,6 +36,9 @@ class AppPaddings {
   static EdgeInsets get accountsSelectContactList => const EdgeInsets.fromLTRB(10, 10, 10, 10);
 
   ///Accounts Add New Record Modal
+
+  ///Accounts Filter
+  static EdgeInsets get accountsFilterClearButton => const EdgeInsets.fromLTRB(100, 40, 100, 10);
 
   ///Settings
   static EdgeInsets get settingsSection => const EdgeInsets.fromLTRB(0, 20, 0, 10);

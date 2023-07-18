@@ -12,6 +12,7 @@ class AppTextStyles {
 
   ///Generals
   static TextStyle get general => const TextStyle(overflow: TextOverflow.ellipsis);
+  static TextStyle get panelTitle => general.copyWith(color: AppColors.textNormalGrey);
 
   ///Card and Container
   static TextStyle get cardText => TextStyle(color: AppColors.cardText);

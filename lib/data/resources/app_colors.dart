@@ -40,6 +40,9 @@ class AppColors {
   //Divider
   static Color get dividerMainColor => _black;
 
+  //App Panel
+  static Color get panelBorder => _grey;
+
   ///Modules
   //AppBar
   // static Color get appBarBackground => appBackground.withOpacity(0.8);
