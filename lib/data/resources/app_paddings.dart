@@ -17,7 +17,9 @@ class AppPaddings {
 
   ///HomePage
   static EdgeInsets get homepageDateTimeCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);
-  static EdgeInsets get homepageButtons => const EdgeInsets.fromLTRB(50, 0, 50, 0);
+  static EdgeInsets get homepageSummeryCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);
+  static EdgeInsets get homepageDateTimeCardSettingIcon => const EdgeInsets.fromLTRB(0, 10, 10, 0);
+  static EdgeInsets get homepageButtons => const EdgeInsets.fromLTRB(50, 40, 50, 0);
 
   ///Contacts
   static EdgeInsets get contactsNoContacts => const EdgeInsets.all(50);

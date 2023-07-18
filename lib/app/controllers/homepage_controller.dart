@@ -7,9 +7,9 @@ import 'package:paria_app/data/resources/app_page_details.dart';
 
 class HomePageController extends CoreController {
 
-  Rx<DateTime> dt = DateTime.now().obs;
-  Rx<String> time = ''.obs;
-  Rx<String> date = ''.obs;
+  Rx<DateTime> mainDateTime = DateTime.now().obs;
+  Rx<String> mainTime = ''.obs;
+  Rx<String> mainDate = ''.obs;
 
   @override
   void dataInit() {
@@ -19,8 +19,8 @@ class HomePageController extends CoreController {
   @override
   void pageInit() {
     pageDetail = AppPageDetails.homepage;
-    time.value = AppTextProvider.formatDate(dt.value);
-    date.value = AppTextProvider.formatTimeWithSeconds(dt.value);
+    mainTime.value = AppTextProvider.formatDate(mainDateTime.value);
+    mainDate.value = AppTextProvider.formatTimeWithSeconds(mainDateTime.value);
   }
 
   @override
@@ -35,8 +35,8 @@ class HomePageController extends CoreController {
   void onCloseFunction() {}
 
   void timeUpdate() => Timer.periodic(const Duration(seconds: 1), (timer) {
-        dt.value = DateTime.now();
-        time.value = AppTextProvider.formatDate(dt.value);
-        date.value = AppTextProvider.formatTimeWithSeconds(dt.value);
+        mainDateTime.value = DateTime.now();
+        mainTime.value = AppTextProvider.formatDate(mainDateTime.value);
+        mainDate.value = AppTextProvider.formatTimeWithSeconds(mainDateTime.value);
       });
 }

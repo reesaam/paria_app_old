@@ -12,7 +12,7 @@ extension Compare on AppAccountsFilter {
               amountUp == filter.amountUp &&
               amountDown == filter.amountDown &&
               dateTimeUp!.equalTo(filter.dateTimeUp!) &&
-              dateTimeDown.toString() == filter.dateTimeDown.toString();
+              dateTimeDown!.equalTo(filter.dateTimeDown!);
 }
 
 extension Checks on AppAccountsFilter {

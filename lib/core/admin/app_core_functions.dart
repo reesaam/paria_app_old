@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 import 'package:paria_app/data/storage/shared_preferences.dart';
 
+bool isRelease() => false;
+
 void appDebugPrint(message) => debugPrint('$message');
 
 void clearAppData() {
