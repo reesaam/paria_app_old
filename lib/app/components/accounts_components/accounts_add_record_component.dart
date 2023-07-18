@@ -6,30 +6,27 @@ import 'package:paria_app/app/components/app_general_components/app_text_field.d
 import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_choose_contact_component.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
+import 'package:paria_app/data/app_extensions/extension_account.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
 
 class AppAccountsAddRecordComponent {
+
+  //Variables
   AppAccountRecord record = const AppAccountRecord();
   AppContact? selectedContact = const AppContact();
   DateTime? dateTime = DateTime.now();
 
   //TextEditing Controllers
-  final TextEditingController _controllerAddNewRecordContact =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordTitle =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordAmount =
-      TextEditingController();
-  final TextEditingController _controllerAddNewRecordDateTime =
-      TextEditingController(
+  final TextEditingController _controllerAddNewRecordContact = TextEditingController();
+  final TextEditingController _controllerAddNewRecordDescription = TextEditingController();
+  final TextEditingController _controllerAddNewRecordAmount = TextEditingController();
+  final TextEditingController _controllerAddNewRecordDateTime = TextEditingController(
           text: '${AppTextProvider.formatDate(DateTime.now())} - Today');
 
-  Widget _addAccountsRecordDialogWidget() => Form(
+  Widget _widgetAddAccountsRecordDialog() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           AppTextField(
               controller: _controllerAddNewRecordContact,
@@ -39,14 +36,14 @@ class AppAccountsAddRecordComponent {
               suffixAction: _chooseContact),
           AppSpaces.h10,
           AppTextField(
-              controller: _controllerAddNewRecordTitle,
+              controller: _controllerAddNewRecordDescription,
               label: AppTexts.accountsAddRecordFieldTitleTitle,
-              hint: AppTexts.accountsAddRecordFieldTitleHint,
+              hint: AppTexts.accountsAddRecordFieldDescriptionHint,
               icon: Icons.text_snippet_outlined),
           AppSpaces.h10,
           AppTextField(
               controller: _controllerAddNewRecordAmount,
-              label: AppTexts.accountsAddRecordFieldAmountTitle,
+              label: AppTexts.accountsAddRecordFieldAmountDescription,
               hint: AppTexts.accountsAddRecordFieldAmountHint,
               icon: Icons.monetization_on_outlined,
               textInputType: TextInputType.number),
@@ -87,7 +84,7 @@ class AppAccountsAddRecordComponent {
     record = AppAccountRecord(
         contact: selectedContact,
         amount: int.parse(_controllerAddNewRecordAmount.text),
-        title: _controllerAddNewRecordTitle.text,
+        title: _controllerAddNewRecordDescription.text,
         dateTime: dateTime,
         cleared: false);
     Get.back();
@@ -96,9 +93,9 @@ class AppAccountsAddRecordComponent {
   Future<AppAccountRecord?> addAccountsRecordModal() async {
     await AppDialogs.appBottomDialogWithOkCancel(
         AppTexts.accountsAddRecordTitle,
-        _addAccountsRecordDialogWidget(),
+        _widgetAddAccountsRecordDialog(),
         _provideRecord);
-    appDebugPrint(record == const AppAccountRecord()
+    appDebugPrint(record.isEmpty()
         ? 'Add Record Canceled'
         : {'Record: $record', appDebugPrint('Add Record Modal Closed')});
     return record == const AppAccountRecord() ? null : record;
