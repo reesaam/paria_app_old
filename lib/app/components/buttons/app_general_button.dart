@@ -22,7 +22,7 @@ class AppGeneralButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(AppColors.buttonBackgroundNormal),
           foregroundColor: MaterialStateProperty.all(AppColors.buttonTextNormal),
           side: MaterialStateProperty.all(AppElements.defaultBorderSideFocused),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderShape),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderLowRadiusShape),
           splashFactory: InkSplash.splashFactory),
       onPressed: () => onTap(),
       child: Row(

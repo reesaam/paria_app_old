@@ -4,9 +4,14 @@ import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
 
 class AppIconButton extends MaterialButton {
-  const AppIconButton({super.key, required this.icon, required super.onPressed});
+  const AppIconButton(
+      {super.key,
+      required this.icon,
+      required super.onPressed,
+      this.brightIcon});
 
   final IconData icon;
+  final bool? brightIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,9 @@ class AppIconButton extends MaterialButton {
           padding: AppPaddings.zero,
           iconSize: AppSizes.iconButtonIconSize,
           onPressed: onPressed,
-          icon: Icon(icon).withAppDefaultColor()),
+          icon: brightIcon == true
+              ? Icon(icon).withAppAppBackgroundColor()
+              : Icon(icon).withAppDefaultColor()),
     );
   }
 }
