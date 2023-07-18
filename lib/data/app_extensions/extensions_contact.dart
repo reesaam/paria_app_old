@@ -4,7 +4,7 @@ import 'package:paria_app/data/data_models/core_data_models/app_contact/app_cont
 import 'package:paria_app/data/storage/local_storage.dart';
 
 extension Accounts on AppContact {
-  calculateBalance(bool clearedIncluded) {
+  AccountBalance calculateBalance(bool clearedIncluded) {
     int balance = 0;
     int count = 0;
 
@@ -24,13 +24,13 @@ extension Accounts on AppContact {
 }
 
 extension Compare on AppContact {
-  equalTo(AppContact contact) =>
-      firstName == contact.firstName &&
-      lastName == contact.lastName &&
-      mobile == contact.mobile &&
-      phone == contact.phone &&
-      email == contact.email &&
-      webLink == contact.webLink;
+  equalTo(AppContact? contact) =>
+      firstName == contact?.firstName &&
+      lastName == contact?.lastName &&
+      mobile == contact?.mobile &&
+      phone == contact?.phone &&
+      email == contact?.email &&
+      webLink == contact?.webLink;
 }
 
 extension Checks on AppContact {
