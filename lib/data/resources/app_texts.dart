@@ -54,7 +54,7 @@ class AppTexts {
   static String get contactsBalanceTitleCount => 'Count';
 
   ///Accounts
-  static String get accountsContactsBalance => 'Contacts\' Balance';
+  static String get accountsContactsBalance => 'All Balances';
   static String get accountsRecordsTableTitle => 'Records Table';
   static List<String> get accountSummaryItems => ['Balance:', 'Items Count:', 'Contacts Count:'];
   static String get accountsNoRecords => 'No Records';
