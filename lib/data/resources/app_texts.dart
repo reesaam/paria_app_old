@@ -6,7 +6,6 @@ class AppTexts {
   static String get generalEmpty => '';
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
-  static String get filter => 'Filter';
   static String get from => 'From';
   static String get to => 'To';
   static String get warning => 'Warning';
@@ -77,8 +76,19 @@ class AppTexts {
   static String get accountsAddRecordChooseContact => 'Choose a Contact:';
 
   ///Accounts Filter
-  static String get accountsFilterPanelTitleAmount => 'Amount';
-  static String get accountsFilterPanelTitleDateTime => 'Date & Time';
+  static String get accountAddFilterTitle => 'Filter';
+  static String get accountsAddFilterPanelTitleAmount => 'Amount';
+  static String get accountsAddFilterPanelTitleDateTime => 'Date & Time';
+  static String get accountsAddFilterFieldContactTitle => 'Contact';
+  static String get accountsAddFilterFieldContactHint => 'Enter a Contact or Name';
+  static String get accountsAddFilterFieldDescriptionTitle => 'Description';
+  static String get accountsAddFilterFieldDescriptionHint => 'Enter a Description';
+  static String get accountsAddFilterFieldAmountDescription => 'Amount';
+  static String get accountsAddFilterFieldAmountFromHint => 'Enter the Amount Start';
+  static String get accountsAddFilterFieldAmountToHint => 'Enter the Amount End';
+  static String get accountsAddFilterFieldDateTimeTitle => 'Date & Time';
+  static String get accountsAddFilterFieldDateTimeFromHint => 'Enter Date and Time Start';
+  static String get accountsAddFilterFieldDateTimeToHint => 'Enter Date and Time End';
 
   ///Settings
   static String get settingSectionTitleGeneral => 'General';

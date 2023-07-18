@@ -64,12 +64,10 @@ class AccountsController extends CoreController {
 
   void filterInit() {
     hasFilter.value = !filter.value.isEmpty();
+    appDebugPrint('Filter isEmpty: ${filter.value.isEmpty()}');
     hasFilter.listen((value) => value
         ? filterIcon.value = AppIcons.filter
-        : {
-            filterIcon.value = AppIcons.noFilter,
-            filter.value = const AppAccountsFilter()
-          });
+        : clearFilter());
   }
 
   @override
@@ -120,7 +118,13 @@ class AccountsController extends CoreController {
   }
 
   changeFilter() async {
-    filter.value = await AppAccountsFilterComponent().showFilterModal();
+    filter.value = await AppAccountsFilterComponent().showFilterModal(filter.value);
+    refresh();
+  }
+
+  clearFilter() {
+    filterIcon.value = AppIcons.noFilter;
+    filter.value = const AppAccountsFilter();
     refresh();
   }
 }

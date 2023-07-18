@@ -13,12 +13,10 @@ import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extensions_general.dart';
 import 'package:paria_app/data/app_extensions/extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
@@ -96,9 +94,16 @@ class AccountsPage extends CoreView<AccountsController> {
       );
 
   //Filter
-  Widget widgetFilter() => Obx(() => AppIconButton(
-      icon: controller.filterIcon.value.icon!,
-      onPressed: controller.changeFilter));
+  Widget widgetFilter() => Obx(() => Row(children: [
+        controller.hasFilter.value
+            ? AppIconButton(
+                icon: AppIcons.removeFilter.icon!,
+                onPressed: controller.clearFilter)
+            : const SizedBox.shrink(),
+        AppIconButton(
+            icon: controller.filterIcon.value.icon!,
+            onPressed: controller.changeFilter),
+      ]));
 
   //ThreeDots Button
   Widget widgetRecordsTableThreeDotsMenu() => Obx(() => SizedBox(
@@ -175,8 +180,7 @@ class AccountsPage extends CoreView<AccountsController> {
 
   //Table No Record
   Widget widgetNoRecord() => Container(
-        padding: AppPaddings.accountsNoRecordText,
-        child: Text(AppTexts.accountsNoRecords,
-            style: AppTextStyles.accountNoRecord),
-      );
+      padding: AppPaddings.accountsNoRecordText,
+      child: Text(AppTexts.accountsNoRecords,
+          style: AppTextStyles.accountNoRecord));
 }
