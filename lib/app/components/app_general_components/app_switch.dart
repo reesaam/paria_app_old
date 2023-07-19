@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
 
-class AppSwitch extends StatelessWidget {
-  const AppSwitch({
-    super.key,
-    required this.value,
-    required this.onChanged,
-    this.enabled,
-  });
+class AppSwitch extends Switch {
+  const AppSwitch(
+      {super.key, required super.value, required super.onChanged, this.enabled})
+      : super();
 
-  final bool value;
-  final Function(bool value)? onChanged;
   final bool? enabled;
 
   @override

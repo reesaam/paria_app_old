@@ -70,9 +70,9 @@ class ContactPageComponent {
         _widgetInfoItem(
             AppIcons.account,
             AppTexts.contactsShowContactTitleBalance,
-            _balance.balance.toCurrency ?? ''),
+            _balance.balance.toCurrency),
         _widgetInfoItem(AppIcons.list, AppTexts.contactsShowContactTitleRecords,
-            _balance.count.toCurrency ?? ''),
+            _balance.count.toCurrency),
       ]));
 
   showContact(AppContact selectedContact) async {

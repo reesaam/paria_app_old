@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
+import 'package:paria_app/data/app_extensions/extensions_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
@@ -16,7 +17,7 @@ class ChooseContactComponent {
       child: Container(
         alignment: Alignment.centerLeft,
         padding: AppPaddings.accountsSelectContactList,
-        child: Text('${contact.firstName} ${contact.lastName}',
+        child: Text(contact.getContactFullName,
             style: AppTextStyles.contactsChooseContact),
       ));
 

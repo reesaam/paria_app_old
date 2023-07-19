@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';

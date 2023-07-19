@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
@@ -36,7 +37,7 @@ abstract class CoreView<Controller extends CoreController>
 
   Widget get _pageBody => SafeArea(
         child: Column(children: [
-          topBar == null ? const SizedBox.shrink() : topBar!,
+          topBar == null ? shrinkSizedBox : topBar!,
           //Main Body
           Expanded(
               child: Padding(
@@ -45,7 +46,7 @@ abstract class CoreView<Controller extends CoreController>
                       scrollDirection: Axis.vertical,
                       physics: const BouncingScrollPhysics(),
                       child: body))),
-          footer == null ? const SizedBox.shrink() : footer!,
+          footer == null ? shrinkSizedBox : footer!,
         ]),
       );
 }

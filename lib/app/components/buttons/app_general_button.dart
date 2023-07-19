@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 
@@ -29,8 +30,8 @@ class AppGeneralButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            icon == null ? const SizedBox.shrink() : Icon(icon),
+            icon == null ? shrinkSizedBox : Icon(icon),
             AutoSizeText(text),
-            leading == null ? const SizedBox.shrink() : Icon(leading)
+            leading == null ? shrinkSizedBox : Icon(leading)
           ]));
 }

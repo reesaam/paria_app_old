@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 
@@ -28,6 +29,6 @@ class SettingsComponents {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(text, style: AppTextStyles.settingsSectionItem),
-                    leading ?? const SizedBox.shrink(),
+                    leading ?? shrinkSizedBox,
                   ])));
 }

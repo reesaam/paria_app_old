@@ -19,6 +19,7 @@ class AppIcons {
   static Icon get filter => const Icon(Icons.filter_alt);
   static Icon get noFilter => const Icon(Icons.filter_alt_off);
   static Icon get removeFilter => const Icon(Icons.highlight_remove_sharp);
+  static Icon get add => const Icon(Icons.add);
 
   ///BottomNavigationBar Icons
   static Icon get bottomNavigationHomepage => home;

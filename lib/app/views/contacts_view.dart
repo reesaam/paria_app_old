@@ -36,7 +36,7 @@ class ContactsPage extends CoreView<ContactsController> {
 
   @override
   Widget? get floatingActionButton => AppFloatingActionButtons(
-      icon: Icons.add, onTap: controller.addContactFunction);
+      icon: Icons.add, onPressed: controller.addContactFunction);
 
   @override
   Widget get body => Obx(() => controller.listContacts.isEmpty

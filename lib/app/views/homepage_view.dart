@@ -5,6 +5,7 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/extensions_general.dart';
@@ -78,8 +79,8 @@ class HomePage extends CoreView<HomePageController> {
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: []),
           ])));
 
-  Widget widgetButtons() => isRelease()
-      ? const SizedBox.shrink()
+  Widget widgetButtons() => isRelease
+      ? shrinkSizedBox
       : Padding(
           padding: AppPaddings.homepageButtons,
           child: Column(

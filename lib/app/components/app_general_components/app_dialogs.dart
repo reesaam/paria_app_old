@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
@@ -11,8 +12,6 @@ import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AppDialogs {
-  static Widget _shrinkOneExpanded() =>
-      const Expanded(flex: 1, child: SizedBox.shrink());
 
   static _onTapCancel() => Get.back();
 
@@ -88,9 +87,9 @@ class AppDialogs {
     List<Widget> list = List.empty(growable: true);
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
-      list.addIf(i == 0, _shrinkOneExpanded());
+      list.addIf(i == 0, shrinkOneExpanded);
       list.add(Expanded(flex: (20 ~/ length), child: buttons[i]));
-      list.add(_shrinkOneExpanded());
+      list.add(shrinkOneExpanded);
     }
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);
@@ -121,9 +120,9 @@ class AppDialogs {
     List<Widget> list = List.empty(growable: true);
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
-      list.addIf(i == 0, _shrinkOneExpanded());
+      list.addIf(i == 0, shrinkOneExpanded);
       list.add(Expanded(flex: (10 ~/ length), child: buttons[i]));
-      list.add(_shrinkOneExpanded());
+      list.add(shrinkOneExpanded);
     }
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween, children: list);

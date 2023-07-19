@@ -30,7 +30,7 @@ class AppColors {
 
   //FloatingActionButton
   static Color get floatingButtonColor => appDefaultColor;
-  static Color get floatingButtonText => _white;
+  static Color get floatingButtonText => appBackground;
 
   //Cards
   static Color get cardDefaultColor => appDefaultColor;

@@ -16,7 +16,9 @@ class AppPopupMenu extends StatelessWidget {
   Widget build(BuildContext context) => PopupMenuButton(
       padding: AppPaddings.zero,
       shape: AppElements.defaultBorderShape,
-      icon: icon == null ? AppIcons.threeDots.withAppDefaultColor : icon!.withAppDefaultColor,
+      icon: icon == null
+          ? AppIcons.threeDots.withAppDefaultColor
+          : icon!.withAppDefaultColor,
       itemBuilder: (context) => List<AppPopupMenuItem>.generate(
           listItems.length,
           (index) => AppPopupMenuItem(
