@@ -24,7 +24,7 @@ class HomePage extends CoreView<HomePageController> {
       AppAppBar(pageDetail: controller.pageDetail);
 
   @override
-  Widget? get topBar => null;
+  Widget? get topBar => widgetDateTime();
 
   @override
   Widget? get footer => null;
@@ -40,27 +40,30 @@ class HomePage extends CoreView<HomePageController> {
   Widget get body => Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [widgetDateTime(), widgetButtons()]);
+      children: [widgetButtons()]);
 
-  Widget widgetDateTime() => Card(
-          child: Stack(children: [
-        Padding(
-            padding: AppPaddings.homepageDateTimeCard,
-            child: Column(children: [
-              Text(AppTexts.homepageDateTimeTitle,
-                  style: AppTextStyles.cardTitle),
-              AppSpaces.h20,
-              Obx(() => widgetDateTimeItem()),
-            ])),
+  Widget widgetDateTime() => Padding(
+        padding: AppPaddings.pages,
+        child: Card(
+            child: Stack(children: [
+          Padding(
+              padding: AppPaddings.homepageDateTimeCard,
+              child: Column(children: [
+                Text(AppTexts.homepageDateTimeTitle,
+                    style: AppTextStyles.cardTitle),
+                AppSpaces.h20,
+                Obx(() => widgetDateTimeItem()),
+              ])),
 
-        ///TODO: Implement DateTime Setting Page
-        InkWell(
-            onTap: () {},
-            child: Container(
-                alignment: Alignment.topRight,
-                padding: AppPaddings.homepageDateTimeCardSettingIcon,
-                child: AppIcons.settings.withAppDefaultColor.withSize(15))),
-      ]));
+          ///TODO: Implement DateTime Setting Page
+          InkWell(
+              onTap: () {},
+              child: Container(
+                  alignment: Alignment.topRight,
+                  padding: AppPaddings.homepageDateTimeCardSettingIcon,
+                  child: AppIcons.settings.withAppDefaultColor.withSize(15))),
+        ])),
+      );
 
   Widget widgetDateTimeItem() => Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
