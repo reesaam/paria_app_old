@@ -4,14 +4,13 @@ import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
 import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
 import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
 import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/app_extensions/extensions_contact.dart';
 import 'package:paria_app/data/app_extensions/extensions_contacts_list.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
@@ -40,15 +39,15 @@ class ContactsPage extends CoreView<ContactsController> {
       icon: Icons.add, onTap: controller.addContactFunction);
 
   @override
-  Widget get body => Obx(() => controller.listContacts.isEmpty()
+  Widget get body => Obx(() => controller.listContacts.isEmpty
       ? widgetNoContacts()
       : widgetContactsTable());
 
   Widget widgetContactsTable() => Obx(() => Column(
       children: List.generate(
-          controller.listContacts.count(),
+          controller.listContacts.count,
           (index) => widgetContactsTableItem(
-              controller.listContacts.membersList()[index]))));
+              controller.listContacts.membersList[index]))));
 
   Widget widgetContactsTableItem(AppContact contact) => GestureDetector(
     onTap: () => controller.showContactFunction(contact),
@@ -62,7 +61,7 @@ class ContactsPage extends CoreView<ContactsController> {
               AppContactComponents.getAvatar(
                   contact, AppElements.contactsListAvatarMaxRadius),
               AppSpaces.w20,
-              Text(AppTextProvider.getContactFullName(contact),
+              Text(contact.getContactFullName,
                   style: AppTextStyles.contactsListItem),
             ]),
             AppPopupMenu(listItems: contactOptions(contact)),

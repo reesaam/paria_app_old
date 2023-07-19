@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extensions_contact.dart';
@@ -26,7 +25,7 @@ class ContactPageComponent {
             AppContactComponents.getAvatar(
                 _contact, AppElements.contactsContactAvatarMaxRadius),
             AppSpaces.w20,
-            Text(AppTextProvider.getContactFullName(_contact),
+            Text(_contact.getContactFullName,
                 style: AppTextStyles.contactsShowContactFullName),
           ]),
           _widgetInfo(),
@@ -71,9 +70,9 @@ class ContactPageComponent {
         _widgetInfoItem(
             AppIcons.account,
             AppTexts.contactsShowContactTitleBalance,
-            _balance.balance.toCurrency() ?? ''),
+            _balance.balance.toCurrency ?? ''),
         _widgetInfoItem(AppIcons.list, AppTexts.contactsShowContactTitleRecords,
-            _balance.count.toCurrency() ?? ''),
+            _balance.count.toCurrency ?? ''),
       ]));
 
   showContact(AppContact selectedContact) async {

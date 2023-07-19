@@ -23,16 +23,39 @@ extension Accounts on AppContact {
   }
 }
 
+extension StringProviders on AppContact {
+  String get getContactFullName => '${firstName ?? ''} ${lastName ?? ''}';
+  String get getContactInitials => '${firstName!.isEmpty ? '' : firstName![0]}${lastName!.isEmpty ? '' : lastName![0]}';
+}
+
+extension CompareNull on AppContact? {
+  bool equalTo(AppContact? contact) => this == null && contact == null
+      ? true
+      : this == null || contact == null
+          ? false
+          : this!.firstName == contact.firstName &&
+              this!.lastName == contact.lastName &&
+              this!.mobile == contact.mobile &&
+              this!.phone == contact.phone &&
+              this!.email == contact.email &&
+              this!.webLink == contact.webLink;
+}
+
 extension Compare on AppContact {
-  equalTo(AppContact? contact) =>
-      firstName == contact?.firstName &&
-      lastName == contact?.lastName &&
-      mobile == contact?.mobile &&
-      phone == contact?.phone &&
-      email == contact?.email &&
-      webLink == contact?.webLink;
+  bool equalTo(AppContact? contact) => contact == null
+      ? false
+      : firstName == contact.firstName &&
+          lastName == contact.lastName &&
+          mobile == contact.mobile &&
+          phone == contact.phone &&
+          email == contact.email &&
+          webLink == contact.webLink;
+}
+
+extension ChecksNull on AppContact? {
+  bool get isEmpty => this == null ? true : equalTo(const AppContact());
 }
 
 extension Checks on AppContact {
-  isEmpty() => equalTo(const AppContact());
+  bool get isEmpty => equalTo(const AppContact());
 }

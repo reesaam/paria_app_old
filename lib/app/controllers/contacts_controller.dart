@@ -19,7 +19,7 @@ class ContactsController extends CoreController {
   @override
   void dataInit() {
     listContacts.value = AppLocalStorage.to.loadContacts();
-    appDebugPrint('Contacts Count: ${listContacts.count()}');
+    appDebugPrint('Contacts Count: ${listContacts.count}');
   }
 
   @override
@@ -29,7 +29,7 @@ class ContactsController extends CoreController {
 
   @override
   void onInitFunction() {
-    listContacts.defaultSortFunction();
+    listContacts.defaultSortFunction;
     listContacts.listen((data) => onInitFunction());
     refresh();
   }
@@ -40,9 +40,9 @@ class ContactsController extends CoreController {
   @override
   void onCloseFunction() {}
 
-  clearContactsList() => listContacts.clearContactsList();
+  void clearContactsList() => listContacts.clearContactsList();
 
-  addContactFunction() async {
+  void addContactFunction() async {
     AppContact? contact =
         await AppContactsAddOrEditContactComponent().addContact();
     contact == null
@@ -53,17 +53,17 @@ class ContactsController extends CoreController {
           };
   }
 
-  showContactFunction(AppContact contact) async {
+  void showContactFunction(AppContact contact) async {
     Get.back();
     await ContactPageComponent().showContact(contact);
   }
 
-  editContactFunction(AppContact prevContact) async {
+  void editContactFunction(AppContact prevContact) async {
     Get.back();
     AppContact? contact = await AppContactsAddOrEditContactComponent()
         .editContact(prevContact);
-    appDebugPrint('Contact is Empty: ${contact!.isEmpty()}');
-    contact.isEmpty()
+    appDebugPrint('Contact is Empty: ${contact!.isEmpty}');
+    contact.isEmpty
         ? null
         : {
             listContacts.editContact(prevContact, contact),
@@ -72,7 +72,7 @@ class ContactsController extends CoreController {
     appDebugPrint('Contact Edited: $contact');
   }
 
-  removeContactFunction(AppContact contact) {
+  void removeContactFunction(AppContact contact) {
     Get.back();
     listContacts.removeContact(contact);
     appDebugPrint('Contact Removed: $contact');

@@ -58,7 +58,7 @@ class HomePage extends CoreView<HomePageController> {
             child: Container(
                 alignment: Alignment.topRight,
                 padding: AppPaddings.homepageDateTimeCardSettingIcon,
-                child: AppIcons.settings.withAppDefaultColor().withSize(15))),
+                child: AppIcons.settings.withAppDefaultColor.withSize(15))),
       ]));
 
   Widget widgetDateTimeItem() => Row(

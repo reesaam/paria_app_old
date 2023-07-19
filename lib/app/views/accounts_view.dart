@@ -5,13 +5,12 @@ import 'package:paria_app/app/components/app_general_components/app_dividers.dar
 import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
 import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
 import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/components/buttons/app_icon_button.dart';
 import 'package:paria_app/app/controllers/accounts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
+import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extensions_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
@@ -69,7 +68,7 @@ class AccountsPage extends CoreView<AccountsController> {
             //Values
             Obx(() =>
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(controller.itemsBalance.value.toCurrency(),
+                  Text(controller.itemsBalance.value.toCurrency,
                       style: AppTextStyles.cardText),
                   Text(controller.itemsCount.value.toString(),
                       style: AppTextStyles.cardText),
@@ -120,7 +119,7 @@ class AccountsPage extends CoreView<AccountsController> {
               ])),
         ]),
         AppDividers.generalDivider(),
-        Obx(() => controller.listRecords.isEmpty()
+        Obx(() => controller.listRecords.isEmpty
             ? widgetNoRecord()
             : widgetRecordsTable()),
       ]);
@@ -128,12 +127,12 @@ class AccountsPage extends CoreView<AccountsController> {
   //Table
   Widget widgetRecordsTable() => Obx(() => Column(
       children: List.generate(
-          controller.listRecords.count(),
+          controller.listRecords.count,
           (index) => controller.checkFilter(controller.filter.value,
-                  controller.listRecords.membersList()[index])
+                  controller.listRecords.membersList[index])
               ? const SizedBox.shrink()
               : widgetRecordsTableItem(
-                  controller.listRecords.membersList()[index]))));
+                  controller.listRecords.membersList[index]))));
 
   //Table
   // Widget widgetRecordsTable() => Obx(() => ListView.builder(
@@ -161,10 +160,10 @@ class AccountsPage extends CoreView<AccountsController> {
               flex: 3,
               child:
                   Text(record.title ?? AppTexts.generalNotAvailableInitials)),
-          Expanded(flex: 2, child: Text(record.amount.toCurrency())),
+          Expanded(flex: 2, child: Text(record.amount.toCurrency)),
           Expanded(
               flex: 3,
-              child: Text(AppTextProvider.formatDate(record.dateTime!))),
+              child: Text(record.dateTime!.toDateFormat)),
         ]);
 
   //Table No Record

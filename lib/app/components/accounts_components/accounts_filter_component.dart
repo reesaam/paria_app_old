@@ -4,12 +4,10 @@ import 'package:paria_app/app/components/app_general_components/app_date_time_pi
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_panel.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_choose_contact_component.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/app_extensions/extensions_contact.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
@@ -100,35 +98,34 @@ class AppAccountsFilterComponent {
             '${selectedContact!.firstName} ${selectedContact!.lastName}';
   }
 
-  _chooseDateTimeUp() async =>
-      await _chooseDateTime(dateTimeUp, _controllerFilterDateTimeUp);
-  _chooseDateTimeDown() async =>
-      await _chooseDateTime(dateTimeDown, _controllerFilterDateTimeDown);
-
-  _chooseDateTime(DateTime? dateTime, TextEditingController controller) async {
-    dateTime = await AppDateTimePicker().defaultDatetimePicker();
-    controller.text =
-        '${AppTextProvider.formatDate(dateTime!)}${_additionalText(dateTime)}';
-    appDebugPrint(
-        'DATE TIME CHOSEN: ${AppTextProvider.formatDateTime(dateTime)}');
+  _chooseDateTimeUp() async {
+    dateTimeUp = await AppDateTimePicker().defaultDatetimePicker();
+    _controllerFilterDateTimeUp.text = '${dateTimeUp!.toDateFormat}${_additionalText(dateTimeUp!)}';
+    appDebugPrint('DATE TIME CHOSEN: ${dateTimeUp!.toDateTimeFormat}');
   }
 
-  String _additionalText(DateTime? dateTime) =>
-      dateTime!.equalTo(DateTime.now()) ? ' - Today' : '';
+  _chooseDateTimeDown() async {
+    dateTimeDown = await AppDateTimePicker().defaultDatetimePicker();
+    _controllerFilterDateTimeDown.text = '${dateTimeDown!.toDateFormat}${_additionalText(dateTimeDown!)}';
+    appDebugPrint('DATE TIME CHOSEN: ${dateTimeDown!.toDateTimeFormat}');
+  }
+
+  String _additionalText(DateTime dateTime) =>
+      dateTime.equalTo(DateTime.now()) ? ' - Today' : '';
 
   _fillFields(bool withContact) {
     withContact ? _controllerFilterContact.text = '${filter.contact!.firstName ?? ''} ${filter.contact!.lastName}' : null;
     _controllerFilterDescription.text = filter.description ?? '';
     _controllerFilterAmountDown.text = filter.amountDown == null ? '' : filter.amountDown.toString();
     _controllerFilterAmountUp.text = filter.amountUp == null ? '' : filter.amountUp.toString();
-    _controllerFilterDateTimeDown.text = filter.dateTimeDown == null ? '' : AppTextProvider.formatDate(filter.dateTimeDown!);
-    _controllerFilterDateTimeUp.text = filter.dateTimeUp == null ? '' : AppTextProvider.formatDate(filter.dateTimeUp!);
+    _controllerFilterDateTimeDown.text = filter.dateTimeDown == null ? '' : filter.dateTimeDown!.toDateFormat;
+    _controllerFilterDateTimeUp.text = filter.dateTimeUp == null ? '' : filter.dateTimeUp!.toDateFormat;
   }
 
   _provideFilter() {
     filter = AppAccountsFilter(
       contact: selectedContact ?? selectedContact,
-      description: _controllerFilterDescription.text,
+      description: _controllerFilterDescription.text == '' ? null : _controllerFilterDescription.text,
       amountDown: _controllerFilterAmountDown.text == '' ? null : int.parse(_controllerFilterAmountDown.text),
       amountUp: _controllerFilterAmountUp.text == '' ? null : int.parse(_controllerFilterAmountUp.text),
       dateTimeDown: dateTimeDown,
@@ -142,11 +139,11 @@ class AppAccountsFilterComponent {
       AppAccountsFilter importedFilter) async {
     filter = importedFilter;
 
-    filter.isEmpty() ? null : _fillFields(filter.contact != null);
+    filter.isEmpty ? null : _fillFields(filter.contact != null);
 
     await AppDialogs.appBottomDialogWithOkCancel(
         AppTexts.accountAddFilterTitle, _widgetFilterDialog(), _provideFilter);
-    appDebugPrint(filter.isEmpty()
+    appDebugPrint(filter.isEmpty
         ? 'Filter Canceled'
         : {'Filter: $filter', appDebugPrint('Add Filter Modal Closed')});
     return filter;

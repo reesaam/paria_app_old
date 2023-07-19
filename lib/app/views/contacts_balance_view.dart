@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/controllers/contacts_balance_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extensions_contact.dart';
@@ -69,11 +68,11 @@ class ContactsBalancePage extends CoreView<ContactsBalanceController> {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Expanded(
             flex: 8,
-            child: Text(AppTextProvider.getContactFullName(contact),
+            child: Text(contact.getContactFullName,
                 style: AppTextStyles.contactsBalanceItemsContact)),
         Expanded(
             flex: 8,
-            child: Text(contact.calculateBalance(false).balance.toCurrency(),
+            child: Text(contact.calculateBalance(false).balance.toCurrency,
                 style: AppTextStyles.contactsBalanceItems)),
         Expanded(
             flex: 1,

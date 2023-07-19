@@ -5,17 +5,17 @@ import 'package:paria_app/data/data_models/core_data_models/app_contact/app_cont
 import 'package:paria_app/data/storage/local_storage.dart';
 
 extension Storage on Rx<AppContactsList> {
-  saveOnStorage() async => await AppLocalStorage.to.saveContacts(value);
+  void get saveOnStorage async => await AppLocalStorage.to.saveContacts(value);
 }
 
 extension ContactFunctions on Rx<AppContactsList> {
   addContact(AppContact contact) {
     List<AppContact> contacts = List<AppContact>.empty(growable: true);
-    contacts.addAll(membersList());
+    contacts.addAll(membersList);
     contacts.add(contact);
     value.contactsList = contacts;
-    defaultSortFunction();
-    saveOnStorage();
+    defaultSortFunction;
+    saveOnStorage;
     refresh();
   }
 
@@ -24,40 +24,40 @@ extension ContactFunctions on Rx<AppContactsList> {
     appDebugPrint('current contact: $contact');
     removeContact(prevContact);
     addContact(contact);
-    appDebugPrint(" List(${count()}):${membersList()}");
-    defaultSortFunction();
-    saveOnStorage();
+    appDebugPrint(" List($count):$membersList");
+    defaultSortFunction;
+    saveOnStorage;
     refresh();
   }
 
   removeContact(AppContact contact) {
-    membersList().remove(contact);
-    saveOnStorage();
+    membersList.remove(contact);
+    saveOnStorage;
     refresh();
   }
 }
 
 extension SortContacts on Rx<AppContactsList> {
-  defaultSortFunction() => sortFirstName();
+  void get defaultSortFunction => sortFirstName;
 
-  sortFirstName() {
+  void get sortFirstName {
     List<AppContact> contacts = List<AppContact>.empty(growable: true);
-    contacts.addAll(membersList());
+    contacts.addAll(membersList);
     contacts.sort((a, b) => a.firstName!.compareTo(b.firstName!));
     value.contactsList = contacts;
   }
 }
 
 extension Details on Rx<AppContactsList> {
-  membersList() => value.contactsList;
-  count() => membersList().length;
-  isEmpty() => membersList().isEmpty;
+  List<AppContact> get membersList => value.contactsList;
+  int get count => membersList.length;
+  bool get isEmpty => membersList.isEmpty;
 }
 
 extension ListFunctions on Rx<AppContactsList> {
   clearContactsList() {
-    membersList().clear();
-    saveOnStorage();
+    membersList.clear();
+    saveOnStorage;
     refresh();
   }
 }

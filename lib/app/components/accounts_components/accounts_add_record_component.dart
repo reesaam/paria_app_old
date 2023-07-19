@@ -3,28 +3,30 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_date_time_picker.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
 import 'package:paria_app/app/components/contacts_components/contacts_choose_contact_component.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extension_account.dart';
+import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AppAccountsAddRecordComponent {
-
   //Variables
   AppAccountRecord record = const AppAccountRecord();
   AppContact? selectedContact = const AppContact();
   DateTime? dateTime = DateTime.now();
 
   //TextEditing Controllers
-  final TextEditingController _controllerAddNewRecordContact = TextEditingController();
-  final TextEditingController _controllerAddNewRecordDescription = TextEditingController();
-  final TextEditingController _controllerAddNewRecordAmount = TextEditingController();
-  final TextEditingController _controllerAddNewRecordDateTime = TextEditingController(
-          text: '${AppTextProvider.formatDate(DateTime.now())} - Today');
+  final TextEditingController _controllerAddNewRecordContact =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordDescription =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordAmount =
+      TextEditingController();
+  final TextEditingController _controllerAddNewRecordDateTime =
+      TextEditingController(text: '${DateTime.now().toDateFormat} - Today');
 
   Widget _widgetAddAccountsRecordDialog() => Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -67,17 +69,14 @@ class AppAccountsAddRecordComponent {
             '${selectedContact!.firstName} ${selectedContact!.lastName}';
   }
 
-  String _additionalText() => AppTextProvider.formatDate(dateTime!) ==
-          AppTextProvider.formatDate(DateTime.now())
-      ? ' - Today'
-      : '';
+  String _additionalText() =>
+      dateTime!.toDateFormat == DateTime.now().toDateFormat ? ' - Today' : '';
 
   _chooseDateTime() async {
     dateTime = await AppDateTimePicker().defaultDatetimePicker();
     _controllerAddNewRecordDateTime.text =
-        '${AppTextProvider.formatDate(dateTime!)}${_additionalText()}';
-    appDebugPrint(
-        'DATE TIME CHOSEN: ${AppTextProvider.formatDateTime(dateTime!)}');
+        '${dateTime!.toDateFormat}${_additionalText()}';
+    appDebugPrint('DATE TIME CHOSEN: ${dateTime!.toDateTimeFormat}');
   }
 
   _provideRecord() {
@@ -95,9 +94,12 @@ class AppAccountsAddRecordComponent {
         AppTexts.accountsAddRecordTitle,
         _widgetAddAccountsRecordDialog(),
         _provideRecord);
-    appDebugPrint(record.isEmpty()
+    appDebugPrint(record.isEmpty
         ? 'Add Record Canceled'
-        : {'Provided Record: $record', appDebugPrint('Add Record Modal Closed')});
-    return record.isEmpty() ? null : record;
+        : {
+            'Provided Record: $record',
+            appDebugPrint('Add Record Modal Closed')
+          });
+    return record.isEmpty ? null : record;
   }
 }

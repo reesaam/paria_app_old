@@ -23,8 +23,8 @@ class AppIconButton extends MaterialButton {
           iconSize: AppSizes.iconButtonIconSize,
           onPressed: onPressed,
           icon: brightIcon == true
-              ? Icon(icon).withAppAppBackgroundColor()
-              : Icon(icon).withAppDefaultColor()),
+              ? Icon(icon).withAppAppBackgroundColor
+              : Icon(icon).withAppDefaultColor),
     );
   }
 }

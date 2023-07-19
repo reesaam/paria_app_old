@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_provider.dart';
+import 'package:paria_app/data/app_extensions/extensions_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 
@@ -9,7 +9,7 @@ class AppContactComponents {
       maxRadius: size + 2,
       backgroundColor: AppColors.appDefaultColor,
       foregroundColor: AppColors.textNormal,
-      child: Text(AppTextProvider.getContactInitials(contact), style: TextStyle(fontSize: size),),
+      child: Text(contact.getContactInitials, style: TextStyle(fontSize: size),),
     );
     return widget;
   }

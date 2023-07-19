@@ -78,10 +78,10 @@ class AppContactsAddOrEditContactComponent {
 
     await _raiseModal();
 
-    appDebugPrint(_contact!.isEmpty()
+    appDebugPrint(_contact!.isEmpty
         ? 'Add Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Add Contact Modal Closed')});
-    return _contact!.isEmpty() ? null : _contact;
+    return _contact!.isEmpty ? null : _contact;
   }
 
   editContact(AppContact prevContact) async {
@@ -104,6 +104,11 @@ class AppContactsAddOrEditContactComponent {
     appDebugPrint(_contact);
     appDebugPrint(prevContact);
     appDebugPrint(_contact!.equalTo(prevContact));
+    appDebugPrint(_contact!.equalTo(const AppContact()));
+    appDebugPrint(AppContact().equalTo(const AppContact()));
+    appDebugPrint(null.equalTo(const AppContact()));
+    appDebugPrint(null.equalTo(null));
+    appDebugPrint(AppContact().equalTo(null));
     return _contact!.equalTo(prevContact) ? null : _contact;
   }
 

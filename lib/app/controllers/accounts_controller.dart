@@ -32,7 +32,8 @@ class AccountsController extends CoreController {
   //Clearing Records
   Rx<bool> showCleared = false.obs;
   Rx<bool> clearedIncluded = false.obs;
-  Rx<String> showClearedText = AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
+  Rx<String> showClearedText =
+      AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
 
   //Filter
   Rx<bool> hasFilter = false.obs;
@@ -47,7 +48,7 @@ class AccountsController extends CoreController {
   @override
   void dataInit() {
     listRecords.value = AppLocalStorage.to.loadAccountsRecords();
-    appDebugPrint('Records Count: ${listRecords.count()}');
+    appDebugPrint('Records Count: ${listRecords.count}');
   }
 
   @override
@@ -57,29 +58,33 @@ class AccountsController extends CoreController {
 
   @override
   void onInitFunction() {
-    listRecords.defaultSortFunction();
+    listRecords.defaultSortFunction;
     summeryInit();
     filterInit();
     listenersInit();
     refresh();
   }
 
-  void summeryInit() {
-    itemsBalance.value = listRecords.calculateSum(clearedIncluded.value).balance!;
-    itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
-    itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
-    appDebugPrint('Summery: Balance (${itemsBalance.value}) in ${itemsCount.value} items and ${itemsCountContacts.value} contacts');
-  }
-
-  void filterInit() {
-    hasFilter.value = !filter.value.isEmpty();
-    appDebugPrint('Filter isEmpty: ${filter.value.isEmpty()}');
-  }
-
   void listenersInit() {
     listenerListRecords = listRecords.listen((data) => summeryInit());
     listenerFilter = filter.listen((data) => filterInit());
-    listenerHasFilter = hasFilter.listen((value) => value ? filterIcon.value = AppIcons.filter : clearAllFilters());
+    listenerHasFilter = hasFilter.listen((value) =>
+        value ? filterIcon.value = AppIcons.filter : clearAllFilters());
+  }
+
+  void summeryInit() {
+    itemsBalance.value =
+        listRecords.calculateSum(clearedIncluded.value).balance!;
+    itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
+    itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
+    appDebugPrint(
+        'Summery: Balance (${itemsBalance.value}) in ${itemsCount.value} items and ${itemsCountContacts.value} contacts');
+  }
+
+  void filterInit() {
+    hasFilter.value = !filter.value.isEmpty;
+    appDebugPrint(
+        'Filter isEmpty: ${filter.value.isEmpty} & hasFilter: ${hasFilter.value}');
   }
 
   void listenersClose() {
@@ -99,18 +104,21 @@ class AccountsController extends CoreController {
 
   clearRecordsList() {
     function() {
-      listRecords.clearRecordsList();
+      listRecords.clearRecordsList;
       AppLocalStorage.to.clearSpecificKey(AppStorageKeys.keyAccountRecords);
       Get.back();
       appDebugPrint('Records Cleared');
     }
 
     Get.back();
-    AppDialogs.appAlertDialogWithOkCancel(AppTexts.warning, AppTexts.areYouSure, function);
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSure, function);
   }
 
   addRecordFunction() async {
-    AppAccountRecord? record = await AppAccountsAddRecordComponent().addAccountsRecordModal();
+    AppAccountRecord? record =
+        await AppAccountsAddRecordComponent().addAccountsRecordModal();
+    listRecords.defaultSortFunction;
     record == null
         ? null
         : {
@@ -119,9 +127,10 @@ class AccountsController extends CoreController {
           };
   }
 
-  changeRecordClearanceStatus(AppAccountRecord record, bool? checked) => checked == true
-      ? {listRecords.clearRecord(record), onInitFunction()}
-      : {listRecords.unClearRecord(record), onInitFunction()};
+  changeRecordClearanceStatus(AppAccountRecord record, bool? checked) =>
+      checked == true
+          ? {listRecords.clearRecord(record), onInitFunction()}
+          : {listRecords.unClearRecord(record), onInitFunction()};
 
   changeShowClearedStatus() {
     Get.back();
@@ -129,19 +138,22 @@ class AccountsController extends CoreController {
     clearedIncluded.value = showCleared.value;
     appDebugPrint('Show Cleared changed to: ${showCleared.value}');
     showCleared.value
-        ? showClearedText.value = AppTexts.accountsTablePopupMenuHideClearedRecords
-        : showClearedText.value = AppTexts.accountsTablePopupMenuShowClearedRecords;
+        ? showClearedText.value =
+            AppTexts.accountsTablePopupMenuHideClearedRecords
+        : showClearedText.value =
+            AppTexts.accountsTablePopupMenuShowClearedRecords;
     onInitFunction();
   }
 
   addFilterModal() async {
-    filter.value = await AppAccountsFilterComponent().showFilterModal(filter.value);
+    filter.value =
+        await AppAccountsFilterComponent().showFilterModal(filter.value);
     refresh();
   }
 
   clearAllFilters() {
     filterIcon.value = AppIcons.noFilter;
-    filter.value = const AppAccountsFilter();
+    filter.value.clear;
     refresh();
   }
 
@@ -151,16 +163,16 @@ class AccountsController extends CoreController {
     //Contact
     filter.contact == null
         ? null
-        : filter.contact!.equalTo(record.contact)
-            ? filtered = true
-            : null;
+        : filter.contact.equalTo(record.contact)
+            ? null
+            : filtered = true;
 
     //Description
-    filter.description == null
+    filter.description == null || filter.description == ''
         ? null
-        : record.title == null
+        : record.title == null || record.title == ''
             ? null
-            : record.title!.contains(filter.description!);
+            : filtered = !record.title!.contains(filter.description!);
 
     //AmountDown
     filter.amountDown == null
@@ -178,18 +190,15 @@ class AccountsController extends CoreController {
 
     //DateTimeDown
     filter.dateTimeDown == null
-        ? null
-        : record.dateTime!.isBefore(filter.dateTimeDown!)
-            ? filtered = true
-            : null;
+        ? false
+        : filtered = record.dateTime!.isBefore(filter.dateTimeDown!);
 
     //DateTimeUp
     filter.dateTimeUp == null
-        ? null
-        : record.dateTime!.isAfter(filter.dateTimeUp!)
-            ? filtered = true
-            : null;
+        ? false
+        : filtered = record.dateTime!.isAfter(filter.dateTimeUp!);
 
+    appDebugPrint('Filtered: $filtered');
     return filtered;
   }
 }
