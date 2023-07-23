@@ -12,8 +12,8 @@ import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extensions_string.dart';
+import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extension_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
@@ -49,10 +49,13 @@ class AccountsPage extends CoreView<AccountsController> {
       padding: AppPaddings.accountsTopBar,
       child: summary());
 
-  Widget widgetAppBarAction() => AppIconButton(
-      icon: AppIcons.list.icon!,
-      onPressed: () => Get.toNamed(AppRoutes.contactsBalance),
-      brightIcon: true);
+  Widget widgetAppBarAction() => Padding(
+    padding: AppPaddings.appBarActions,
+    child: AppIconButton(
+        icon: AppIcons.list.icon!,
+        onPressed: () => Get.toNamed(AppRoutes.contactsBalance),
+        brightIcon: true),
+  );
 
   Widget summary() => Card(
       child: Padding(

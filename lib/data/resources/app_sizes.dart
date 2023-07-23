@@ -14,6 +14,9 @@ class AppSizes {
   ///Elements
   static Size get switchHeight => const Size.fromHeight(20);
 
+  ///Homepage
+  static double get homepageClickSettingIcon => 15;
+
   ///Contacts
   static double get contactsShowContactIcon => 15;
 }

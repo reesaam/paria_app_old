@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
@@ -13,7 +14,7 @@ class HomePageController extends CoreController {
 
   @override
   void dataInit() {
-    // AppLocalStorage.to.clearStorage();
+    // clearAppData();
   }
 
   @override

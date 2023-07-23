@@ -8,8 +8,8 @@ import 'package:paria_app/app/components/app_general_components/app_dialogs.dart
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
-import 'package:paria_app/data/app_extensions/extensions_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extensions_contact.dart';
+import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
@@ -20,7 +20,7 @@ import 'package:paria_app/data/storage/local_storage.dart';
 
 class AccountsController extends CoreController {
   //Lists
-  Rx<AccountRecordsList> listRecords = AccountRecordsList(
+  Rx<AppAccountRecordsList> listRecords = AppAccountRecordsList(
           recordsList: List<AppAccountRecord>.empty(growable: true))
       .obs;
 
@@ -47,7 +47,7 @@ class AccountsController extends CoreController {
 
   @override
   void dataInit() {
-    listRecords.value = AppLocalStorage.to.loadAccountsRecords();
+    listRecords = AppAccountRecordsList().loadFromStorage.obs;
     appDebugPrint('Records Count: ${listRecords.count}');
   }
 
@@ -73,8 +73,7 @@ class AccountsController extends CoreController {
   }
 
   void summeryInit() {
-    itemsBalance.value =
-        listRecords.calculateSum(clearedIncluded.value).balance!;
+    itemsBalance.value = listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
     appDebugPrint(

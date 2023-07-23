@@ -7,28 +7,29 @@ import 'package:paria_app/data/data_models/accounts_data_models/account_records/
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
-extension Storage on Rx<AccountRecordsList> {
-  saveOnStorage() async => await AppLocalStorage.to.saveAccountsRecords(value);
+extension Storage on AppAccountRecordsList {
+  void get saveOnStorage async => await AppLocalStorage.to.saveAccountsRecords(this);
+  AppAccountRecordsList get loadFromStorage => AppLocalStorage.to.loadAccountsRecords();
 }
 
-extension AddRecord on Rx<AccountRecordsList> {
+extension AddRecord on Rx<AppAccountRecordsList> {
   addRecord(AppAccountRecord record) {
     List<AppAccountRecord> records = List<AppAccountRecord>.empty(growable: true);
     records.addAll(membersList);
     records.add(record);
     defaultSortFunction;
     value.recordsList = records;
-    saveOnStorage();
+    value.saveOnStorage;
     refresh();
   }
 }
 
-extension ClearRecord on Rx<AccountRecordsList> {
+extension ClearRecord on Rx<AppAccountRecordsList> {
   clearRecord(AppAccountRecord record) {
     membersList.remove(record);
     membersList.add(record.copyWith(cleared: true));
     defaultSortFunction;
-    saveOnStorage();
+    value.saveOnStorage;
     refresh();
   }
 
@@ -36,20 +37,20 @@ extension ClearRecord on Rx<AccountRecordsList> {
     membersList.remove(record);
     membersList.add(record.copyWith(cleared: false));
     defaultSortFunction;
-    saveOnStorage();
+    value.saveOnStorage;
     refresh();
   }
 }
 
-extension RemoveRecord on Rx<AccountRecordsList> {
+extension RemoveRecord on Rx<AppAccountRecordsList> {
   removeRecord(AppAccountRecord record) {
     membersList.remove(record);
-    saveOnStorage();
+    value.saveOnStorage;
     refresh();
   }
 }
 
-extension SortRecords on Rx<AccountRecordsList> {
+extension SortRecords on Rx<AppAccountRecordsList> {
   void get defaultSortFunction => sortByContact;
 
   void get sortByDateTime {
@@ -68,7 +69,7 @@ extension SortRecords on Rx<AccountRecordsList> {
   }
 }
 
-extension Sum on Rx<AccountRecordsList> {
+extension Sum on Rx<AppAccountRecordsList> {
   calculateSum(bool clearedIncluded) {
     int balance = 0;
     int count = 0;
@@ -79,11 +80,11 @@ extension Sum on Rx<AccountRecordsList> {
               ? null
               : {balance += record.amount!, count++};
     }
-    return AccountBalance(balance: balance, count: count);
+    return AppAccountBalance(balance: balance, count: count);
   }
 }
 
-extension Contacts on Rx<AccountRecordsList> {
+extension Contacts on Rx<AppAccountRecordsList> {
   countContacts(bool clearedIncluded) {
     List<AppContact> list = List<AppContact>.empty(growable: true);
     for (AppAccountRecord record in membersList) {
@@ -101,16 +102,16 @@ extension Contacts on Rx<AccountRecordsList> {
   }
 }
 
-extension Details on Rx<AccountRecordsList> {
+extension Details on Rx<AppAccountRecordsList> {
   List<AppAccountRecord> get membersList => value.recordsList;
   int get count => value.recordsList.length;
   bool get isEmpty => value.recordsList.isEmpty;
 }
 
-extension ClearRecordsList on Rx<AccountRecordsList> {
+extension ClearRecordsList on Rx<AppAccountRecordsList> {
   void get clearRecordsList {
     value.recordsList.clear();
-    saveOnStorage();
+    value.saveOnStorage;
     refresh();
   }
 }

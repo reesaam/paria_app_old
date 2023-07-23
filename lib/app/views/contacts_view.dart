@@ -8,8 +8,8 @@ import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation
 import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
 import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/app_extensions/extensions_contact.dart';
-import 'package:paria_app/data/app_extensions/extensions_contacts_list.dart';
+import 'package:paria_app/data/app_extensions/extension_contact.dart';
+import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';

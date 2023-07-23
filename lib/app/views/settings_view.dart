@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_bar/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
+import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
+import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
 import 'package:paria_app/app/components/app_general_components/app_switch.dart';
 import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
@@ -13,8 +14,9 @@ class SettingsPage extends CoreView<SettingsController> {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get appBar =>
-      AppAppBar(pageDetail: controller.pageDetail);
+  PreferredSizeWidget? get appBar => AppAppBar(
+      pageDetail: controller.pageDetail,
+      barAction: widgetAppbarThreeDotsButton());
 
   @override
   Widget? get topBar => null;
@@ -36,12 +38,22 @@ class SettingsPage extends CoreView<SettingsController> {
         widgetStorage(),
       ]);
 
+  Widget widgetAppbarThreeDotsButton() =>
+      AppPopupMenu(listItems: listAppbarThreeDotsButton, lightIcon: true);
+
+  List<AppPopupMenuItem> get listAppbarThreeDotsButton => List.of([
+        AppPopupMenuItem(
+            text: AppTexts.settingAppbarMenuResetSettings, onTapFunction: () {})
+      ]);
+
   Widget widgetGeneral() {
     ///TODO: Languages Implementation
-    Widget widgetLanguages() => Text(controller.selectedLanguage.value!);
+    Widget widgetLanguages() =>
+        Text(controller.selectedLanguage.value.name.capitalizeFirst ?? '');
 
     ///TODO: Calendar Types Implementation
-    Widget widgetCalendar() => Text(controller.selectedCalendar.value!);
+    Widget widgetCalendar() =>
+        Text(controller.selectedCalendar.value.name.capitalizeFirst ?? '');
 
     Widget widgetDarkMode() => Obx(() => AppSwitch(
         value: controller.darkMode.value,

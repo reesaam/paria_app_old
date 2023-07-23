@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/data/app_extensions/extensions_contact.dart';
+import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
-extension Storage on Rx<AppContactsList> {
-  void get saveOnStorage async => await AppLocalStorage.to.saveContacts(value);
+extension Storage on AppContactsList {
+  void saveOnStorage() async => await AppLocalStorage.to.saveContacts(this);
+  AppContactsList get loadFromStorage => AppLocalStorage.to.loadContacts();
 }
 
 extension ContactFunctions on Rx<AppContactsList> {
@@ -15,7 +16,7 @@ extension ContactFunctions on Rx<AppContactsList> {
     contacts.add(contact);
     value.contactsList = contacts;
     defaultSortFunction;
-    saveOnStorage;
+    value.saveOnStorage();
     refresh();
   }
 
@@ -26,13 +27,13 @@ extension ContactFunctions on Rx<AppContactsList> {
     addContact(contact);
     appDebugPrint(" List($count):$membersList");
     defaultSortFunction;
-    saveOnStorage;
+    value.saveOnStorage();
     refresh();
   }
 
   removeContact(AppContact contact) {
     membersList.remove(contact);
-    saveOnStorage;
+    value.saveOnStorage();
     refresh();
   }
 }
@@ -57,7 +58,7 @@ extension Details on Rx<AppContactsList> {
 extension ListFunctions on Rx<AppContactsList> {
   clearContactsList() {
     membersList.clear();
-    saveOnStorage;
+    value.saveOnStorage();
     refresh();
   }
 }

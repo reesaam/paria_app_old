@@ -2,19 +2,24 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
+import 'package:paria_app/data/app_extensions/extension_settings.dart';
+import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 class SettingsController extends CoreController {
+  Rx<AppSettingData> appSettings = const AppSettingData().obs;
+
   Rx<bool> darkMode = false.obs;
-  Rx<String?> selectedLanguage = AppLanguages.english.name.capitalizeFirst.obs;
-  Rx<String?> selectedCalendar =
-      CalendarTypes.georgian.name.capitalizeFirst.obs;
+  Rx<AppLanguages> selectedLanguage = AppLanguages.english.obs;
+  Rx<AppCalendarTypes> selectedCalendar = AppCalendarTypes.georgian.obs;
 
   @override
-  void dataInit() {}
+  void dataInit() {
+    appSettings = const AppSettingData().loadFromStorage.obs;
+  }
 
   @override
   void pageInit() {
@@ -22,13 +27,27 @@ class SettingsController extends CoreController {
   }
 
   @override
-  void onInitFunction() {}
+  void onInitFunction() {
+    fillData();
+  }
 
   @override
   void onReadyFunction() {}
 
   @override
-  void onCloseFunction() {}
+  void onCloseFunction() {
+    saveSettings();
+    saveAppData();
+  }
+
+  fillData() {
+    selectedLanguage.value = appSettings.value.language ?? AppLanguages.english;
+    selectedCalendar.value =
+        appSettings.value.calendarType ?? AppCalendarTypes.georgian;
+    darkMode.value = appSettings.value.darkMode ?? false;
+    appDebugPrint('Fill Setting Data Function Applied Data');
+    appSettings.listen((data) => fillData());
+  }
 
   functionDarkModeOnChange(bool value) {
     darkMode.value = value;
@@ -60,12 +79,23 @@ class SettingsController extends CoreController {
 
   functionClearAllData() {
     function() {
-      AppLocalStorage.to.clearStorage();
+      clearAppData();
       Get.back();
-      appDebugPrint('All Data Cleared');
+      appDebugPrint('');
     }
 
     AppDialogs.appAlertDialogWithOkCancel(
         AppTexts.warning, AppTexts.areYouSure, function);
+  }
+
+  saveSettings() {
+    appSettings.saveOnStorage;
+    appDebugPrint('Settings Saved');
+  }
+
+  resetAllSettings() {
+    appSettings.value = const AppSettingData().clearData;
+    saveSettings();
+    appDebugPrint('Reset Settings Data performed');
   }
 }

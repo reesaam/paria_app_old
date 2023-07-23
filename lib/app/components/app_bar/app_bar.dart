@@ -14,13 +14,15 @@ class AppAppBar extends AppBar {
   final Widget? barAction;
 
   @override
-  Widget? get title => Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle);
+  Widget? get title =>
+      Text(pageDetail.pageName ?? '', style: AppTextStyles.appBarTitle);
 
   @override
   Widget? get leading => barLeading;
 
   @override
-  List<Widget>? get actions => [Padding(padding: AppPaddings.appBarActions, child: barAction)];
+  List<Widget>? get actions =>
+      [Padding(padding: AppPaddings.appBarActions, child: barAction)];
 
   @override
   Color? get backgroundColor => AppColors.appBarBackground;

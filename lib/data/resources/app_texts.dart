@@ -91,6 +91,8 @@ class AppTexts {
   static String get accountsAddFilterFieldDateTimeToHint => 'Enter Date and Time End';
 
   ///Settings
+  static String get settingAppbarMenuResetSettings => 'Reset All Settings';
+
   static String get settingSectionTitleGeneral => 'General';
   static String get settingSectionTitleGeneralLanguage => 'Language';
   static String get settingSectionTitleGeneralCalendar => 'Calendar Type';

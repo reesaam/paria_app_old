@@ -1,14 +1,15 @@
+import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/storage/local_storage.dart';
 
 extension Accounts on AppContact {
-  AccountBalance calculateBalance(bool clearedIncluded) {
+  AppAccountBalance calculateBalance(bool clearedIncluded) {
     int balance = 0;
     int count = 0;
 
-    AccountRecordsList records = AppLocalStorage.to.loadAccountsRecords();
+    AppAccountRecordsList records = AppAccountRecordsList().loadFromStorage;
     for (AppAccountRecord record in records.recordsList) {
       if (record.contact!.firstName == firstName &&
           record.contact!.lastName == lastName) {
@@ -19,7 +20,7 @@ extension Accounts on AppContact {
                 : {balance += record.amount!, count++};
       }
     }
-    return AccountBalance(contact: this, balance: balance, count: count);
+    return AppAccountBalance(contact: this, balance: balance, count: count);
   }
 }
 

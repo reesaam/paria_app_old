@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/app_extensions/extensions_general.dart';
+import 'package:paria_app/data/app_extensions/extension_general.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 
 class AppFloatingActionButtons extends FloatingActionButton {

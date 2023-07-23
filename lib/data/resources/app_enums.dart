@@ -6,13 +6,14 @@ enum AppLanguages {
   english,
 }
 
-enum CalendarTypes {
+enum AppCalendarTypes {
   georgian,
 }
 
 enum AppStorageKeys {
   keyContacts,
   keyAccountRecords,
+  keySettings,
 }
 
 enum AppBottomNavigationPages {

@@ -9,7 +9,7 @@ class AppPaddings {
   static EdgeInsets get textFieldContent => const EdgeInsets.fromLTRB(20, 10, 20, 10);
   static EdgeInsets get panel => const EdgeInsets.all(20);
   static EdgeInsets get panelTitle => const EdgeInsets.only(left: 20);
-  static EdgeInsets get appBarActions => const EdgeInsets.only(right: 20);
+  static EdgeInsets get appBarActions => const EdgeInsets.only(right: 10);
 
   ///Modals
   static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);

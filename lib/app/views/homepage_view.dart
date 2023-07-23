@@ -7,14 +7,14 @@ import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/core/routes/app_routes.dart';
-import 'package:paria_app/data/app_extensions/extensions_general.dart';
+import 'package:paria_app/data/app_extensions/extension_general.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
+import 'package:paria_app/data/resources/app_sizes.dart';
 
 class HomePage extends CoreView<HomePageController> {
   const HomePage({Key? key}) : super(key: key);
@@ -61,7 +61,8 @@ class HomePage extends CoreView<HomePageController> {
               child: Container(
                   alignment: Alignment.topRight,
                   padding: AppPaddings.homepageDateTimeCardSettingIcon,
-                  child: AppIcons.settings.withAppDefaultColor.withSize(15))),
+                  child: AppIcons.settings.withAppDefaultColor
+                      .withSize(AppSizes.homepageClickSettingIcon))),
         ])),
       );
 
