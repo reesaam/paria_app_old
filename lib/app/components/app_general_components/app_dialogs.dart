@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
@@ -62,7 +63,9 @@ class AppDialogs {
           isScrollControlled: true,
           shape: AppElements.defaultModalBorderShape,
           builder: (context) => SingleChildScrollView(
-                child: Column(children: [
+                child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
                   Padding(
                       padding: AppPaddings.generalBottomModal,
                       child: Column(

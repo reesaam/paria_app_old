@@ -27,7 +27,7 @@ abstract class CoreView<Controller extends CoreController>
       WillPopScope(onWillPop: () => onWillPop(), child: _pageScaffold);
 
   Widget get _pageScaffold => Scaffold(
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         appBar: appBar,
         body: _pageBody,
         bottomNavigationBar: bottomNavigationBar,

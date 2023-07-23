@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppPaddings {
   ///General
@@ -12,7 +13,8 @@ class AppPaddings {
   static EdgeInsets get appBarActions => const EdgeInsets.only(right: 10);
 
   ///Modals
-  static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);
+  // static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);
+  static EdgeInsets get generalBottomModal => const EdgeInsets.all(20).copyWith(bottom: Get.context!.mediaQuery.viewInsets.bottom);
   static EdgeInsets get generalAlertDialog => const EdgeInsets.all(20);
 
   ///HomePage
