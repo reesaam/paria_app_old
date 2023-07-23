@@ -18,6 +18,9 @@ class AppColors {
   static Color get _pinkSalmon => const Color(0xfffe7b7c);
 
   ///Generals
+
+  static Color get error => Colors.redAccent;
+
   //Texts
   static Color get textNormal => _black;
   static Color get textNormalGrey => _grey;

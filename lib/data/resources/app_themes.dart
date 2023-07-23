@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
@@ -58,4 +59,14 @@ class AppThemes {
       fillColor: MaterialStateProperty.all(AppColors.appDefaultColor));
 
   static get switchThemeData => const SwitchThemeData();
+
+  static get calendarTheme => Theme.of(Get.context!).copyWith(
+      colorScheme: ColorScheme.light(
+          background: AppColors.appBackground,
+          primary: AppColors.appDefaultColor,
+          onPrimary: AppColors.textNormalWhite,
+          secondary: AppColors.appBackground,
+          onSecondary: AppColors.textNormal,
+          onError: AppColors.error,
+          error: AppColors.error));
 }
