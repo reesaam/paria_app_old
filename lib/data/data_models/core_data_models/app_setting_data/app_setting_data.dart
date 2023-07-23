@@ -7,8 +7,8 @@ part 'app_setting_data.g.dart';
 @unfreezed
 class AppSettingData with _$AppSettingData {
   const factory AppSettingData({
-    final String? language,
-    final CalendarTypes? calendarType,
+    final AppLanguages? language,
+    final AppCalendarTypes? calendarType,
     final bool? darkMode,
   }) = _AppSettingData;
 

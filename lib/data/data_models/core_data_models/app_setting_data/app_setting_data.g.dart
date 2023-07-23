@@ -8,21 +8,25 @@ part of 'app_setting_data.dart';
 
 _$_AppSettingData _$$_AppSettingDataFromJson(Map<String, dynamic> json) =>
     _$_AppSettingData(
-      language: json['language'] as String?,
+      language: $enumDecodeNullable(_$AppLanguagesEnumMap, json['language']),
       calendarType:
-          $enumDecodeNullable(_$CalendarTypesEnumMap, json['calendarType']),
+          $enumDecodeNullable(_$AppCalendarTypesEnumMap, json['calendarType']),
       darkMode: json['darkMode'] as bool?,
     );
 
 Map<String, dynamic> _$$_AppSettingDataToJson(_$_AppSettingData instance) =>
     <String, dynamic>{
-      'language': instance.language,
-      'calendarType': _$CalendarTypesEnumMap[instance.calendarType],
+      'language': _$AppLanguagesEnumMap[instance.language],
+      'calendarType': _$AppCalendarTypesEnumMap[instance.calendarType],
       'darkMode': instance.darkMode,
     };
 
-const _$CalendarTypesEnumMap = {
-  CalendarTypes.georgian: 'georgian',
+const _$AppLanguagesEnumMap = {
+  AppLanguages.english: 'english',
+};
+
+const _$AppCalendarTypesEnumMap = {
+  AppCalendarTypes.georgian: 'georgian',
 };
 
 _$_AppSettingsDataList _$$_AppSettingsDataListFromJson(

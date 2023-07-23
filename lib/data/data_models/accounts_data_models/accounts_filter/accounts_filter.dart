@@ -5,7 +5,7 @@ part 'accounts_filter.freezed.dart';
 part 'accounts_filter.g.dart';
 
 @unfreezed
-class AppAccountsFilter with _$AccountsFilter {
+class AppAccountsFilter with _$AppAccountsFilter {
   const factory AppAccountsFilter({
     final AppContact? contact,
     final int? amountUp,
@@ -13,18 +13,18 @@ class AppAccountsFilter with _$AccountsFilter {
     final DateTime? dateTimeUp,
     final DateTime? dateTimeDown,
     final String? description,
-  }) = _AccountsFilter;
+  }) = _AppAccountsFilter;
 
   factory AppAccountsFilter.fromJson(Map<String, dynamic> json) =>
-      _$AccountsFilterFromJson(json);
+      _$AppAccountsFilterFromJson(json);
 }
 
 @unfreezed
-class AccountsFiltersList with _$AccountsFiltersList {
-  factory AccountsFiltersList({
-    @Default(<AppAccountsFilter>[]) List<AppAccountsFilter> recordsList
-  }) = _AccountsFiltersList;
+class AppAccountsFiltersList with _$AppAccountsFiltersList {
+  factory AppAccountsFiltersList({
+    @Default(<AppAccountsFilter>[]) List<AppAccountsFilter> filtersList
+  }) = _AppAccountsFiltersList;
 
-  factory AccountsFiltersList.fromJson(Map<String, dynamic> json) =>
-      _$AccountsFiltersListFromJson(json);
+  factory AppAccountsFiltersList.fromJson(Map<String, dynamic> json) =>
+      _$AppAccountsFiltersListFromJson(json);
 }

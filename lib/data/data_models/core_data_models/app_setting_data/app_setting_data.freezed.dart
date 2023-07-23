@@ -20,8 +20,8 @@ AppSettingData _$AppSettingDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppSettingData {
-  String? get language => throw _privateConstructorUsedError;
-  CalendarTypes? get calendarType => throw _privateConstructorUsedError;
+  AppLanguages? get language => throw _privateConstructorUsedError;
+  AppCalendarTypes? get calendarType => throw _privateConstructorUsedError;
   bool? get darkMode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,8 @@ abstract class $AppSettingDataCopyWith<$Res> {
           AppSettingData value, $Res Function(AppSettingData) then) =
       _$AppSettingDataCopyWithImpl<$Res, AppSettingData>;
   @useResult
-  $Res call({String? language, CalendarTypes? calendarType, bool? darkMode});
+  $Res call(
+      {AppLanguages? language, AppCalendarTypes? calendarType, bool? darkMode});
 }
 
 /// @nodoc
@@ -60,11 +61,11 @@ class _$AppSettingDataCopyWithImpl<$Res, $Val extends AppSettingData>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AppLanguages?,
       calendarType: freezed == calendarType
           ? _value.calendarType
           : calendarType // ignore: cast_nullable_to_non_nullable
-              as CalendarTypes?,
+              as AppCalendarTypes?,
       darkMode: freezed == darkMode
           ? _value.darkMode
           : darkMode // ignore: cast_nullable_to_non_nullable
@@ -81,7 +82,8 @@ abstract class _$$_AppSettingDataCopyWith<$Res>
       __$$_AppSettingDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? language, CalendarTypes? calendarType, bool? darkMode});
+  $Res call(
+      {AppLanguages? language, AppCalendarTypes? calendarType, bool? darkMode});
 }
 
 /// @nodoc
@@ -103,11 +105,11 @@ class __$$_AppSettingDataCopyWithImpl<$Res>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AppLanguages?,
       calendarType: freezed == calendarType
           ? _value.calendarType
           : calendarType // ignore: cast_nullable_to_non_nullable
-              as CalendarTypes?,
+              as AppCalendarTypes?,
       darkMode: freezed == darkMode
           ? _value.darkMode
           : darkMode // ignore: cast_nullable_to_non_nullable
@@ -125,9 +127,9 @@ class _$_AppSettingData implements _AppSettingData {
       _$$_AppSettingDataFromJson(json);
 
   @override
-  final String? language;
+  final AppLanguages? language;
   @override
-  final CalendarTypes? calendarType;
+  final AppCalendarTypes? calendarType;
   @override
   final bool? darkMode;
 
@@ -152,17 +154,17 @@ class _$_AppSettingData implements _AppSettingData {
 
 abstract class _AppSettingData implements AppSettingData {
   const factory _AppSettingData(
-      {final String? language,
-      final CalendarTypes? calendarType,
+      {final AppLanguages? language,
+      final AppCalendarTypes? calendarType,
       final bool? darkMode}) = _$_AppSettingData;
 
   factory _AppSettingData.fromJson(Map<String, dynamic> json) =
       _$_AppSettingData.fromJson;
 
   @override
-  String? get language;
+  AppLanguages? get language;
   @override
-  CalendarTypes? get calendarType;
+  AppCalendarTypes? get calendarType;
   @override
   bool? get darkMode;
   @override

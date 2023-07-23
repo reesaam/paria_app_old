@@ -5,25 +5,25 @@ part 'account_record.freezed.dart';
 part 'account_record.g.dart';
 
 @unfreezed
-class AppAccountRecord with _$AccountRecord {
+class AppAccountRecord with _$AppAccountRecord {
   const factory AppAccountRecord({
     final AppContact? contact,
     final int? amount,
     final String? title,
     final DateTime? dateTime,
     final bool? cleared,
-  }) = _AccountRecord;
+  }) = _AppAccountRecord;
 
   factory AppAccountRecord.fromJson(Map<String, dynamic> json) =>
-      _$AccountRecordFromJson(json);
+      _$AppAccountRecordFromJson(json);
 }
 
 @unfreezed
-class AccountRecordsList with _$AccountRecordsList {
-  factory AccountRecordsList({
+class AppAccountRecordsList with _$AppAccountRecordsList {
+  factory AppAccountRecordsList({
     @Default(<AppAccountRecord>[]) List<AppAccountRecord> recordsList
-  }) = _AccountRecordsList;
+  }) = _AppAccountRecordsList;
 
-  factory AccountRecordsList.fromJson(Map<String, dynamic> json) =>
-      _$AccountRecordsListFromJson(json);
+  factory AppAccountRecordsList.fromJson(Map<String, dynamic> json) =>
+      _$AppAccountRecordsListFromJson(json);
 }

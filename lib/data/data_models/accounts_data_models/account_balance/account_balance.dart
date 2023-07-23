@@ -5,23 +5,23 @@ part 'account_balance.freezed.dart';
 part 'account_balance.g.dart';
 
 @unfreezed
-class AccountBalance with _$AccountBalance {
-  const factory AccountBalance({
+class AppAccountBalance with _$AppAccountBalance {
+  const factory AppAccountBalance({
     final AppContact? contact,
     final int? balance,
     final int? count,
-  }) = _AccountBalance;
+  }) = _AppAccountBalance;
 
-  factory AccountBalance.fromJson(Map<String, dynamic> json) =>
-      _$AccountBalanceFromJson(json);
+  factory AppAccountBalance.fromJson(Map<String, dynamic> json) =>
+      _$AppAccountBalanceFromJson(json);
 }
 
 @unfreezed
-class AccountBalancesList with _$AccountBalancesList {
-  factory AccountBalancesList({
-    @Default(<AccountBalance>[]) List<AccountBalance> balancesList
-  }) = _AccountBalancesList;
+class AppAccountBalancesList with _$AppAccountBalancesList {
+  factory AppAccountBalancesList({
+    @Default(<AppAccountBalance>[]) List<AppAccountBalance> balancesList
+  }) = _AppAccountBalancesList;
 
-  factory AccountBalancesList.fromJson(Map<String, dynamic> json) =>
-      _$AccountBalancesListFromJson(json);
+  factory AppAccountBalancesList.fromJson(Map<String, dynamic> json) =>
+      _$AppAccountBalancesListFromJson(json);
 }

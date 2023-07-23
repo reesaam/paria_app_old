@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AppAccountsFilter _$AccountsFilterFromJson(Map<String, dynamic> json) {
-  return _AccountsFilter.fromJson(json);
+AppAccountsFilter _$AppAccountsFilterFromJson(Map<String, dynamic> json) {
+  return _AppAccountsFilter.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AccountsFilter {
+mixin _$AppAccountsFilter {
   AppContact? get contact => throw _privateConstructorUsedError;
   int? get amountUp => throw _privateConstructorUsedError;
   int? get amountDown => throw _privateConstructorUsedError;
@@ -29,15 +29,15 @@ mixin _$AccountsFilter {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountsFilterCopyWith<AppAccountsFilter> get copyWith =>
+  $AppAccountsFilterCopyWith<AppAccountsFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AccountsFilterCopyWith<$Res> {
-  factory $AccountsFilterCopyWith(
+abstract class $AppAccountsFilterCopyWith<$Res> {
+  factory $AppAccountsFilterCopyWith(
           AppAccountsFilter value, $Res Function(AppAccountsFilter) then) =
-      _$AccountsFilterCopyWithImpl<$Res, AppAccountsFilter>;
+      _$AppAccountsFilterCopyWithImpl<$Res, AppAccountsFilter>;
   @useResult
   $Res call(
       {AppContact? contact,
@@ -51,9 +51,9 @@ abstract class $AccountsFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountsFilterCopyWithImpl<$Res, $Val extends AppAccountsFilter>
-    implements $AccountsFilterCopyWith<$Res> {
-  _$AccountsFilterCopyWithImpl(this._value, this._then);
+class _$AppAccountsFilterCopyWithImpl<$Res, $Val extends AppAccountsFilter>
+    implements $AppAccountsFilterCopyWith<$Res> {
+  _$AppAccountsFilterCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -112,11 +112,11 @@ class _$AccountsFilterCopyWithImpl<$Res, $Val extends AppAccountsFilter>
 }
 
 /// @nodoc
-abstract class _$$_AccountsFilterCopyWith<$Res>
-    implements $AccountsFilterCopyWith<$Res> {
-  factory _$$_AccountsFilterCopyWith(
-          _$_AccountsFilter value, $Res Function(_$_AccountsFilter) then) =
-      __$$_AccountsFilterCopyWithImpl<$Res>;
+abstract class _$$_AppAccountsFilterCopyWith<$Res>
+    implements $AppAccountsFilterCopyWith<$Res> {
+  factory _$$_AppAccountsFilterCopyWith(_$_AppAccountsFilter value,
+          $Res Function(_$_AppAccountsFilter) then) =
+      __$$_AppAccountsFilterCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,11 +132,11 @@ abstract class _$$_AccountsFilterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AccountsFilterCopyWithImpl<$Res>
-    extends _$AccountsFilterCopyWithImpl<$Res, _$_AccountsFilter>
-    implements _$$_AccountsFilterCopyWith<$Res> {
-  __$$_AccountsFilterCopyWithImpl(
-      _$_AccountsFilter _value, $Res Function(_$_AccountsFilter) _then)
+class __$$_AppAccountsFilterCopyWithImpl<$Res>
+    extends _$AppAccountsFilterCopyWithImpl<$Res, _$_AppAccountsFilter>
+    implements _$$_AppAccountsFilterCopyWith<$Res> {
+  __$$_AppAccountsFilterCopyWithImpl(
+      _$_AppAccountsFilter _value, $Res Function(_$_AppAccountsFilter) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -149,7 +149,7 @@ class __$$_AccountsFilterCopyWithImpl<$Res>
     Object? dateTimeDown = freezed,
     Object? description = freezed,
   }) {
-    return _then(_$_AccountsFilter(
+    return _then(_$_AppAccountsFilter(
       contact: freezed == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
@@ -180,8 +180,8 @@ class __$$_AccountsFilterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AccountsFilter implements _AccountsFilter {
-  const _$_AccountsFilter(
+class _$_AppAccountsFilter implements _AppAccountsFilter {
+  const _$_AppAccountsFilter(
       {this.contact,
       this.amountUp,
       this.amountDown,
@@ -189,8 +189,8 @@ class _$_AccountsFilter implements _AccountsFilter {
       this.dateTimeDown,
       this.description});
 
-  factory _$_AccountsFilter.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountsFilterFromJson(json);
+  factory _$_AppAccountsFilter.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountsFilterFromJson(json);
 
   @override
   final AppContact? contact;
@@ -207,34 +207,35 @@ class _$_AccountsFilter implements _AccountsFilter {
 
   @override
   String toString() {
-    return 'AccountsFilter(contact: $contact, amountUp: $amountUp, amountDown: $amountDown, dateTimeUp: $dateTimeUp, dateTimeDown: $dateTimeDown, description: $description)';
+    return 'AppAccountsFilter(contact: $contact, amountUp: $amountUp, amountDown: $amountDown, dateTimeUp: $dateTimeUp, dateTimeDown: $dateTimeDown, description: $description)';
   }
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountsFilterCopyWith<_$_AccountsFilter> get copyWith =>
-      __$$_AccountsFilterCopyWithImpl<_$_AccountsFilter>(this, _$identity);
+  _$$_AppAccountsFilterCopyWith<_$_AppAccountsFilter> get copyWith =>
+      __$$_AppAccountsFilterCopyWithImpl<_$_AppAccountsFilter>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountsFilterToJson(
+    return _$$_AppAccountsFilterToJson(
       this,
     );
   }
 }
 
-abstract class _AccountsFilter implements AppAccountsFilter {
-  const factory _AccountsFilter(
+abstract class _AppAccountsFilter implements AppAccountsFilter {
+  const factory _AppAccountsFilter(
       {final AppContact? contact,
       final int? amountUp,
       final int? amountDown,
       final DateTime? dateTimeUp,
       final DateTime? dateTimeDown,
-      final String? description}) = _$_AccountsFilter;
+      final String? description}) = _$_AppAccountsFilter;
 
-  factory _AccountsFilter.fromJson(Map<String, dynamic> json) =
-      _$_AccountsFilter.fromJson;
+  factory _AppAccountsFilter.fromJson(Map<String, dynamic> json) =
+      _$_AppAccountsFilter.fromJson;
 
   @override
   AppContact? get contact;
@@ -250,39 +251,41 @@ abstract class _AccountsFilter implements AppAccountsFilter {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountsFilterCopyWith<_$_AccountsFilter> get copyWith =>
+  _$$_AppAccountsFilterCopyWith<_$_AppAccountsFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-AccountsFiltersList _$AccountsFiltersListFromJson(Map<String, dynamic> json) {
-  return _AccountsFiltersList.fromJson(json);
+AppAccountsFiltersList _$AppAccountsFiltersListFromJson(
+    Map<String, dynamic> json) {
+  return _AppAccountsFiltersList.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AccountsFiltersList {
-  List<AppAccountsFilter> get recordsList => throw _privateConstructorUsedError;
-  set recordsList(List<AppAccountsFilter> value) =>
+mixin _$AppAccountsFiltersList {
+  List<AppAccountsFilter> get filtersList => throw _privateConstructorUsedError;
+  set filtersList(List<AppAccountsFilter> value) =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountsFiltersListCopyWith<AccountsFiltersList> get copyWith =>
+  $AppAccountsFiltersListCopyWith<AppAccountsFiltersList> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AccountsFiltersListCopyWith<$Res> {
-  factory $AccountsFiltersListCopyWith(
-          AccountsFiltersList value, $Res Function(AccountsFiltersList) then) =
-      _$AccountsFiltersListCopyWithImpl<$Res, AccountsFiltersList>;
+abstract class $AppAccountsFiltersListCopyWith<$Res> {
+  factory $AppAccountsFiltersListCopyWith(AppAccountsFiltersList value,
+          $Res Function(AppAccountsFiltersList) then) =
+      _$AppAccountsFiltersListCopyWithImpl<$Res, AppAccountsFiltersList>;
   @useResult
-  $Res call({List<AppAccountsFilter> recordsList});
+  $Res call({List<AppAccountsFilter> filtersList});
 }
 
 /// @nodoc
-class _$AccountsFiltersListCopyWithImpl<$Res, $Val extends AccountsFiltersList>
-    implements $AccountsFiltersListCopyWith<$Res> {
-  _$AccountsFiltersListCopyWithImpl(this._value, this._then);
+class _$AppAccountsFiltersListCopyWithImpl<$Res,
+        $Val extends AppAccountsFiltersList>
+    implements $AppAccountsFiltersListCopyWith<$Res> {
+  _$AppAccountsFiltersListCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -292,45 +295,46 @@ class _$AccountsFiltersListCopyWithImpl<$Res, $Val extends AccountsFiltersList>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recordsList = null,
+    Object? filtersList = null,
   }) {
     return _then(_value.copyWith(
-      recordsList: null == recordsList
-          ? _value.recordsList
-          : recordsList // ignore: cast_nullable_to_non_nullable
+      filtersList: null == filtersList
+          ? _value.filtersList
+          : filtersList // ignore: cast_nullable_to_non_nullable
               as List<AppAccountsFilter>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_AccountsFiltersListCopyWith<$Res>
-    implements $AccountsFiltersListCopyWith<$Res> {
-  factory _$$_AccountsFiltersListCopyWith(_$_AccountsFiltersList value,
-          $Res Function(_$_AccountsFiltersList) then) =
-      __$$_AccountsFiltersListCopyWithImpl<$Res>;
+abstract class _$$_AppAccountsFiltersListCopyWith<$Res>
+    implements $AppAccountsFiltersListCopyWith<$Res> {
+  factory _$$_AppAccountsFiltersListCopyWith(_$_AppAccountsFiltersList value,
+          $Res Function(_$_AppAccountsFiltersList) then) =
+      __$$_AppAccountsFiltersListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AppAccountsFilter> recordsList});
+  $Res call({List<AppAccountsFilter> filtersList});
 }
 
 /// @nodoc
-class __$$_AccountsFiltersListCopyWithImpl<$Res>
-    extends _$AccountsFiltersListCopyWithImpl<$Res, _$_AccountsFiltersList>
-    implements _$$_AccountsFiltersListCopyWith<$Res> {
-  __$$_AccountsFiltersListCopyWithImpl(_$_AccountsFiltersList _value,
-      $Res Function(_$_AccountsFiltersList) _then)
+class __$$_AppAccountsFiltersListCopyWithImpl<$Res>
+    extends _$AppAccountsFiltersListCopyWithImpl<$Res,
+        _$_AppAccountsFiltersList>
+    implements _$$_AppAccountsFiltersListCopyWith<$Res> {
+  __$$_AppAccountsFiltersListCopyWithImpl(_$_AppAccountsFiltersList _value,
+      $Res Function(_$_AppAccountsFiltersList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recordsList = null,
+    Object? filtersList = null,
   }) {
-    return _then(_$_AccountsFiltersList(
-      recordsList: null == recordsList
-          ? _value.recordsList
-          : recordsList // ignore: cast_nullable_to_non_nullable
+    return _then(_$_AppAccountsFiltersList(
+      filtersList: null == filtersList
+          ? _value.filtersList
+          : filtersList // ignore: cast_nullable_to_non_nullable
               as List<AppAccountsFilter>,
     ));
   }
@@ -338,48 +342,48 @@ class __$$_AccountsFiltersListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AccountsFiltersList implements _AccountsFiltersList {
-  _$_AccountsFiltersList({this.recordsList = const <AppAccountsFilter>[]});
+class _$_AppAccountsFiltersList implements _AppAccountsFiltersList {
+  _$_AppAccountsFiltersList({this.filtersList = const <AppAccountsFilter>[]});
 
-  factory _$_AccountsFiltersList.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountsFiltersListFromJson(json);
+  factory _$_AppAccountsFiltersList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountsFiltersListFromJson(json);
 
   @override
   @JsonKey()
-  List<AppAccountsFilter> recordsList;
+  List<AppAccountsFilter> filtersList;
 
   @override
   String toString() {
-    return 'AccountsFiltersList(recordsList: $recordsList)';
+    return 'AppAccountsFiltersList(filtersList: $filtersList)';
   }
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountsFiltersListCopyWith<_$_AccountsFiltersList> get copyWith =>
-      __$$_AccountsFiltersListCopyWithImpl<_$_AccountsFiltersList>(
+  _$$_AppAccountsFiltersListCopyWith<_$_AppAccountsFiltersList> get copyWith =>
+      __$$_AppAccountsFiltersListCopyWithImpl<_$_AppAccountsFiltersList>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountsFiltersListToJson(
+    return _$$_AppAccountsFiltersListToJson(
       this,
     );
   }
 }
 
-abstract class _AccountsFiltersList implements AccountsFiltersList {
-  factory _AccountsFiltersList({List<AppAccountsFilter> recordsList}) =
-      _$_AccountsFiltersList;
+abstract class _AppAccountsFiltersList implements AppAccountsFiltersList {
+  factory _AppAccountsFiltersList({List<AppAccountsFilter> filtersList}) =
+      _$_AppAccountsFiltersList;
 
-  factory _AccountsFiltersList.fromJson(Map<String, dynamic> json) =
-      _$_AccountsFiltersList.fromJson;
+  factory _AppAccountsFiltersList.fromJson(Map<String, dynamic> json) =
+      _$_AppAccountsFiltersList.fromJson;
 
   @override
-  List<AppAccountsFilter> get recordsList;
-  set recordsList(List<AppAccountsFilter> value);
+  List<AppAccountsFilter> get filtersList;
+  set filtersList(List<AppAccountsFilter> value);
   @override
   @JsonKey(ignore: true)
-  _$$_AccountsFiltersListCopyWith<_$_AccountsFiltersList> get copyWith =>
+  _$$_AppAccountsFiltersListCopyWith<_$_AppAccountsFiltersList> get copyWith =>
       throw _privateConstructorUsedError;
 }

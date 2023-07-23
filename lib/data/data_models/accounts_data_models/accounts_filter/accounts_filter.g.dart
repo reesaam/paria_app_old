@@ -6,8 +6,8 @@ part of 'accounts_filter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AccountsFilter _$$_AccountsFilterFromJson(Map<String, dynamic> json) =>
-    _$_AccountsFilter(
+_$_AppAccountsFilter _$$_AppAccountsFilterFromJson(Map<String, dynamic> json) =>
+    _$_AppAccountsFilter(
       contact: json['contact'] == null
           ? null
           : AppContact.fromJson(json['contact'] as Map<String, dynamic>),
@@ -22,7 +22,8 @@ _$_AccountsFilter _$$_AccountsFilterFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
     );
 
-Map<String, dynamic> _$$_AccountsFilterToJson(_$_AccountsFilter instance) =>
+Map<String, dynamic> _$$_AppAccountsFilterToJson(
+        _$_AppAccountsFilter instance) =>
     <String, dynamic>{
       'contact': instance.contact,
       'amountUp': instance.amountUp,
@@ -32,17 +33,18 @@ Map<String, dynamic> _$$_AccountsFilterToJson(_$_AccountsFilter instance) =>
       'description': instance.description,
     };
 
-_$_AccountsFiltersList _$$_AccountsFiltersListFromJson(
+_$_AppAccountsFiltersList _$$_AppAccountsFiltersListFromJson(
         Map<String, dynamic> json) =>
-    _$_AccountsFiltersList(
-      recordsList: (json['recordsList'] as List<dynamic>?)
-              ?.map((e) => AppAccountsFilter.fromJson(e as Map<String, dynamic>))
+    _$_AppAccountsFiltersList(
+      filtersList: (json['filtersList'] as List<dynamic>?)
+              ?.map(
+                  (e) => AppAccountsFilter.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppAccountsFilter>[],
     );
 
-Map<String, dynamic> _$$_AccountsFiltersListToJson(
-        _$_AccountsFiltersList instance) =>
+Map<String, dynamic> _$$_AppAccountsFiltersListToJson(
+        _$_AppAccountsFiltersList instance) =>
     <String, dynamic>{
-      'recordsList': instance.recordsList,
+      'filtersList': instance.filtersList,
     };
