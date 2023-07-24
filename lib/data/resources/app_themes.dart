@@ -55,8 +55,8 @@ class AppThemes {
       );
 
   static get checkBoxThemeData => CheckboxThemeData(
-      checkColor: MaterialStateProperty.all(AppColors.appBackground),
-      fillColor: MaterialStateProperty.all(AppColors.appDefaultColor));
+      checkColor: MaterialStateProperty.all(AppColors.appCheckBoxTick),
+      fillColor: MaterialStateProperty.all(AppColors.appCheckBox));
 
   static get switchThemeData => const SwitchThemeData();
 

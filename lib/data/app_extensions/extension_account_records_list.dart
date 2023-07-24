@@ -12,7 +12,7 @@ extension Storage on AppAccountRecordsList {
   AppAccountRecordsList get loadFromStorage => AppLocalStorage.to.loadAccountsRecords();
 }
 
-extension AddRecord on Rx<AppAccountRecordsList> {
+extension RxAddRecord on Rx<AppAccountRecordsList> {
   addRecord(AppAccountRecord record) {
     List<AppAccountRecord> records = List<AppAccountRecord>.empty(growable: true);
     records.addAll(membersList);
@@ -24,7 +24,7 @@ extension AddRecord on Rx<AppAccountRecordsList> {
   }
 }
 
-extension ClearRecord on Rx<AppAccountRecordsList> {
+extension RxClearRecord on Rx<AppAccountRecordsList> {
   clearRecord(AppAccountRecord record) {
     membersList.remove(record);
     membersList.add(record.copyWith(cleared: true));
@@ -42,7 +42,7 @@ extension ClearRecord on Rx<AppAccountRecordsList> {
   }
 }
 
-extension RemoveRecord on Rx<AppAccountRecordsList> {
+extension RxRemoveRecord on Rx<AppAccountRecordsList> {
   removeRecord(AppAccountRecord record) {
     membersList.remove(record);
     value.saveOnStorage;
@@ -50,7 +50,7 @@ extension RemoveRecord on Rx<AppAccountRecordsList> {
   }
 }
 
-extension SortRecords on Rx<AppAccountRecordsList> {
+extension RxSortRecords on Rx<AppAccountRecordsList> {
   void get defaultSortFunction => sortByContact;
 
   void get sortByDateTime {
@@ -69,7 +69,7 @@ extension SortRecords on Rx<AppAccountRecordsList> {
   }
 }
 
-extension Sum on Rx<AppAccountRecordsList> {
+extension RxSum on Rx<AppAccountRecordsList> {
   calculateSum(bool clearedIncluded) {
     int balance = 0;
     int count = 0;
@@ -84,7 +84,7 @@ extension Sum on Rx<AppAccountRecordsList> {
   }
 }
 
-extension Contacts on Rx<AppAccountRecordsList> {
+extension RxContacts on Rx<AppAccountRecordsList> {
   countContacts(bool clearedIncluded) {
     List<AppContact> list = List<AppContact>.empty(growable: true);
     for (AppAccountRecord record in membersList) {
@@ -102,13 +102,13 @@ extension Contacts on Rx<AppAccountRecordsList> {
   }
 }
 
-extension Details on Rx<AppAccountRecordsList> {
+extension RxDetails on Rx<AppAccountRecordsList> {
   List<AppAccountRecord> get membersList => value.recordsList;
   int get count => value.recordsList.length;
   bool get isEmpty => value.recordsList.isEmpty;
 }
 
-extension ClearRecordsList on Rx<AppAccountRecordsList> {
+extension RxClearRecordsList on Rx<AppAccountRecordsList> {
   void get clearRecordsList {
     value.recordsList.clear();
     value.saveOnStorage;

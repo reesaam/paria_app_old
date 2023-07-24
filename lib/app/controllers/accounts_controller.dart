@@ -9,6 +9,7 @@ import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extension_bool.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
@@ -34,6 +35,12 @@ class AccountsController extends CoreController {
   Rx<bool> clearedIncluded = false.obs;
   Rx<String> showClearedText =
       AppTexts.accountsTablePopupMenuShowClearedRecords.obs;
+  Rx<bool> showPositive = false.obs;
+  Rx<String> showPositiveText =
+      AppTexts.accountsTablePopupMenuShowPositiveRecords.obs;
+  Rx<bool> showNegative = false.obs;
+  Rx<String> showNegativeText =
+      AppTexts.accountsTablePopupMenuShowNegativeRecords.obs;
 
   //Filter
   Rx<bool> hasFilter = false.obs;
@@ -44,6 +51,8 @@ class AccountsController extends CoreController {
   StreamSubscription? listenerListRecords;
   StreamSubscription? listenerFilter;
   StreamSubscription? listenerHasFilter;
+  StreamSubscription? listenerShowPositive;
+  StreamSubscription? listenerShowNegative;
 
   @override
   void dataInit() {
@@ -70,10 +79,15 @@ class AccountsController extends CoreController {
     listenerFilter = filter.listen((data) => filterInit());
     listenerHasFilter = hasFilter.listen((value) =>
         value ? filterIcon.value = AppIcons.filter : clearAllFilters());
+    listenerShowPositive =
+        showPositive.listen((value) => showPositiveNegativeChange(true));
+    listenerShowNegative =
+        showNegative.listen((value) => showPositiveNegativeChange(false));
   }
 
   void summeryInit() {
-    itemsBalance.value = listRecords.calculateSum(clearedIncluded.value).balance!;
+    itemsBalance.value =
+        listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
     appDebugPrint(
@@ -81,9 +95,35 @@ class AccountsController extends CoreController {
   }
 
   void filterInit() {
-    hasFilter.value = !filter.value.isEmpty;
+    hasFilter.value = !filter.isEmpty;
+    hasFilter.value ? null : {showPositive.clear, showNegative.clear};
     appDebugPrint(
-        'Filter isEmpty: ${filter.value.isEmpty} & hasFilter: ${hasFilter.value}');
+        'Filter isEmpty: ${filter.isEmpty} & hasFilter: ${hasFilter.value}');
+  }
+
+  void showPositiveNegativeChange(bool positiveOrNegative) {
+    Get.back();
+    showPositive.value ? showNegative.clear : null;
+    showNegative.value ? showPositive.clear : null;
+
+    showPositive.value
+        ? {
+            showPositiveText.value =
+                AppTexts.accountsTablePopupMenuClearPositiveRecords,
+            filter.value = const AppAccountsFilter().copyWith(amountDown: 0)
+          }
+        : showPositiveText.value =
+            AppTexts.accountsTablePopupMenuShowPositiveRecords;
+
+    showNegative.value
+        ? {
+            showNegativeText.value =
+                AppTexts.accountsTablePopupMenuClearNegativeRecords,
+            filter.value = const AppAccountsFilter().copyWith(amountUp: 0)
+          }
+        : showNegativeText.value =
+            AppTexts.accountsTablePopupMenuShowNegativeRecords;
+    refresh();
   }
 
   void listenersClose() {
@@ -133,7 +173,7 @@ class AccountsController extends CoreController {
 
   changeShowClearedStatus() {
     Get.back();
-    showCleared.value = !showCleared.value;
+    showCleared.invert;
     clearedIncluded.value = showCleared.value;
     appDebugPrint('Show Cleared changed to: ${showCleared.value}');
     showCleared.value
@@ -144,6 +184,18 @@ class AccountsController extends CoreController {
     onInitFunction();
   }
 
+  changeShowPositive() {
+    filter.clear;
+    showPositive.invert;
+    appDebugPrint('Show Positive changed to: ${showPositive.value}');
+  }
+
+  changeShowNegative() {
+    filter.clear;
+    showNegative.invert;
+    appDebugPrint('Show Negative changed to: ${showNegative.value}');
+  }
+
   addFilterModal() async {
     filter.value =
         await AppAccountsFilterComponent().showFilterModal(filter.value);
@@ -152,7 +204,7 @@ class AccountsController extends CoreController {
 
   clearAllFilters() {
     filterIcon.value = AppIcons.noFilter;
-    filter.value.clear;
+    filter.clear;
     refresh();
   }
 

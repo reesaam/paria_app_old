@@ -15,6 +15,8 @@ import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_string.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
+import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
@@ -45,17 +47,16 @@ class AccountsPage extends CoreView<AccountsController> {
   @override
   Widget get body => widgetTable();
 
-  Widget widgetTopBar() => Padding(
-      padding: AppPaddings.accountsTopBar,
-      child: summary());
+  Widget widgetTopBar() =>
+      Padding(padding: AppPaddings.accountsTopBar, child: summary());
 
   Widget widgetAppBarAction() => Padding(
-    padding: AppPaddings.appBarActions,
-    child: AppIconButton(
-        icon: AppIcons.list.icon!,
-        onPressed: () => Get.toNamed(AppRoutes.contactsBalance),
-        brightIcon: true),
-  );
+        padding: AppPaddings.appBarActions,
+        child: AppIconButton(
+            icon: AppIcons.list.icon!,
+            onPressed: () => Get.toNamed(AppRoutes.contactsBalance),
+            brightIcon: true),
+      );
 
   Widget summary() => Card(
       child: Padding(
@@ -106,6 +107,12 @@ class AccountsPage extends CoreView<AccountsController> {
         AppPopupMenuItem(
             text: controller.showClearedText.value,
             onTapFunction: () => controller.changeShowClearedStatus()),
+        AppPopupMenuItem(
+            text: controller.showPositiveText.value,
+            onTapFunction: () => controller.changeShowPositive()),
+        AppPopupMenuItem(
+            text: controller.showNegativeText.value,
+            onTapFunction: () => controller.changeShowNegative()),
       ]);
 
   //Whole Table
@@ -145,34 +152,73 @@ class AccountsPage extends CoreView<AccountsController> {
   //     itemBuilder: (context, index) =>
   //         widgetRecordsTableItem(controller.listRecords.membersList()[index])));
 
-  Widget widgetRecordsTableItem(AppAccountRecord record) => !controller
-              .showCleared.value &&
-          record.cleared == true
-      ? shrinkSizedBox
-      : Row(children: [
-          Expanded(
-              flex: 1,
-              child: Checkbox(
-                  value: record.cleared,
-                  onChanged: (checked) =>
-                      controller.changeRecordClearanceStatus(record, checked))),
-          Expanded(
-              flex: 2,
-              child: Text(record.contact!.firstName ??
-                  AppTexts.generalNotAvailableInitials)),
-          Expanded(
-              flex: 3,
-              child:
-                  Text(record.title ?? AppTexts.generalNotAvailableInitials)),
-          Expanded(flex: 2, child: Text(record.amount.toCurrency)),
-          Expanded(
-              flex: 3,
-              child: Text(record.dateTime!.toDateFormat)),
-        ]);
+  Widget widgetRecordsTableItem(AppAccountRecord record) =>
+      !controller.showCleared.value && record.cleared == true
+          ? shrinkSizedBox
+          : Card(
+              margin: EdgeInsets.zero,
+              elevation: 0,
+              shape: AppElements.cardTransparentOutlineBorderWithNoRadius,
+              child: Row(children: [
+                Expanded(
+                    flex: 2,
+                    child: Checkbox(
+                        value: record.cleared,
+                        onChanged: (checked) => controller
+                            .changeRecordClearanceStatus(record, checked))),
+                Expanded(
+                    flex: 4,
+                    child: Text(
+                        record.contact!.firstName ??
+                            AppTexts.generalNotAvailableInitials,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textStyleItemName)),
+                Expanded(
+                    flex: 8,
+                    child: Text(
+                        record.title ?? AppTexts.generalNotAvailableInitials,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textStyleItemDescription)),
+                shrinkOneExpanded,
+                Expanded(
+                    flex: 5,
+                    child: Text(record.amount.toCurrency,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: checkBalance(record)
+                            ? textStyleItemAmountPositive
+                            : textStyleItemAmountNegative)),
+                shrinkOneExpanded,
+                Expanded(
+                    flex: 5,
+                    child: Text(record.dateTime!.toDateFormat,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textStyleItemDate)),
+              ]),
+            );
 
   //Table No Record
   Widget widgetNoRecord() => Container(
       padding: AppPaddings.accountsNoRecordText,
       child: Text(AppTexts.accountsNoRecords,
           style: AppTextStyles.accountNoRecord));
+
+  //Negative and Positive
+  bool checkBalance(AppAccountRecord record) =>
+      record.amount! < 0 ? false : true;
+  TextStyle get textStyleItemPositive =>
+      TextStyle(color: AppColors.accountsRecordItemPositive);
+  TextStyle get textStyleItemNegative =>
+      TextStyle(color: AppColors.accountsRecordItemNegative);
+
+  //Elements TextStyle
+  TextStyle get textStyleItemName => TextStyle(color: AppColors.textNormalGrey);
+  TextStyle get textStyleItemDescription =>
+      TextStyle(color: AppColors.textNormalGrey);
+  TextStyle get textStyleItemAmountPositive => textStyleItemPositive;
+  TextStyle get textStyleItemAmountNegative => textStyleItemNegative;
+  TextStyle get textStyleItemDate => TextStyle(color: AppColors.textNormalGrey);
 }

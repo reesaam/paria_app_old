@@ -5,7 +5,7 @@ extension StringProviders on DateTime {
   String get toTimeFormatWithSeconds => '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}';
 }
 
-extension Compare on DateTime? {
+extension CompareNull on DateTime? {
   bool equalTo(DateTime? dateTime) => this == null && dateTime == null
       ? true
       : this == null || dateTime == null

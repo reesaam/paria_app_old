@@ -9,7 +9,7 @@ extension Storage on AppContactsList {
   AppContactsList get loadFromStorage => AppLocalStorage.to.loadContacts();
 }
 
-extension ContactFunctions on Rx<AppContactsList> {
+extension RxContactFunctions on Rx<AppContactsList> {
   addContact(AppContact contact) {
     List<AppContact> contacts = List<AppContact>.empty(growable: true);
     contacts.addAll(membersList);
@@ -38,7 +38,7 @@ extension ContactFunctions on Rx<AppContactsList> {
   }
 }
 
-extension SortContacts on Rx<AppContactsList> {
+extension RxSortContacts on Rx<AppContactsList> {
   void get defaultSortFunction => sortFirstName;
 
   void get sortFirstName {
@@ -49,13 +49,13 @@ extension SortContacts on Rx<AppContactsList> {
   }
 }
 
-extension Details on Rx<AppContactsList> {
+extension RxDetails on Rx<AppContactsList> {
   List<AppContact> get membersList => value.contactsList;
   int get count => membersList.length;
   bool get isEmpty => membersList.isEmpty;
 }
 
-extension ListFunctions on Rx<AppContactsList> {
+extension RxListFunctions on Rx<AppContactsList> {
   clearContactsList() {
     membersList.clear();
     value.saveOnStorage();

@@ -16,9 +16,10 @@ class AppColors {
   // static Color get _pinkSalmon => const Color(0xffff9999);
   // static Color get _pinkSalmon => const Color(0xfffab072);
   static Color get _pinkSalmon => const Color(0xfffe7b7c);
+  static Color get _greenPositive => Colors.green;
+  static Color get _redNegative => Colors.redAccent;
 
   ///Generals
-
   static Color get error => Colors.redAccent;
 
   //Texts
@@ -30,6 +31,10 @@ class AppColors {
   //Buttons
   static Color get buttonBackgroundNormal => appBackground;
   static Color get buttonTextNormal => appDefaultColor;
+
+  //Checkbox
+  static Color get appCheckBox => _grey;
+  static Color get appCheckBoxTick => _white;
 
   //FloatingActionButton
   static Color get floatingButtonColor => appDefaultColor;
@@ -59,5 +64,9 @@ class AppColors {
   static Color get bottomBarUnselected => textNormalGrey;
   static Color get bottomBarIcon => textNormal;
   static Color get bottomBarText => textNormal;
+
+  ///Sections
+  static Color get accountsRecordItemPositive => _greenPositive;
+  static Color get accountsRecordItemNegative => _redNegative;
 
 }

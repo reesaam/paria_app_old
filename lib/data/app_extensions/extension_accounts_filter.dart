@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
@@ -26,14 +27,18 @@ extension Compare on AppAccountsFilter {
           dateTimeDown.equalTo(filter.dateTimeDown);
 }
 
-extension ChecksNull on AppAccountsFilter? {
-  bool get isEmpty => this == null ? true : equalTo(const AppAccountsFilter());
+extension RxChecksNull on Rx<AppAccountsFilter?> {
+  bool get isEmpty => value == null ? true : value.equalTo(const AppAccountsFilter());
+}
+
+extension RxChecks on Rx<AppAccountsFilter> {
+  bool get isEmpty => value.equalTo(const AppAccountsFilter());
 }
 
 extension Checks on AppAccountsFilter {
   bool get isEmpty => equalTo(const AppAccountsFilter());
 }
 
-extension Actions on AppAccountsFilter {
-  AppAccountsFilter get clear => const AppAccountsFilter();
+extension RxActions on Rx<AppAccountsFilter> {
+  AppAccountsFilter get clear => value = const AppAccountsFilter();
 }
