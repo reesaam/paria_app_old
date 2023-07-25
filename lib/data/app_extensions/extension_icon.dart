@@ -8,5 +8,5 @@ extension IconColor on Icon {
 }
 
 extension IconSize on Icon {
-  Icon withSize(double size) => Icon(icon, size: size);
+  Icon withSize(double size) => Icon(icon, size: size, color: color);
 }
