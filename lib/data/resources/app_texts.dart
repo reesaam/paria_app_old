@@ -67,8 +67,13 @@ class AppTexts {
   static String get accountsTablePopupMenuShowNegativeRecords => 'Show Negative Records Only';
   static String get accountsTablePopupMenuClearNegativeRecords => 'Clear Negative Records Only';
 
+  static String get accountsTableItemMenuCheck => 'Check Item';
+  static String get accountsTableItemMenuEdit => 'Edit Item';
+  static String get accountsTableItemMenuRemove => 'Remove Item';
+
   ///Accounts Add New Record Modal
   static String get accountsAddRecordTitle => 'Add New Record';
+  static String get accountsEditRecordTitle => 'Edit Record';
   static String get accountsAddRecordFieldContactTitle => 'Contact';
   static String get accountsAddRecordFieldContactHint => 'Enter a Contact or Name';
   static String get accountsAddRecordFieldTitleTitle => 'Description';

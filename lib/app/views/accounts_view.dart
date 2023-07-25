@@ -129,7 +129,7 @@ class AccountsPage extends CoreView<AccountsController> {
                 widgetRecordsTableThreeDotsMenu(),
               ])),
         ]),
-        AppDividers.generalDivider(),
+        AppDividers.generalDivider,
         Obx(() => controller.listRecords.isEmpty
             ? widgetNoRecord()
             : widgetRecordsTable()),
@@ -155,49 +155,52 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget widgetRecordsTableItem(AppAccountRecord record) =>
       !controller.showCleared.value && record.cleared == true
           ? shrinkSizedBox
-          : Card(
-              margin: EdgeInsets.zero,
-              elevation: 0,
-              shape: AppElements.cardTransparentOutlineBorderWithNoRadius,
-              child: Row(children: [
-                Expanded(
-                    flex: 2,
-                    child: Checkbox(
-                        value: record.cleared,
-                        onChanged: (checked) => controller
-                            .changeRecordClearanceStatus(record, checked))),
-                Expanded(
-                    flex: 4,
-                    child: Text(
-                        record.contact!.firstName ??
-                            AppTexts.generalNotAvailableInitials,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: textStyleItemName)),
-                Expanded(
-                    flex: 8,
-                    child: Text(
-                        record.title ?? AppTexts.generalNotAvailableInitials,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: textStyleItemDescription)),
-                shrinkOneExpanded,
-                Expanded(
-                    flex: 5,
-                    child: Text(record.amount.toCurrency,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: checkBalance(record)
-                            ? textStyleItemAmountPositive
-                            : textStyleItemAmountNegative)),
-                shrinkOneExpanded,
-                Expanded(
-                    flex: 5,
-                    child: Text(record.dateTime!.toDateFormat,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: textStyleItemDate)),
-              ]),
+          : InkWell(
+              onLongPress: () => controller.showItemMenu(record),
+              child: Card(
+                  margin: EdgeInsets.zero,
+                  elevation: 0,
+                  shape: AppElements.cardTransparentOutlineBorderWithNoRadius,
+                  child: Row(children: [
+                    Expanded(
+                        flex: 2,
+                        child: Checkbox(
+                            value: record.cleared,
+                            onChanged: (checked) => controller
+                                .changeRecordClearanceStatus(record, checked))),
+                    Expanded(
+                        flex: 4,
+                        child: Text(
+                            record.contact!.firstName ??
+                                AppTexts.generalNotAvailableInitials,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textStyleItemName)),
+                    Expanded(
+                        flex: 8,
+                        child: Text(
+                            record.title ??
+                                AppTexts.generalNotAvailableInitials,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textStyleItemDescription)),
+                    shrinkOneExpanded,
+                    Expanded(
+                        flex: 5,
+                        child: Text(record.amount.toCurrency,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: checkBalance(record)
+                                ? textStyleItemAmountPositive
+                                : textStyleItemAmountNegative)),
+                    shrinkOneExpanded,
+                    Expanded(
+                        flex: 5,
+                        child: Text(record.dateTime!.toDateFormat,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textStyleItemDate)),
+                  ])),
             );
 
   //Table No Record

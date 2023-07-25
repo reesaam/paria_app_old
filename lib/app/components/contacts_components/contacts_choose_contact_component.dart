@@ -13,7 +13,7 @@ class ChooseContactComponent {
   final AppContactsList _listContacts = AppContactsList().loadFromStorage;
   AppContact? _selectedContact;
 
-  Widget _chooseContactItem(AppContact contact) => GestureDetector(
+  Widget _chooseContactItem(AppContact contact) => InkWell(
       onTap: () => {_selectedContact = contact, Get.back()},
       child: Container(
         alignment: Alignment.centerLeft,

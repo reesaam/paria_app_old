@@ -13,7 +13,6 @@ import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class AppDialogs {
-
   static _onTapCancel() => Get.back();
 
   static appBottomDialogWithoutButton(String title, Widget form) async {
@@ -63,9 +62,7 @@ class AppDialogs {
           isScrollControlled: true,
           shape: AppElements.defaultModalBorderShape,
           builder: (context) => SingleChildScrollView(
-                child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
+                child: Column(mainAxisSize: MainAxisSize.max, children: [
                   Padding(
                       padding: AppPaddings.generalBottomModal,
                       child: Column(
@@ -75,8 +72,16 @@ class AppDialogs {
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(title, style: AppTextStyles.modalTitle),
-                                  AppSpaces.h40,
+                                  title.isNotEmpty
+                                      ? Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                          Text(title,
+                                              style: AppTextStyles.modalTitle),
+                                          AppDividers.generalDividerWithAppDefaultColor,
+                                          AppSpaces.h20,
+                                        ])
+                                      : shrinkSizedBox,
                                   form,
                                 ]),
                             AppSpaces.h40,
@@ -111,7 +116,7 @@ class AppDialogs {
                   shape: AppElements.defaultAlertBorderShape,
                   title: Column(children: [
                     Text(title, style: AppTextStyles.dialogAlertTitle),
-                    AppDividers.generalDividerWithAppDefaultColor(),
+                    AppDividers.generalDividerWithAppDefaultColor,
                   ]),
                   content: Text(text, style: AppTextStyles.dialogAlertText),
                   actions: [_renderButtonsAlertDialog(buttons)],

@@ -54,7 +54,7 @@ class ContactsBalancePage extends CoreView<ContactsBalanceController> {
                       child: Text(AppTexts.contactsBalanceTitleCount,
                           style: AppTextStyles.contactsBalanceTitle)),
                 ])),
-        AppDividers.generalDividerWithAppDefaultColor(),
+        AppDividers.generalDividerWithAppDefaultColor,
       ]);
 
   Widget widgetTable() => ListView.builder(

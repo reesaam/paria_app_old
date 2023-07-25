@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
-import 'package:paria_app/data/app_extensions/extension_general.dart';
+import 'package:paria_app/data/app_extensions/extension_icon.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';

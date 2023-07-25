@@ -11,7 +11,7 @@ class SettingsComponents {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             title,
-            AppDividers.settingsDivider(),
+            AppDividers.settingsDivider,
             Column(children: widgets),
           ]));
 

@@ -63,21 +63,18 @@ class AppContactsAddOrEditContactComponent {
 
   _provideContact() async {
     _contact = AppContact(
-      firstName: _controllerFirstName.text,
-      lastName: _controllerLastName.text,
-      mobile: _controllerMobile.text,
-      phone: _controllerPhone.text,
-      email: _controllerEmail.text,
-      webLink: _controllerWebLink.text,
-    );
+        firstName: _controllerFirstName.text,
+        lastName: _controllerLastName.text,
+        mobile: _controllerMobile.text,
+        phone: _controllerPhone.text,
+        email: _controllerEmail.text,
+        webLink: _controllerWebLink.text);
     Get.back();
   }
 
   addContact() async {
     title = AppTexts.contactsAddContactTitle;
-
     await _raiseModal();
-
     appDebugPrint(_contact.isEmpty
         ? 'Add Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Add Contact Modal Closed')});

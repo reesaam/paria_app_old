@@ -14,7 +14,7 @@ class AppPaddings {
 
   ///Modals
   // static EdgeInsets get generalBottomModal => const EdgeInsets.all(20);
-  static EdgeInsets get generalBottomModal => const EdgeInsets.all(20).copyWith(bottom: Get.context!.mediaQuery.viewInsets.bottom);
+  static EdgeInsets get generalBottomModal => EdgeInsets.fromLTRB(20, 0, 20, Get.context!.mediaQuery.viewInsets.bottom);
   static EdgeInsets get generalAlertDialog => const EdgeInsets.all(20);
 
   ///HomePage
@@ -40,6 +40,8 @@ class AppPaddings {
   static EdgeInsets get accountsSummaryCard => const EdgeInsets.fromLTRB(20, 10, 20, 10);
   static EdgeInsets get accountsNoRecordText => const EdgeInsets.all(40);
   static EdgeInsets get accountsSelectContactList => const EdgeInsets.fromLTRB(10, 10, 10, 10);
+
+  static EdgeInsets get accountTableItemMenuItem => const EdgeInsets.fromLTRB(10, 0, 10, 20);
 
   ///Accounts Add New Record Modal
 
