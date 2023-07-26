@@ -8,6 +8,7 @@ import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
+import 'package:paria_app/data/app_extensions/extension_string.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
@@ -40,7 +41,7 @@ class HomePage extends CoreView<HomePageController> {
   Widget get body => Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [widgetButtons()]);
+      children: [widgetSummery(), widgetButtons()]);
 
   Widget widgetDateTime() => Padding(
         padding: AppPaddings.pages,
@@ -77,11 +78,32 @@ class HomePage extends CoreView<HomePageController> {
   ///TODO: Implement Summery
   Widget widgetSummery() => Card(
       child: Padding(
-          padding: AppPaddings.homepageSummeryCard,
-          child: Row(children: [
-            Column(crossAxisAlignment: CrossAxisAlignment.end, children: []),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: []),
-          ])));
+        padding: AppPaddings.homepageSummeryCard,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(AppTexts.homepageSummaryTitle,
+                style: AppTextStyles.cardTitle),
+            AppSpaces.h20,
+            Padding(
+              padding: AppPaddings.homepageSummeryCardData,
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: List.generate(
+                        AppTexts.homepageSummaryItems.length,
+                        (index) => Text(AppTexts.homepageSummaryItems[index],
+                            style: AppTextStyles.cardText))),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(controller.summaryContactsCount.toString()),
+                  Text(controller.summaryRecordsCount.toString()),
+                  Text(controller.summaryBalanceCount.value.balance.toCurrency),
+                ]),
+              ]),
+            ),
+          ],
+        ),
+      ));
 
   Widget widgetButtons() => isRelease
       ? shrinkSizedBox

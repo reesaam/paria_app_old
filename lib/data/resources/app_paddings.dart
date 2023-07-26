@@ -19,7 +19,8 @@ class AppPaddings {
 
   ///HomePage
   static EdgeInsets get homepageDateTimeCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);
-  static EdgeInsets get homepageSummeryCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);
+  static EdgeInsets get homepageSummeryCard => const EdgeInsets.fromLTRB(20, 20, 20, 20);
+  static EdgeInsets get homepageSummeryCardData => const EdgeInsets.fromLTRB(20, 0, 50, 0);
   static EdgeInsets get homepageDateTimeCardSettingIcon => const EdgeInsets.fromLTRB(0, 10, 10, 0);
   static EdgeInsets get homepageButtons => const EdgeInsets.fromLTRB(50, 40, 50, 0);
 

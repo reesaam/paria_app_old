@@ -48,7 +48,7 @@ class AccountsPage extends CoreView<AccountsController> {
   Widget get body => widgetTable();
 
   Widget widgetTopBar() =>
-      Padding(padding: AppPaddings.accountsTopBar, child: summary());
+      Padding(padding: AppPaddings.accountsTopBar, child: widgetSummary());
 
   Widget widgetAppBarAction() => Padding(
         padding: AppPaddings.appBarActions,
@@ -58,7 +58,7 @@ class AccountsPage extends CoreView<AccountsController> {
             brightIcon: true),
       );
 
-  Widget summary() => Card(
+  Widget widgetSummary() => Card(
       child: Padding(
           padding: AppPaddings.accountsSummaryCard,
           child:

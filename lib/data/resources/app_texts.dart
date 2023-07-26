@@ -16,6 +16,8 @@ class AppTexts {
 
   ///Homepage
   static String get homepageDateTimeTitle => 'Today';
+  static String get homepageSummaryTitle => 'App Summery';
+  static List<String> get homepageSummaryItems => ['Contacts:', 'Records:', 'Total Balance:'];
 
   ///Contacts
   static String get contactsNoContacts => 'No Contacts';
