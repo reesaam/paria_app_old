@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
-import 'package:paria_app/data/storage/shared_preferences.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
+import 'package:paria_app/data/storage/app_shared_preferences.dart';
 
 bool get isRelease => false;
 

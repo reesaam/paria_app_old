@@ -7,7 +7,7 @@ import 'package:paria_app/data/data_models/core_data_models/app_contact/app_cont
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
 
 class ChooseContactComponent {
   final AppContactsList _listContacts = AppContactsList().loadFromStorage;

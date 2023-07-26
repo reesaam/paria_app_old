@@ -5,7 +5,7 @@ import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
 
 extension Storage on AppAccountRecordsList {
   void saveOnStorage() async =>

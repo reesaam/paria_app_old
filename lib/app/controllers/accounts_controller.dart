@@ -21,7 +21,7 @@ import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
 
 class AccountsController extends CoreController {
   //Lists

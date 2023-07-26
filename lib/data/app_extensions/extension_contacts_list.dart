@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
 
 extension Storage on AppContactsList {
   void saveOnStorage() async => await AppLocalStorage.to.saveContacts(this);

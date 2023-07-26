@@ -7,7 +7,7 @@ import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/local_storage.dart';
+import 'package:paria_app/data/storage/app_local_storage.dart';
 
 class SettingsController extends CoreController {
   Rx<AppSettingData> appSettings = const AppSettingData().obs;
