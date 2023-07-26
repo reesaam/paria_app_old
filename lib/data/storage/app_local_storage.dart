@@ -1,17 +1,15 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
+import 'package:paria_app/data/storage/local_storage_service.dart';
 
 class AppLocalStorage {
   final String _keyLocalStorage = 'Local Storage';
-  final _storage = GetStorage();
+  final _storage = LocalStorageService();
 
   static AppLocalStorage get to => Get.find();
 
@@ -46,10 +44,6 @@ class AppLocalStorage {
     return data == null
         ? AppAccountRecordsList()
         : AppAccountRecordsList.fromJson(data);
-    // return data == null
-    //     ? AppAccountRecordsList(
-    //         recordsList: List<AppAccountRecord>.empty(growable: true))
-    //     : AppAccountRecordsList.fromJson(data);
   }
 
   ///Settings
