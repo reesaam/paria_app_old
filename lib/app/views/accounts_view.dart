@@ -163,13 +163,13 @@ class AccountsPage extends CoreView<AccountsController> {
                   shape: AppElements.cardTransparentOutlineBorderWithNoRadius,
                   child: Row(children: [
                     Expanded(
-                        flex: 2,
+                        flex: controller.listTableItemSections[0],
                         child: Checkbox(
                             value: record.cleared,
                             onChanged: (checked) => controller
                                 .changeRecordClearanceStatus(record, checked))),
                     Expanded(
-                        flex: 4,
+                        flex: controller.listTableItemSections[1],
                         child: Text(
                             record.contact!.firstName ??
                                 AppTexts.generalNotAvailableInitials,
@@ -177,7 +177,7 @@ class AccountsPage extends CoreView<AccountsController> {
                             overflow: TextOverflow.ellipsis,
                             style: textStyleItemName)),
                     Expanded(
-                        flex: 8,
+                        flex: controller.listTableItemSections[2],
                         child: Text(
                             record.title ??
                                 AppTexts.generalNotAvailableInitials,
@@ -186,7 +186,7 @@ class AccountsPage extends CoreView<AccountsController> {
                             style: textStyleItemDescription)),
                     shrinkOneExpanded,
                     Expanded(
-                        flex: 5,
+                        flex: controller.listTableItemSections[3],
                         child: Text(record.amount.toCurrency,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -195,7 +195,7 @@ class AccountsPage extends CoreView<AccountsController> {
                                 : textStyleItemAmountNegative)),
                     shrinkOneExpanded,
                     Expanded(
-                        flex: 5,
+                        flex: controller.listTableItemSections[4],
                         child: Text(record.dateTime!.toDateFormat,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,

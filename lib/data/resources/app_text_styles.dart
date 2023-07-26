@@ -35,7 +35,7 @@ class AppTextStyles {
 
   ///Dialogs
   static TextStyle get dialogAlertTitle => TextStyle(fontSize: titleSize);
-  static TextStyle get dialogAlertText => TextStyle(fontSize: bigSize, color: AppColors.textNormalGrey);
+  static TextStyle get dialogAlertText => TextStyle(fontSize: normalSize, color: AppColors.textNormalGrey);
 
   ///SplashScreen
   static TextStyle get splashScreenAppName => TextStyle(fontSize: AppSizes.splashScreenAppName);

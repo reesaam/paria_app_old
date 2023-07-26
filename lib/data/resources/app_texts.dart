@@ -6,10 +6,12 @@ class AppTexts {
   static String get generalEmpty => '';
   static String get generalNotAvailable => 'Not Available';
   static String get generalNotAvailableInitials => 'N/A';
+  static String get total => 'Total';
   static String get from => 'From';
   static String get to => 'To';
   static String get warning => 'Warning';
   static String get alert => 'Alert!';
+  static String get information => 'Information';
   static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';
 
   ///Homepage
@@ -52,6 +54,8 @@ class AppTexts {
   static String get contactsBalanceTitleContact => 'Contact';
   static String get contactsBalanceTitleBalance => 'Balance';
   static String get contactsBalanceTitleCount => 'Count';
+
+  static String get contactsBalanceNoRecord => 'There is No Records for this Contact!';
 
   ///Accounts
   static String get accountsContactsBalance => 'All Balances';

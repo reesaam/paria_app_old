@@ -4,9 +4,11 @@ import 'package:paria_app/app/components/app_general_components/app_dividers.dar
 import 'package:paria_app/app/controllers/contacts_balance_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
+import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_string.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
+import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
@@ -33,6 +35,7 @@ class ContactsBalancePage extends CoreView<ContactsBalanceController> {
   Widget get body => Column(children: [
         widgetTitle(),
         widgetTable(),
+        widgetResults(),
       ]);
 
   Widget widgetTitle() => Column(children: [
@@ -42,11 +45,11 @@ class ContactsBalancePage extends CoreView<ContactsBalanceController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                      flex: 8,
+                      flex: 5,
                       child: Text(AppTexts.contactsBalanceTitleContact,
                           style: AppTextStyles.contactsBalanceTitle)),
                   Expanded(
-                      flex: 8,
+                      flex: 5,
                       child: Text(AppTexts.contactsBalanceTitleBalance,
                           style: AppTextStyles.contactsBalanceTitle)),
                   Expanded(
@@ -55,28 +58,48 @@ class ContactsBalancePage extends CoreView<ContactsBalanceController> {
                           style: AppTextStyles.contactsBalanceTitle)),
                 ])),
         AppDividers.generalDividerWithAppDefaultColor,
+        AppSpaces.h10,
       ]);
 
   Widget widgetTable() => ListView.builder(
       shrinkWrap: true,
-      itemCount: controller.listContacts.contactsList.length,
+      itemCount: controller.listContacts.count,
       itemBuilder: (context, index) =>
-          widgetTableItem(controller.listContacts.contactsList[index]));
+          widgetTableItem(controller.listContacts.value.contactsList[index]));
 
-  Widget widgetTableItem(AppContact contact) => Padding(
-      padding: AppPaddings.contactsBalanceItem,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Expanded(
-            flex: 8,
-            child: Text(contact.getContactFullName,
-                style: AppTextStyles.contactsBalanceItemsContact)),
-        Expanded(
-            flex: 8,
-            child: Text(contact.calculateBalance(false).balance.toCurrency,
-                style: AppTextStyles.contactsBalanceItems)),
-        Expanded(
-            flex: 1,
-            child: Text(contact.calculateBalance(false).count.toString(),
-                style: AppTextStyles.contactsBalanceItems)),
-      ]));
+  Widget widgetTableItem(AppContact contact) => InkWell(
+      onTap: () => contact.calculateBalance(false).count == 0
+          ? controller.showNoRecordDialog()
+          : controller.showContactItemsList(contact),
+      child: Padding(
+          padding: AppPaddings.contactsBalanceItem,
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Expanded(
+                flex: 5,
+                child: Text(contact.getContactFullName,
+                    style: AppTextStyles.contactsBalanceItemsContact)),
+            Expanded(
+                flex: 4,
+                child: Text(contact.calculateBalance(false).balance.toCurrency,
+                    style: AppTextStyles.contactsBalanceItems)),
+            Expanded(
+                flex: 1,
+                child: Text(contact.calculateBalance(false).count.toString(),
+                    style: AppTextStyles.contactsBalanceItems)),
+          ])));
+
+  Widget widgetResults() => Column(children: [
+        AppSpaces.h10,
+        AppDividers.generalDividerWithAppDefaultColor,
+        Row(children: [
+          Expanded(flex: 10, child: Text('${AppTexts.total}:')),
+          Expanded(
+              flex: 9,
+              child: Text(controller.totalBalance.value.balance.toCurrency)),
+          Expanded(
+              flex: 2,
+              child: Text(controller.totalBalance.value.count.toString())),
+        ]),
+      ]);
 }

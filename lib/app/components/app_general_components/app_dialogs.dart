@@ -20,7 +20,8 @@ class AppDialogs {
     await _appBottomDialogGeneral(title, form, buttons);
   }
 
-  static appBottomDialogWithOk(String title, Widget form, onTapOk) async {
+  static appBottomDialogWithOk(
+      String title, Widget form, Function onTapOk) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk)
     ];
@@ -52,6 +53,14 @@ class AppDialogs {
     await _appAlertDialog(title, text, buttons);
   }
 
+  static appAlertDialogWithOk(
+      String title, String text, Function onTapOk) async {
+    List<Widget> buttons = [
+      AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
+    ];
+    await _appAlertDialog(title, text, buttons);
+  }
+
   static _appBottomDialogGeneral(
           String title, Widget form, List<Widget> buttons) async =>
       await showModalBottomSheet(
@@ -74,13 +83,16 @@ class AppDialogs {
                                 children: [
                                   title.isNotEmpty
                                       ? Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                          Text(title,
-                                              style: AppTextStyles.modalTitle),
-                                          AppDividers.generalDividerWithAppDefaultColor,
-                                          AppSpaces.h20,
-                                        ])
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                              Text(title,
+                                                  style:
+                                                      AppTextStyles.modalTitle),
+                                              AppDividers
+                                                  .generalDividerWithAppDefaultColor,
+                                              AppSpaces.h20,
+                                            ])
                                       : shrinkSizedBox,
                                   form,
                                 ]),
@@ -118,7 +130,9 @@ class AppDialogs {
                     Text(title, style: AppTextStyles.dialogAlertTitle),
                     AppDividers.generalDividerWithAppDefaultColor,
                   ]),
-                  content: Text(text, style: AppTextStyles.dialogAlertText),
+                  content: Text(text,
+                      style: AppTextStyles.dialogAlertText,
+                      softWrap: true),
                   actions: [_renderButtonsAlertDialog(buttons)],
                   actionsAlignment: MainAxisAlignment.center,
                 ),
@@ -129,7 +143,7 @@ class AppDialogs {
     int length = buttons.length;
     for (int i = 0; i < length; i++) {
       list.addIf(i == 0, shrinkOneExpanded);
-      list.add(Expanded(flex: (10 ~/ length), child: buttons[i]));
+      list.add(Expanded(flex: length > 1 ? (10 ~/ length) : 1, child: buttons[i]));
       list.add(shrinkOneExpanded);
     }
     return Row(

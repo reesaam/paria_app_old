@@ -28,6 +28,7 @@ class AccountsController extends CoreController {
   Rx<AppAccountRecordsList> listRecords = AppAccountRecordsList(
           recordsList: List<AppAccountRecord>.empty(growable: true))
       .obs;
+  late List<int> listTableItemSections;
 
   //Summery
   Rx<int> itemsBalance = 0.obs;
@@ -67,6 +68,7 @@ class AccountsController extends CoreController {
   @override
   void pageInit() {
     pageDetail = AppPageDetails.accounts;
+    listTableItemSections = [2, 4, 5, 4, 5];
   }
 
   @override
