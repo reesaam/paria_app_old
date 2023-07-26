@@ -10,8 +10,10 @@ import 'package:paria_app/app/controllers/contacts_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
+import 'package:paria_app/data/app_extensions/extension_icon.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
@@ -50,25 +52,26 @@ class ContactsPage extends CoreView<ContactsController> {
               controller.listContacts.membersList[index]))));
 
   Widget widgetContactsTableItem(AppContact contact) => GestureDetector(
-    onTap: () => controller.showContactFunction(contact),
-    child: Card(
-      shape: AppElements.cardTransparentOutlineBorder,
-      child: Padding(
-        padding: AppPaddings.contactsItem,
-        child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Row(children: [
-              AppContactComponents.getAvatar(
-                  contact, AppElements.contactsListAvatarMaxRadius),
-              AppSpaces.w20,
-              Text(contact.getContactFullName,
-                  style: AppTextStyles.contactsListItem),
-            ]),
-            AppPopupMenu(listItems: contactOptions(contact)),
-          ]),
-      ),
-    ),
-  );
+        onTap: () => controller.showContactFunction(contact),
+        child: Card(
+          shape: AppElements.cardTransparentOutlineBorder,
+          child: Padding(
+            padding: AppPaddings.contactsItem,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
+                    AppContactComponents.getAvatar(
+                        contact, AppElements.contactsListAvatarMaxRadius),
+                    AppSpaces.w20,
+                    Text(contact.getContactFullName,
+                        style: AppTextStyles.contactsListItem),
+                  ]),
+                  AppPopupMenu(listItems: contactOptions(contact)),
+                ]),
+          ),
+        ),
+      );
 
   List<AppPopupMenuItem> contactOptions(AppContact contact) =>
       List<AppPopupMenuItem>.from([

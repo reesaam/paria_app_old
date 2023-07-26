@@ -5,11 +5,15 @@ class AppIcons {
 
   ///General
   static Icon get close => const Icon(Icons.close_rounded);
+  static Icon get closeCircle => const Icon(Icons.remove_circle_outline);
   static Icon get arrowForward => const Icon(Icons.arrow_forward_ios);
   static Icon get arrowBack => const Icon(Icons.arrow_back_ios);
   static Icon get add => const Icon(Icons.add);
   static Icon get list => const Icon(Icons.list);
-
+  static Icon get check => const Icon(Icons.check);
+  static Icon get checkCircle => const Icon(Icons.check_circle_outline);
+  static Icon get edit => const Icon(Icons.edit);
+  static Icon get show => const Icon(Icons.visibility);
 
   ///Icons
   static Icon get home => const Icon(Icons.home);

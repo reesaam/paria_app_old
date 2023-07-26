@@ -13,12 +13,14 @@ import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_bool.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
+import 'package:paria_app/data/app_extensions/extension_icon.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
+import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_text_styles.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/app_local_storage.dart';
@@ -276,25 +278,41 @@ class AccountsController extends CoreController {
     return filtered;
   }
 
-  Widget _widgetItemMenuItem(String text, VoidCallback function) => InkWell(
-      onTap: () => {Get.back(), function()},
-      child: Container(
-          padding: AppPaddings.accountTableItemMenuItem,
-          alignment: Alignment.centerLeft,
-          child: Text(text, style: AppTextStyles.accountsTableItemsMenuItem)));
+  Widget _widgetItemMenuItem(String text, Icon icon, VoidCallback function) =>
+      InkWell(
+          onTap: () => {Get.back(), function()},
+          child: Card(
+            child: Container(
+                // padding: AppPaddings.accountTableItemMenuItem,
+                alignment: Alignment.center,
+                width: Get.width / 4,
+                height: 50,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      icon.withAppDefaultColor.withSize(15),
+                      AppSpaces.w05,
+                      Text(text,
+                          style: AppTextStyles.accountsTableItemsMenuItem)
+                    ])),
+          ));
 
   showItemMenu(AppAccountRecord record) =>
       AppDialogs.appBottomDialogWithoutButton(
           record.contact!.getContactFullName,
-          Form(
-              child: Column(children: [
-            _widgetItemMenuItem(
-                AppTexts.accountsTableItemMenuCheck,
-                () => changeRecordClearanceStatus(
-                    record, record.cleared!.invert)),
-            _widgetItemMenuItem(AppTexts.accountsTableItemMenuEdit,
-                () => editRecordFunction(record)),
-            _widgetItemMenuItem(AppTexts.accountsTableItemMenuRemove,
-                () => removeRecordFunction(record)),
-          ])));
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _widgetItemMenuItem(
+                    AppTexts.accountsTableItemMenuCheck,
+                    AppIcons.check,
+                    () => changeRecordClearanceStatus(
+                        record, record.cleared!.invert)),
+                _widgetItemMenuItem(AppTexts.accountsTableItemMenuEdit,
+                    AppIcons.edit, () => editRecordFunction(record)),
+                _widgetItemMenuItem(AppTexts.accountsTableItemMenuRemove,
+                    AppIcons.close, () => removeRecordFunction(record)),
+              ]));
 }
