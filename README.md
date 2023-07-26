@@ -27,7 +27,7 @@ Paria Assistant App
 ## Others
 # Launcher Icon
 - For any possible change in Launcher Icon
-- first change the file in assets : <<assets/images/general/launcher_logo.png>> (Please replace the file)
+- first change the file in assets : <<assets/logos/paria_logo.png>> (Please replace the file)
 - the run:
 
 --> flutter pub run flutter_launcher_icons -f flutter_launcher_icons.yaml

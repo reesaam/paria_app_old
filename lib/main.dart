@@ -7,7 +7,10 @@ import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/resources/app_info.dart';
 import 'package:paria_app/data/resources/app_themes.dart';
 
-void main() async {
+void main() => initProject();
+
+void initProject() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   runApp(const MainApp());
 }
