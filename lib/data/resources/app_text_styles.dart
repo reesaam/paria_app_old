@@ -60,7 +60,7 @@ class AppTextStyles {
   ///Accounts
   static TextStyle get accountNoRecord => TextStyle(fontSize: titleSize, color: AppColors.appDefaultColor);
   static TextStyle get accountsRecordsTableTitle => TextStyle(fontSize: bigSize, color: AppColors.appDefaultColor);
-  static TextStyle get accountsTableItemsMenuItem => TextStyle(fontSize: titleSize, color: AppColors.textNormalGrey);
+  static TextStyle get accountsTableItemsMenuItem => TextStyle(fontSize: bigSize, color: AppColors.textNormalGrey);
 
   ///Settings
   static TextStyle get settingsSectionTitle => TextStyle(fontSize: bigSize);
