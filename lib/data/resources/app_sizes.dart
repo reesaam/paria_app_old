@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppSizes {
   ///Fonts
-  static double get defaultFontSize => 12;
   static double get splashScreenAppName => 30;
 
   ///Buttons

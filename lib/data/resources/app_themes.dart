@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
+import 'package:paria_app/data/resources/app_fonts.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
 
 class AppThemes {
@@ -31,7 +32,7 @@ class AppThemes {
       );
 
   static get defaultTextStyle => TextStyle(
-      color: AppColors.appDefaultColor, fontSize: AppSizes.defaultFontSize);
+      color: AppColors.appDefaultColor, fontSize: AppFonts.defaultFontSize);
 
   static get textTheme => TextTheme(
         bodyLarge: defaultTextStyle,

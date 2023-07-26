@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
+import 'package:paria_app/data/resources/app_fonts.dart';
 import 'package:paria_app/data/resources/app_sizes.dart';
 
 class AppTextStyles {
-  static get defaultSize => AppSizes.defaultFontSize;
+  static get defaultSize => AppFonts.defaultFontSize;
   static get normalSize => defaultSize;
   static get bigSize => defaultSize + 3;
   static get titleSize => defaultSize + 5;
