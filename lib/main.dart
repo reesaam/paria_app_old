@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:paria_app/core/bindings/core_bindings.dart';
@@ -12,6 +13,7 @@ void main() => initProject();
 void initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+  await FlutterDownloader.initialize();
   runApp(const MainApp());
 }
 
