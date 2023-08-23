@@ -63,7 +63,7 @@ class SplashScreenController extends CoreController {
     String version = await AppUpdate().checkVersion();
     appDebugPrint('Current Version: ${AppInfo.appCurrentVersion}');
     appDebugPrint('Host Version: $version');
-    version == AppInfo.appCurrentVersion
+    version != AppInfo.appCurrentVersion
         ? await AppUpdate().dialogNewVersion()
         : null;
     checkUpdateSwitch.value = true;
