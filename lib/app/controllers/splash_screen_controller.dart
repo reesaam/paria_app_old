@@ -25,6 +25,7 @@ class SplashScreenController extends CoreController {
     // clearAppData();
     loadAppData();
     await checkUpdate();
+    await checkPermissions();
   }
 
   @override
@@ -58,7 +59,8 @@ class SplashScreenController extends CoreController {
         .onData((data) => data ? checkChecks() : null);
   }
 
-  void checkChecks() => allChecked.value = checkUpdateSwitch.value;
+  void checkChecks() =>
+      allChecked.value = checkUpdateSwitch.value && checkPermissionSwitch.value;
 
   void goToNextPage() async {
     await Future.delayed(const Duration(seconds: 4));
@@ -76,6 +78,7 @@ class SplashScreenController extends CoreController {
   }
 
   Future<void> checkPermissions() async {
+    ///TODO: Need some Attention
     await AppPermissions().checkAllPermissions();
     checkPermissionSwitch.value = true;
   }
