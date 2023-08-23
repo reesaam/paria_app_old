@@ -1,5 +1,5 @@
 class AppRoutes {
-  static const String startPage = homePage;
+  static const String startPage = splashScreen;
 
   ///Main Pages
   static const String splashScreen = '/splash_screen';
@@ -8,6 +8,7 @@ class AppRoutes {
   static const String contacts = '/contacts';
   static const String contactsBalance = '/contacts_balance';
   static const String accounts = '/accounts';
+  static const String update = '/update';
 
   ///Other Pages
   static const String adminPage = '/admin';

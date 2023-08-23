@@ -77,29 +77,34 @@ class HomePage extends CoreView<HomePageController> {
 
   ///TODO: Implement Summery
   Widget widgetSummery() => Card(
-      child: Padding(
+          child: Padding(
         padding: AppPaddings.homepageSummeryCard,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(AppTexts.homepageSummaryTitle,
-                style: AppTextStyles.cardTitle),
+            Text(AppTexts.homepageSummaryTitle, style: AppTextStyles.cardTitle),
             AppSpaces.h20,
             Padding(
               padding: AppPaddings.homepageSummeryCardData,
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: List.generate(
-                        AppTexts.homepageSummaryItems.length,
-                        (index) => Text(AppTexts.homepageSummaryItems[index],
-                            style: AppTextStyles.cardText))),
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(controller.summaryContactsCount.toString()),
-                  Text(controller.summaryRecordsCount.toString()),
-                  Text(controller.summaryBalanceCount.value.balance.toCurrency),
-                ]),
-              ]),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: List.generate(
+                            AppTexts.homepageSummaryItems.length,
+                            (index) => Text(
+                                AppTexts.homepageSummaryItems[index],
+                                style: AppTextStyles.cardText))),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(controller.summaryContactsCount.toString()),
+                          Text(controller.summaryRecordsCount.toString()),
+                          Text(controller
+                              .summaryBalanceCount.value.balance.toCurrency),
+                        ]),
+                  ]),
             ),
           ],
         ),
@@ -138,5 +143,8 @@ class HomePage extends CoreView<HomePageController> {
         AppGeneralButton(
             text: 'Settings',
             onTap: () => Get.toNamed(AppPageDetails.settings.pageRoute!)),
+        AppGeneralButton(
+            text: 'Update',
+            onTap: () => Get.toNamed(AppPageDetails.update.pageRoute!)),
       ];
 }

@@ -7,7 +7,9 @@ import 'package:paria_app/app/components/app_general_components/app_switch.dart'
 import 'package:paria_app/app/components/app_bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/settings_components/settings_components.dart';
 import 'package:paria_app/app/controllers/settings_controller.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
+import 'package:paria_app/data/resources/app_info.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
 class SettingsPage extends CoreView<SettingsController> {
@@ -34,6 +36,7 @@ class SettingsPage extends CoreView<SettingsController> {
   @override
   Widget get body => Column(children: [
         widgetGeneral(),
+        widgetUpdate(),
         widgetBackup(),
         widgetStorage(),
       ]);
@@ -76,6 +79,28 @@ class SettingsPage extends CoreView<SettingsController> {
               AppTexts.settingSectionGeneralItemDarkMode,
               widgetDarkMode(),
               null),
+        ]);
+  }
+
+  Widget widgetUpdate() {
+    return SettingsComponents.widgetSettingSection(
+        SettingsComponents.widgetSectionTitle(
+            AppTexts.settingSectionTitleUpdate),
+        [
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionTitleUpdateCurrentVersion,
+              Text(AppInfo.appCurrentVersion),
+              null),
+          SettingsComponents.widgetSettingItem(
+              AppTexts.settingSectionTitleUpdateAvailableVersion,
+              Text(controller.updateAvailableVersion.value ==
+                      AppInfo.appCurrentVersion
+                  ? controller.updateAvailableVersion.value
+                  : AppTexts.generalNotAvailable),
+              controller.updateAvailableVersion.value ==
+                      AppInfo.appCurrentVersion
+                  ? controller.functionGoToUpdatePage
+                  : null),
         ]);
   }
 

@@ -38,13 +38,20 @@ class AppPageDetails {
     pageName: 'Settings',
     pageRoute: AppRoutes.settings,
     bottomBarItemNumber: 3,
-    bottomBarIcon: 'currency',
+    bottomBarIcon: 'settings',
   );
 
   static AppPageDetail contactsBalance = const AppPageDetail(
     pageName: 'Contacts Balance',
     pageRoute: AppRoutes.contactsBalance,
     bottomBarItemNumber: -1,
-    bottomBarIcon: 'currency',
+    bottomBarIcon: null,
+  );
+
+  static AppPageDetail update = const AppPageDetail(
+    pageName: 'Update',
+    pageRoute: AppRoutes.update,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: null,
   );
 }

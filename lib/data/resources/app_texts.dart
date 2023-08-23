@@ -119,6 +119,10 @@ class AppTexts {
   static String get settingSectionTitleGeneralCalendar => 'Calendar Type';
   static String get settingSectionGeneralItemDarkMode => 'Dark Mode';
 
+  static String get settingSectionTitleUpdate => 'Update';
+  static String get settingSectionTitleUpdateCurrentVersion => 'Current Version:';
+  static String get settingSectionTitleUpdateAvailableVersion => 'Available Version:';
+
   static String get settingSectionTitleBackup => 'Backup';
   static String get settingSectionBackupBackup => 'Backup Data';
   static String get settingSectionBackupRestore => 'Restore Data';

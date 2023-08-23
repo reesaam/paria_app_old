@@ -6,6 +6,7 @@ import 'package:paria_app/app/views/contacts_view.dart';
 import 'package:paria_app/app/views/homepage_view.dart';
 import 'package:paria_app/app/views/settings_view.dart';
 import 'package:paria_app/app/views/splash_screen_view.dart';
+import 'package:paria_app/app/views/update_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 
 class AppPages {
@@ -20,5 +21,6 @@ class AppPages {
         GetPage(name: AppRoutes.contacts, page: ContactsPage.new),
         GetPage(name: AppRoutes.contactsBalance, page: ContactsBalancePage.new),
         GetPage(name: AppRoutes.accounts, page: AccountsPage.new),
+        GetPage(name: AppRoutes.update, page: UpdatePage.new),
       ];
 }
