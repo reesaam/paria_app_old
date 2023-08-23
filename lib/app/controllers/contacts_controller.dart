@@ -38,7 +38,9 @@ class ContactsController extends CoreController {
   void onReadyFunction() {}
 
   @override
-  void onCloseFunction() {}
+  void onCloseFunction() {
+    saveAppData();
+  }
 
   void clearContactsList() => listContacts.clearContactsList();
 

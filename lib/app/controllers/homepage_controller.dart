@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
@@ -50,7 +51,9 @@ class HomePageController extends CoreController {
   void onReadyFunction() {}
 
   @override
-  void onCloseFunction() {}
+  void onCloseFunction() {
+    saveAppData();
+  }
 
   void timeUpdate() => Timer.periodic(const Duration(seconds: 1), (timer) {
         mainDateTime.value = DateTime.now();

@@ -82,20 +82,36 @@ class AccountsController extends CoreController {
     refresh();
   }
 
+  @override
+  void onReadyFunction() {}
+
+  @override
+  void onCloseFunction() {
+    listenersClose();
+    saveAppData();
+  }
+
   void listenersInit() {
     listenerListRecords = listRecords.listen((data) => summeryInit());
     listenerFilter = filter.listen((data) => filterInit());
     listenerHasFilter = hasFilter.listen((value) =>
-        value ? filterIcon.value = AppIcons.filter : clearAllFilters());
+    value ? filterIcon.value = AppIcons.filter : clearAllFilters());
     listenerShowPositive =
         showPositive.listen((value) => showPositiveNegativeChange(true));
     listenerShowNegative =
         showNegative.listen((value) => showPositiveNegativeChange(false));
   }
 
+  void listenersClose() {
+    listenerListRecords == null ? null : listenerListRecords!.cancel();
+    listenerFilter == null ? null : listenerFilter!.cancel();
+    listenerHasFilter == null ? null : listenerHasFilter!.cancel();
+    appDebugPrint('Listeners Closed');
+  }
+
   void summeryInit() {
     itemsBalance.value =
-        listRecords.calculateSum(clearedIncluded.value).balance!;
+    listRecords.calculateSum(clearedIncluded.value).balance!;
     itemsCount.value = listRecords.calculateSum(clearedIncluded.value).count!;
     itemsCountContacts.value = listRecords.countContacts(clearedIncluded.value);
     appDebugPrint(
@@ -107,46 +123,6 @@ class AccountsController extends CoreController {
     hasFilter.value ? null : {showPositive.clear, showNegative.clear};
     appDebugPrint(
         'Filter isEmpty: ${filter.isEmpty} & hasFilter: ${hasFilter.value}');
-  }
-
-  void showPositiveNegativeChange(bool positiveOrNegative) {
-    Get.back();
-    showPositive.value ? showNegative.clear : null;
-    showNegative.value ? showPositive.clear : null;
-
-    showPositive.value
-        ? {
-            showPositiveText.value =
-                AppTexts.accountsTablePopupMenuClearPositiveRecords,
-            filter.value = const AppAccountsFilter().copyWith(amountDown: 0)
-          }
-        : showPositiveText.value =
-            AppTexts.accountsTablePopupMenuShowPositiveRecords;
-
-    showNegative.value
-        ? {
-            showNegativeText.value =
-                AppTexts.accountsTablePopupMenuClearNegativeRecords,
-            filter.value = const AppAccountsFilter().copyWith(amountUp: 0)
-          }
-        : showNegativeText.value =
-            AppTexts.accountsTablePopupMenuShowNegativeRecords;
-    refresh();
-  }
-
-  void listenersClose() {
-    listenerListRecords == null ? null : listenerListRecords!.cancel();
-    listenerFilter == null ? null : listenerFilter!.cancel();
-    listenerHasFilter == null ? null : listenerHasFilter!.cancel();
-    appDebugPrint('Listeners Closed');
-  }
-
-  @override
-  void onReadyFunction() {}
-
-  @override
-  void onCloseFunction() {
-    listenersClose();
   }
 
   clearRecordsList() {
@@ -207,6 +183,31 @@ class AccountsController extends CoreController {
         : showClearedText.value =
             AppTexts.accountsTablePopupMenuShowClearedRecords;
     onInitFunction();
+  }
+
+  void showPositiveNegativeChange(bool positiveOrNegative) {
+    Get.back();
+    showPositive.value ? showNegative.clear : null;
+    showNegative.value ? showPositive.clear : null;
+
+    showPositive.value
+        ? {
+      showPositiveText.value =
+          AppTexts.accountsTablePopupMenuClearPositiveRecords,
+      filter.value = const AppAccountsFilter().copyWith(amountDown: 0)
+    }
+        : showPositiveText.value =
+        AppTexts.accountsTablePopupMenuShowPositiveRecords;
+
+    showNegative.value
+        ? {
+      showNegativeText.value =
+          AppTexts.accountsTablePopupMenuClearNegativeRecords,
+      filter.value = const AppAccountsFilter().copyWith(amountUp: 0)
+    }
+        : showNegativeText.value =
+        AppTexts.accountsTablePopupMenuShowNegativeRecords;
+    refresh();
   }
 
   changeShowPositive() {
