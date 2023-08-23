@@ -10,7 +10,7 @@ abstract class CoreView<Controller extends CoreController>
     extends GetView<Controller> {
   const CoreView({final Key? key}) : super(key: key);
 
-  Future<bool> onWillPop() async => onBackButtonPressed;
+  Future<bool> onWillPop() async => onBackButtonPressed();
 
   ///Main Widgets
   PreferredSizeWidget? get appBar;

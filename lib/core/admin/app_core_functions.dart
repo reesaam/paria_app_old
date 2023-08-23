@@ -25,16 +25,16 @@ void clearAppData() {
   appDebugPrint('** All App Data Cleared **');
 }
 
-Future<bool> get onBackButtonPressed async {
+Future<bool> onBackButtonPressed() async {
   var response = false;
-  appExitDialog;
+  appExitDialog();
   return response;
 }
 
-void get appExitDialog => AppDialogs.appAlertDialogWithOkCancel(
-    AppTexts.appExit, AppTexts.areYouSure, () => appExit);
+void appExitDialog() => AppDialogs.appAlertDialogWithOkCancel(
+    AppTexts.appExit, AppTexts.areYouSure, appExit);
 
-void get appExit {
+void appExit() {
   appDebugPrint('** App Exit Triggered **');
   AppSharedPreferences.to.saveData();
   appDebugPrint('** All App Data Saved **');
