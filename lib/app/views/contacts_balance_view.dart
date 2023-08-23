@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/app/components/app_bar/app_bar.dart';
+import 'package:paria_app/app/components/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
 import 'package:paria_app/app/controllers/contacts_balance_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';

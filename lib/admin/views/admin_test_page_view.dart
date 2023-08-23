@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/admin/controllers/admin_test_page_controller.dart';
-import 'package:paria_app/app/components/app_bar/app_bar.dart';
+import 'package:paria_app/app/components/app_bar.dart';
 import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/core/elements/core_view.dart';

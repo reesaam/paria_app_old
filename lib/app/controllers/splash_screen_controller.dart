@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/update_components/in_app_update.dart';
+import 'package:paria_app/app/components/app_permissions.dart';
+import 'package:paria_app/app/components/update_components/app_update.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/core/routes/app_routes.dart';

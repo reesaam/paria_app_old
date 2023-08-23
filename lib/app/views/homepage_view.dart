@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_bar/app_bar.dart';
-import 'package:paria_app/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:paria_app/app/components/app_bar.dart';
+import 'package:paria_app/app/components/app_bottom_navigation_bar.dart';
 import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/homepage_controller.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
