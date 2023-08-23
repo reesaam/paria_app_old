@@ -12,7 +12,9 @@ class AppTexts {
   static String get warning => 'Warning';
   static String get alert => 'Alert!';
   static String get information => 'Information';
-  static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';
+  static String get areYouSureDataWillLost => 'Are you sure?\nData will be lost with this Function.';
+  static String get areYouSure => 'Are you sure ?';
+  static String get appExit => 'App Exit';
 
   ///Update
   static String get updateNewVersion => 'New Version Found';

@@ -135,7 +135,7 @@ class AccountsController extends CoreController {
 
     Get.back();
     AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.warning, AppTexts.areYouSure, function);
+        AppTexts.warning, AppTexts.areYouSureDataWillLost, function);
   }
 
   addRecordFunction() async {

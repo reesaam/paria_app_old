@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
@@ -9,10 +10,7 @@ abstract class CoreView<Controller extends CoreController>
     extends GetView<Controller> {
   const CoreView({final Key? key}) : super(key: key);
 
-  Future<bool> onWillPop() async {
-    Navigator.of(controller.context).pop();
-    return true;
-  }
+  Future<bool> onWillPop() async => onBackButtonPressed;
 
   ///Main Widgets
   PreferredSizeWidget? get appBar;

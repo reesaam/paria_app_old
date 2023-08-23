@@ -63,7 +63,7 @@ class SettingsController extends CoreController {
     }
 
     AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.warning, AppTexts.areYouSure, function);
+        AppTexts.warning, AppTexts.areYouSureDataWillLost, function);
   }
 
   functionClearRecords() {
@@ -74,7 +74,7 @@ class SettingsController extends CoreController {
     }
 
     AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.warning, AppTexts.areYouSure, function);
+        AppTexts.warning, AppTexts.areYouSureDataWillLost, function);
   }
 
   functionClearAllData() {
@@ -85,7 +85,7 @@ class SettingsController extends CoreController {
     }
 
     AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.warning, AppTexts.areYouSure, function);
+        AppTexts.warning, AppTexts.areYouSureDataWillLost, function);
   }
 
   saveSettings() {
