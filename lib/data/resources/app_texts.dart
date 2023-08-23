@@ -14,6 +14,10 @@ class AppTexts {
   static String get information => 'Information';
   static String get areYouSure => 'Are you sure?\nData will be lost with this Function.';
 
+  ///Update
+  static String get updateNewVersion => 'New Version Found';
+  static String get updateApprove => 'Do you want to download the New Version?';
+
   ///Homepage
   static String get homepageDateTimeTitle => 'Today';
   static String get homepageSummaryTitle => 'App Summary';
