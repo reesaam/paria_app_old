@@ -14,6 +14,7 @@ import 'package:paria_app/data/resources/app_texts.dart';
 class SplashScreenController extends CoreController {
   Rx<bool> allChecked = false.obs;
   Rx<bool> checkUpdateSwitch = false.obs;
+  Rx<bool> checkPermissionSwitch = false.obs;
 
   late String logoSource;
   late String appName;
@@ -51,6 +52,10 @@ class SplashScreenController extends CoreController {
     checkUpdateSwitch
         .listen((data) {})
         .onData((data) => data ? checkChecks() : null);
+
+    checkPermissionSwitch
+        .listen((data) {})
+        .onData((data) => data ? checkChecks() : null);
   }
 
   void checkChecks() => allChecked.value = checkUpdateSwitch.value;
@@ -68,5 +73,10 @@ class SplashScreenController extends CoreController {
         ? await AppUpdate().dialogNewVersion()
         : null;
     checkUpdateSwitch.value = true;
+  }
+
+  Future<void> checkPermissions() async {
+    await AppPermissions().checkAllPermissions();
+    checkPermissionSwitch.value = true;
   }
 }
