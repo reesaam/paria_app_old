@@ -95,12 +95,12 @@ class SettingsPage extends CoreView<SettingsController> {
               AppTexts.settingSectionTitleUpdateAvailableVersion,
               Text(controller.updateAvailableVersion.value ==
                       AppInfo.appCurrentVersion
-                  ? controller.updateAvailableVersion.value
-                  : AppTexts.generalNotAvailable),
+                  ? AppTexts.generalNotAvailable
+                  : controller.updateAvailableVersion.value),
               controller.updateAvailableVersion.value ==
                       AppInfo.appCurrentVersion
-                  ? controller.functionGoToUpdatePage
-                  : null),
+                  ? null
+                  : controller.functionGoToUpdatePage),
         ]);
   }
 
