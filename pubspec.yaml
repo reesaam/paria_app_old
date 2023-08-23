@@ -20,6 +20,7 @@ dependencies:
   json_annotation: ^4.8.1
   path_provider: ^2.0.12
   url_strategy: ^0.2.0
+  flutter_downloader: ^1.11.1
   intl: ^0.18.1
 
   auto_size_text: ^3.0.0
