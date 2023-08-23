@@ -131,4 +131,10 @@ class AppTexts {
   static String get settingSectionStorageItemEraseContacts => 'Erase Contacts';
   static String get settingSectionStorageItemEraseRecords => 'Erase Account Records';
   static String get settingSectionStorageItemEraseAllData => 'Erase All Data';
+
+  ///Update
+  static String get updateCurrentVersion => 'Current Version:';
+  static String get updateAvailableVersion => 'Available Version:';
+  static String get updateCheckUpdate => 'Check Update';
+  static String get updateDownloadUpdate => 'Download Update';
 }

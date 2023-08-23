@@ -97,10 +97,7 @@ class SettingsPage extends CoreView<SettingsController> {
                       AppInfo.appCurrentVersion
                   ? AppTexts.generalNotAvailable
                   : controller.updateAvailableVersion.value),
-              controller.updateAvailableVersion.value ==
-                      AppInfo.appCurrentVersion
-                  ? null
-                  : controller.functionGoToUpdatePage),
+              controller.functionGoToUpdatePage),
         ]);
   }
 

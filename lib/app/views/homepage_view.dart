@@ -25,7 +25,10 @@ class HomePage extends CoreView<HomePageController> {
       AppAppBar(pageDetail: controller.pageDetail);
 
   @override
-  Widget? get topBar => widgetDateTime();
+  Widget? get topBar => Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [widgetDateTime(), widgetSummery()]);
 
   @override
   Widget? get footer => null;
@@ -41,7 +44,7 @@ class HomePage extends CoreView<HomePageController> {
   Widget get body => Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [widgetSummery(), widgetButtons()]);
+      children: [widgetButtons()]);
 
   Widget widgetDateTime() => Padding(
         padding: AppPaddings.pages,
