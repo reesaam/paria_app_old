@@ -19,10 +19,11 @@ class AppCheckUpdate {
 
   Future<void> dialogNewVersion() async {
     appDebugPrint('Alert Dialog - New Version raising...');
-    await AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.updateNewVersion, AppTexts.updateApprove, goToUpdatePage, false);
+    await AppDialogs.appAlertDialogWithOkCancel(AppTexts.updateNewVersion,
+        AppTexts.updateApprove, goToUpdatePage, false);
     appDebugPrint('Alert Dialog - New Version closed');
   }
 
-  void goToUpdatePage() => Get.toNamed(AppPageDetails.update.pageRoute!);
+  void goToUpdatePage() =>
+      {Get.back(), Get.toNamed(AppPageDetails.update.pageRoute!)};
 }

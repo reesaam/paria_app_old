@@ -2,10 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_general_components/app_snackbars.dart';
+import 'package:paria_app/app/components/app_general_components/app_snack_bars.dart';
 import 'package:paria_app/app/components/update_components/app_update.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
@@ -20,6 +22,13 @@ import 'package:http/http.dart' as http;
 class UpdateController extends CoreController {
   Rx<String> availableVersion = AppTexts.generalNotAvailable.obs;
 
+  File? dlFile;
+  Directory? dlDir;
+
+  Rx<bool> downloading = true.obs;
+  Rx<int> downloadTotal = 0.obs;
+  Rx<int> downloadPercentage = 0.obs;
+
   @override
   void dataInit() {}
 
@@ -29,7 +38,10 @@ class UpdateController extends CoreController {
   }
 
   @override
-  void onInitFunction() {}
+  void onInitFunction() async {
+    // await checkUpdate();
+    setListeners();
+  }
 
   @override
   void onReadyFunction() {}
@@ -39,98 +51,74 @@ class UpdateController extends CoreController {
     saveAppData();
   }
 
+  setListeners() {
+    downloading.listen((data) {}).onData((data) => data == true ? Get.back() : null);
+    downloadTotal.listen((data) {}).onData((data) {});
+    downloadPercentage.listen((data) {}).onData((data) => refresh());
+  }
+
   checkUpdate() async {
-    AppDialogs.appBottomDialogWithoutButton(
-        AppTexts.updateCheckingUpdate, AppProgressIndicator.linearDefault(), false);
+    AppDialogs.appBottomDialogWithoutButton(AppTexts.updateCheckingUpdate,
+        AppProgressIndicator.linearDefault(), false);
 
     String version = await AppCheckUpdate().checkVersion();
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 2));
     appDebugPrint('Current Version: ${AppInfo.appCurrentVersion}');
     appDebugPrint('Available Version: $version');
     Get.back();
     version == AppInfo.appCurrentVersion
-        ? null
+        ? AppSnackBar.show(AppTexts.updateNoUpdateFound)
         : {
             availableVersion.value = version,
             AppSnackBar.show(AppTexts.updateUpdateFound)
           };
   }
 
-  // void downloadUpdate() async {
-  //   Rx<bool> downloading = true.obs;
-  //
-  //   AppDialogs.appBottomDialogWithoutButton(
-  //       AppTexts.updateDownloading, AppProgressIndicator.linearDefault());
-  //
-  //   downloading
-  //       .listen((data) {})
-  //       .onData((data) => data == true ? Get.back() : null);
-  //
-  //     const String filename = 'paria_app.apk';
-  //     final directory = await getExternalStorageDirectory();
-  //     final file = File('${directory!.path}/$filename');
-  //
-  //   final downloadTask = await FlutterDownloader.enqueue(
-  //     url: AppURLs.appUrlResamHostAPKDownload,
-  //     savedDir: directory.path,
-  //     showNotification: true,
-  //   );
-  //   await FlutterDownloader.loadTasks();
-  //
-  //   await FlutterDownloader.open(taskId: downloadTask!);
-  //
-  //   downloading.value = true;
-  //   downloading.close();
-  // }
+  downloadUpdate() async {
+    AppDialogs.appBottomDialogWithoutButton(AppTexts.updateDownloading,
+        widgetDownload(), false);
 
-  void downloadUpdate() async {
-    Rx<bool> downloading = true.obs;
+    dlDir = await getExternalStorageDirectory();
 
-    AppDialogs.appBottomDialogWithoutButton(
-        AppTexts.updateDownloading, AppProgressIndicator.linearDefault(), false);
+    dlDir == null
+        ? alertDirectoryOrFileNotFound(true)
+        : {
+            dlFile = File('${dlDir!.path}/${AppTexts.updateAppFilename}'),
+            dlFile!.existsSync() ? dlFile!.deleteSync() : null
+          };
 
-    downloading
-        .listen((data) {})
-        .onData((data) => data == true ? Get.back() : null);
+    dlFile == null ? alertDirectoryOrFileNotFound(false) : downloadAction();
+  }
 
-    const String filename = 'paria_app.txt';
-    final directory = await getExternalStorageDirectory();
-    final file = File('${directory!.path}/$filename');
-    file.existsSync() ? file.deleteSync() : null;
+  downloadAction() async {
+    var responseAddress =
+        await http.get(Uri.parse(AppURLs.appUrlResamHostAddress));
+    String address = responseAddress.body;
 
-    var response =
-        await http.get(Uri.parse(AppURLs.appUrlResamHostAPKDownload));
+    var responseData = await http.get(Uri.parse(address));
+    downloadTotal.value = responseData.contentLength!;
+    downloadPercentage.value = responseData.body.length;
 
-    if (response.statusCode == 200) {
-      await file.writeAsBytes(response.bodyBytes);
+    if (responseData.statusCode == 200) {
+      await dlFile!.writeAsBytes(responseData.bodyBytes);
     }
     downloading.value = true;
     downloading.close();
 
-    appDebugPrint(file.path);
-    appDebugPrint(response.body);
-    appDebugPrint('Content Length: ${response.contentLength ?? 0}');
+    appDebugPrint(dlFile!.path);
+    appDebugPrint('Content Length: ${responseData.contentLength ?? 0}');
 
-    file.open();
+    OpenFile.open(dlFile!.path);
   }
 
-  // void downloadUpdate() async {
-  //   final dio = Dio();
-  //   Rx<bool> downloading = true.obs;
-  //   AppDialogs.appBottomDialogWithoutButton(
-  //       AppTexts.updateDownloading, AppProgressIndicator.linearDefault());
-  //   downloading
-  //       .listen((data) {})
-  //       .onData((data) => data == true ? Get.back() : null);
-  //
-  //     var url = Uri.parse(AppURLs.appUrlResamHostAPKDownload);
-  //     const String filename = 'paria_app.apk';
-  //     final directory = await getExternalStorageDirectory();
-  //     final file = File('${directory!.path}/$filename');
-  //
-  //     var response = await dio.download(url.path, filename);
-  //     appDebugPrint(response);
-  //     appDebugPrint(file.path);
-  //     appDebugPrint(file.open());
-  // }
+  Widget widgetDownload() => Obx(() => Column(children: [
+    AppProgressIndicator.linearDefault(),
+    Text('${downloadPercentage.value.toString()} / ${downloadTotal.value.toString()}')
+  ]));
+
+  alertDirectoryOrFileNotFound(bool directoryError) => AppDialogs.appAlertDialogWithOk(
+      directoryError ? AppTexts.updateDirectoryNotFoundTitle : AppTexts.updateFileNotFoundTitle,
+      directoryError ? AppTexts.updateDirectoryNotFoundContent : AppTexts.updateFileNotFoundContent,
+      Get.back,
+      true);
 }
