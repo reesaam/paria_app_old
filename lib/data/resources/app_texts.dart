@@ -137,7 +137,7 @@ class AppTexts {
 
   ///Update
   static String get updateCurrentVersion => 'Current Version:';
-  static String get updateAvailableVersion => 'Available Version:';
+  static String get updateAvailableVersion => 'New Available Version:';
   static String get updateCheckUpdate => 'Check Update';
   static String get updateDownloadUpdate => 'Download Update';
 }

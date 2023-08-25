@@ -63,6 +63,6 @@ class UpdatePage extends CoreView<UpdateController> {
             text: AppTexts.updateDownloadUpdate,
             onTap: controller.downloadUpdate,
             disabled:
-                controller.availableVersion.value == AppInfo.appCurrentVersion),
+                controller.availableVersion.value != AppInfo.appCurrentVersion),
       ])));
 }
