@@ -79,7 +79,7 @@ class ContactPageComponent {
     _contact = selectedContact;
     _balance = _contact.calculateBalance(false);
     await AppDialogs.appBottomDialogWithoutButton(
-        AppTexts.contactsShowContactTitle, contactForm());
+        AppTexts.contactsShowContactTitle, contactForm(), true);
     appDebugPrint('Show Contact Modal Closed');
   }
 }

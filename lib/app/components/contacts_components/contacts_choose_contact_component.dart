@@ -31,7 +31,7 @@ class ChooseContactComponent {
 
   Future<AppContact?> chooseContact() async {
     await AppDialogs.appBottomDialogWithCancel(
-        AppTexts.accountsAddRecordChooseContact, _chooseContactForm());
+        AppTexts.accountsAddRecordChooseContact, _chooseContactForm(), true);
     return _selectedContact;
   }
 }

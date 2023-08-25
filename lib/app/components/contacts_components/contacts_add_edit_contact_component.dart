@@ -103,5 +103,5 @@ class AppContactsAddOrEditContactComponent {
   }
 
   _raiseModal() async => await AppDialogs.appBottomDialogWithOkCancel(
-      title!, _widgetAddOrEditContactDialog(), _provideContact);
+      title!, _widgetAddOrEditContactDialog(), _provideContact, true);
 }

@@ -15,60 +15,61 @@ import 'package:paria_app/data/resources/app_texts.dart';
 class AppDialogs {
   static _onTapCancel() => Get.back();
 
-  static appBottomDialogWithoutButton(String title, Widget form) async {
+  static appBottomDialogWithoutButton(String title, Widget form, bool? dismissible) async {
     List<Widget> buttons = [];
-    await _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons, dismissible);
   }
 
   static appBottomDialogWithOk(
-      String title, Widget form, Function onTapOk) async {
+      String title, Widget form, Function onTapOk, bool? dismissible) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk)
     ];
-    await _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons, dismissible);
   }
 
-  static appBottomDialogWithCancel(String title, Widget form) async {
+  static appBottomDialogWithCancel(String title, Widget form, bool? dismissible) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel)
     ];
-    await _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons, dismissible);
   }
 
   static appBottomDialogWithOkCancel(
-      String title, Widget form, Function onTapOk) async {
+      String title, Widget form, Function onTapOk, bool? dismissible) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
     ];
-    await _appBottomDialogGeneral(title, form, buttons);
+    await _appBottomDialogGeneral(title, form, buttons, dismissible);
   }
 
   static appAlertDialogWithOkCancel(
-      String title, String text, Function onTapOk) async {
+      String title, String text, Function onTapOk, bool? dismissible) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
       AppGeneralButton(text: AppTexts.generalCancel, onTap: _onTapCancel),
     ];
-    await _appAlertDialog(title, text, buttons);
+    await _appAlertDialog(title, text, buttons, dismissible);
   }
 
   static appAlertDialogWithOk(
-      String title, String text, Function onTapOk) async {
+      String title, String text, Function onTapOk, bool? dismissible) async {
     List<Widget> buttons = [
       AppGeneralButton(text: AppTexts.generalOK, onTap: onTapOk),
     ];
-    await _appAlertDialog(title, text, buttons);
+    await _appAlertDialog(title, text, buttons, dismissible);
   }
 
   static _appBottomDialogGeneral(
-          String title, Widget form, List<Widget> buttons) async =>
+          String title, Widget form, List<Widget> buttons, bool? dismissible) async =>
       await showModalBottomSheet(
           context: Get.context!,
           useSafeArea: true,
           useRootNavigator: true,
           showDragHandle: true,
           isScrollControlled: true,
+          isDismissible: dismissible ?? false,
           shape: AppElements.defaultModalBorderShape,
           builder: (context) => SingleChildScrollView(
                 child: Column(mainAxisSize: MainAxisSize.max, children: [
@@ -116,11 +117,12 @@ class AppDialogs {
   }
 
   static _appAlertDialog(
-          String title, String text, List<Widget> buttons) async =>
+          String title, String text, List<Widget> buttons, bool? dismissible) async =>
       await showDialog(
           context: Get.context!,
           useSafeArea: true,
           useRootNavigator: true,
+          barrierDismissible: dismissible ?? false,
           builder: (context) => Container(
                 padding: AppPaddings.generalAlertDialog,
                 child: AlertDialog(

@@ -135,7 +135,7 @@ class AccountsController extends CoreController {
 
     Get.back();
     AppDialogs.appAlertDialogWithOkCancel(
-        AppTexts.warning, AppTexts.areYouSureDataWillLost, function);
+        AppTexts.warning, AppTexts.areYouSureDataWillLost, function, true);
   }
 
   addRecordFunction() async {
@@ -315,5 +315,5 @@ class AccountsController extends CoreController {
                     AppIcons.edit, () => editRecordFunction(record)),
                 _widgetItemMenuItem(AppTexts.accountsTableItemMenuRemove,
                     AppIcons.close, () => removeRecordFunction(record)),
-              ]));
+              ]), true);
 }

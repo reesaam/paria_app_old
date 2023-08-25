@@ -45,7 +45,7 @@ class ContactsBalanceController extends CoreController {
 
   showContactItemsList(AppContact contact) =>
       AppDialogs.appBottomDialogWithoutButton(
-          AppTexts.accountsRecordsTableTitle, _contactRecordsList(contact));
+          AppTexts.accountsRecordsTableTitle, _contactRecordsList(contact), true);
 
   Widget _contactRecordsList(AppContact contact) => Form(
       child: Column(
@@ -64,5 +64,5 @@ class ContactsBalanceController extends CoreController {
       ]);
 
   showNoRecordDialog() => AppDialogs.appAlertDialogWithOk(
-      AppTexts.information, AppTexts.contactsBalanceNoRecord, Get.back);
+      AppTexts.information, AppTexts.contactsBalanceNoRecord, Get.back, true);
 }
