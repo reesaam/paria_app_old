@@ -17,6 +17,9 @@ class AppPaddings {
   static EdgeInsets get generalBottomModal => EdgeInsets.fromLTRB(20, 0, 20, Get.context!.mediaQuery.viewInsets.bottom);
   static EdgeInsets get generalAlertDialog => const EdgeInsets.all(20);
 
+  ///SplashScreen
+  static EdgeInsets get splashScreenProgressIndicator => const EdgeInsets.only(top: 200);
+
   ///HomePage
   static EdgeInsets get homepageDateTimeCard => const EdgeInsets.fromLTRB(0, 20, 0, 20);
   static EdgeInsets get homepageSummeryCard => const EdgeInsets.fromLTRB(20, 20, 20, 20);

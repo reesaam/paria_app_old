@@ -10,8 +10,12 @@ class AppPageDetails {
       pageName: 'Admin UI Test Page', pageRoute: AppRoutes.adminUITestPage);
 
   ///Main Pages
-  static AppPageDetail splashScreen =
-      const AppPageDetail(pageName: 'Splash Screen');
+  static AppPageDetail splashScreen = const AppPageDetail(
+    pageName: 'Splash Screen',
+    pageRoute: AppRoutes.splashScreen,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: null,
+  );
 
   static AppPageDetail homepage = const AppPageDetail(
     pageName: 'Home Page',
