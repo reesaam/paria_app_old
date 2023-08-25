@@ -6,6 +6,7 @@ import 'package:paria_app/app/components/buttons/app_general_button.dart';
 import 'package:paria_app/app/controllers/update_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/resources/app_info.dart';
+import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 
@@ -51,8 +52,17 @@ class UpdatePage extends CoreView<UpdateController> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [Text(title), Text(version)]);
 
-  Widget widgetButtons() => Column(children: [
-        AppGeneralButton(text: AppTexts.updateCheckUpdate, onTap: controller.checkUpdate),
-        AppGeneralButton(text: AppTexts.updateDownloadUpdate, onTap: controller.downloadUpdate),
-      ]);
+  Widget widgetButtons() => Padding(
+        padding: AppPaddings.updateButtons,
+        child: Column(children: [
+          AppGeneralButton(
+              text: AppTexts.updateCheckUpdate, onTap: controller.checkUpdate),
+
+          ///TODO: Change Disable Button Condition
+          AppGeneralButton(
+              text: AppTexts.updateDownloadUpdate,
+              onTap: controller.downloadUpdate,
+              disabled: false),
+        ]),
+      );
 }
