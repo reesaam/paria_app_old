@@ -35,7 +35,7 @@ Future<bool> onBackButtonPressed(AppPageDetail pageDetail) async {
 }
 
 void appExitDialog() => AppDialogs.appAlertDialogWithOkCancel(
-    AppTexts.appExit, AppTexts.areYouSure, appExit);
+    AppTexts.appExit, AppTexts.areYouSure, appExit, true);
 
 void appExit() {
   appDebugPrint('** App Exit Triggered **');

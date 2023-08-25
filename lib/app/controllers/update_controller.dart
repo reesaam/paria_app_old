@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_general_components/app_snackbars.dart';
 import 'package:paria_app/app/components/update_components/app_update.dart';
-import 'package:paria_app/app/components/update_components/update_coomponents.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/resources/app_info.dart';

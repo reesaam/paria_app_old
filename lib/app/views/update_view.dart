@@ -52,17 +52,17 @@ class UpdatePage extends CoreView<UpdateController> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [Text(title), Text(version)]);
 
-  Widget widgetButtons() => Padding(
-        padding: AppPaddings.updateButtons,
-        child: Column(children: [
-          AppGeneralButton(
-              text: AppTexts.updateCheckUpdate, onTap: controller.checkUpdate),
+  Widget widgetButtons() => Obx(() => Padding(
+      padding: AppPaddings.updateButtons,
+      child: Column(children: [
+        AppGeneralButton(
+            text: AppTexts.updateCheckUpdate, onTap: controller.checkUpdate),
 
-          ///TODO: Change Disable Button Condition
-          AppGeneralButton(
-              text: AppTexts.updateDownloadUpdate,
-              onTap: controller.downloadUpdate,
-              disabled: false),
-        ]),
-      );
+        ///TODO: Change Disable Button Condition
+        AppGeneralButton(
+            text: AppTexts.updateDownloadUpdate,
+            onTap: controller.downloadUpdate,
+            disabled:
+                controller.availableVersion.value == AppInfo.appCurrentVersion),
+      ])));
 }
