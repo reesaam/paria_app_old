@@ -142,7 +142,7 @@ class AppAccountsFilterComponent {
     filter.isEmpty ? null : _fillFields(filter.contact != null);
 
     await AppDialogs.appBottomDialogWithOkCancel(
-        AppTexts.accountAddFilterTitle, _widgetFilterDialog(), _provideFilter);
+        AppTexts.accountAddFilterTitle, _widgetFilterDialog(), _provideFilter, false);
     appDebugPrint(filter.isEmpty
         ? 'Filter Canceled'
         : {'Filter: $filter', appDebugPrint('Add Filter Modal Closed')});

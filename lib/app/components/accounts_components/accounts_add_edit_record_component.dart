@@ -128,5 +128,5 @@ class AppAccountsAddRecordComponent {
   }
 
   _raiseModal() async => await AppDialogs.appBottomDialogWithOkCancel(
-      _title!, _widgetAddOrEditAccountsRecordDialog(), _provideRecord);
+      _title!, _widgetAddOrEditAccountsRecordDialog(), _provideRecord, false);
 }
