@@ -31,6 +31,7 @@ class AppColors {
   //Buttons
   static Color get buttonBackgroundNormal => appBackground;
   static Color get buttonTextNormal => appDefaultColor;
+  static Color get buttonTextDisabled => _grey;
 
   //Checkbox
   static Color get appCheckBox => _grey;

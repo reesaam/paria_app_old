@@ -5,27 +5,39 @@ import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';
 
 class AppGeneralButton extends StatelessWidget {
-  const AppGeneralButton(
-      {super.key,
-      required this.text,
-      required this.onTap,
-      this.icon,
-      this.leading});
+  const AppGeneralButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.icon,
+    this.leading,
+    this.disabled,
+  });
 
   final String text;
   final Function onTap;
   final IconData? icon;
   final IconData? leading;
+  final bool? disabled;
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
       style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.buttonBackgroundNormal),
-          foregroundColor: MaterialStateProperty.all(AppColors.buttonTextNormal),
-          side: MaterialStateProperty.all(AppElements.defaultBorderSideFocused),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(AppElements.defaultBorderLowRadiusShape),
+          backgroundColor:
+              MaterialStateProperty.all(AppColors.buttonBackgroundNormal),
+          foregroundColor: disabled == true
+              ? MaterialStateProperty.all(AppColors.buttonTextDisabled)
+              : MaterialStateProperty.all(AppColors.buttonTextNormal),
+          side: disabled == true
+              ? MaterialStateProperty.all(AppElements.defaultBorderSideDisabled)
+              : MaterialStateProperty.all(AppElements.defaultBorderSideFocused),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              AppElements.defaultBorderLowRadiusShape),
           splashFactory: InkSplash.splashFactory),
-      onPressed: () => onTap(),
+      statesController: disabled == true
+          ? MaterialStatesController(<MaterialState>{MaterialState.focused})
+          : MaterialStatesController(<MaterialState>{MaterialState.disabled}),
+      onPressed: () => disabled == true ? null : onTap(),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,

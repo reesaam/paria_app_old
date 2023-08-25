@@ -18,6 +18,7 @@ class AppElements {
   static BorderSide get defaultBorderSide => BorderSide(color: AppColors.textNormal, width: 2);
   static BorderSide get cardTransparentBorderSide => BorderSide(color: AppColors.transparent, width: 2);
   static BorderSide get defaultBorderSideFocused => BorderSide(color: AppColors.appDefaultColor, width: 2);
+  static BorderSide get defaultBorderSideDisabled => BorderSide(color: AppColors.buttonTextDisabled, width: 2);
 
   static OutlineInputBorder get defaultOutlineBorder => OutlineInputBorder(borderRadius: defaultBorderWithLowRadius, borderSide: defaultBorderSide);
   static OutlineInputBorder get defaultOutlineBorderFocused => OutlineInputBorder(borderRadius: defaultBorderWithLowRadius, borderSide: defaultBorderSideFocused);

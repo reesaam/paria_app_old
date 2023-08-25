@@ -53,6 +53,7 @@ class AppThemes {
 
   static get buttonThemeData => ButtonThemeData(
         buttonColor: AppColors.buttonBackgroundNormal,
+        disabledColor: AppColors.textNormalGrey,
       );
 
   static get checkBoxThemeData => CheckboxThemeData(
