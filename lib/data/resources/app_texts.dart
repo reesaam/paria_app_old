@@ -19,6 +19,9 @@ class AppTexts {
   ///Update
   static String get updateNewVersion => 'New Version Found';
   static String get updateApprove => 'Do you want to download the New Version?';
+  static String get updateCheckingUpdate => 'Checking for any Available Update ...';
+  static String get updateDownloading => 'Downloading ...';
+  static String get updateUpdateFound => 'New Update is Available!';
 
   ///Homepage
   static String get homepageDateTimeTitle => 'Today';
