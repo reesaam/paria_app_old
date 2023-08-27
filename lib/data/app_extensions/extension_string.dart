@@ -1,11 +1,5 @@
-import 'package:intl/intl.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
+import 'package:flutter/foundation.dart';
 
-extension CurrencyNull on int? {
-  String get toCurrency => this == null ? '' : (this as int).toCurrency;
-}
-
-extension Currency on int {
-  String get toCurrency =>
-      NumberFormat.decimalPattern(AppRegions.en_us.name).format(this);
+extension UInt8List on String {
+  Uint8List get toUInt8List => Uint8List.fromList(codeUnits);
 }

@@ -8,7 +8,7 @@ import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/app_extensions/extension_string.dart';
+import 'package:paria_app/data/app_extensions/extension_int.dart';
 import 'package:paria_app/data/resources/app_icons.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';

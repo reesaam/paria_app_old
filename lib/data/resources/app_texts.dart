@@ -144,6 +144,8 @@ class AppTexts {
   static String get settingSectionStorageItemEraseRecords => 'Erase Account Records';
   static String get settingSectionStorageItemEraseAllData => 'Erase All Data';
 
+  static String get settingBackupFilename => 'PariaApp_Backup.json';
+
   ///Update
   static String get updateCurrentVersion => 'Current Version:';
   static String get updateAvailableVersion => 'New Available Version:';

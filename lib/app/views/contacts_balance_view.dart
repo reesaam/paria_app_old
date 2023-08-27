@@ -5,7 +5,7 @@ import 'package:paria_app/app/controllers/contacts_balance_controller.dart';
 import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
-import 'package:paria_app/data/app_extensions/extension_string.dart';
+import 'package:paria_app/data/app_extensions/extension_int.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/resources/app_paddings.dart';
 import 'package:paria_app/data/resources/app_spaces.dart';

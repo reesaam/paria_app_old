@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
+import 'package:paria_app/data/data_models/core_data_models/app_data/app_data.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/storage/local_storage_service.dart';
@@ -55,5 +56,19 @@ class AppLocalStorage {
     return data == null
         ? const AppSettingData()
         : AppSettingData.fromJson(data);
+  }
+
+  AppData exportData() {
+    AppContactsList contacts = AppLocalStorage.to.loadContacts();
+    AppAccountRecordsList records = AppLocalStorage.to.loadAccountsRecords();
+    AppSettingData setting = AppLocalStorage.to.loadSettings();
+    return AppData(
+        contacts: contacts, accountRecords: records, setting: setting);
+  }
+
+  void importData(AppData appData) async {
+    appData.contacts == null ? null :await AppLocalStorage.to.saveContacts(appData.contacts!);
+    appData.accountRecords == null ? null :await AppLocalStorage.to.saveAccountsRecords(appData.accountRecords!);
+    appData.setting == null ? null :await AppLocalStorage.to.saveSettings(appData.setting!);
   }
 }

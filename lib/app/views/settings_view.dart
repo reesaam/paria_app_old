@@ -107,9 +107,13 @@ class SettingsPage extends CoreView<SettingsController> {
             AppTexts.settingSectionTitleBackup),
         [
           SettingsComponents.widgetSettingItem(
-              AppTexts.settingSectionBackupBackup, null, null),
+              AppTexts.settingSectionBackupBackup,
+              null,
+              controller.functionBackup),
           SettingsComponents.widgetSettingItem(
-              AppTexts.settingSectionBackupRestore, null, null),
+              AppTexts.settingSectionBackupRestore,
+              null,
+              controller.functionRestore),
         ]);
   }
 

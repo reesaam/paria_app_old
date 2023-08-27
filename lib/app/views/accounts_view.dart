@@ -13,7 +13,7 @@ import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/core/routes/app_routes.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extension_string.dart';
+import 'package:paria_app/data/app_extensions/extension_int.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 import 'package:paria_app/data/resources/app_elements.dart';

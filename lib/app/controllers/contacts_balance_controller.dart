@@ -6,7 +6,7 @@ import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/app_extensions/extension_string.dart';
+import 'package:paria_app/data/app_extensions/extension_int.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';

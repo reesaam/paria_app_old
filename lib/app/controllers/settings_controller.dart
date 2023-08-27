@@ -1,15 +1,24 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/update_components/app_update.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_settings.dart';
+import 'package:paria_app/data/app_extensions/extension_string.dart';
+import 'package:paria_app/data/data_models/core_data_models/app_data/app_data.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
 import 'package:paria_app/data/resources/app_enums.dart';
 import 'package:paria_app/data/resources/app_info.dart';
 import 'package:paria_app/data/resources/app_page_details.dart';
 import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/app_local_storage.dart';
+import 'package:paria_app/data/storage/app_shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 class SettingsController extends CoreController {
   Rx<AppSettingData> appSettings = const AppSettingData().obs;
@@ -66,6 +75,34 @@ class SettingsController extends CoreController {
   }
 
   functionGoToUpdatePage() => Get.toNamed(AppPageDetails.update.pageRoute!);
+
+  functionBackup() async {
+    AppData appdata = AppLocalStorage.to.exportData();
+    var jsonData = jsonEncode(appdata);
+    Uint8List data = jsonData.toString().toUInt8List;
+    SaveFileDialogParams saveParams = SaveFileDialogParams(
+        data: data, fileName: AppTexts.settingBackupFilename);
+    String? filePath = await FlutterFileDialog.saveFile(params: saveParams);
+    appDebugPrint('** Backup File Saved **');
+    appDebugPrint('Filename: ${saveParams.fileName}');
+    appDebugPrint('Path: ${saveParams.sourceFilePath}');
+    appDebugPrint('File Path: $filePath');
+  }
+
+  functionRestore() async {
+    OpenFileDialogParams openFileParams =
+        const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
+    String? filePath = await FlutterFileDialog.pickFile(params: openFileParams);
+    appDebugPrint('** Backup File Selected **');
+    appDebugPrint('File Path: $filePath');
+
+    File file = File(filePath!);
+    String string = String.fromCharCodes(file.readAsBytesSync());
+    var json = jsonDecode(string) as Map<String, dynamic>;
+    AppData appData = AppData.fromJson(json);
+    appDebugPrint(appData);
+
+  }
 
   functionClearContacts() {
     function() {
