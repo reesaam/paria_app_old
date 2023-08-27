@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
@@ -25,9 +22,7 @@ class UpdateController extends CoreController {
   File? dlFile;
   Directory? dlDir;
 
-  Rx<bool> downloading = true.obs;
-  Rx<int> downloadTotal = 0.obs;
-  Rx<int> downloadPercentage = 0.obs;
+  Rx<bool> downloaded = false.obs;
 
   @override
   void dataInit() {}
@@ -39,22 +34,19 @@ class UpdateController extends CoreController {
 
   @override
   void onInitFunction() async {
-    // await checkUpdate();
-    setListeners();
+    downloaded
+        .listen((data) {})
+        .onData((data) => data == true ? Get.back() : null);
   }
 
   @override
-  void onReadyFunction() {}
+  void onReadyFunction() async {
+    await checkUpdate();
+  }
 
   @override
   void onCloseFunction() {
     saveAppData();
-  }
-
-  setListeners() {
-    downloading.listen((data) {}).onData((data) => data == true ? Get.back() : null);
-    downloadTotal.listen((data) {}).onData((data) {});
-    downloadPercentage.listen((data) {}).onData((data) => refresh());
   }
 
   checkUpdate() async {
@@ -76,7 +68,7 @@ class UpdateController extends CoreController {
 
   downloadUpdate() async {
     AppDialogs.appBottomDialogWithoutButton(AppTexts.updateDownloading,
-        widgetDownload(), false);
+        AppProgressIndicator.linearDefault(), false);
 
     dlDir = await getExternalStorageDirectory();
 
@@ -84,41 +76,46 @@ class UpdateController extends CoreController {
         ? alertDirectoryOrFileNotFound(true)
         : {
             dlFile = File('${dlDir!.path}/${AppTexts.updateAppFilename}'),
-            dlFile!.existsSync() ? dlFile!.deleteSync() : null
+            dlFile == null
+                ? alertDirectoryOrFileNotFound(false)
+                : {
+                    dlFile!.existsSync() ? dlFile!.deleteSync() : null,
+                    downloadAction(),
+                  }
           };
-
-    dlFile == null ? alertDirectoryOrFileNotFound(false) : downloadAction();
   }
 
   downloadAction() async {
+    downloaded.value = false;
     var responseAddress =
         await http.get(Uri.parse(AppURLs.appUrlResamHostAddress));
-    String address = responseAddress.body;
+    String downloadAddress = responseAddress.body;
 
-    var responseData = await http.get(Uri.parse(address));
-    downloadTotal.value = responseData.contentLength!;
-    downloadPercentage.value = responseData.body.length;
+    var responseData = await http.get(Uri.parse(downloadAddress));
 
     if (responseData.statusCode == 200) {
       await dlFile!.writeAsBytes(responseData.bodyBytes);
     }
-    downloading.value = true;
-    downloading.close();
-
-    appDebugPrint(dlFile!.path);
+    downloaded.value = true;
+    appDebugPrint('Download Path: ${dlFile!.path}');
     appDebugPrint('Content Length: ${responseData.contentLength ?? 0}');
 
-    OpenFile.open(dlFile!.path);
+    AppSnackBar.show(AppTexts.updateDownloaded);
+
+    AppDialogs.appAlertDialogWithOkCancel(AppTexts.updateInstallationTitle,
+        AppTexts.updateInstallationContent, installUpdate, true);
   }
 
-  Widget widgetDownload() => Obx(() => Column(children: [
-    AppProgressIndicator.linearDefault(),
-    Text('${downloadPercentage.value.toString()} / ${downloadTotal.value.toString()}')
-  ]));
+  void installUpdate() => OpenFile.open(dlFile!.path);
 
-  alertDirectoryOrFileNotFound(bool directoryError) => AppDialogs.appAlertDialogWithOk(
-      directoryError ? AppTexts.updateDirectoryNotFoundTitle : AppTexts.updateFileNotFoundTitle,
-      directoryError ? AppTexts.updateDirectoryNotFoundContent : AppTexts.updateFileNotFoundContent,
-      Get.back,
-      true);
+  alertDirectoryOrFileNotFound(bool directoryError) =>
+      AppDialogs.appAlertDialogWithOk(
+          directoryError
+              ? AppTexts.updateDirectoryNotFoundTitle
+              : AppTexts.updateFileNotFoundTitle,
+          directoryError
+              ? AppTexts.updateDirectoryNotFoundContent
+              : AppTexts.updateFileNotFoundContent,
+          Get.back,
+          true);
 }

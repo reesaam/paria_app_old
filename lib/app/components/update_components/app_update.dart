@@ -16,14 +16,4 @@ class AppCheckUpdate {
     response.statusCode == 200 ? version = response.body : null;
     return version;
   }
-
-  Future<void> dialogNewVersion() async {
-    appDebugPrint('Alert Dialog - New Version raising...');
-    await AppDialogs.appAlertDialogWithOkCancel(AppTexts.updateNewVersion,
-        AppTexts.updateApprove, goToUpdatePage, false);
-    appDebugPrint('Alert Dialog - New Version closed');
-  }
-
-  void goToUpdatePage() =>
-      {Get.back(), Get.toNamed(AppPageDetails.update.pageRoute!)};
 }

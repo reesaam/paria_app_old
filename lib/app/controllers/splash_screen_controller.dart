@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/app/components/app_permissions.dart';
 import 'package:paria_app/app/components/update_components/app_update.dart';
 import 'package:paria_app/core/admin/app_core_functions.dart';
@@ -19,6 +20,7 @@ class SplashScreenController extends CoreController {
   late String logoSource;
   late String appName;
   late String appVersion;
+  bool updateAvailable = false;
 
   @override
   void dataInit() async {
@@ -64,17 +66,26 @@ class SplashScreenController extends CoreController {
 
   void goToNextPage() async {
     await Future.delayed(const Duration(seconds: 4));
-    Get.offAndToNamed(AppRoutes.homePage);
+    updateAvailable
+        ? Get.offAndToNamed(AppRoutes.update)
+        : Get.offAndToNamed(AppRoutes.homePage);
   }
+
+  changeUpdateSwitch() => {updateAvailable = !updateAvailable, Get.back()};
 
   Future<void> checkUpdate() async {
     String version = await AppCheckUpdate().checkVersion();
     appDebugPrint('Current Version: ${AppInfo.appCurrentVersion}');
     appDebugPrint('Host Version: $version');
-    version == AppInfo.appCurrentVersion
-        ? null
-        : await AppCheckUpdate().dialogNewVersion();
+    version == AppInfo.appCurrentVersion ? null : await dialogNewVersion();
     checkUpdateSwitch.value = true;
+  }
+
+  Future<void> dialogNewVersion() async {
+    appDebugPrint('Alert Dialog - New Version raising...');
+    await AppDialogs.appAlertDialogWithOkCancel(AppTexts.updateNewVersion,
+        AppTexts.updateApprove, changeUpdateSwitch, false);
+    appDebugPrint('Alert Dialog - New Version closed');
   }
 
   Future<void> checkPermissions() async {

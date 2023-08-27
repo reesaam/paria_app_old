@@ -21,10 +21,13 @@ class AppTexts {
   static String get updateNewVersion => 'New Version Found';
   static String get updateApprove => 'Do you want to download the New Version?';
   static String get updateCheckingUpdate => 'Checking for any Available Update ...';
-  static String get updateDownloading => 'Downloading ...';
   static String get updateUpdateFound => 'New Update is Available!';
   static String get updateNoUpdateFound => 'There is not any Update Available!';
-  static String get updateDirectoryNotFoundTitle => 'Directory Error1';
+  static String get updateDownloading => 'Downloading ...';
+  static String get updateDownloaded => 'Update Downloaded!';
+  static String get updateInstallationTitle => 'Update Installation';
+  static String get updateInstallationContent => 'Do you want to install the Update?\n\nWarning: Application will close!';
+  static String get updateDirectoryNotFoundTitle => 'Directory Error!';
   static String get updateDirectoryNotFoundContent => 'There is not any Directory available to store Data';
   static String get updateFileNotFoundTitle => 'File Error!';
   static String get updateFileNotFoundContent => 'File not found';
