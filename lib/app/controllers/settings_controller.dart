@@ -92,16 +92,17 @@ class SettingsController extends CoreController {
   functionRestore() async {
     OpenFileDialogParams openFileParams =
         const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
-    String? filePath = await FlutterFileDialog.pickFile(params: openFileParams);
+    String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
     appDebugPrint('** Backup File Selected **');
-    appDebugPrint('File Path: $filePath');
+    appDebugPrint('File Path: $importFilePath');
 
-    File file = File(filePath!);
-    String string = String.fromCharCodes(file.readAsBytesSync());
-    var json = jsonDecode(string) as Map<String, dynamic>;
-    AppData appData = AppData.fromJson(json);
-    appDebugPrint(appData);
-
+    File importFile = File(importFilePath!);
+    String stringData = String.fromCharCodes(importFile.readAsBytesSync());
+    var jsonData = jsonDecode(stringData) as Map<String, dynamic>;
+    AppData appData = AppData.fromJson(jsonData);
+    clearAppData();
+    AppLocalStorage.to.importData(appData);
+    appDebugPrint('** Data Imported **');
   }
 
   functionClearContacts() {

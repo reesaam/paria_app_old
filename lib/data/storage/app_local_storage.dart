@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
 import 'package:paria_app/data/data_models/core_data_models/app_data/app_data.dart';
@@ -29,7 +30,7 @@ class AppLocalStorage {
 
   ///Contacts
   Future<void> saveContacts(AppContactsList listContacts) async =>
-    await _storage.write(_keyContacts, listContacts);
+      await _storage.write(_keyContacts, listContacts);
 
   AppContactsList loadContacts() {
     var data = _storage.read(_keyContacts);
@@ -67,8 +68,24 @@ class AppLocalStorage {
   }
 
   void importData(AppData appData) async {
-    appData.contacts == null ? null :await AppLocalStorage.to.saveContacts(appData.contacts!);
-    appData.accountRecords == null ? null :await AppLocalStorage.to.saveAccountsRecords(appData.accountRecords!);
-    appData.setting == null ? null :await AppLocalStorage.to.saveSettings(appData.setting!);
+    appData.contacts == null
+        ? null
+        : await AppLocalStorage.to.saveContacts(appData.contacts!);
+    appData.accountRecords == null
+        ? null
+        : await AppLocalStorage.to.saveAccountsRecords(appData.accountRecords!);
+    appData.setting == null
+        ? null
+        : await AppLocalStorage.to.saveSettings(appData.setting!);
+  }
+
+  void printData() {
+    appDebugPrint('Contacts: ${loadContacts().contactsList.length}');
+    appDebugPrint(loadContacts());
+    appDebugPrint('Records: ${loadAccountsRecords().recordsList.length}');
+    appDebugPrint(loadAccountsRecords());
+    appDebugPrint('Setting / Language: ${loadSettings().language}');
+    appDebugPrint('Setting / Calendar Type: ${loadSettings().calendarType}');
+    appDebugPrint('Settings / Dare Mode: ${loadSettings().darkMode}');
   }
 }
