@@ -8,7 +8,7 @@ import 'package:paria_app/data/resources/app_texts.dart';
 import 'package:paria_app/data/storage/app_local_storage.dart';
 import 'package:paria_app/data/storage/app_shared_preferences.dart';
 
-bool get isRelease => false;
+bool get isRelease => true;
 
 void appDebugPrint(message) => isRelease ? null : debugPrint('$message');
 
