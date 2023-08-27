@@ -118,4 +118,8 @@ class UpdateController extends CoreController {
               : AppTexts.updateFileNotFoundContent,
           Get.back,
           true);
+
+  checkAvailableUpdate() =>
+      availableVersion.value == AppInfo.appCurrentVersion ||
+      availableVersion.value == AppTexts.generalNotAvailable;
 }

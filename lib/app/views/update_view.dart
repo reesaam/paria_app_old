@@ -60,9 +60,6 @@ class UpdatePage extends CoreView<UpdateController> {
         AppGeneralButton(
             text: AppTexts.updateDownloadUpdate,
             onTap: controller.downloadUpdate,
-            disabled: controller.availableVersion.value ==
-                    AppInfo.appCurrentVersion ||
-                controller.availableVersion.value ==
-                    AppTexts.generalNotAvailable),
+            disabled: controller.checkAvailableUpdate()),
       ])));
 }
