@@ -76,33 +76,43 @@ class SettingsController extends CoreController {
 
   functionGoToUpdatePage() => Get.toNamed(AppPageDetails.update.pageRoute!);
 
-  functionBackup() async {
-    AppData appdata = AppLocalStorage.to.exportData();
-    var jsonData = jsonEncode(appdata);
-    Uint8List data = jsonData.toString().toUInt8List;
-    SaveFileDialogParams saveParams = SaveFileDialogParams(
-        data: data, fileName: AppTexts.settingBackupFilename);
-    String? filePath = await FlutterFileDialog.saveFile(params: saveParams);
-    appDebugPrint('** Backup File Saved **');
-    appDebugPrint('Filename: ${saveParams.fileName}');
-    appDebugPrint('Path: ${saveParams.sourceFilePath}');
-    appDebugPrint('File Path: $filePath');
+  functionBackup() {
+    function() async {
+      AppData appdata = AppLocalStorage.to.exportData();
+      var jsonData = jsonEncode(appdata);
+      Uint8List data = jsonData.toString().toUInt8List;
+      SaveFileDialogParams saveParams = SaveFileDialogParams(
+          data: data, fileName: AppTexts.settingBackupFilename);
+      String? filePath = await FlutterFileDialog.saveFile(params: saveParams);
+      appDebugPrint('** Backup File Saved **');
+      appDebugPrint('Filename: ${saveParams.fileName}');
+      appDebugPrint('Path: ${saveParams.sourceFilePath}');
+      appDebugPrint('File Path: $filePath');
+    }
+
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSureDataExport, function, true);
   }
 
-  functionRestore() async {
-    OpenFileDialogParams openFileParams =
-        const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
-    String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
-    appDebugPrint('** Backup File Selected **');
-    appDebugPrint('File Path: $importFilePath');
+  functionRestore() {
+    function() async {
+      OpenFileDialogParams openFileParams =
+      const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
+      String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
+      appDebugPrint('** Backup File Selected **');
+      appDebugPrint('File Path: $importFilePath');
 
-    File importFile = File(importFilePath!);
-    String stringData = String.fromCharCodes(importFile.readAsBytesSync());
-    var jsonData = jsonDecode(stringData) as Map<String, dynamic>;
-    AppData appData = AppData.fromJson(jsonData);
-    clearAppData();
-    AppLocalStorage.to.importData(appData);
-    appDebugPrint('** Data Imported **');
+      File importFile = File(importFilePath!);
+      String stringData = String.fromCharCodes(importFile.readAsBytesSync());
+      var jsonData = jsonDecode(stringData) as Map<String, dynamic>;
+      AppData appData = AppData.fromJson(jsonData);
+      clearAppData();
+      AppLocalStorage.to.importData(appData);
+      appDebugPrint('** Data Imported **');
+    }
+
+    AppDialogs.appAlertDialogWithOkCancel(
+        AppTexts.warning, AppTexts.areYouSureDataMayLost, function, true);
   }
 
   functionClearContacts() {

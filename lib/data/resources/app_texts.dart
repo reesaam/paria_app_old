@@ -13,6 +13,8 @@ class AppTexts {
   static String get alert => 'Alert!';
   static String get information => 'Information';
   static String get areYouSureDataWillLost => 'Are you sure?\nData will be lost with this Function.';
+  static String get areYouSureDataMayLost => 'Are you sure?\nData may be lost with this Function.';
+  static String get areYouSureDataExport => 'Are you sure?\nData will be exported and exposed.';
   static String get areYouSure => 'Are you sure ?';
   static String get appExit => 'App Exit';
 
