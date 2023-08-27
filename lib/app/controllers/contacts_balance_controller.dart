@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
+import 'package:paria_app/core/admin/app_core_widgets.dart';
 import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
@@ -45,7 +46,9 @@ class ContactsBalanceController extends CoreController {
 
   showContactItemsList(AppContact contact) =>
       AppDialogs.appBottomDialogWithoutButton(
-          AppTexts.accountsRecordsTableTitle, _contactRecordsList(contact), true);
+          AppTexts.accountsRecordsTableTitle,
+          _contactRecordsList(contact),
+          true);
 
   Widget _contactRecordsList(AppContact contact) => Form(
       child: Column(
@@ -56,11 +59,22 @@ class ContactsBalanceController extends CoreController {
 
   Widget _contactRecordItem(AppAccountRecord record) =>
       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(record.title ?? '', style: AppTextStyles.contactsBalanceItems),
-        Text(record.amount.toCurrency ?? '',
-            style: AppTextStyles.contactsBalanceItems),
-        Text(record.dateTime == null ? '' : record.dateTime!.toDateFormat,
-            style: AppTextStyles.contactsBalanceItems)
+        Expanded(
+            flex: 1,
+            child: Text(record.title ?? '',
+                style: AppTextStyles.contactsBalanceItems)),
+        shrinkOneExpanded,
+        Expanded(
+            flex: 1,
+            child: Text(record.amount.toCurrency ?? '',
+                style: AppTextStyles.contactsBalanceItems,
+                textAlign: TextAlign.right)),
+        shrinkOneExpanded,
+        Expanded(
+            flex: 1,
+            child: Text(
+                record.dateTime == null ? '' : record.dateTime!.toDateFormat,
+                style: AppTextStyles.contactsBalanceItems))
       ]);
 
   showNoRecordDialog() => AppDialogs.appAlertDialogWithOk(
