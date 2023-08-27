@@ -78,6 +78,7 @@ class AppContactsAddOrEditContactComponent {
     appDebugPrint(_contact.isEmpty
         ? 'Add Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Add Contact Modal Closed')});
+    saveAppData();
     return _contact.isEmpty ? null : _contact;
   }
 
@@ -99,6 +100,7 @@ class AppContactsAddOrEditContactComponent {
         ? 'Edit Contact Canceled'
         : {'Contact: $_contact', appDebugPrint('Edit Contact Modal Closed')});
 
+    saveAppData();
     return _contact.equalTo(prevContact) ? null : _contact;
   }
 

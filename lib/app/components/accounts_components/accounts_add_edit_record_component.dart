@@ -104,6 +104,7 @@ class AppAccountsAddRecordComponent {
             'Provided Record: $_record',
             appDebugPrint('Add Record Modal Closed')
           });
+    saveAppData();
     return _record.isEmpty ? null : _record;
   }
 
@@ -124,6 +125,7 @@ class AppAccountsAddRecordComponent {
         ? 'Edit Record Canceled'
         : {'Record: $_record', appDebugPrint('Edit Record Modal Closed')});
 
+    saveAppData();
     return _record.equalTo(prevRecord) ? null : _record;
   }
 
