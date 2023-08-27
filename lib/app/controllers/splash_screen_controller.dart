@@ -66,9 +66,8 @@ class SplashScreenController extends CoreController {
 
   void goToNextPage() async {
     await Future.delayed(const Duration(seconds: 4));
-    updateAvailable
-        ? Get.offAndToNamed(AppRoutes.update)
-        : Get.offAndToNamed(AppRoutes.homePage);
+    Get.offAndToNamed(AppRoutes.homePage);
+    updateAvailable ? Get.toNamed(AppRoutes.update) : null;
   }
 
   changeUpdateSwitch() => {updateAvailable = !updateAvailable, Get.back()};
