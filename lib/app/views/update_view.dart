@@ -57,12 +57,12 @@ class UpdatePage extends CoreView<UpdateController> {
       child: Column(children: [
         AppGeneralButton(
             text: AppTexts.updateCheckUpdate, onTap: controller.checkUpdate),
-
-        ///TODO: Change Disable Button Condition
         AppGeneralButton(
             text: AppTexts.updateDownloadUpdate,
             onTap: controller.downloadUpdate,
-            disabled:
-                controller.availableVersion.value == AppInfo.appCurrentVersion),
+            disabled: controller.availableVersion.value ==
+                    AppInfo.appCurrentVersion ||
+                controller.availableVersion.value ==
+                    AppTexts.generalNotAvailable),
       ])));
 }
