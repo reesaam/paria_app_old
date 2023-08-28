@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:paria_app/data/app_extensions/extension_icon.dart';
 import 'package:paria_app/data/resources/app_colors.dart';
 
 class AppIcons {
+
+  static Icon get none => const Icon(Icons.not_interested).withAppDefaultColor;
 
   ///General
   static Icon get close => const Icon(Icons.close_rounded);

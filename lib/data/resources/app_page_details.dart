@@ -3,11 +3,26 @@ import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_
 
 class AppPageDetails {
   ///Admin Pages
-  static AppPageDetail admin = const AppPageDetail(pageName: 'Admin Page');
-  static AppPageDetail adminStartPage =
-      const AppPageDetail(pageName: 'Admin Start Page');
+  static AppPageDetail adminStartPage = const AppPageDetail(
+    pageName: 'Admin Start Page',
+    pageRoute: AppRoutes.adminStartPage,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: null,
+  );
+
+  static AppPageDetail adminPagesTestPage = const AppPageDetail(
+    pageName: 'Admin Pages Test Page',
+    pageRoute: AppRoutes.adminPagesTestPage,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: null,
+  );
+
   static AppPageDetail adminUITestPage = const AppPageDetail(
-      pageName: 'Admin UI Test Page', pageRoute: AppRoutes.adminUITestPage);
+    pageName: 'Admin UI Test Page',
+    pageRoute: AppRoutes.adminUITestPage,
+    bottomBarItemNumber: -1,
+    bottomBarIcon: null,
+  );
 
   ///Main Pages
   static AppPageDetail splashScreen = const AppPageDetail(
