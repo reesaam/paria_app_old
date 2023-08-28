@@ -78,6 +78,7 @@ class SettingsController extends CoreController {
 
   functionBackup() {
     function() async {
+      Get.back();
       AppData appdata = AppLocalStorage.to.exportData();
       var jsonData = jsonEncode(appdata);
       Uint8List data = jsonData.toString().toUInt8List;
@@ -96,6 +97,7 @@ class SettingsController extends CoreController {
 
   functionRestore() {
     function() async {
+      Get.back();
       OpenFileDialogParams openFileParams =
       const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
       String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
