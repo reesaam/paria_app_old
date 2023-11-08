@@ -2,19 +2,20 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:open_file_plus/open_file_plus.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_general_components/app_snack_bars.dart';
-import 'package:paria_app/app/components/update_components/app_update.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/data/resources/app_info.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_progress_indicator.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/resources/app_urls.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:open_file_plus/open_file_plus.dart';
+import 'package:path_provider/path_provider.dart';
+
+import '../../core/admin/app_core_functions.dart';
+import '../../core/elements/core_controller.dart';
+import '../../data/resources/app_info.dart';
+import '../../data/resources/app_page_details.dart';
+import '../../data/resources/app_progress_indicator.dart';
+import '../../data/resources/app_texts.dart';
+import '../../data/resources/app_urls.dart';
+import '../components/app_general_components/app_dialogs.dart';
+import '../components/app_general_components/app_snack_bars.dart';
+import '../components/update_components/app_update.dart';
 
 class UpdateController extends CoreController {
   Rx<String> availableVersion = AppTexts.generalNotAvailable.obs;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
+
+import '../../../core/admin/app_core_widgets.dart';
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_text_styles.dart';
+import '../app_general_components/app_dividers.dart';
 
 class SettingsComponents {
   static Widget widgetSettingSection(Widget title, List<Widget> widgets) =>

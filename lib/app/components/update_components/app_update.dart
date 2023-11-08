@@ -1,10 +1,8 @@
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/resources/app_urls.dart';
+
+import '../../../core/admin/app_core_functions.dart';
+import '../../../data/resources/app_texts.dart';
+import '../../../data/resources/app_urls.dart';
 
 class AppCheckUpdate {
   Future<String> checkVersion() async {

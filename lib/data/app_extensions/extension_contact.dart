@@ -1,7 +1,9 @@
+
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
+
+import '../data_models/accounts_data_models/account_balance/account_balance.dart';
+import '../data_models/accounts_data_models/account_records/account_record.dart';
+import '../data_models/core_data_models/app_contact/app_contact.dart';
 
 extension Accounts on AppContact {
   AppAccountBalance calculateBalance(bool clearedIncluded) {

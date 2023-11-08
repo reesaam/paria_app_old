@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
+
+import '../../../data/resources/app_colors.dart';
 
 class AppFloatingActionButtons extends FloatingActionButton {
   const AppFloatingActionButtons({super.key, required this.icon, required super.onPressed});

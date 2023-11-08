@@ -6,15 +6,16 @@ part of 'app_setting_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppSettingData _$$_AppSettingDataFromJson(Map<String, dynamic> json) =>
-    _$_AppSettingData(
+_$AppSettingDataImpl _$$AppSettingDataImplFromJson(Map<String, dynamic> json) =>
+    _$AppSettingDataImpl(
       language: $enumDecodeNullable(_$AppLanguagesEnumMap, json['language']),
       calendarType:
           $enumDecodeNullable(_$AppCalendarTypesEnumMap, json['calendarType']),
       darkMode: json['darkMode'] as bool?,
     );
 
-Map<String, dynamic> _$$_AppSettingDataToJson(_$_AppSettingData instance) =>
+Map<String, dynamic> _$$AppSettingDataImplToJson(
+        _$AppSettingDataImpl instance) =>
     <String, dynamic>{
       'language': _$AppLanguagesEnumMap[instance.language],
       'calendarType': _$AppCalendarTypesEnumMap[instance.calendarType],
@@ -29,17 +30,17 @@ const _$AppCalendarTypesEnumMap = {
   AppCalendarTypes.georgian: 'georgian',
 };
 
-_$_AppSettingsDataList _$$_AppSettingsDataListFromJson(
+_$AppSettingsDataListImpl _$$AppSettingsDataListImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AppSettingsDataList(
+    _$AppSettingsDataListImpl(
       appSettingsDataList: (json['appSettingsDataList'] as List<dynamic>?)
               ?.map((e) => AppSettingData.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppSettingData>[],
     );
 
-Map<String, dynamic> _$$_AppSettingsDataListToJson(
-        _$_AppSettingsDataList instance) =>
+Map<String, dynamic> _$$AppSettingsDataListImplToJson(
+        _$AppSettingsDataListImpl instance) =>
     <String, dynamic>{
       'appSettingsDataList': instance.appSettingsDataList,
     };

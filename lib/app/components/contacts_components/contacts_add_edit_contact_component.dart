@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../../core/admin/app_core_functions.dart';
+import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../../data/resources/app_icons.dart';
+import '../../../data/resources/app_spaces.dart';
+import '../../../data/resources/app_texts.dart';
+import '../app_general_components/app_dialogs.dart';
+import '../app_general_components/app_text_field.dart';
 
 class AppContactsAddOrEditContactComponent {
   AppContact? _contact = const AppContact();

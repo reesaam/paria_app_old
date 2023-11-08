@@ -1,5 +1,5 @@
-import 'package:paria_app/core/routes/app_routes.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
+import '../../core/routes/app_routes.dart';
+import '../data_models/core_data_models/app_page_detail/app_page_detail.dart';
 
 class AppPageDetails {
   ///Admin Pages

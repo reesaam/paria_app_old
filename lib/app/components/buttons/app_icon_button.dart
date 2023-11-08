@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
+
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_sizes.dart';
 
 class AppIconButton extends MaterialButton {
   const AppIconButton(

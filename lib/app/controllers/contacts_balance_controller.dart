@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_int.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/admin/app_core_widgets.dart';
+import '../../core/elements/core_controller.dart';
+import '../../data/data_models/accounts_data_models/account_balance/account_balance.dart';
+import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
+import '../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../data/resources/app_page_details.dart';
+import '../../data/resources/app_text_styles.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_general_components/app_dialogs.dart';
 
 class ContactsBalanceController extends CoreController {
   Rx<AppContactsList> listContacts =

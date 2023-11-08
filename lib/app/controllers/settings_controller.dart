@@ -4,21 +4,19 @@ import 'dart:typed_data';
 
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/update_components/app_update.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_settings.dart';
 import 'package:paria_app/data/app_extensions/extension_string.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_data/app_data.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
-import 'package:paria_app/data/resources/app_info.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/app_local_storage.dart';
-import 'package:paria_app/data/storage/app_shared_preferences.dart';
-import 'package:path_provider/path_provider.dart';
+
+import '../../core/admin/app_core_functions.dart';
+import '../../core/elements/core_controller.dart';
+import '../../data/data_models/core_data_models/app_data/app_data.dart';
+import '../../data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
+import '../../data/resources/app_enums.dart';
+import '../../data/resources/app_page_details.dart';
+import '../../data/resources/app_texts.dart';
+import '../../data/storage/app_local_storage.dart';
+import '../components/app_general_components/app_dialogs.dart';
+import '../components/update_components/app_update.dart';
 
 class SettingsController extends CoreController {
   Rx<AppSettingData> appSettings = const AppSettingData().obs;

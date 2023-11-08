@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
-import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/app/components/app_bottom_navigation_bar.dart';
-import 'package:paria_app/app/components/buttons/app_icon_button.dart';
-import 'package:paria_app/app/controllers/accounts_controller.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/core/routes/app_routes.dart';
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_int.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/admin/app_core_widgets.dart';
+import '../../core/elements/core_view.dart';
+import '../../core/routes/app_routes.dart';
+import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
+import '../../data/resources/app_colors.dart';
+import '../../data/resources/app_elements.dart';
+import '../../data/resources/app_icons.dart';
+import '../../data/resources/app_paddings.dart';
+import '../../data/resources/app_sizes.dart';
+import '../../data/resources/app_text_styles.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_bar.dart';
+import '../components/app_bottom_navigation_bar.dart';
+import '../components/app_general_components/app_dividers.dart';
+import '../components/app_general_components/app_floating_buttons.dart';
+import '../components/app_general_components/app_popup_menu.dart';
+import '../components/app_general_components/app_popup_menu_item.dart';
+import '../components/buttons/app_icon_button.dart';
+import '../controllers/accounts_controller.dart';
 
 class AccountsPage extends CoreView<AccountsController> {
   const AccountsPage({Key? key}) : super(key: key);

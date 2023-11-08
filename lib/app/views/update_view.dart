@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_panel.dart';
-import 'package:paria_app/app/components/buttons/app_general_button.dart';
-import 'package:paria_app/app/controllers/update_controller.dart';
-import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/resources/app_info.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/elements/core_view.dart';
+import '../../data/resources/app_info.dart';
+import '../../data/resources/app_paddings.dart';
+import '../../data/resources/app_spaces.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_bar.dart';
+import '../components/app_general_components/app_panel.dart';
+import '../components/buttons/app_general_button.dart';
+import '../controllers/update_controller.dart';
 
 class UpdatePage extends CoreView<UpdateController> {
   const UpdatePage({Key? key}) : super(key: key);

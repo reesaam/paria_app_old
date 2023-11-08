@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/admin/controllers/admin_ui_test_page_controller.dart';
-import 'package:paria_app/app/components/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_text_field.dart';
-import 'package:paria_app/app/components/buttons/app_general_button.dart';
-import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
+
+import '../../app/components/app_bar.dart';
+import '../../app/components/app_general_components/app_text_field.dart';
+import '../../app/components/buttons/app_general_button.dart';
+import '../../core/elements/core_view.dart';
+import '../../data/resources/app_icons.dart';
+import '../../data/resources/app_spaces.dart';
+import '../controllers/admin_ui_test_page_controller.dart';
 
 class AdminUITestPage extends CoreView<AdminUITestPageController> {
   const AdminUITestPage({Key? key}) : super(key: key);

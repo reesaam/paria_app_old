@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_setting_data/app_setting_data.dart';
+
+import '../../accounts_data_models/account_records/account_record.dart';
+import '../app_contact/app_contact.dart';
+import '../app_setting_data/app_setting_data.dart';
 
 part 'app_data.freezed.dart';
 part 'app_data.g.dart';

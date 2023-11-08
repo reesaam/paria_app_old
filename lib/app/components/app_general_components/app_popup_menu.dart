@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
+
+import '../../../data/resources/app_elements.dart';
+import '../../../data/resources/app_icons.dart';
+import '../../../data/resources/app_paddings.dart';
+import 'app_popup_menu_item.dart';
 
 class AppPopupMenu extends StatelessWidget {
   const AppPopupMenu(

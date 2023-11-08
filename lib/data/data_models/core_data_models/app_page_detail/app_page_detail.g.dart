@@ -6,15 +6,15 @@ part of 'app_page_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppPageDetail _$$_AppPageDetailFromJson(Map<String, dynamic> json) =>
-    _$_AppPageDetail(
+_$AppPageDetailImpl _$$AppPageDetailImplFromJson(Map<String, dynamic> json) =>
+    _$AppPageDetailImpl(
       pageName: json['pageName'] as String?,
       pageRoute: json['pageRoute'] as String?,
       bottomBarItemNumber: json['bottomBarItemNumber'] as int?,
       bottomBarIcon: json['bottomBarIcon'] as String?,
     );
 
-Map<String, dynamic> _$$_AppPageDetailToJson(_$_AppPageDetail instance) =>
+Map<String, dynamic> _$$AppPageDetailImplToJson(_$AppPageDetailImpl instance) =>
     <String, dynamic>{
       'pageName': instance.pageName,
       'pageRoute': instance.pageRoute,
@@ -22,17 +22,17 @@ Map<String, dynamic> _$$_AppPageDetailToJson(_$_AppPageDetail instance) =>
       'bottomBarIcon': instance.bottomBarIcon,
     };
 
-_$_AppPageDetailsList _$$_AppPageDetailsListFromJson(
+_$AppPageDetailsListImpl _$$AppPageDetailsListImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AppPageDetailsList(
+    _$AppPageDetailsListImpl(
       pageDetailsList: (json['pageDetailsList'] as List<dynamic>?)
               ?.map((e) => AppPageDetail.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppPageDetail>[],
     );
 
-Map<String, dynamic> _$$_AppPageDetailsListToJson(
-        _$_AppPageDetailsList instance) =>
+Map<String, dynamic> _$$AppPageDetailsListImplToJson(
+        _$AppPageDetailsListImpl instance) =>
     <String, dynamic>{
       'pageDetailsList': instance.pageDetailsList,
     };

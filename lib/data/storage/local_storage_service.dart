@@ -1,7 +1,6 @@
 import 'dart:convert' as convert;
 
 import 'package:get_storage/get_storage.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
 
 abstract class LocalStorageServiceImp {
   Future<void> write(String key, dynamic value);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
+
+import '../../data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
 
 abstract class CoreController extends GetxController {
 

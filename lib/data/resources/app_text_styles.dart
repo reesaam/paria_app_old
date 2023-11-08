@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_fonts.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
+
+import 'app_colors.dart';
+import 'app_fonts.dart';
+import 'app_sizes.dart';
 
 class AppTextStyles {
   static get defaultSize => AppFonts.defaultFontSize;

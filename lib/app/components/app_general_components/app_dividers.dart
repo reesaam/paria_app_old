@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
+
+import '../../../data/resources/app_colors.dart';
 
 class AppDividers {
   static Widget get generalDivider => Divider(color: AppColors.dividerMainColor);

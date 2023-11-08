@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dividers.dart';
-import 'package:paria_app/app/components/buttons/app_general_button.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../../core/admin/app_core_widgets.dart';
+import '../../../data/resources/app_colors.dart';
+import '../../../data/resources/app_elements.dart';
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_spaces.dart';
+import '../../../data/resources/app_text_styles.dart';
+import '../../../data/resources/app_texts.dart';
+import '../buttons/app_general_button.dart';
+import 'app_dividers.dart';
 
 class AppDialogs {
   static _onTapCancel() => Get.back();

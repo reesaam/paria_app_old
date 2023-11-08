@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
+
+import '../../data/resources/app_colors.dart';
+import '../../data/resources/app_paddings.dart';
+import '../admin/app_core_functions.dart';
+import '../admin/app_core_widgets.dart';
+import 'core_controller.dart';
 
 abstract class CoreView<Controller extends CoreController>
     extends GetView<Controller> {

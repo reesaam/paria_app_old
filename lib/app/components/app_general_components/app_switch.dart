@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
+
+import '../../../data/resources/app_colors.dart';
+import '../../../data/resources/app_sizes.dart';
 
 class AppSwitch extends StatelessWidget {
   const AppSwitch(

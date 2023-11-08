@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
+
+import '../../../core/admin/app_core_widgets.dart';
+import '../../../data/resources/app_colors.dart';
+import '../../../data/resources/app_elements.dart';
 
 class AppGeneralButton extends StatelessWidget {
   const AppGeneralButton({

@@ -2,28 +2,28 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/accounts_components/accounts_add_edit_record_component.dart';
-import 'package:paria_app/app/components/accounts_components/accounts_filter_component.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_record.dart';
-import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_bool.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/app_local_storage.dart';
+
+import '../../core/admin/app_core_functions.dart';
+import '../../core/elements/core_controller.dart';
+import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
+import '../../data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
+import '../../data/resources/app_enums.dart';
+import '../../data/resources/app_icons.dart';
+import '../../data/resources/app_page_details.dart';
+import '../../data/resources/app_spaces.dart';
+import '../../data/resources/app_text_styles.dart';
+import '../../data/resources/app_texts.dart';
+import '../../data/storage/app_local_storage.dart';
+import '../components/accounts_components/accounts_add_edit_record_component.dart';
+import '../components/accounts_components/accounts_filter_component.dart';
+import '../components/app_general_components/app_dialogs.dart';
+
 
 class AccountsController extends CoreController {
   //Lists

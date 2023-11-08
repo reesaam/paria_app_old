@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
-import 'package:paria_app/data/storage/app_local_storage.dart';
+
+import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_text_styles.dart';
+import '../../../data/resources/app_texts.dart';
+import '../app_general_components/app_dialogs.dart';
 
 class ChooseContactComponent {
   final AppContactsList _listContacts = AppContactsList().loadFromStorage;

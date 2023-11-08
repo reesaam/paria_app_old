@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
 import 'package:paria_app/data/app_extensions/extension_int.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../../core/admin/app_core_functions.dart';
+import '../../../data/data_models/accounts_data_models/account_balance/account_balance.dart';
+import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../../data/resources/app_elements.dart';
+import '../../../data/resources/app_icons.dart';
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_sizes.dart';
+import '../../../data/resources/app_spaces.dart';
+import '../../../data/resources/app_text_styles.dart';
+import '../../../data/resources/app_texts.dart';
+import '../app_general_components/app_dialogs.dart';
+import 'contacts_components.dart';
 
 class ContactPageComponent {
   late AppContact _contact;

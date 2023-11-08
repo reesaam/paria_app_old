@@ -1,8 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
+
+import 'app_enums.dart';
+import 'app_icons.dart';
+import 'app_page_details.dart';
 
 class AppBottomNavigationBarData {
   List<BottomNavigationBarItem> getData() => <BottomNavigationBarItem>[

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_themes.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
+
+import '../../../data/resources/app_themes.dart';
 
 class AppDateTimePicker {
   final georgianNow = DateTime.now();

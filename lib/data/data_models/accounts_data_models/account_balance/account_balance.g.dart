@@ -6,8 +6,9 @@ part of 'account_balance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppAccountBalance _$$_AppAccountBalanceFromJson(Map<String, dynamic> json) =>
-    _$_AppAccountBalance(
+_$AppAccountBalanceImpl _$$AppAccountBalanceImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppAccountBalanceImpl(
       contact: json['contact'] == null
           ? null
           : AppContact.fromJson(json['contact'] as Map<String, dynamic>),
@@ -15,17 +16,17 @@ _$_AppAccountBalance _$$_AppAccountBalanceFromJson(Map<String, dynamic> json) =>
       count: json['count'] as int?,
     );
 
-Map<String, dynamic> _$$_AppAccountBalanceToJson(
-        _$_AppAccountBalance instance) =>
+Map<String, dynamic> _$$AppAccountBalanceImplToJson(
+        _$AppAccountBalanceImpl instance) =>
     <String, dynamic>{
       'contact': instance.contact,
       'balance': instance.balance,
       'count': instance.count,
     };
 
-_$_AppAccountBalancesList _$$_AppAccountBalancesListFromJson(
+_$AppAccountBalancesListImpl _$$AppAccountBalancesListImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AppAccountBalancesList(
+    _$AppAccountBalancesListImpl(
       balancesList: (json['balancesList'] as List<dynamic>?)
               ?.map(
                   (e) => AppAccountBalance.fromJson(e as Map<String, dynamic>))
@@ -33,8 +34,8 @@ _$_AppAccountBalancesList _$$_AppAccountBalancesListFromJson(
           const <AppAccountBalance>[],
     );
 
-Map<String, dynamic> _$$_AppAccountBalancesListToJson(
-        _$_AppAccountBalancesList instance) =>
+Map<String, dynamic> _$$AppAccountBalancesListImplToJson(
+        _$AppAccountBalancesListImpl instance) =>
     <String, dynamic>{
       'balancesList': instance.balancesList,
     };

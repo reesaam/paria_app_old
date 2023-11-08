@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
+
+import '../../core_data_models/app_contact/app_contact.dart';
 
 part 'accounts_filter.freezed.dart';
 part 'accounts_filter.g.dart';

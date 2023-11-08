@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
-import 'package:paria_app/app/components/app_general_components/app_switch.dart';
-import 'package:paria_app/app/components/app_bottom_navigation_bar.dart';
-import 'package:paria_app/app/components/settings_components/settings_components.dart';
-import 'package:paria_app/app/controllers/settings_controller.dart';
-import 'package:paria_app/core/admin/app_core_widgets.dart';
-import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/resources/app_info.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/elements/core_view.dart';
+import '../../data/resources/app_info.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_bar.dart';
+import '../components/app_bottom_navigation_bar.dart';
+import '../components/app_general_components/app_popup_menu.dart';
+import '../components/app_general_components/app_popup_menu_item.dart';
+import '../components/app_general_components/app_switch.dart';
+import '../components/settings_components/settings_components.dart';
+import '../controllers/settings_controller.dart';
 
 class SettingsPage extends CoreView<SettingsController> {
   const SettingsPage({Key? key}) : super(key: key);

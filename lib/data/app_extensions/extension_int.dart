@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
+
+import '../resources/app_enums.dart';
 
 extension CurrencyNull on int? {
   String get toCurrency => this == null ? '' : (this as int).toCurrency;

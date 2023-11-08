@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_bar.dart';
-import 'package:paria_app/app/components/app_general_components/app_floating_buttons.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu_item.dart';
-import 'package:paria_app/app/components/app_general_components/app_popup_menu.dart';
-import 'package:paria_app/app/components/app_bottom_navigation_bar.dart';
-import 'package:paria_app/app/components/contacts_components/contacts_components.dart';
-import 'package:paria_app/app/controllers/contacts_controller.dart';
-import 'package:paria_app/core/elements/core_view.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
-import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_icons.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_spaces.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/elements/core_view.dart';
+import '../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../data/resources/app_elements.dart';
+import '../../data/resources/app_paddings.dart';
+import '../../data/resources/app_spaces.dart';
+import '../../data/resources/app_text_styles.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_bar.dart';
+import '../components/app_bottom_navigation_bar.dart';
+import '../components/app_general_components/app_floating_buttons.dart';
+import '../components/app_general_components/app_popup_menu.dart';
+import '../components/app_general_components/app_popup_menu_item.dart';
+import '../components/contacts_components/contacts_components.dart';
+import '../controllers/contacts_controller.dart';
 
 class ContactsPage extends CoreView<ContactsController> {
   const ContactsPage({Key? key}) : super(key: key);

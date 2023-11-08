@@ -117,10 +117,10 @@ class _$AppDataCopyWithImpl<$Res, $Val extends AppData>
 }
 
 /// @nodoc
-abstract class _$$_AppDataCopyWith<$Res> implements $AppDataCopyWith<$Res> {
-  factory _$$_AppDataCopyWith(
-          _$_AppData value, $Res Function(_$_AppData) then) =
-      __$$_AppDataCopyWithImpl<$Res>;
+abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
+  factory _$$AppDataImplCopyWith(
+          _$AppDataImpl value, $Res Function(_$AppDataImpl) then) =
+      __$$AppDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,10 +137,11 @@ abstract class _$$_AppDataCopyWith<$Res> implements $AppDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AppDataCopyWithImpl<$Res>
-    extends _$AppDataCopyWithImpl<$Res, _$_AppData>
-    implements _$$_AppDataCopyWith<$Res> {
-  __$$_AppDataCopyWithImpl(_$_AppData _value, $Res Function(_$_AppData) _then)
+class __$$AppDataImplCopyWithImpl<$Res>
+    extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
+    implements _$$AppDataImplCopyWith<$Res> {
+  __$$AppDataImplCopyWithImpl(
+      _$AppDataImpl _value, $Res Function(_$AppDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +151,7 @@ class __$$_AppDataCopyWithImpl<$Res>
     Object? accountRecords = freezed,
     Object? setting = freezed,
   }) {
-    return _then(_$_AppData(
+    return _then(_$AppDataImpl(
       contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -169,11 +170,11 @@ class __$$_AppDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppData implements _AppData {
-  const _$_AppData({this.contacts, this.accountRecords, this.setting});
+class _$AppDataImpl implements _AppData {
+  const _$AppDataImpl({this.contacts, this.accountRecords, this.setting});
 
-  factory _$_AppData.fromJson(Map<String, dynamic> json) =>
-      _$$_AppDataFromJson(json);
+  factory _$AppDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppDataImplFromJson(json);
 
   @override
   final AppContactsList? contacts;
@@ -190,12 +191,12 @@ class _$_AppData implements _AppData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppDataCopyWith<_$_AppData> get copyWith =>
-      __$$_AppDataCopyWithImpl<_$_AppData>(this, _$identity);
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
+      __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppDataToJson(
+    return _$$AppDataImplToJson(
       this,
     );
   }
@@ -205,9 +206,9 @@ abstract class _AppData implements AppData {
   const factory _AppData(
       {final AppContactsList? contacts,
       final AppAccountRecordsList? accountRecords,
-      final AppSettingData? setting}) = _$_AppData;
+      final AppSettingData? setting}) = _$AppDataImpl;
 
-  factory _AppData.fromJson(Map<String, dynamic> json) = _$_AppData.fromJson;
+  factory _AppData.fromJson(Map<String, dynamic> json) = _$AppDataImpl.fromJson;
 
   @override
   AppContactsList? get contacts;
@@ -217,6 +218,6 @@ abstract class _AppData implements AppData {
   AppSettingData? get setting;
   @override
   @JsonKey(ignore: true)
-  _$$_AppDataCopyWith<_$_AppData> get copyWith =>
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

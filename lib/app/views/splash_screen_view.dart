@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/app/controllers/splash_screen_controller.dart';
-import 'package:paria_app/core/elements/core_view.dart';
-import 'package:paria_app/data/resources/app_paddings.dart';
-import 'package:paria_app/data/resources/app_progress_indicator.dart';
-import 'package:paria_app/data/resources/app_text_styles.dart';
+
+import '../../core/elements/core_view.dart';
+import '../../data/resources/app_paddings.dart';
+import '../../data/resources/app_progress_indicator.dart';
+import '../../data/resources/app_text_styles.dart';
+import '../controllers/splash_screen_controller.dart';
 
 class SplashScreenPage extends CoreView<SplashScreenController> {
   const SplashScreenPage({Key? key}) : super(key: key);

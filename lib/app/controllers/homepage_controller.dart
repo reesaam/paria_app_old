@@ -1,15 +1,16 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
 import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_balance/account_balance.dart';
-import 'package:paria_app/data/data_models/core_data_models/app_contact/app_contact.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
+
+import '../../core/admin/app_core_functions.dart';
+import '../../core/elements/core_controller.dart';
+import '../../data/data_models/accounts_data_models/account_balance/account_balance.dart';
+import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
+import '../../data/data_models/core_data_models/app_contact/app_contact.dart';
+import '../../data/resources/app_page_details.dart';
 
 class HomePageController extends CoreController {
 

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:paria_app/data/resources/app_enums.dart';
+
+import '../../../resources/app_enums.dart';
 
 part 'app_setting_data.freezed.dart';
 part 'app_setting_data.g.dart';

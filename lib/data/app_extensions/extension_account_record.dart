@@ -1,6 +1,8 @@
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
+
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/data_models/accounts_data_models/account_records/account_record.dart';
+import 'package:paria_app/data/app_extensions/extension_date_time.dart';
+
+import '../data_models/accounts_data_models/account_records/account_record.dart';
 
 extension StringProviders on AppAccountRecord {
   String get getContactFullName => '${contact!.firstName ?? ''} ${contact!.lastName ?? ''}';

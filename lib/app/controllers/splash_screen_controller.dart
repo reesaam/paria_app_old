@@ -1,16 +1,15 @@
-import 'dart:math';
-
 import 'package:get/get.dart';
-import 'package:paria_app/app/components/app_general_components/app_dialogs.dart';
-import 'package:paria_app/app/components/app_permissions.dart';
-import 'package:paria_app/app/components/update_components/app_update.dart';
-import 'package:paria_app/core/admin/app_core_functions.dart';
-import 'package:paria_app/core/elements/core_controller.dart';
-import 'package:paria_app/core/routes/app_routes.dart';
-import 'package:paria_app/data/resources/app_info.dart';
-import 'package:paria_app/data/resources/app_logos.dart';
-import 'package:paria_app/data/resources/app_page_details.dart';
-import 'package:paria_app/data/resources/app_texts.dart';
+
+import '../../core/admin/app_core_functions.dart';
+import '../../core/elements/core_controller.dart';
+import '../../core/routes/app_routes.dart';
+import '../../data/resources/app_info.dart';
+import '../../data/resources/app_logos.dart';
+import '../../data/resources/app_page_details.dart';
+import '../../data/resources/app_texts.dart';
+import '../components/app_general_components/app_dialogs.dart';
+import '../components/app_permissions.dart';
+import '../components/update_components/app_update.dart';
 
 class SplashScreenController extends CoreController {
   Rx<bool> allChecked = false.obs;

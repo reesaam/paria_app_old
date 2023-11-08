@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/resources/app_colors.dart';
-import 'package:paria_app/data/resources/app_elements.dart';
-import 'package:paria_app/data/resources/app_fonts.dart';
-import 'package:paria_app/data/resources/app_sizes.dart';
+
+import 'app_colors.dart';
+import 'app_elements.dart';
+import 'app_fonts.dart';
 
 class AppThemes {
   static get mainTheme => ThemeData(

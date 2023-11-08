@@ -6,8 +6,9 @@ part of 'account_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppAccountRecord _$$_AppAccountRecordFromJson(Map<String, dynamic> json) =>
-    _$_AppAccountRecord(
+_$AppAccountRecordImpl _$$AppAccountRecordImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppAccountRecordImpl(
       contact: json['contact'] == null
           ? null
           : AppContact.fromJson(json['contact'] as Map<String, dynamic>),
@@ -19,7 +20,8 @@ _$_AppAccountRecord _$$_AppAccountRecordFromJson(Map<String, dynamic> json) =>
       cleared: json['cleared'] as bool?,
     );
 
-Map<String, dynamic> _$$_AppAccountRecordToJson(_$_AppAccountRecord instance) =>
+Map<String, dynamic> _$$AppAccountRecordImplToJson(
+        _$AppAccountRecordImpl instance) =>
     <String, dynamic>{
       'contact': instance.contact,
       'amount': instance.amount,
@@ -28,17 +30,17 @@ Map<String, dynamic> _$$_AppAccountRecordToJson(_$_AppAccountRecord instance) =>
       'cleared': instance.cleared,
     };
 
-_$_AppAccountRecordsList _$$_AppAccountRecordsListFromJson(
+_$AppAccountRecordsListImpl _$$AppAccountRecordsListImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AppAccountRecordsList(
+    _$AppAccountRecordsListImpl(
       recordsList: (json['recordsList'] as List<dynamic>?)
               ?.map((e) => AppAccountRecord.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppAccountRecord>[],
     );
 
-Map<String, dynamic> _$$_AppAccountRecordsListToJson(
-        _$_AppAccountRecordsList instance) =>
+Map<String, dynamic> _$$AppAccountRecordsListImplToJson(
+        _$AppAccountRecordsListImpl instance) =>
     <String, dynamic>{
       'recordsList': instance.recordsList,
     };
