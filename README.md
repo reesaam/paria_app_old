@@ -23,6 +23,12 @@ Paria Assistant App
 
 - ...
 
+##OR
+You can run builder.bat in project by
+```
+.\builder.bat
+```
+
 
 ## Others
 # Launcher Icon
