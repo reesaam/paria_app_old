@@ -78,8 +78,7 @@ class SettingsController extends CoreController {
     function() async {
       Get.back();
       AppData appdata = AppLocalStorage.to.exportData();
-      var jsonData = jsonEncode(appdata);
-      Uint8List data = jsonData.toString().toUInt8List;
+      Uint8List data = jsonEncode(appdata).toUInt8List;
       SaveFileDialogParams saveParams = SaveFileDialogParams(
           data: data, fileName: AppTexts.settingBackupFilename);
       String? filePath = await FlutterFileDialog.saveFile(params: saveParams);
@@ -97,8 +96,9 @@ class SettingsController extends CoreController {
     function() async {
       Get.back();
       OpenFileDialogParams openFileParams =
-      const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
-      String? importFilePath = await FlutterFileDialog.pickFile(params: openFileParams);
+          const OpenFileDialogParams(dialogType: OpenFileDialogType.document);
+      String? importFilePath =
+          await FlutterFileDialog.pickFile(params: openFileParams);
       appDebugPrint('** Backup File Selected **');
       appDebugPrint('File Path: $importFilePath');
 
