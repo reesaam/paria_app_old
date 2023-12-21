@@ -10,6 +10,7 @@ class AppInfo {
         '0.0.4',
         '0.0.5',
         '0.0.6', // Major Refactor
+        '0.0.7', // Some Refactor / Edit Contact Correction for Edit Records / AddEdit Contact and Record Validation Messages
       ];
 
   static String get appCurrentVersion => versions.last;
