@@ -6,8 +6,8 @@ import '../../data/resources/app_info.dart';
 import '../../data/resources/app_paddings.dart';
 import '../../data/resources/app_spaces.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_general_components/app_panel.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/general_components/app_panel.dart';
 import '../components/buttons/app_general_button.dart';
 import '../controllers/update_controller.dart';
 

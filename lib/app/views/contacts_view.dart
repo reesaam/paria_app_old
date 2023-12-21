@@ -10,12 +10,12 @@ import '../../data/resources/app_paddings.dart';
 import '../../data/resources/app_spaces.dart';
 import '../../data/resources/app_text_styles.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_bottom_navigation_bar.dart';
-import '../components/app_general_components/app_floating_buttons.dart';
-import '../components/app_general_components/app_popup_menu.dart';
-import '../components/app_general_components/app_popup_menu_item.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/main_components/app_floating_buttons.dart';
+import '../components/general_components/app_popup_menu.dart';
+import '../components/general_components/app_popup_menu_item.dart';
 import '../components/contacts_components/contacts_components.dart';
+import '../components/main_components/app_bottom_navigation_bar.dart';
 import '../controllers/contacts_controller.dart';
 
 class ContactsPage extends CoreView<ContactsController> {

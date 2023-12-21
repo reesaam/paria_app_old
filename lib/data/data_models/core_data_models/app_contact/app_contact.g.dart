@@ -6,8 +6,8 @@ part of 'app_contact.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppContactImpl _$$AppContactImplFromJson(Map<String, dynamic> json) =>
-    _$AppContactImpl(
+_$_AppContact _$$_AppContactFromJson(Map<String, dynamic> json) =>
+    _$_AppContact(
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       mobile: json['mobile'] as String?,
@@ -19,7 +19,7 @@ _$AppContactImpl _$$AppContactImplFromJson(Map<String, dynamic> json) =>
       balance: json['balance'] as int?,
     );
 
-Map<String, dynamic> _$$AppContactImplToJson(_$AppContactImpl instance) =>
+Map<String, dynamic> _$$_AppContactToJson(_$_AppContact instance) =>
     <String, dynamic>{
       'firstName': instance.firstName,
       'lastName': instance.lastName,
@@ -32,17 +32,15 @@ Map<String, dynamic> _$$AppContactImplToJson(_$AppContactImpl instance) =>
       'balance': instance.balance,
     };
 
-_$AppContactsListImpl _$$AppContactsListImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AppContactsListImpl(
+_$_AppContactsList _$$_AppContactsListFromJson(Map<String, dynamic> json) =>
+    _$_AppContactsList(
       contactsList: (json['contactsList'] as List<dynamic>?)
               ?.map((e) => AppContact.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppContact>[],
     );
 
-Map<String, dynamic> _$$AppContactsListImplToJson(
-        _$AppContactsListImpl instance) =>
+Map<String, dynamic> _$$_AppContactsListToJson(_$_AppContactsList instance) =>
     <String, dynamic>{
       'contactsList': instance.contactsList,
     };

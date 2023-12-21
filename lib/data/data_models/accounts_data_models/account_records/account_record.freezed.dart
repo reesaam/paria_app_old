@@ -105,11 +105,11 @@ class _$AppAccountRecordCopyWithImpl<$Res, $Val extends AppAccountRecord>
 }
 
 /// @nodoc
-abstract class _$$AppAccountRecordImplCopyWith<$Res>
+abstract class _$$_AppAccountRecordCopyWith<$Res>
     implements $AppAccountRecordCopyWith<$Res> {
-  factory _$$AppAccountRecordImplCopyWith(_$AppAccountRecordImpl value,
-          $Res Function(_$AppAccountRecordImpl) then) =
-      __$$AppAccountRecordImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountRecordCopyWith(
+          _$_AppAccountRecord value, $Res Function(_$_AppAccountRecord) then) =
+      __$$_AppAccountRecordCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +124,11 @@ abstract class _$$AppAccountRecordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppAccountRecordImplCopyWithImpl<$Res>
-    extends _$AppAccountRecordCopyWithImpl<$Res, _$AppAccountRecordImpl>
-    implements _$$AppAccountRecordImplCopyWith<$Res> {
-  __$$AppAccountRecordImplCopyWithImpl(_$AppAccountRecordImpl _value,
-      $Res Function(_$AppAccountRecordImpl) _then)
+class __$$_AppAccountRecordCopyWithImpl<$Res>
+    extends _$AppAccountRecordCopyWithImpl<$Res, _$_AppAccountRecord>
+    implements _$$_AppAccountRecordCopyWith<$Res> {
+  __$$_AppAccountRecordCopyWithImpl(
+      _$_AppAccountRecord _value, $Res Function(_$_AppAccountRecord) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +140,7 @@ class __$$AppAccountRecordImplCopyWithImpl<$Res>
     Object? dateTime = freezed,
     Object? cleared = freezed,
   }) {
-    return _then(_$AppAccountRecordImpl(
+    return _then(_$_AppAccountRecord(
       contact: freezed == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
@@ -167,12 +167,12 @@ class __$$AppAccountRecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountRecordImpl implements _AppAccountRecord {
-  const _$AppAccountRecordImpl(
+class _$_AppAccountRecord implements _AppAccountRecord {
+  const _$_AppAccountRecord(
       {this.contact, this.amount, this.title, this.dateTime, this.cleared});
 
-  factory _$AppAccountRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountRecordImplFromJson(json);
+  factory _$_AppAccountRecord.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountRecordFromJson(json);
 
   @override
   final AppContact? contact;
@@ -193,13 +193,12 @@ class _$AppAccountRecordImpl implements _AppAccountRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountRecordImplCopyWith<_$AppAccountRecordImpl> get copyWith =>
-      __$$AppAccountRecordImplCopyWithImpl<_$AppAccountRecordImpl>(
-          this, _$identity);
+  _$$_AppAccountRecordCopyWith<_$_AppAccountRecord> get copyWith =>
+      __$$_AppAccountRecordCopyWithImpl<_$_AppAccountRecord>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountRecordImplToJson(
+    return _$$_AppAccountRecordToJson(
       this,
     );
   }
@@ -211,10 +210,10 @@ abstract class _AppAccountRecord implements AppAccountRecord {
       final int? amount,
       final String? title,
       final DateTime? dateTime,
-      final bool? cleared}) = _$AppAccountRecordImpl;
+      final bool? cleared}) = _$_AppAccountRecord;
 
   factory _AppAccountRecord.fromJson(Map<String, dynamic> json) =
-      _$AppAccountRecordImpl.fromJson;
+      _$_AppAccountRecord.fromJson;
 
   @override
   AppContact? get contact;
@@ -228,7 +227,7 @@ abstract class _AppAccountRecord implements AppAccountRecord {
   bool? get cleared;
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountRecordImplCopyWith<_$AppAccountRecordImpl> get copyWith =>
+  _$$_AppAccountRecordCopyWith<_$_AppAccountRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -284,24 +283,22 @@ class _$AppAccountRecordsListCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$AppAccountRecordsListImplCopyWith<$Res>
+abstract class _$$_AppAccountRecordsListCopyWith<$Res>
     implements $AppAccountRecordsListCopyWith<$Res> {
-  factory _$$AppAccountRecordsListImplCopyWith(
-          _$AppAccountRecordsListImpl value,
-          $Res Function(_$AppAccountRecordsListImpl) then) =
-      __$$AppAccountRecordsListImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountRecordsListCopyWith(_$_AppAccountRecordsList value,
+          $Res Function(_$_AppAccountRecordsList) then) =
+      __$$_AppAccountRecordsListCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AppAccountRecord> recordsList});
 }
 
 /// @nodoc
-class __$$AppAccountRecordsListImplCopyWithImpl<$Res>
-    extends _$AppAccountRecordsListCopyWithImpl<$Res,
-        _$AppAccountRecordsListImpl>
-    implements _$$AppAccountRecordsListImplCopyWith<$Res> {
-  __$$AppAccountRecordsListImplCopyWithImpl(_$AppAccountRecordsListImpl _value,
-      $Res Function(_$AppAccountRecordsListImpl) _then)
+class __$$_AppAccountRecordsListCopyWithImpl<$Res>
+    extends _$AppAccountRecordsListCopyWithImpl<$Res, _$_AppAccountRecordsList>
+    implements _$$_AppAccountRecordsListCopyWith<$Res> {
+  __$$_AppAccountRecordsListCopyWithImpl(_$_AppAccountRecordsList _value,
+      $Res Function(_$_AppAccountRecordsList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -309,7 +306,7 @@ class __$$AppAccountRecordsListImplCopyWithImpl<$Res>
   $Res call({
     Object? recordsList = null,
   }) {
-    return _then(_$AppAccountRecordsListImpl(
+    return _then(_$_AppAccountRecordsList(
       recordsList: null == recordsList
           ? _value.recordsList
           : recordsList // ignore: cast_nullable_to_non_nullable
@@ -320,11 +317,11 @@ class __$$AppAccountRecordsListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountRecordsListImpl implements _AppAccountRecordsList {
-  _$AppAccountRecordsListImpl({this.recordsList = const <AppAccountRecord>[]});
+class _$_AppAccountRecordsList implements _AppAccountRecordsList {
+  _$_AppAccountRecordsList({this.recordsList = const <AppAccountRecord>[]});
 
-  factory _$AppAccountRecordsListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountRecordsListImplFromJson(json);
+  factory _$_AppAccountRecordsList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountRecordsListFromJson(json);
 
   @override
   @JsonKey()
@@ -338,13 +335,13 @@ class _$AppAccountRecordsListImpl implements _AppAccountRecordsList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountRecordsListImplCopyWith<_$AppAccountRecordsListImpl>
-      get copyWith => __$$AppAccountRecordsListImplCopyWithImpl<
-          _$AppAccountRecordsListImpl>(this, _$identity);
+  _$$_AppAccountRecordsListCopyWith<_$_AppAccountRecordsList> get copyWith =>
+      __$$_AppAccountRecordsListCopyWithImpl<_$_AppAccountRecordsList>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountRecordsListImplToJson(
+    return _$$_AppAccountRecordsListToJson(
       this,
     );
   }
@@ -352,16 +349,16 @@ class _$AppAccountRecordsListImpl implements _AppAccountRecordsList {
 
 abstract class _AppAccountRecordsList implements AppAccountRecordsList {
   factory _AppAccountRecordsList({List<AppAccountRecord> recordsList}) =
-      _$AppAccountRecordsListImpl;
+      _$_AppAccountRecordsList;
 
   factory _AppAccountRecordsList.fromJson(Map<String, dynamic> json) =
-      _$AppAccountRecordsListImpl.fromJson;
+      _$_AppAccountRecordsList.fromJson;
 
   @override
   List<AppAccountRecord> get recordsList;
   set recordsList(List<AppAccountRecord> value);
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountRecordsListImplCopyWith<_$AppAccountRecordsListImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_AppAccountRecordsListCopyWith<_$_AppAccountRecordsList> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import '../../core/elements/core_view.dart';
 import '../../data/resources/app_info.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_bottom_navigation_bar.dart';
-import '../components/app_general_components/app_popup_menu.dart';
-import '../components/app_general_components/app_popup_menu_item.dart';
-import '../components/app_general_components/app_switch.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/general_components/app_popup_menu.dart';
+import '../components/general_components/app_popup_menu_item.dart';
+import '../components/general_components/app_switch.dart';
+import '../components/main_components/app_bottom_navigation_bar.dart';
 import '../components/settings_components/settings_components.dart';
 import '../controllers/settings_controller.dart';
 

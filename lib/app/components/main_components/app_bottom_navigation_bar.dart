@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/routes/app_routes.dart';
-import '../../data/resources/app_bottom_navigation_bar_data.dart';
-import '../../data/resources/app_colors.dart';
+import '../../../core/routes/app_routes.dart';
+import '../../../data/resources/app_bottom_navigation_bar_data.dart';
+import '../../../data/resources/app_colors.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int? selectedIndex;

@@ -5,7 +5,7 @@ import 'package:paria_app/data/app_extensions/extension_account_records_list.dar
 import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 
-import '../../core/admin/app_core_functions.dart';
+import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/accounts_data_models/account_balance/account_balance.dart';
 import '../../data/data_models/accounts_data_models/account_records/account_record.dart';

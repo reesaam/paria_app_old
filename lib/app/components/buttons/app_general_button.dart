@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/admin/app_core_widgets.dart';
+import '../../../core/app_core_widgets.dart';
 import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_elements.dart';
 

@@ -9,8 +9,8 @@ import '../../data/resources/app_paddings.dart';
 import '../../data/resources/app_spaces.dart';
 import '../../data/resources/app_text_styles.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_general_components/app_dividers.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/general_components/app_dividers.dart';
 import '../controllers/contacts_balance_controller.dart';
 
 class ContactsBalancePage extends CoreView<ContactsBalanceController> {

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../../data/resources/app_colors.dart';
 import '../../data/resources/app_paddings.dart';
-import '../admin/app_core_functions.dart';
-import '../admin/app_core_widgets.dart';
+import '../app_core_functions.dart';
+import '../app_core_widgets.dart';
 import 'core_controller.dart';
 
 abstract class CoreView<Controller extends CoreController>

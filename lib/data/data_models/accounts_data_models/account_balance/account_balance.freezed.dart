@@ -88,11 +88,11 @@ class _$AppAccountBalanceCopyWithImpl<$Res, $Val extends AppAccountBalance>
 }
 
 /// @nodoc
-abstract class _$$AppAccountBalanceImplCopyWith<$Res>
+abstract class _$$_AppAccountBalanceCopyWith<$Res>
     implements $AppAccountBalanceCopyWith<$Res> {
-  factory _$$AppAccountBalanceImplCopyWith(_$AppAccountBalanceImpl value,
-          $Res Function(_$AppAccountBalanceImpl) then) =
-      __$$AppAccountBalanceImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountBalanceCopyWith(_$_AppAccountBalance value,
+          $Res Function(_$_AppAccountBalance) then) =
+      __$$_AppAccountBalanceCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AppContact? contact, int? balance, int? count});
@@ -102,11 +102,11 @@ abstract class _$$AppAccountBalanceImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppAccountBalanceImplCopyWithImpl<$Res>
-    extends _$AppAccountBalanceCopyWithImpl<$Res, _$AppAccountBalanceImpl>
-    implements _$$AppAccountBalanceImplCopyWith<$Res> {
-  __$$AppAccountBalanceImplCopyWithImpl(_$AppAccountBalanceImpl _value,
-      $Res Function(_$AppAccountBalanceImpl) _then)
+class __$$_AppAccountBalanceCopyWithImpl<$Res>
+    extends _$AppAccountBalanceCopyWithImpl<$Res, _$_AppAccountBalance>
+    implements _$$_AppAccountBalanceCopyWith<$Res> {
+  __$$_AppAccountBalanceCopyWithImpl(
+      _$_AppAccountBalance _value, $Res Function(_$_AppAccountBalance) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$AppAccountBalanceImplCopyWithImpl<$Res>
     Object? balance = freezed,
     Object? count = freezed,
   }) {
-    return _then(_$AppAccountBalanceImpl(
+    return _then(_$_AppAccountBalance(
       contact: freezed == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
@@ -135,11 +135,11 @@ class __$$AppAccountBalanceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountBalanceImpl implements _AppAccountBalance {
-  const _$AppAccountBalanceImpl({this.contact, this.balance, this.count});
+class _$_AppAccountBalance implements _AppAccountBalance {
+  const _$_AppAccountBalance({this.contact, this.balance, this.count});
 
-  factory _$AppAccountBalanceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountBalanceImplFromJson(json);
+  factory _$_AppAccountBalance.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountBalanceFromJson(json);
 
   @override
   final AppContact? contact;
@@ -156,13 +156,13 @@ class _$AppAccountBalanceImpl implements _AppAccountBalance {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountBalanceImplCopyWith<_$AppAccountBalanceImpl> get copyWith =>
-      __$$AppAccountBalanceImplCopyWithImpl<_$AppAccountBalanceImpl>(
+  _$$_AppAccountBalanceCopyWith<_$_AppAccountBalance> get copyWith =>
+      __$$_AppAccountBalanceCopyWithImpl<_$_AppAccountBalance>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountBalanceImplToJson(
+    return _$$_AppAccountBalanceToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ abstract class _AppAccountBalance implements AppAccountBalance {
   const factory _AppAccountBalance(
       {final AppContact? contact,
       final int? balance,
-      final int? count}) = _$AppAccountBalanceImpl;
+      final int? count}) = _$_AppAccountBalance;
 
   factory _AppAccountBalance.fromJson(Map<String, dynamic> json) =
-      _$AppAccountBalanceImpl.fromJson;
+      _$_AppAccountBalance.fromJson;
 
   @override
   AppContact? get contact;
@@ -185,7 +185,7 @@ abstract class _AppAccountBalance implements AppAccountBalance {
   int? get count;
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountBalanceImplCopyWith<_$AppAccountBalanceImpl> get copyWith =>
+  _$$_AppAccountBalanceCopyWith<_$_AppAccountBalance> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -242,25 +242,23 @@ class _$AppAccountBalancesListCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$AppAccountBalancesListImplCopyWith<$Res>
+abstract class _$$_AppAccountBalancesListCopyWith<$Res>
     implements $AppAccountBalancesListCopyWith<$Res> {
-  factory _$$AppAccountBalancesListImplCopyWith(
-          _$AppAccountBalancesListImpl value,
-          $Res Function(_$AppAccountBalancesListImpl) then) =
-      __$$AppAccountBalancesListImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountBalancesListCopyWith(_$_AppAccountBalancesList value,
+          $Res Function(_$_AppAccountBalancesList) then) =
+      __$$_AppAccountBalancesListCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AppAccountBalance> balancesList});
 }
 
 /// @nodoc
-class __$$AppAccountBalancesListImplCopyWithImpl<$Res>
+class __$$_AppAccountBalancesListCopyWithImpl<$Res>
     extends _$AppAccountBalancesListCopyWithImpl<$Res,
-        _$AppAccountBalancesListImpl>
-    implements _$$AppAccountBalancesListImplCopyWith<$Res> {
-  __$$AppAccountBalancesListImplCopyWithImpl(
-      _$AppAccountBalancesListImpl _value,
-      $Res Function(_$AppAccountBalancesListImpl) _then)
+        _$_AppAccountBalancesList>
+    implements _$$_AppAccountBalancesListCopyWith<$Res> {
+  __$$_AppAccountBalancesListCopyWithImpl(_$_AppAccountBalancesList _value,
+      $Res Function(_$_AppAccountBalancesList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -268,7 +266,7 @@ class __$$AppAccountBalancesListImplCopyWithImpl<$Res>
   $Res call({
     Object? balancesList = null,
   }) {
-    return _then(_$AppAccountBalancesListImpl(
+    return _then(_$_AppAccountBalancesList(
       balancesList: null == balancesList
           ? _value.balancesList
           : balancesList // ignore: cast_nullable_to_non_nullable
@@ -279,12 +277,11 @@ class __$$AppAccountBalancesListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountBalancesListImpl implements _AppAccountBalancesList {
-  _$AppAccountBalancesListImpl(
-      {this.balancesList = const <AppAccountBalance>[]});
+class _$_AppAccountBalancesList implements _AppAccountBalancesList {
+  _$_AppAccountBalancesList({this.balancesList = const <AppAccountBalance>[]});
 
-  factory _$AppAccountBalancesListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountBalancesListImplFromJson(json);
+  factory _$_AppAccountBalancesList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountBalancesListFromJson(json);
 
   @override
   @JsonKey()
@@ -298,13 +295,13 @@ class _$AppAccountBalancesListImpl implements _AppAccountBalancesList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountBalancesListImplCopyWith<_$AppAccountBalancesListImpl>
-      get copyWith => __$$AppAccountBalancesListImplCopyWithImpl<
-          _$AppAccountBalancesListImpl>(this, _$identity);
+  _$$_AppAccountBalancesListCopyWith<_$_AppAccountBalancesList> get copyWith =>
+      __$$_AppAccountBalancesListCopyWithImpl<_$_AppAccountBalancesList>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountBalancesListImplToJson(
+    return _$$_AppAccountBalancesListToJson(
       this,
     );
   }
@@ -312,16 +309,16 @@ class _$AppAccountBalancesListImpl implements _AppAccountBalancesList {
 
 abstract class _AppAccountBalancesList implements AppAccountBalancesList {
   factory _AppAccountBalancesList({List<AppAccountBalance> balancesList}) =
-      _$AppAccountBalancesListImpl;
+      _$_AppAccountBalancesList;
 
   factory _AppAccountBalancesList.fromJson(Map<String, dynamic> json) =
-      _$AppAccountBalancesListImpl.fromJson;
+      _$_AppAccountBalancesList.fromJson;
 
   @override
   List<AppAccountBalance> get balancesList;
   set balancesList(List<AppAccountBalance> value);
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountBalancesListImplCopyWith<_$AppAccountBalancesListImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_AppAccountBalancesListCopyWith<_$_AppAccountBalancesList> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -7,7 +7,7 @@ import '../../../data/data_models/core_data_models/app_contact/app_contact.dart'
 import '../../../data/resources/app_paddings.dart';
 import '../../../data/resources/app_text_styles.dart';
 import '../../../data/resources/app_texts.dart';
-import '../app_general_components/app_dialogs.dart';
+import '../main_components/app_dialogs.dart';
 
 class ChooseContactComponent {
   final AppContactsList _listContacts = AppContactsList().loadFromStorage;

@@ -112,11 +112,11 @@ class _$AppAccountsFilterCopyWithImpl<$Res, $Val extends AppAccountsFilter>
 }
 
 /// @nodoc
-abstract class _$$AppAccountsFilterImplCopyWith<$Res>
+abstract class _$$_AppAccountsFilterCopyWith<$Res>
     implements $AppAccountsFilterCopyWith<$Res> {
-  factory _$$AppAccountsFilterImplCopyWith(_$AppAccountsFilterImpl value,
-          $Res Function(_$AppAccountsFilterImpl) then) =
-      __$$AppAccountsFilterImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountsFilterCopyWith(_$_AppAccountsFilter value,
+          $Res Function(_$_AppAccountsFilter) then) =
+      __$$_AppAccountsFilterCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,11 +132,11 @@ abstract class _$$AppAccountsFilterImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppAccountsFilterImplCopyWithImpl<$Res>
-    extends _$AppAccountsFilterCopyWithImpl<$Res, _$AppAccountsFilterImpl>
-    implements _$$AppAccountsFilterImplCopyWith<$Res> {
-  __$$AppAccountsFilterImplCopyWithImpl(_$AppAccountsFilterImpl _value,
-      $Res Function(_$AppAccountsFilterImpl) _then)
+class __$$_AppAccountsFilterCopyWithImpl<$Res>
+    extends _$AppAccountsFilterCopyWithImpl<$Res, _$_AppAccountsFilter>
+    implements _$$_AppAccountsFilterCopyWith<$Res> {
+  __$$_AppAccountsFilterCopyWithImpl(
+      _$_AppAccountsFilter _value, $Res Function(_$_AppAccountsFilter) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -149,7 +149,7 @@ class __$$AppAccountsFilterImplCopyWithImpl<$Res>
     Object? dateTimeDown = freezed,
     Object? description = freezed,
   }) {
-    return _then(_$AppAccountsFilterImpl(
+    return _then(_$_AppAccountsFilter(
       contact: freezed == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
@@ -180,8 +180,8 @@ class __$$AppAccountsFilterImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountsFilterImpl implements _AppAccountsFilter {
-  const _$AppAccountsFilterImpl(
+class _$_AppAccountsFilter implements _AppAccountsFilter {
+  const _$_AppAccountsFilter(
       {this.contact,
       this.amountUp,
       this.amountDown,
@@ -189,8 +189,8 @@ class _$AppAccountsFilterImpl implements _AppAccountsFilter {
       this.dateTimeDown,
       this.description});
 
-  factory _$AppAccountsFilterImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountsFilterImplFromJson(json);
+  factory _$_AppAccountsFilter.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountsFilterFromJson(json);
 
   @override
   final AppContact? contact;
@@ -213,13 +213,13 @@ class _$AppAccountsFilterImpl implements _AppAccountsFilter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountsFilterImplCopyWith<_$AppAccountsFilterImpl> get copyWith =>
-      __$$AppAccountsFilterImplCopyWithImpl<_$AppAccountsFilterImpl>(
+  _$$_AppAccountsFilterCopyWith<_$_AppAccountsFilter> get copyWith =>
+      __$$_AppAccountsFilterCopyWithImpl<_$_AppAccountsFilter>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountsFilterImplToJson(
+    return _$$_AppAccountsFilterToJson(
       this,
     );
   }
@@ -232,10 +232,10 @@ abstract class _AppAccountsFilter implements AppAccountsFilter {
       final int? amountDown,
       final DateTime? dateTimeUp,
       final DateTime? dateTimeDown,
-      final String? description}) = _$AppAccountsFilterImpl;
+      final String? description}) = _$_AppAccountsFilter;
 
   factory _AppAccountsFilter.fromJson(Map<String, dynamic> json) =
-      _$AppAccountsFilterImpl.fromJson;
+      _$_AppAccountsFilter.fromJson;
 
   @override
   AppContact? get contact;
@@ -251,7 +251,7 @@ abstract class _AppAccountsFilter implements AppAccountsFilter {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountsFilterImplCopyWith<_$AppAccountsFilterImpl> get copyWith =>
+  _$$_AppAccountsFilterCopyWith<_$_AppAccountsFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -307,25 +307,23 @@ class _$AppAccountsFiltersListCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$AppAccountsFiltersListImplCopyWith<$Res>
+abstract class _$$_AppAccountsFiltersListCopyWith<$Res>
     implements $AppAccountsFiltersListCopyWith<$Res> {
-  factory _$$AppAccountsFiltersListImplCopyWith(
-          _$AppAccountsFiltersListImpl value,
-          $Res Function(_$AppAccountsFiltersListImpl) then) =
-      __$$AppAccountsFiltersListImplCopyWithImpl<$Res>;
+  factory _$$_AppAccountsFiltersListCopyWith(_$_AppAccountsFiltersList value,
+          $Res Function(_$_AppAccountsFiltersList) then) =
+      __$$_AppAccountsFiltersListCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AppAccountsFilter> filtersList});
 }
 
 /// @nodoc
-class __$$AppAccountsFiltersListImplCopyWithImpl<$Res>
+class __$$_AppAccountsFiltersListCopyWithImpl<$Res>
     extends _$AppAccountsFiltersListCopyWithImpl<$Res,
-        _$AppAccountsFiltersListImpl>
-    implements _$$AppAccountsFiltersListImplCopyWith<$Res> {
-  __$$AppAccountsFiltersListImplCopyWithImpl(
-      _$AppAccountsFiltersListImpl _value,
-      $Res Function(_$AppAccountsFiltersListImpl) _then)
+        _$_AppAccountsFiltersList>
+    implements _$$_AppAccountsFiltersListCopyWith<$Res> {
+  __$$_AppAccountsFiltersListCopyWithImpl(_$_AppAccountsFiltersList _value,
+      $Res Function(_$_AppAccountsFiltersList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -333,7 +331,7 @@ class __$$AppAccountsFiltersListImplCopyWithImpl<$Res>
   $Res call({
     Object? filtersList = null,
   }) {
-    return _then(_$AppAccountsFiltersListImpl(
+    return _then(_$_AppAccountsFiltersList(
       filtersList: null == filtersList
           ? _value.filtersList
           : filtersList // ignore: cast_nullable_to_non_nullable
@@ -344,12 +342,11 @@ class __$$AppAccountsFiltersListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppAccountsFiltersListImpl implements _AppAccountsFiltersList {
-  _$AppAccountsFiltersListImpl(
-      {this.filtersList = const <AppAccountsFilter>[]});
+class _$_AppAccountsFiltersList implements _AppAccountsFiltersList {
+  _$_AppAccountsFiltersList({this.filtersList = const <AppAccountsFilter>[]});
 
-  factory _$AppAccountsFiltersListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppAccountsFiltersListImplFromJson(json);
+  factory _$_AppAccountsFiltersList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppAccountsFiltersListFromJson(json);
 
   @override
   @JsonKey()
@@ -363,13 +360,13 @@ class _$AppAccountsFiltersListImpl implements _AppAccountsFiltersList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppAccountsFiltersListImplCopyWith<_$AppAccountsFiltersListImpl>
-      get copyWith => __$$AppAccountsFiltersListImplCopyWithImpl<
-          _$AppAccountsFiltersListImpl>(this, _$identity);
+  _$$_AppAccountsFiltersListCopyWith<_$_AppAccountsFiltersList> get copyWith =>
+      __$$_AppAccountsFiltersListCopyWithImpl<_$_AppAccountsFiltersList>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppAccountsFiltersListImplToJson(
+    return _$$_AppAccountsFiltersListToJson(
       this,
     );
   }
@@ -377,16 +374,16 @@ class _$AppAccountsFiltersListImpl implements _AppAccountsFiltersList {
 
 abstract class _AppAccountsFiltersList implements AppAccountsFiltersList {
   factory _AppAccountsFiltersList({List<AppAccountsFilter> filtersList}) =
-      _$AppAccountsFiltersListImpl;
+      _$_AppAccountsFiltersList;
 
   factory _AppAccountsFiltersList.fromJson(Map<String, dynamic> json) =
-      _$AppAccountsFiltersListImpl.fromJson;
+      _$_AppAccountsFiltersList.fromJson;
 
   @override
   List<AppAccountsFilter> get filtersList;
   set filtersList(List<AppAccountsFilter> value);
   @override
   @JsonKey(ignore: true)
-  _$$AppAccountsFiltersListImplCopyWith<_$AppAccountsFiltersListImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_AppAccountsFiltersListCopyWith<_$_AppAccountsFiltersList> get copyWith =>
+      throw _privateConstructorUsedError;
 }

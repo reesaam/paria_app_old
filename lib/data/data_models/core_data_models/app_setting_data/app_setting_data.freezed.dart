@@ -75,11 +75,11 @@ class _$AppSettingDataCopyWithImpl<$Res, $Val extends AppSettingData>
 }
 
 /// @nodoc
-abstract class _$$AppSettingDataImplCopyWith<$Res>
+abstract class _$$_AppSettingDataCopyWith<$Res>
     implements $AppSettingDataCopyWith<$Res> {
-  factory _$$AppSettingDataImplCopyWith(_$AppSettingDataImpl value,
-          $Res Function(_$AppSettingDataImpl) then) =
-      __$$AppSettingDataImplCopyWithImpl<$Res>;
+  factory _$$_AppSettingDataCopyWith(
+          _$_AppSettingData value, $Res Function(_$_AppSettingData) then) =
+      __$$_AppSettingDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,11 +87,11 @@ abstract class _$$AppSettingDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppSettingDataImplCopyWithImpl<$Res>
-    extends _$AppSettingDataCopyWithImpl<$Res, _$AppSettingDataImpl>
-    implements _$$AppSettingDataImplCopyWith<$Res> {
-  __$$AppSettingDataImplCopyWithImpl(
-      _$AppSettingDataImpl _value, $Res Function(_$AppSettingDataImpl) _then)
+class __$$_AppSettingDataCopyWithImpl<$Res>
+    extends _$AppSettingDataCopyWithImpl<$Res, _$_AppSettingData>
+    implements _$$_AppSettingDataCopyWith<$Res> {
+  __$$_AppSettingDataCopyWithImpl(
+      _$_AppSettingData _value, $Res Function(_$_AppSettingData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$AppSettingDataImplCopyWithImpl<$Res>
     Object? calendarType = freezed,
     Object? darkMode = freezed,
   }) {
-    return _then(_$AppSettingDataImpl(
+    return _then(_$_AppSettingData(
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
@@ -120,11 +120,11 @@ class __$$AppSettingDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppSettingDataImpl implements _AppSettingData {
-  const _$AppSettingDataImpl({this.language, this.calendarType, this.darkMode});
+class _$_AppSettingData implements _AppSettingData {
+  const _$_AppSettingData({this.language, this.calendarType, this.darkMode});
 
-  factory _$AppSettingDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppSettingDataImplFromJson(json);
+  factory _$_AppSettingData.fromJson(Map<String, dynamic> json) =>
+      _$$_AppSettingDataFromJson(json);
 
   @override
   final AppLanguages? language;
@@ -141,13 +141,12 @@ class _$AppSettingDataImpl implements _AppSettingData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppSettingDataImplCopyWith<_$AppSettingDataImpl> get copyWith =>
-      __$$AppSettingDataImplCopyWithImpl<_$AppSettingDataImpl>(
-          this, _$identity);
+  _$$_AppSettingDataCopyWith<_$_AppSettingData> get copyWith =>
+      __$$_AppSettingDataCopyWithImpl<_$_AppSettingData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppSettingDataImplToJson(
+    return _$$_AppSettingDataToJson(
       this,
     );
   }
@@ -157,10 +156,10 @@ abstract class _AppSettingData implements AppSettingData {
   const factory _AppSettingData(
       {final AppLanguages? language,
       final AppCalendarTypes? calendarType,
-      final bool? darkMode}) = _$AppSettingDataImpl;
+      final bool? darkMode}) = _$_AppSettingData;
 
   factory _AppSettingData.fromJson(Map<String, dynamic> json) =
-      _$AppSettingDataImpl.fromJson;
+      _$_AppSettingData.fromJson;
 
   @override
   AppLanguages? get language;
@@ -170,7 +169,7 @@ abstract class _AppSettingData implements AppSettingData {
   bool? get darkMode;
   @override
   @JsonKey(ignore: true)
-  _$$AppSettingDataImplCopyWith<_$AppSettingDataImpl> get copyWith =>
+  _$$_AppSettingDataCopyWith<_$_AppSettingData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -225,22 +224,22 @@ class _$AppSettingsDataListCopyWithImpl<$Res, $Val extends AppSettingsDataList>
 }
 
 /// @nodoc
-abstract class _$$AppSettingsDataListImplCopyWith<$Res>
+abstract class _$$_AppSettingsDataListCopyWith<$Res>
     implements $AppSettingsDataListCopyWith<$Res> {
-  factory _$$AppSettingsDataListImplCopyWith(_$AppSettingsDataListImpl value,
-          $Res Function(_$AppSettingsDataListImpl) then) =
-      __$$AppSettingsDataListImplCopyWithImpl<$Res>;
+  factory _$$_AppSettingsDataListCopyWith(_$_AppSettingsDataList value,
+          $Res Function(_$_AppSettingsDataList) then) =
+      __$$_AppSettingsDataListCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AppSettingData> appSettingsDataList});
 }
 
 /// @nodoc
-class __$$AppSettingsDataListImplCopyWithImpl<$Res>
-    extends _$AppSettingsDataListCopyWithImpl<$Res, _$AppSettingsDataListImpl>
-    implements _$$AppSettingsDataListImplCopyWith<$Res> {
-  __$$AppSettingsDataListImplCopyWithImpl(_$AppSettingsDataListImpl _value,
-      $Res Function(_$AppSettingsDataListImpl) _then)
+class __$$_AppSettingsDataListCopyWithImpl<$Res>
+    extends _$AppSettingsDataListCopyWithImpl<$Res, _$_AppSettingsDataList>
+    implements _$$_AppSettingsDataListCopyWith<$Res> {
+  __$$_AppSettingsDataListCopyWithImpl(_$_AppSettingsDataList _value,
+      $Res Function(_$_AppSettingsDataList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -248,7 +247,7 @@ class __$$AppSettingsDataListImplCopyWithImpl<$Res>
   $Res call({
     Object? appSettingsDataList = null,
   }) {
-    return _then(_$AppSettingsDataListImpl(
+    return _then(_$_AppSettingsDataList(
       appSettingsDataList: null == appSettingsDataList
           ? _value.appSettingsDataList
           : appSettingsDataList // ignore: cast_nullable_to_non_nullable
@@ -259,12 +258,11 @@ class __$$AppSettingsDataListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppSettingsDataListImpl implements _AppSettingsDataList {
-  _$AppSettingsDataListImpl(
-      {this.appSettingsDataList = const <AppSettingData>[]});
+class _$_AppSettingsDataList implements _AppSettingsDataList {
+  _$_AppSettingsDataList({this.appSettingsDataList = const <AppSettingData>[]});
 
-  factory _$AppSettingsDataListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppSettingsDataListImplFromJson(json);
+  factory _$_AppSettingsDataList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppSettingsDataListFromJson(json);
 
   @override
   @JsonKey()
@@ -278,13 +276,13 @@ class _$AppSettingsDataListImpl implements _AppSettingsDataList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppSettingsDataListImplCopyWith<_$AppSettingsDataListImpl> get copyWith =>
-      __$$AppSettingsDataListImplCopyWithImpl<_$AppSettingsDataListImpl>(
+  _$$_AppSettingsDataListCopyWith<_$_AppSettingsDataList> get copyWith =>
+      __$$_AppSettingsDataListCopyWithImpl<_$_AppSettingsDataList>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppSettingsDataListImplToJson(
+    return _$$_AppSettingsDataListToJson(
       this,
     );
   }
@@ -292,16 +290,16 @@ class _$AppSettingsDataListImpl implements _AppSettingsDataList {
 
 abstract class _AppSettingsDataList implements AppSettingsDataList {
   factory _AppSettingsDataList({List<AppSettingData> appSettingsDataList}) =
-      _$AppSettingsDataListImpl;
+      _$_AppSettingsDataList;
 
   factory _AppSettingsDataList.fromJson(Map<String, dynamic> json) =
-      _$AppSettingsDataListImpl.fromJson;
+      _$_AppSettingsDataList.fromJson;
 
   @override
   List<AppSettingData> get appSettingsDataList;
   set appSettingsDataList(List<AppSettingData> value);
   @override
   @JsonKey(ignore: true)
-  _$$AppSettingsDataListImplCopyWith<_$AppSettingsDataListImpl> get copyWith =>
+  _$$_AppSettingsDataListCopyWith<_$_AppSettingsDataList> get copyWith =>
       throw _privateConstructorUsedError;
 }

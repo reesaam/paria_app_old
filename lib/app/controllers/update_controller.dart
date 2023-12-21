@@ -6,15 +6,15 @@ import 'package:http/http.dart' as http;
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../core/admin/app_core_functions.dart';
+import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/resources/app_info.dart';
 import '../../data/resources/app_page_details.dart';
 import '../../data/resources/app_progress_indicator.dart';
 import '../../data/resources/app_texts.dart';
 import '../../data/resources/app_urls.dart';
-import '../components/app_general_components/app_dialogs.dart';
-import '../components/app_general_components/app_snack_bars.dart';
+import '../components/main_components/app_dialogs.dart';
+import '../components/general_components/app_snack_bars.dart';
 import '../components/update_components/app_update.dart';
 
 class UpdateController extends CoreController {

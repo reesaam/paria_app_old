@@ -119,11 +119,11 @@ class _$AppContactCopyWithImpl<$Res, $Val extends AppContact>
 }
 
 /// @nodoc
-abstract class _$$AppContactImplCopyWith<$Res>
+abstract class _$$_AppContactCopyWith<$Res>
     implements $AppContactCopyWith<$Res> {
-  factory _$$AppContactImplCopyWith(
-          _$AppContactImpl value, $Res Function(_$AppContactImpl) then) =
-      __$$AppContactImplCopyWithImpl<$Res>;
+  factory _$$_AppContactCopyWith(
+          _$_AppContact value, $Res Function(_$_AppContact) then) =
+      __$$_AppContactCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +139,11 @@ abstract class _$$AppContactImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppContactImplCopyWithImpl<$Res>
-    extends _$AppContactCopyWithImpl<$Res, _$AppContactImpl>
-    implements _$$AppContactImplCopyWith<$Res> {
-  __$$AppContactImplCopyWithImpl(
-      _$AppContactImpl _value, $Res Function(_$AppContactImpl) _then)
+class __$$_AppContactCopyWithImpl<$Res>
+    extends _$AppContactCopyWithImpl<$Res, _$_AppContact>
+    implements _$$_AppContactCopyWith<$Res> {
+  __$$_AppContactCopyWithImpl(
+      _$_AppContact _value, $Res Function(_$_AppContact) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,7 +159,7 @@ class __$$AppContactImplCopyWithImpl<$Res>
     Object? accountRecordsCounter = freezed,
     Object? balance = freezed,
   }) {
-    return _then(_$AppContactImpl(
+    return _then(_$_AppContact(
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -202,8 +202,8 @@ class __$$AppContactImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppContactImpl implements _AppContact {
-  const _$AppContactImpl(
+class _$_AppContact implements _AppContact {
+  const _$_AppContact(
       {this.firstName,
       this.lastName,
       this.mobile,
@@ -214,8 +214,8 @@ class _$AppContactImpl implements _AppContact {
       this.accountRecordsCounter,
       this.balance});
 
-  factory _$AppContactImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppContactImplFromJson(json);
+  factory _$_AppContact.fromJson(Map<String, dynamic> json) =>
+      _$$_AppContactFromJson(json);
 
   @override
   final String? firstName;
@@ -244,12 +244,12 @@ class _$AppContactImpl implements _AppContact {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppContactImplCopyWith<_$AppContactImpl> get copyWith =>
-      __$$AppContactImplCopyWithImpl<_$AppContactImpl>(this, _$identity);
+  _$$_AppContactCopyWith<_$_AppContact> get copyWith =>
+      __$$_AppContactCopyWithImpl<_$_AppContact>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppContactImplToJson(
+    return _$$_AppContactToJson(
       this,
     );
   }
@@ -265,10 +265,10 @@ abstract class _AppContact implements AppContact {
       final String? webLink,
       final String? profilePicture,
       final int? accountRecordsCounter,
-      final int? balance}) = _$AppContactImpl;
+      final int? balance}) = _$_AppContact;
 
   factory _AppContact.fromJson(Map<String, dynamic> json) =
-      _$AppContactImpl.fromJson;
+      _$_AppContact.fromJson;
 
   @override
   String? get firstName;
@@ -290,7 +290,7 @@ abstract class _AppContact implements AppContact {
   int? get balance;
   @override
   @JsonKey(ignore: true)
-  _$$AppContactImplCopyWith<_$AppContactImpl> get copyWith =>
+  _$$_AppContactCopyWith<_$_AppContact> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -344,22 +344,22 @@ class _$AppContactsListCopyWithImpl<$Res, $Val extends AppContactsList>
 }
 
 /// @nodoc
-abstract class _$$AppContactsListImplCopyWith<$Res>
+abstract class _$$_AppContactsListCopyWith<$Res>
     implements $AppContactsListCopyWith<$Res> {
-  factory _$$AppContactsListImplCopyWith(_$AppContactsListImpl value,
-          $Res Function(_$AppContactsListImpl) then) =
-      __$$AppContactsListImplCopyWithImpl<$Res>;
+  factory _$$_AppContactsListCopyWith(
+          _$_AppContactsList value, $Res Function(_$_AppContactsList) then) =
+      __$$_AppContactsListCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AppContact> contactsList});
 }
 
 /// @nodoc
-class __$$AppContactsListImplCopyWithImpl<$Res>
-    extends _$AppContactsListCopyWithImpl<$Res, _$AppContactsListImpl>
-    implements _$$AppContactsListImplCopyWith<$Res> {
-  __$$AppContactsListImplCopyWithImpl(
-      _$AppContactsListImpl _value, $Res Function(_$AppContactsListImpl) _then)
+class __$$_AppContactsListCopyWithImpl<$Res>
+    extends _$AppContactsListCopyWithImpl<$Res, _$_AppContactsList>
+    implements _$$_AppContactsListCopyWith<$Res> {
+  __$$_AppContactsListCopyWithImpl(
+      _$_AppContactsList _value, $Res Function(_$_AppContactsList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -367,7 +367,7 @@ class __$$AppContactsListImplCopyWithImpl<$Res>
   $Res call({
     Object? contactsList = null,
   }) {
-    return _then(_$AppContactsListImpl(
+    return _then(_$_AppContactsList(
       contactsList: null == contactsList
           ? _value.contactsList
           : contactsList // ignore: cast_nullable_to_non_nullable
@@ -378,11 +378,11 @@ class __$$AppContactsListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppContactsListImpl implements _AppContactsList {
-  _$AppContactsListImpl({this.contactsList = const <AppContact>[]});
+class _$_AppContactsList implements _AppContactsList {
+  _$_AppContactsList({this.contactsList = const <AppContact>[]});
 
-  factory _$AppContactsListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppContactsListImplFromJson(json);
+  factory _$_AppContactsList.fromJson(Map<String, dynamic> json) =>
+      _$$_AppContactsListFromJson(json);
 
   @override
   @JsonKey()
@@ -396,13 +396,12 @@ class _$AppContactsListImpl implements _AppContactsList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppContactsListImplCopyWith<_$AppContactsListImpl> get copyWith =>
-      __$$AppContactsListImplCopyWithImpl<_$AppContactsListImpl>(
-          this, _$identity);
+  _$$_AppContactsListCopyWith<_$_AppContactsList> get copyWith =>
+      __$$_AppContactsListCopyWithImpl<_$_AppContactsList>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppContactsListImplToJson(
+    return _$$_AppContactsListToJson(
       this,
     );
   }
@@ -410,16 +409,16 @@ class _$AppContactsListImpl implements _AppContactsList {
 
 abstract class _AppContactsList implements AppContactsList {
   factory _AppContactsList({List<AppContact> contactsList}) =
-      _$AppContactsListImpl;
+      _$_AppContactsList;
 
   factory _AppContactsList.fromJson(Map<String, dynamic> json) =
-      _$AppContactsListImpl.fromJson;
+      _$_AppContactsList.fromJson;
 
   @override
   List<AppContact> get contactsList;
   set contactsList(List<AppContact> value);
   @override
   @JsonKey(ignore: true)
-  _$$AppContactsListImplCopyWith<_$AppContactsListImpl> get copyWith =>
+  _$$_AppContactsListCopyWith<_$_AppContactsList> get copyWith =>
       throw _privateConstructorUsedError;
 }

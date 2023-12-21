@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/admin/app_core_widgets.dart';
+import '../../../core/app_core_widgets.dart';
 import '../../../data/resources/app_colors.dart';
 import '../../../data/resources/app_elements.dart';
 import '../../../data/resources/app_paddings.dart';
@@ -10,7 +10,7 @@ import '../../../data/resources/app_spaces.dart';
 import '../../../data/resources/app_text_styles.dart';
 import '../../../data/resources/app_texts.dart';
 import '../buttons/app_general_button.dart';
-import 'app_dividers.dart';
+import '../general_components/app_dividers.dart';
 
 class AppDialogs {
   static _onTapCancel() => Get.back();

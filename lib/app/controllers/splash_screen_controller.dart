@@ -1,14 +1,14 @@
 import 'package:get/get.dart';
 
-import '../../core/admin/app_core_functions.dart';
+import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../core/routes/app_routes.dart';
 import '../../data/resources/app_info.dart';
 import '../../data/resources/app_logos.dart';
 import '../../data/resources/app_page_details.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_general_components/app_dialogs.dart';
-import '../components/app_permissions.dart';
+import '../components/main_components/app_dialogs.dart';
+import '../components/main_components/app_permissions.dart';
 import '../components/update_components/app_update.dart';
 
 class SplashScreenController extends CoreController {

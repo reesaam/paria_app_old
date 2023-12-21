@@ -6,8 +6,7 @@ part of 'app_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppDataImpl _$$AppDataImplFromJson(Map<String, dynamic> json) =>
-    _$AppDataImpl(
+_$_AppData _$$_AppDataFromJson(Map<String, dynamic> json) => _$_AppData(
       contacts: json['contacts'] == null
           ? null
           : AppContactsList.fromJson(json['contacts'] as Map<String, dynamic>),
@@ -20,7 +19,7 @@ _$AppDataImpl _$$AppDataImplFromJson(Map<String, dynamic> json) =>
           : AppSettingData.fromJson(json['setting'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$AppDataImplToJson(_$AppDataImpl instance) =>
+Map<String, dynamic> _$$_AppDataToJson(_$_AppData instance) =>
     <String, dynamic>{
       'contacts': instance.contacts,
       'accountRecords': instance.accountRecords,

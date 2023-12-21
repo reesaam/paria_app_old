@@ -9,7 +9,7 @@ import 'package:paria_app/data/app_extensions/extension_bool.dart';
 import 'package:paria_app/data/app_extensions/extension_contact.dart';
 import 'package:paria_app/data/app_extensions/extension_icon.dart';
 
-import '../../core/admin/app_core_functions.dart';
+import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
 import '../../data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
@@ -22,7 +22,7 @@ import '../../data/resources/app_texts.dart';
 import '../../data/storage/app_local_storage.dart';
 import '../components/accounts_components/accounts_add_edit_record_component.dart';
 import '../components/accounts_components/accounts_filter_component.dart';
-import '../components/app_general_components/app_dialogs.dart';
+import '../components/main_components/app_dialogs.dart';
 
 
 class AccountsController extends CoreController {

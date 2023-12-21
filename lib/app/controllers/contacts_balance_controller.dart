@@ -5,7 +5,7 @@ import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_int.dart';
 
-import '../../core/admin/app_core_widgets.dart';
+import '../../core/app_core_widgets.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/accounts_data_models/account_balance/account_balance.dart';
 import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
@@ -13,7 +13,7 @@ import '../../data/data_models/core_data_models/app_contact/app_contact.dart';
 import '../../data/resources/app_page_details.dart';
 import '../../data/resources/app_text_styles.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_general_components/app_dialogs.dart';
+import '../components/main_components/app_dialogs.dart';
 
 class ContactsBalanceController extends CoreController {
   Rx<AppContactsList> listContacts =

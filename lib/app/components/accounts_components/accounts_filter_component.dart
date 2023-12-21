@@ -3,15 +3,15 @@ import 'package:get/get.dart';
 import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 
-import '../../../core/admin/app_core_functions.dart';
+import '../../../core/app_core_functions.dart';
 import '../../../data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';
 import '../../../data/resources/app_spaces.dart';
 import '../../../data/resources/app_texts.dart';
-import '../app_general_components/app_date_time_picker.dart';
-import '../app_general_components/app_dialogs.dart';
-import '../app_general_components/app_panel.dart';
-import '../app_general_components/app_text_field.dart';
+import '../general_components/app_date_time_picker.dart';
+import '../main_components/app_dialogs.dart';
+import '../general_components/app_panel.dart';
+import '../general_components/app_text_field.dart';
 import '../contacts_components/contacts_choose_contact_component.dart';
 
 class AppAccountsFilterComponent {

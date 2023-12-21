@@ -11,8 +11,8 @@ import '../../data/resources/app_sizes.dart';
 import '../../data/resources/app_spaces.dart';
 import '../../data/resources/app_text_styles.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_bottom_navigation_bar.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/main_components/app_bottom_navigation_bar.dart';
 import '../controllers/homepage_controller.dart';
 
 class HomePage extends CoreView<HomePageController> {

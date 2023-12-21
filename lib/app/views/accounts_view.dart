@@ -4,7 +4,7 @@ import 'package:paria_app/data/app_extensions/extension_account_records_list.dar
 import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 import 'package:paria_app/data/app_extensions/extension_int.dart';
 
-import '../../core/admin/app_core_widgets.dart';
+import '../../core/app_core_widgets.dart';
 import '../../core/elements/core_view.dart';
 import '../../core/routes/app_routes.dart';
 import '../../data/data_models/accounts_data_models/account_records/account_record.dart';
@@ -15,13 +15,13 @@ import '../../data/resources/app_paddings.dart';
 import '../../data/resources/app_sizes.dart';
 import '../../data/resources/app_text_styles.dart';
 import '../../data/resources/app_texts.dart';
-import '../components/app_bar.dart';
-import '../components/app_bottom_navigation_bar.dart';
-import '../components/app_general_components/app_dividers.dart';
-import '../components/app_general_components/app_floating_buttons.dart';
-import '../components/app_general_components/app_popup_menu.dart';
-import '../components/app_general_components/app_popup_menu_item.dart';
+import '../components/main_components/app_bar.dart';
+import '../components/general_components/app_dividers.dart';
+import '../components/main_components/app_floating_buttons.dart';
+import '../components/general_components/app_popup_menu.dart';
+import '../components/general_components/app_popup_menu_item.dart';
 import '../components/buttons/app_icon_button.dart';
+import '../components/main_components/app_bottom_navigation_bar.dart';
 import '../controllers/accounts_controller.dart';
 
 class AccountsPage extends CoreView<AccountsController> {

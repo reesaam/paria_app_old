@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../app/components/app_bar.dart';
-import '../../app/components/app_general_components/app_text_field.dart';
+import '../../app/components/main_components/app_bar.dart';
+import '../../app/components/general_components/app_text_field.dart';
 import '../../app/components/buttons/app_general_button.dart';
 import '../../core/elements/core_view.dart';
 import '../../data/resources/app_icons.dart';

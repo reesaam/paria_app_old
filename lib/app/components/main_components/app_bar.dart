@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
-import '../../data/resources/app_colors.dart';
-import '../../data/resources/app_paddings.dart';
-import '../../data/resources/app_text_styles.dart';
+import '../../../data/data_models/core_data_models/app_page_detail/app_page_detail.dart';
+import '../../../data/resources/app_colors.dart';
+import '../../../data/resources/app_paddings.dart';
+import '../../../data/resources/app_text_styles.dart';
 
 class AppAppBar extends AppBar {
   AppAppBar(

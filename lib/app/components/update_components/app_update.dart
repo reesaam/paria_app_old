@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:paria_app/data/remote/dio/core_dio.dart';
 
-import '../../../core/admin/app_core_functions.dart';
+import '../../../core/app_core_functions.dart';
 import '../../../data/resources/app_texts.dart';
 import '../../../data/resources/app_urls.dart';
 

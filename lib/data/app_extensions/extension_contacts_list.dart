@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../core/admin/app_core_functions.dart';
+import '../../core/app_core_functions.dart';
 import '../data_models/core_data_models/app_contact/app_contact.dart';
 import '../storage/app_local_storage.dart';
 
