@@ -19,12 +19,15 @@ extension Storage on AppAccountRecordsList {
       AppLocalStorage.to.loadAccountsRecords();
 }
 
-///Add Edit Record
+///Record Functions
 extension RxRecordFunction on Rx<AppAccountRecordsList> {
   addRecord(AppAccountRecord record) => {value.addRecord(record), refresh()};
 
   editRecord(AppAccountRecord prevRecord, AppAccountRecord record) =>
       {value.editRecord(prevRecord, record), refresh()};
+
+  removeRecord(AppAccountRecord record) =>
+      {value.removeRecord(record), refresh()};
 }
 
 extension RecordFunction on AppAccountRecordsList {
@@ -46,6 +49,11 @@ extension RecordFunction on AppAccountRecordsList {
     addRecord(record);
     appDebugPrint(" List($count):$membersList");
     defaultSortFunction;
+    saveOnStorage();
+  }
+
+  removeRecord(AppAccountRecord record) {
+    membersList.remove(record);
     saveOnStorage();
   }
 }
@@ -70,19 +78,6 @@ extension ClearRecord on AppAccountRecordsList {
     membersList.remove(record);
     membersList.add(record.copyWith(cleared: false));
     defaultSortFunction;
-    saveOnStorage();
-  }
-}
-
-///Remove Record
-extension RxRemoveRecord on Rx<AppAccountRecordsList> {
-  removeRecord(AppAccountRecord record) =>
-      {value.removeRecord(record), refresh()};
-}
-
-extension RemoveRecord on AppAccountRecordsList {
-  removeRecord(AppAccountRecord record) {
-    membersList.remove(record);
     saveOnStorage();
   }
 }
