@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_contact.dart';
+import '../../../data/app_extensions/extension_contact.dart';
 
 import '../../core/app_core_functions.dart';
 import '../data_models/accounts_data_models/account_balance/account_balance.dart';

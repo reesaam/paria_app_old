@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:paria_app/data/resources/app_urls.dart';
+
+import '../../../data/resources/app_urls.dart';
 
 class DioCore {
   Duration get _defaultTimeOut => const Duration(seconds: 10);

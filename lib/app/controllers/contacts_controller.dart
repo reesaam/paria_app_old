@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/app_extensions/extension_contacts_list.dart';
 
+import '../../../data/app_extensions/extension_contact.dart';
+import '../../../data/app_extensions/extension_contacts_list.dart';
 import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/core_data_models/app_contact/app_contact.dart';

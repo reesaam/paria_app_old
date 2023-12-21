@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:paria_app/data/resources/app_languages.dart';
 
 import 'core/bindings/core_bindings.dart';
 import 'core/routes/app_pages.dart';
 import 'core/routes/app_routes.dart';
 import 'data/resources/app_info.dart';
+import 'data/resources/app_locales.dart';
 import 'data/resources/app_themes.dart';
 
 void main() => initProject();
@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
       getPages: AppPages.pages,
       initialBinding: CoreBindings(),
       theme: AppThemes.mainTheme,
-      supportedLocales: AppLanguages.languages,
+      supportedLocales: AppLocales.languages,
     );
   }
 }

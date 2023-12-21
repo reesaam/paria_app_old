@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_account_record.dart';
-import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
-import 'package:paria_app/data/app_extensions/extension_bool.dart';
-import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/app_extensions/extension_icon.dart';
 
+import '../../../data/app_extensions/extension_account_record.dart';
+import '../../../data/app_extensions/extension_account_records_list.dart';
+import '../../../data/app_extensions/extension_accounts_filter.dart';
+import '../../../data/app_extensions/extension_bool.dart';
+import '../../../data/app_extensions/extension_contact.dart';
+import '../../../data/app_extensions/extension_icon.dart';
 import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/accounts_data_models/account_records/account_record.dart';

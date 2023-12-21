@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/app_extensions/extension_int.dart';
 
+import '../../../data/app_extensions/extension_account_records_list.dart';
+import '../../../data/app_extensions/extension_date_time.dart';
+import '../../../data/app_extensions/extension_int.dart';
 import '../../core/app_core_widgets.dart';
 import '../../core/elements/core_view.dart';
 import '../../core/routes/app_routes.dart';

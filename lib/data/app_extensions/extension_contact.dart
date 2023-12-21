@@ -1,5 +1,5 @@
 
-import 'package:paria_app/data/app_extensions/extension_account_records_list.dart';
+import '../../../data/app_extensions/extension_account_records_list.dart';
 
 import '../data_models/accounts_data_models/account_balance/account_balance.dart';
 import '../data_models/accounts_data_models/account_records/account_record.dart';

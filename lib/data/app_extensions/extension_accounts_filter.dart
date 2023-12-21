@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
+import '../../../data/app_extensions/extension_contact.dart';
+import '../../../data/app_extensions/extension_date_time.dart';
 
 import '../data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 

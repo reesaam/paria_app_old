@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppLanguages {
+class AppLocales {
   static List<Locale> get languages => [english];
 
   static Locale get english => const Locale('en');

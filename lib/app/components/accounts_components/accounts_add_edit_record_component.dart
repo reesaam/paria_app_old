@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_account_record.dart';
-import 'package:paria_app/data/app_extensions/extension_contact.dart';
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
-import 'package:paria_app/data/app_extensions/extension_int.dart';
 
+import '../../../data/app_extensions/extension_account_record.dart';
+import '../../../data/app_extensions/extension_contact.dart';
+import '../../../data/app_extensions/extension_date_time.dart';
+import '../../../data/app_extensions/extension_int.dart';
 import '../../../core/app_core_functions.dart';
 import '../../../data/data_models/accounts_data_models/account_records/account_record.dart';
 import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';

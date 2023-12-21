@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_accounts_filter.dart';
-import 'package:paria_app/data/app_extensions/extension_date_time.dart';
 
+import '../../../data/app_extensions/extension_accounts_filter.dart';
+import '../../../data/app_extensions/extension_date_time.dart';
 import '../../../core/app_core_functions.dart';
 import '../../../data/data_models/accounts_data_models/accounts_filter/accounts_filter.dart';
 import '../../../data/data_models/core_data_models/app_contact/app_contact.dart';

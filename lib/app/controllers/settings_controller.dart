@@ -4,9 +4,9 @@ import 'dart:typed_data';
 
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:get/get.dart';
-import 'package:paria_app/data/app_extensions/extension_settings.dart';
-import 'package:paria_app/data/app_extensions/extension_string.dart';
 
+import '../../../data/app_extensions/extension_settings.dart';
+import '../../../data/app_extensions/extension_string.dart';
 import '../../core/app_core_functions.dart';
 import '../../core/elements/core_controller.dart';
 import '../../data/data_models/core_data_models/app_data/app_data.dart';

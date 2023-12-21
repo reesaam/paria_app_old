@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paria_app/admin/components/admin_pages_components.dart';
-import 'package:paria_app/data/app_extensions/extension_icon.dart';
-import 'package:paria_app/data/app_extensions/extension_int.dart';
+import '../../../data/app_extensions/extension_icon.dart';
+import '../../../data/app_extensions/extension_int.dart';
 
 import '../../core/elements/core_view.dart';
 import '../../data/resources/app_icons.dart';
