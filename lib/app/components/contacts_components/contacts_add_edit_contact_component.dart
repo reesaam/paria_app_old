@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/general_components/app_snack_bars.dart';
 
 import '../../../data/app_extensions/extension_contact.dart';
 import '../../../core/app_core_functions.dart';
@@ -63,14 +64,22 @@ class AppContactsAddOrEditContactComponent {
       );
 
   _provideContact() async {
-    _contact = AppContact(
-        firstName: _controllerFirstName.text,
-        lastName: _controllerLastName.text,
-        mobile: _controllerMobile.text,
-        phone: _controllerPhone.text,
-        email: _controllerEmail.text,
-        webLink: _controllerWebLink.text);
-    Get.back();
+    if (_controllerFirstName.text.isEmpty && _controllerLastName.text.isEmpty) {
+      AppSnackBar.show(AppTexts.contactsAddEditModalErrorFirstname);
+    }
+    else if (_controllerMobile.text.isEmpty) {
+      AppSnackBar.show(AppTexts.contactsAddEditModalErrorMobile);
+    }
+    else {
+      _contact = AppContact(
+          firstName: _controllerFirstName.text,
+          lastName: _controllerLastName.text ?? '',
+          mobile: _controllerMobile.text,
+          phone: _controllerPhone.text ?? '',
+          email: _controllerEmail.text ?? '',
+          webLink: _controllerWebLink.text ?? '');
+      Get.back();
+    }
   }
 
   addContact() async {

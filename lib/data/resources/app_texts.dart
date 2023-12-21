@@ -72,6 +72,9 @@ class AppTexts {
   static String get contactsAddContactWebLinkTitle => 'Web Link';
   static String get contactsAddContactWebLinkHint => 'Enter Web Link';
 
+  static String get contactsAddEditModalErrorFirstname => 'Firstname or Lastname should be entered.';
+  static String get contactsAddEditModalErrorMobile => 'Mobile field can\'t be Blank';
+
   ///Contacts Balance
   static String get contactsBalanceTitleContact => 'Contact';
   static String get contactsBalanceTitleBalance => 'Balance';
@@ -109,6 +112,10 @@ class AppTexts {
   static String get accountsAddRecordFieldDateTimeTitle => 'Date & Time';
   static String get accountsAddRecordFieldDateTimeHint => 'Enter Date and Time';
   static String get accountsAddRecordChooseContact => 'Choose a Contact:';
+
+  static String get accountsAddEditModalErrorContact => 'Select a Contact...';
+  static String get accountsAddEditModalErrorAmount => 'Amount field can\'t be Blank';
+  static String get accountsAddEditModalErrorTitle => 'Description field can\'t be Blank';
 
   ///Accounts Filter
   static String get accountAddFilterTitle => 'Filter';

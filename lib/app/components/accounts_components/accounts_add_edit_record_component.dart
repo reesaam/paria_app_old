@@ -11,6 +11,7 @@ import '../../../data/data_models/core_data_models/app_contact/app_contact.dart'
 import '../../../data/resources/app_spaces.dart';
 import '../../../data/resources/app_texts.dart';
 import '../general_components/app_date_time_picker.dart';
+import '../general_components/app_snack_bars.dart';
 import '../main_components/app_dialogs.dart';
 import '../general_components/app_text_field.dart';
 import '../contacts_components/contacts_choose_contact_component.dart';
@@ -64,13 +65,24 @@ class AppAccountsAddRecordComponent {
       );
 
   _provideRecord() {
-    _record = AppAccountRecord(
-        contact: _selectedContact,
-        amount: int.parse(_controllerAmount.text.replaceAll(',', '')),
-        title: _controllerDescription.text,
-        dateTime: _dateTime,
-        cleared: false);
-    Get.back();
+    if (_selectedContact == null) {
+      AppSnackBar.show(AppTexts.accountsAddEditModalErrorContact);
+    }
+    else if (_controllerAmount.text.isEmpty) {
+      AppSnackBar.show(AppTexts.accountsAddEditModalErrorAmount);
+    }
+    else if (_controllerDescription.text.isEmpty) {
+      AppSnackBar.show(AppTexts.accountsAddEditModalErrorTitle);
+    }
+    else {
+      _record = AppAccountRecord(
+          contact: _selectedContact,
+          amount: int.parse(_controllerAmount.text.replaceAll(',', '')),
+          title: _controllerDescription.text,
+          dateTime: _dateTime,
+          cleared: false);
+      Get.back();
+    }
   }
 
   _chooseContact() async {
