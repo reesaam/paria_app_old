@@ -20,6 +20,17 @@ extension RxContactFunctions on Rx<AppContactsList> {
     refresh();
   }
 
+  _editRecords(AppContact prevContact, AppContact contact) {
+    AppAccountRecordsList listRecords = AppAccountRecordsList().loadFromStorage;
+    for (AppAccountRecord record in listRecords.recordsList) {
+      if (record.contact.equalTo(prevContact)) {
+        listRecords.editRecord(record, record.copyWith(contact: contact));
+      }
+    }
+    listRecords.saveOnStorage();
+    refresh();
+  }
+
   editContact(AppContact prevContact, AppContact contact) {
     appDebugPrint('previous contact: $prevContact');
     appDebugPrint('current contact: $contact');
