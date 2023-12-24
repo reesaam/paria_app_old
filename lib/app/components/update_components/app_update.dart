@@ -32,9 +32,9 @@ class AppCheckUpdate {
       appDebugPrint('StatusMessage: ${response.statusMessage}');
       response.statusCode == 200 ? version = response.data : null;
     } on DioException catch (dioEx) {
-      throw dioEx;
+      // throw dioEx;
     } catch (ex) {
-      throw ex;
+      // throw ex;
     }
 
     return version;
