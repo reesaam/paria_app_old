@@ -44,4 +44,6 @@ class AppElements {
   ///Panel
   static BoxBorder get defaultPanelBorder => Border.all(color: AppColors.panelBorder);
   static BoxDecoration get defaultPanel => BoxDecoration(border: defaultPanelBorder, borderRadius: defaultBorderWithRadius);
+
+  static BorderSide get checkBoxDefaultSide => defaultBorderSide.copyWith(color: AppColors.appCheckBox);
 }

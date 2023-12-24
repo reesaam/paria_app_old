@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paria_app/app/components/general_components/app_check_box.dart';
 
 import '../../../data/app_extensions/extension_account_records_list.dart';
 import '../../../data/app_extensions/extension_date_time.dart';
@@ -165,7 +166,7 @@ class AccountsPage extends CoreView<AccountsController> {
                   child: Row(children: [
                     Expanded(
                         flex: controller.listTableItemSections[0],
-                        child: Checkbox(
+                        child: AppCheckBox(
                             value: record.cleared,
                             onChanged: (checked) => controller
                                 .changeRecordClearanceStatus(record, checked))),
